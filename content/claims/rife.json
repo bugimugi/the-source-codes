@@ -1,0 +1,18 @@
+{
+  "id": "rife",
+  "area": "biophysik",
+  "statement": "Spezielle Frequenzgeräte (Rife) können Viren oder Krebszellen gezielt zerstören.",
+  "level": "unsupported",
+  "rationale": "Die Behauptungen stammen aus den 1930er-Jahren; unabhängige, kontrollierte Wirksamkeitsnachweise am Menschen fehlen. Historisch interessant, klinisch nicht belegt.",
+  "sources": [
+    {
+      "id": "rife-history",
+      "kind": "historical-document",
+      "title": "Rife-Frequenzgeräte (Quellenlage wird recherchiert)",
+      "author": "Royal R. Rife",
+      "citation": "Primärquellen und Gegenprüfungen noch einzutragen",
+      "verified": false
+    }
+  ],
+  "status": "published"
+}

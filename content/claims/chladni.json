@@ -1,0 +1,22 @@
+{
+  "id": "chladni",
+  "area": "akustik-architektur",
+  "statement": "Schwingungen ordnen Sand auf einer Platte zu Mustern (Chladni-Figuren) – Ausgangspunkt der Kymatik.",
+  "level": "historical",
+  "rationale": "Von Ernst Chladni 1787 beschrieben und bis heute reproduzierbar im Experiment. Das Phänomen betrifft Platten und Sand; Übertragungen auf Gebäude oder den Körper sind Deutungen.",
+  "sources": [
+    {
+      "id": "chladni-1787",
+      "kind": "historical-document",
+      "title": "Entdeckungen über die Theorie des Klanges",
+      "author": "Ernst F. F. Chladni",
+      "year": 1787,
+      "citation": "Leipzig 1787",
+      "verified": false
+    }
+  ],
+  "related": [
+    "acoustic-levitation"
+  ],
+  "status": "published"
+}

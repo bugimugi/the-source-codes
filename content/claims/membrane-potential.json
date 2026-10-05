@@ -1,0 +1,23 @@
+{
+  "id": "membrane-potential",
+  "area": "biophysik",
+  "statement": "Lebende Zellen halten ein elektrisches Membranpotenzial aufrecht – bei Nervenzellen in Ruhe etwa −70 mV.",
+  "level": "established",
+  "rationale": "Grundlage der Elektrophysiologie, vielfach gemessen und repliziert. Der Wert variiert je nach Zelltyp (grob −40 bis −90 mV).",
+  "sources": [
+    {
+      "id": "hodgkin-huxley-1952",
+      "kind": "peer-reviewed",
+      "title": "A quantitative description of membrane current and its application to conduction and excitation in nerve",
+      "author": "A. L. Hodgkin, A. F. Huxley",
+      "year": 1952,
+      "citation": "J Physiol 117(4):500–544",
+      "verified": true
+    }
+  ],
+  "related": [
+    "warburg",
+    "rife"
+  ],
+  "status": "published"
+}

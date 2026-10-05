@@ -1,0 +1,21 @@
+{
+  "id": "acoustic-levitation",
+  "area": "akustik-architektur",
+  "statement": "Tonnenschwere Steine wurden in der Antike mit Schall zum Schweben gebracht.",
+  "level": "unsupported",
+  "rationale": "Im Labor lassen sich nur sehr kleine, leichte Objekte mit Ultraschall schweben lassen. Für Steinblöcke fehlen ein physikalischer Mechanismus und jede reproduzierbare Dokumentation; Berichte sind Erzählungen ohne Gegenprüfung.",
+  "sources": [
+    {
+      "id": "levitation-reports",
+      "kind": "historical-document",
+      "title": "Berichte über Steinlevitation (u. a. Coral Castle, Tibet) – Quellenprüfung ausstehend",
+      "author": "diverse",
+      "citation": "Originalquellen noch zu sammeln",
+      "verified": false
+    }
+  ],
+  "related": [
+    "chladni"
+  ],
+  "status": "published"
+}

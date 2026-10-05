@@ -1,0 +1,34 @@
+{
+  "id": "kurze-id-in-kleinbuchstaben",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Die Aussage genau so, wie sie Lesern gezeigt wird – eine überprüfbare Behauptung, kein Slogan.",
+  "level": "hypothesis",
+  "rationale": "Warum diese Belegstufe? Was ist belegt, was ist Deutung, was fehlt noch?",
+  "body": "Optional: längerer Text. Absätze durch Leerzeile trennen.",
+  "sources": [
+    {
+      "id": "interview-nachname-2026",
+      "kind": "interview",
+      "title": "Gespräch zu ...",
+      "author": "Dr. Vorname Nachname, Fachgebiet, Institution",
+      "date": "2026-01-31",
+      "place": "Ort",
+      "citation": "Aufnahme/Protokoll: Dateiname oder Archivnummer",
+      "consent": false,
+      "verified": false,
+      "note": "Was wurde konkret gesagt? Welche Daten wurden gezeigt?"
+    },
+    {
+      "id": "studie-nachname-2020",
+      "kind": "peer-reviewed",
+      "title": "Titel der Studie",
+      "author": "Autoren",
+      "year": 2020,
+      "citation": "Journal Band(Heft):Seiten oder DOI",
+      "url": "https://doi.org/...",
+      "verified": false
+    }
+  ],
+  "related": []
+}

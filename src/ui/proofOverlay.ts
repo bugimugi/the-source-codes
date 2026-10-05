@@ -20,7 +20,7 @@ function sourceNode(s: Source): HTMLElement {
   const box = el("div", { className: "src" });
   box.append(el("span", { className: "tag", text: KIND_LABEL[s.kind] }));
   box.append(el("strong", { text: s.title }));
-  const meta = [s.author, s.year, s.citation].filter(Boolean).join(" · ");
+  const meta = [s.author, s.year, s.date, s.place, s.citation].filter(Boolean).join(" · ");
   box.append(el("small", { text: meta }));
   if (s.note) box.append(el("small", { text: s.note }));
   if (!s.verified) {
@@ -56,6 +56,7 @@ export function initProofOverlay() {
       h2,
       el("h3", { text: "Einordnung" }),
       el("p", { text: c.rationale }),
+      ...(c.body ? c.body.split(/\n\s*\n/).map((t) => el("p", { text: t })) : []),
       el("h3", { text: `Quellen (${c.sources.length})` }),
       ...c.sources.map(sourceNode),
     );

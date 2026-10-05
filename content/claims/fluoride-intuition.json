@@ -1,0 +1,21 @@
+{
+  "id": "fluoride-intuition",
+  "area": "ernaehrung-umwelt",
+  "statement": "Fluorid in Zahnpasta schaltet über die Zirbeldrüse Intuition und höhere Kognition aus.",
+  "level": "unsupported",
+  "rationale": "Für einen solchen Mechanismus gibt es keinen Beleg. Weder ist ein Zusammenhang zwischen Zahnpasta-Fluorid und Zirbeldrüsen-Funktion gezeigt, noch ist „Intuition“ als messbare Größe definiert.",
+  "sources": [
+    {
+      "id": "fluoride-claim",
+      "kind": "primary-text",
+      "title": "Verbreitete Behauptung – Primärquelle noch zu ermitteln",
+      "author": "unbekannt",
+      "citation": "Herkunft der Aussage wird recherchiert",
+      "verified": false
+    }
+  ],
+  "related": [
+    "fluoride-pineal"
+  ],
+  "status": "published"
+}

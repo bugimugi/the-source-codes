@@ -1,0 +1,22 @@
+{
+  "id": "fluoride-pineal",
+  "area": "ernaehrung-umwelt",
+  "statement": "Fluorid wurde in verkalkten Zirbeldrüsen verstorbener Menschen nachgewiesen.",
+  "level": "hypothesis",
+  "rationale": "Es gibt eine Untersuchung an wenigen Präparaten älterer Verstorbener. Ob das Fluorid dort gesundheitliche Folgen hat, ist nicht gezeigt; die Studie ist zudem nicht breit repliziert.",
+  "sources": [
+    {
+      "id": "luke-2001",
+      "kind": "peer-reviewed",
+      "title": "Fluoride deposition in the aged human pineal gland",
+      "author": "Jennifer Luke",
+      "year": 2001,
+      "citation": "Caries Res 35(2):125–128",
+      "verified": false
+    }
+  ],
+  "related": [
+    "fluoride-intuition"
+  ],
+  "status": "published"
+}

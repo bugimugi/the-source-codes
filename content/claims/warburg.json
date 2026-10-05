@@ -1,0 +1,23 @@
+{
+  "id": "warburg",
+  "area": "biophysik",
+  "statement": "Viele Tumorzellen bevorzugen die Glykolyse auch bei vorhandenem Sauerstoff (Warburg-Effekt).",
+  "level": "supported",
+  "rationale": "Der Stoffwechselbefund ist vielfach beobachtet. Ob er Ursache oder Folge der Krebsentstehung ist, ist Gegenstand aktueller Forschung – nicht entschieden.",
+  "sources": [
+    {
+      "id": "warburg-1956",
+      "kind": "peer-reviewed",
+      "title": "On the origin of cancer cells",
+      "author": "Otto Warburg",
+      "year": 1956,
+      "citation": "Science 123(3191):309–314",
+      "verified": true
+    }
+  ],
+  "related": [
+    "membrane-potential",
+    "rife"
+  ],
+  "status": "published"
+}

@@ -48,8 +48,13 @@ export interface Source {
   url?: string;
   /** Has the citation been checked against the original document? */
   verified: boolean;
-  /** Free-text note, e.g. interview date/place or methodological caveats */
+  /** Free-text note, e.g. methodological caveats */
   note?: string;
+  /** Interviews / lab records: ISO date (YYYY-MM-DD) and place of the conversation or measurement */
+  date?: string;
+  place?: string;
+  /** Interviews: written consent of the interviewee to publish name and statements */
+  consent?: boolean;
 }
 
 export interface Claim {
@@ -61,6 +66,10 @@ export interface Claim {
   /** Why this level was assigned – required, shown in the overlay */
   rationale: string;
   sources: Source[];
+  /** Optional longer text shown below the rationale (Markdown-free plain text, paragraphs split by blank line) */
+  body?: string;
+  /** Drafts are validated but never shown on the site */
+  status: "draft" | "published";
   /** Related claim ids – edges of the knowledge network */
   related?: string[];
 }

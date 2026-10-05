@@ -1,0 +1,21 @@
+{
+  "id": "willow-bark",
+  "area": "pflanzenheilkunde",
+  "statement": "Weidenrinde enthält Salicin, aus dem später Acetylsalicylsäure (Aspirin) entwickelt wurde.",
+  "level": "historical",
+  "rationale": "Die pflanzliche Verwendung ist seit der Antike überliefert, die Synthese bei Bayer um 1897 gut dokumentiert. Das macht Weidenrinde nicht zum Ersatz für das Arzneimittel: Wirkstoffgehalt und Nebenwirkungen unterscheiden sich.",
+  "sources": [
+    {
+      "id": "willow-history",
+      "kind": "historical-document",
+      "title": "Geschichte der Salicylate (Quellen noch einzutragen)",
+      "author": "diverse",
+      "citation": "Originalquellen noch zu sammeln",
+      "verified": false
+    }
+  ],
+  "related": [
+    "flexner"
+  ],
+  "status": "published"
+}

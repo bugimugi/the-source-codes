@@ -1,0 +1,22 @@
+{
+  "id": "flexner",
+  "area": "medizingeschichte",
+  "statement": "Der Flexner-Report von 1910 veränderte die medizinische Ausbildung in den USA grundlegend und führte zur Schließung zahlreicher Schulen.",
+  "level": "historical",
+  "rationale": "Gut dokumentiertes Ereignis. Bewertung der Folgen (Standardisierung vs. Verdrängung alternativer Schulen) ist in der Geschichtswissenschaft umstritten.",
+  "sources": [
+    {
+      "id": "flexner-1910",
+      "kind": "historical-document",
+      "title": "Medical Education in the United States and Canada",
+      "author": "Abraham Flexner",
+      "year": 1910,
+      "citation": "Carnegie Foundation for the Advancement of Teaching, Bulletin No. 4",
+      "verified": true
+    }
+  ],
+  "related": [
+    "willow-bark"
+  ],
+  "status": "published"
+}

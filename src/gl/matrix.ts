@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { claims } from "../data/claims";
+import type { Claim } from "../data/types";
 import { LEVEL_LABEL, type EvidenceLevel } from "../data/types";
 
 const COLORS: Record<EvidenceLevel, number> = {
@@ -133,6 +134,7 @@ export function initMatrix(
     if (hit) onSelect(hit.object.userData.id);
   });
 
+  let visible: boolean[] = claims.map(() => true);
   const v = new THREE.Vector3();
   const frame = () => {
     if (!dragging) { vx *= 0.95; vy *= 0.95; vx += 0.0004 * (Math.abs(vx) < 0.0004 ? 1 : 0); }
@@ -143,12 +145,24 @@ export function initMatrix(
     nodes.forEach((m, i) => {
       v.setFromMatrixPosition(m.matrixWorld).project(camera);
       labels[i].style.transform = `translate(${((v.x + 1) / 2) * canvas.clientWidth}px, ${((1 - v.y) / 2) * canvas.clientHeight}px) translate(-50%, 22px)`;
-      labels[i].style.opacity = String(THREE.MathUtils.clamp(1.4 - v.z * 0.9, 0.25, 1));
+      const depth = THREE.MathUtils.clamp(1.4 - v.z * 0.9, 0.25, 1);
+      labels[i].style.opacity = String(visible[i] ? depth : 0.08);
+      labels[i].style.pointerEvents = visible[i] ? "auto" : "none";
     });
   };
 
   addEventListener("resize", resize);
   return {
+    /** Dim every node that does not match; edges stay for context. */
+    setFilter(match: (c: Claim) => boolean) {
+      visible = claims.map(match);
+      nodes.forEach((m, i) => {
+        m.scale.setScalar(visible[i] ? 1 : 0.45);
+        (m.material as THREE.MeshBasicMaterial).opacity = visible[i] ? 1 : 0.25;
+        (m.material as THREE.MeshBasicMaterial).transparent = true;
+        m.children[0].visible = visible[i];
+      });
+    },
     start() { resize(); renderer.setAnimationLoop(frame); },
     stop() { renderer.setAnimationLoop(null); },
   };

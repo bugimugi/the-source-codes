@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { initParticles } from "./gl/particles";
 import { initMatrix } from "./gl/matrix";
 import { initProofOverlay } from "./ui/proofOverlay";
-import { LEVEL_LABEL, type EvidenceLevel } from "./data/types";
+import { AREA_LABEL, LEVEL_LABEL, type Area, type EvidenceLevel } from "./data/types";
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -22,6 +22,32 @@ for (const level of Object.keys(LEVEL_LABEL) as EvidenceLevel[]) {
   li.textContent = LEVEL_LABEL[level];
   $("legend").append(li);
 }
+
+let area: Area | null = null;
+let query = "";
+const applyFilter = () =>
+  matrix?.setFilter(
+    (c) => (!area || c.area === area) && (!query || c.statement.toLowerCase().includes(query)),
+  );
+
+const chipBox = $("areas");
+const chips = (Object.keys(AREA_LABEL) as Area[]).map((a) => {
+  const b = document.createElement("button");
+  b.className = "chip";
+  b.textContent = AREA_LABEL[a];
+  b.setAttribute("aria-pressed", "false");
+  b.addEventListener("click", () => {
+    area = area === a ? null : a;
+    chips.forEach((c, i) => c.setAttribute("aria-pressed", String((Object.keys(AREA_LABEL) as Area[])[i] === area)));
+    applyFilter();
+  });
+  chipBox.append(b);
+  return b;
+});
+$<HTMLInputElement>("search").addEventListener("input", (e) => {
+  query = (e.target as HTMLInputElement).value.trim().toLowerCase();
+  applyFilter();
+});
 
 function enterMatrix() {
   matrix ??= initMatrix($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), (id) => overlay.open(id, leaveBtn));

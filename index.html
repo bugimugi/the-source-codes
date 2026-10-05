@@ -39,7 +39,9 @@
       <div id="matrix-labels"></div>
       <header class="matrix-bar">
         <button class="back" id="leave-matrix">← Zurück</button>
+        <input id="search" class="search" type="search" placeholder="Suchen …" aria-label="Aussagen durchsuchen" />
         <ul class="legend" id="legend"></ul>
+        <div class="chips" id="areas" role="group" aria-label="Bereich filtern"></div>
       </header>
       <p class="matrix-hint">Ziehen zum Drehen · Knoten oder Beschriftung anklicken für den Nachweis</p>
     </section>
@@ -48,6 +50,8 @@
       <div class="overlay-backdrop" data-close></div>
       <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1"></section>
     </div>
+
+    <footer class="notice">Informationsangebot – keine medizinische Beratung. Inhalte ersetzen keine ärztliche Behandlung; Medikamente nie ohne Rücksprache mit Ärztin oder Arzt absetzen.</footer>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

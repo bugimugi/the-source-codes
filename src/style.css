@@ -77,3 +77,11 @@ h1 .line > span { display: block; }
 .legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; list-style: none; padding: 0; font-size: 0.72rem; color: var(--muted); }
 .legend li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--c); margin-right: 0.4rem; }
 .matrix-hint { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font-size: 0.75rem; color: var(--muted); pointer-events: none; }
+
+.search { all: unset; pointer-events: auto; box-sizing: border-box; padding: 0.4rem 0.9rem; border: 1px solid var(--line); border-radius: 99px; font-size: 0.85rem; color: var(--fg); background: var(--glass); width: 12rem; }
+.search:focus { border-color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; flex-basis: 100%; }
+.chip { all: unset; pointer-events: auto; cursor: pointer; padding: 0.25rem 0.8rem; border-radius: 99px; border: 1px solid var(--line); font-size: 0.78rem; color: var(--muted); }
+.chip:hover, .chip:focus-visible { color: var(--fg); border-color: var(--fg); }
+.chip[aria-pressed="true"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+.notice { position: fixed; z-index: 2; left: 0; right: 0; bottom: 0; padding: 0.6rem clamp(20px, 6vw, 96px); font-size: 0.7rem; color: var(--muted); pointer-events: none; }

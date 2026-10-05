@@ -8,6 +8,7 @@ import type { Claim } from "./types";
 export const claims: Claim[] = [
   {
     id: "membrane-potential",
+    area: "biophysik",
     statement:
       "Lebende Zellen halten ein elektrisches Membranpotenzial aufrecht – bei Nervenzellen in Ruhe etwa −70 mV.",
     level: "established",
@@ -29,6 +30,7 @@ export const claims: Claim[] = [
   },
   {
     id: "warburg",
+    area: "biophysik",
     statement:
       "Viele Tumorzellen bevorzugen die Glykolyse auch bei vorhandenem Sauerstoff (Warburg-Effekt).",
     level: "supported",
@@ -49,6 +51,7 @@ export const claims: Claim[] = [
   },
   {
     id: "rife",
+    area: "biophysik",
     statement:
       "Spezielle Frequenzgeräte (Rife) können Viren oder Krebszellen gezielt zerstören.",
     level: "unsupported",
@@ -67,6 +70,7 @@ export const claims: Claim[] = [
   },
   {
     id: "flexner",
+    area: "medizingeschichte",
     statement:
       "Der Flexner-Report von 1910 veränderte die medizinische Ausbildung in den USA grundlegend und führte zur Schließung zahlreicher Schulen.",
     level: "historical",
@@ -87,6 +91,7 @@ export const claims: Claim[] = [
   },
   {
     id: "fluoride-pineal",
+    area: "ernaehrung-umwelt",
     statement:
       "Fluorid wurde in verkalkten Zirbeldrüsen verstorbener Menschen nachgewiesen.",
     level: "hypothesis",
@@ -107,6 +112,7 @@ export const claims: Claim[] = [
   },
   {
     id: "fluoride-intuition",
+    area: "ernaehrung-umwelt",
     statement:
       "Fluorid in Zahnpasta schaltet über die Zirbeldrüse Intuition und höhere Kognition aus.",
     level: "unsupported",
@@ -126,6 +132,7 @@ export const claims: Claim[] = [
   },
   {
     id: "chladni",
+    area: "akustik-architektur",
     statement:
       "Schwingungen ordnen Sand auf einer Platte zu Mustern (Chladni-Figuren) – Ausgangspunkt der Kymatik.",
     level: "historical",
@@ -146,6 +153,7 @@ export const claims: Claim[] = [
   },
   {
     id: "acoustic-levitation",
+    area: "akustik-architektur",
     statement:
       "Tonnenschwere Steine wurden in der Antike mit Schall zum Schweben gebracht.",
     level: "unsupported",
@@ -165,6 +173,7 @@ export const claims: Claim[] = [
   },
   {
     id: "willow-bark",
+    area: "pflanzenheilkunde",
     statement:
       "Weidenrinde enthält Salicin, aus dem später Acetylsalicylsäure (Aspirin) entwickelt wurde.",
     level: "historical",

@@ -21,6 +21,21 @@ export type SourceKind =
   | "lab-record"
   | "interview";
 
+export type Area =
+  | "biophysik"
+  | "medizingeschichte"
+  | "pflanzenheilkunde"
+  | "ernaehrung-umwelt"
+  | "akustik-architektur";
+
+export const AREA_LABEL: Record<Area, string> = {
+  biophysik: "Biophysik",
+  medizingeschichte: "Medizingeschichte",
+  pflanzenheilkunde: "Pflanzenheilkunde",
+  "ernaehrung-umwelt": "Ernährung & Umwelt",
+  "akustik-architektur": "Akustik & Architektur",
+};
+
 export interface Source {
   id: string;
   kind: SourceKind;
@@ -39,6 +54,7 @@ export interface Source {
 
 export interface Claim {
   id: string;
+  area: Area;
   /** The statement exactly as it is shown to the reader */
   statement: string;
   level: EvidenceLevel;

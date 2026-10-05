@@ -123,13 +123,16 @@ export function initParticles(canvas: HTMLCanvasElement, reduceMotion: boolean) 
   addEventListener("pointerleave", () => target.set(9, 9));
 
   const t0 = performance.now();
-  renderer.setAnimationLoop(() => {
+  const frame = () => {
     uniforms.uTime.value = reduceMotion ? 0 : (performance.now() - t0) / 1000;
     uniforms.uMouse.value.lerp(target, 0.12);
     renderer.render(scene, camera);
-  });
+  };
+  renderer.setAnimationLoop(frame);
 
   return {
+    pause: () => renderer.setAnimationLoop(null),
+    resume: () => renderer.setAnimationLoop(frame),
     /** Chaos -> order: the visual metaphor of the site. */
     assemble(duration = 3.2) {
       if (reduceMotion) return;

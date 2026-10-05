@@ -25,7 +25,7 @@ export const claims: Claim[] = [
         verified: true,
       },
     ],
-    related: ["warburg"],
+    related: ["warburg", "rife"],
   },
   {
     id: "warburg",
@@ -45,7 +45,7 @@ export const claims: Claim[] = [
         verified: true,
       },
     ],
-    related: ["membrane-potential"],
+    related: ["membrane-potential", "rife"],
   },
   {
     id: "rife",
@@ -83,5 +83,103 @@ export const claims: Claim[] = [
         verified: true,
       },
     ],
+    related: ["willow-bark"],
+  },
+  {
+    id: "fluoride-pineal",
+    statement:
+      "Fluorid wurde in verkalkten Zirbeldrüsen verstorbener Menschen nachgewiesen.",
+    level: "hypothesis",
+    rationale:
+      "Es gibt eine Untersuchung an wenigen Präparaten älterer Verstorbener. Ob das Fluorid dort gesundheitliche Folgen hat, ist nicht gezeigt; die Studie ist zudem nicht breit repliziert.",
+    sources: [
+      {
+        id: "luke-2001",
+        kind: "peer-reviewed",
+        title: "Fluoride deposition in the aged human pineal gland",
+        author: "Jennifer Luke",
+        year: 2001,
+        citation: "Caries Res 35(2):125–128",
+        verified: false,
+      },
+    ],
+    related: ["fluoride-intuition"],
+  },
+  {
+    id: "fluoride-intuition",
+    statement:
+      "Fluorid in Zahnpasta schaltet über die Zirbeldrüse Intuition und höhere Kognition aus.",
+    level: "unsupported",
+    rationale:
+      "Für einen solchen Mechanismus gibt es keinen Beleg. Weder ist ein Zusammenhang zwischen Zahnpasta-Fluorid und Zirbeldrüsen-Funktion gezeigt, noch ist „Intuition“ als messbare Größe definiert.",
+    sources: [
+      {
+        id: "fluoride-claim",
+        kind: "primary-text",
+        title: "Verbreitete Behauptung – Primärquelle noch zu ermitteln",
+        author: "unbekannt",
+        citation: "Herkunft der Aussage wird recherchiert",
+        verified: false,
+      },
+    ],
+    related: ["fluoride-pineal"],
+  },
+  {
+    id: "chladni",
+    statement:
+      "Schwingungen ordnen Sand auf einer Platte zu Mustern (Chladni-Figuren) – Ausgangspunkt der Kymatik.",
+    level: "historical",
+    rationale:
+      "Von Ernst Chladni 1787 beschrieben und bis heute reproduzierbar im Experiment. Das Phänomen betrifft Platten und Sand; Übertragungen auf Gebäude oder den Körper sind Deutungen.",
+    sources: [
+      {
+        id: "chladni-1787",
+        kind: "historical-document",
+        title: "Entdeckungen über die Theorie des Klanges",
+        author: "Ernst F. F. Chladni",
+        year: 1787,
+        citation: "Leipzig 1787",
+        verified: false,
+      },
+    ],
+    related: ["acoustic-levitation"],
+  },
+  {
+    id: "acoustic-levitation",
+    statement:
+      "Tonnenschwere Steine wurden in der Antike mit Schall zum Schweben gebracht.",
+    level: "unsupported",
+    rationale:
+      "Im Labor lassen sich nur sehr kleine, leichte Objekte mit Ultraschall schweben lassen. Für Steinblöcke fehlen ein physikalischer Mechanismus und jede reproduzierbare Dokumentation; Berichte sind Erzählungen ohne Gegenprüfung.",
+    sources: [
+      {
+        id: "levitation-reports",
+        kind: "historical-document",
+        title: "Berichte über Steinlevitation (u. a. Coral Castle, Tibet) – Quellenprüfung ausstehend",
+        author: "diverse",
+        citation: "Originalquellen noch zu sammeln",
+        verified: false,
+      },
+    ],
+    related: ["chladni"],
+  },
+  {
+    id: "willow-bark",
+    statement:
+      "Weidenrinde enthält Salicin, aus dem später Acetylsalicylsäure (Aspirin) entwickelt wurde.",
+    level: "historical",
+    rationale:
+      "Die pflanzliche Verwendung ist seit der Antike überliefert, die Synthese bei Bayer um 1897 gut dokumentiert. Das macht Weidenrinde nicht zum Ersatz für das Arzneimittel: Wirkstoffgehalt und Nebenwirkungen unterscheiden sich.",
+    sources: [
+      {
+        id: "willow-history",
+        kind: "historical-document",
+        title: "Geschichte der Salicylate (Quellen noch einzutragen)",
+        author: "diverse",
+        citation: "Originalquellen noch zu sammeln",
+        verified: false,
+      },
+    ],
+    related: ["flexner"],
   },
 ];

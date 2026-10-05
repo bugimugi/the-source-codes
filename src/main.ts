@@ -1,12 +1,52 @@
 import "./style.css";
 import gsap from "gsap";
 import { initParticles } from "./gl/particles";
+import { initMatrix } from "./gl/matrix";
 import { initProofOverlay } from "./ui/proofOverlay";
+import { LEVEL_LABEL, type EvidenceLevel } from "./data/types";
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 
-const particles = initParticles(document.getElementById("gl") as HTMLCanvasElement, reduceMotion);
-initProofOverlay();
+const particles = initParticles($<HTMLCanvasElement>("gl"), reduceMotion);
+const overlay = initProofOverlay();
+
+const matrixEl = $("matrix");
+const enterBtn = $("enter-matrix");
+const leaveBtn = $("leave-matrix");
+let matrix: ReturnType<typeof initMatrix> | null = null;
+
+for (const level of Object.keys(LEVEL_LABEL) as EvidenceLevel[]) {
+  const li = document.createElement("li");
+  li.style.setProperty("--c", `var(--lvl-${level})`);
+  li.textContent = LEVEL_LABEL[level];
+  $("legend").append(li);
+}
+
+function enterMatrix() {
+  matrix ??= initMatrix($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), (id) => overlay.open(id, leaveBtn));
+  matrixEl.hidden = false;
+  matrix.start();
+  particles.pause();
+  gsap.fromTo(matrixEl, { opacity: 0 }, { opacity: 1, duration: reduceMotion ? 0 : 0.6 });
+  leaveBtn.focus();
+}
+
+function leaveMatrix() {
+  gsap.to(matrixEl, {
+    opacity: 0,
+    duration: reduceMotion ? 0 : 0.4,
+    onComplete: () => {
+      matrixEl.hidden = true;
+      matrix?.stop();
+      particles.resume();
+      enterBtn.focus();
+    },
+  });
+}
+
+enterBtn.addEventListener("click", enterMatrix);
+leaveBtn.addEventListener("click", leaveMatrix);
 
 if (!reduceMotion) {
   const tl = gsap.timeline({ delay: 0.3 });

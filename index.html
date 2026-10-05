@@ -29,8 +29,20 @@
         </button>
       </p>
 
+      <button class="enter" id="enter-matrix" data-reveal>Wissens-Matrix betreten <span aria-hidden="true">→</span></button>
+
       <p class="hint" data-reveal>Bewege den Cursor durch das Feld · Klicke auf <span class="proof-inline">i</span> für den Nachweis</p>
     </main>
+
+    <section id="matrix" class="matrix" hidden aria-label="Wissens-Matrix">
+      <canvas id="matrix-gl"></canvas>
+      <div id="matrix-labels"></div>
+      <header class="matrix-bar">
+        <button class="back" id="leave-matrix">← Zurück</button>
+        <ul class="legend" id="legend"></ul>
+      </header>
+      <p class="matrix-hint">Ziehen zum Drehen · Knoten oder Beschriftung anklicken für den Nachweis</p>
+    </section>
 
     <div id="overlay" class="overlay" hidden>
       <div class="overlay-backdrop" data-close></div>

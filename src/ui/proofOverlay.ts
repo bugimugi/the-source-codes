@@ -92,4 +92,6 @@ export function initProofOverlay() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !overlay.hidden) close();
   });
+
+  return { open };
 }

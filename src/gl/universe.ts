@@ -277,6 +277,13 @@ export function initUniverse(
     start() { resize(); renderer.setAnimationLoop(frame); },
     stop() { renderer.setAnimationLoop(null); },
     resize,
+    /** Arrival: the camera pulls back from the centre of the library into the overview. */
+    intro() {
+      controls.target.set(0, 0, 0);
+      camera.position.set(0, 2, 7);
+      controls.enabled = false;
+      gsap.to(camera.position, { x: HOME.x, y: HOME.y, z: HOME.z, duration: reduceMotion ? 0 : 2.6, ease: "power3.out", onComplete: () => { controls.enabled = true; controls.autoRotate = !reduceMotion; } });
+    },
     home() { controls.target.set(0, 0, 0); flyTo(new THREE.Vector3(), 64); },
     /** Dim every node that does not match; the universe stays intact for context. */
     setFilter(match: (c: Claim) => boolean) { visible = claims.map(match); },

@@ -1,29 +1,84 @@
+import "@fontsource/cinzel/400.css";
+import "@fontsource/cinzel/500.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource-variable/inter";
 import "./style.css";
 import gsap from "gsap";
+import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
 import { initParticles } from "./gl/particles";
 import { initUniverse } from "./gl/universe";
 import { initProofOverlay } from "./ui/proofOverlay";
 import { initStage } from "./ui/stage";
 import { initAtlas } from "./ui/atlas";
+import { initSearch } from "./ui/search";
 import { claims } from "./data/claims";
+import { atlas } from "./data/atlas";
 import { AREA_LABEL, LEVEL_LABEL, type Area, type EvidenceLevel } from "./data/types";
 import { AREA_ORDER } from "./data/areas";
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+const html = document.documentElement;
+if (!reduceMotion) html.classList.add("intro");
 
-// WebGL can be unavailable (disabled hardware acceleration, old GPU): the page must still work without it.
-const noParticles = { pause() {}, resume() {}, assemble() {} };
-let particles: typeof noParticles;
+// ---------------------------------------------------------------- hero (with WebGL fallbacks)
+const PINS: (HeroPin & { title: string; claimIds: string[] })[] = [
+  { id: "neural", label: "NEURAL NETWORK", title: "Neural network", claimIds: [] },
+  { id: "plants", label: "PLANT COMPOUNDS", title: "Plant compounds", claimIds: ["willow-bark", "kamille-traditional-use", "signature-doctrine"] },
+  { id: "dna", label: "DNA", title: "DNA", claimIds: [] },
+  { id: "bioelectric", label: "CELLULAR BIOELECTRICITY", title: "Cellular bioelectricity", claimIds: ["membrane-potential"] },
+];
+
+const classic = new URLSearchParams(location.search).get("hero") === "classic";
+const noHero: HeroApi = {
+  pause() {}, resume() {}, resize() {}, onPin() {}, resetCamera() {},
+  buildIntro: () => gsap.timeline({ paused: true }),
+  transitionOut: () => Promise.resolve(),
+};
+let hero: HeroApi = noHero;
 try {
-  particles = initParticles($<HTMLCanvasElement>("gl"), reduceMotion);
+  if (classic) {
+    // the original particle hero stays available at /?hero=classic
+    const p = initParticles($<HTMLCanvasElement>("gl"), reduceMotion);
+    hero = { ...noHero, pause: p.pause, resume: p.resume, buildIntro: () => gsap.timeline({ paused: true }).add(() => p.assemble(), 0) };
+  } else {
+    hero = initHero($<HTMLCanvasElement>("gl"), $("pins"), PINS, reduceMotion);
+  }
 } catch (err) {
-  particles = noParticles;
+  // WebGL can be unavailable (disabled hardware acceleration, old GPU): the page must still work without it.
   $("gl").remove();
-  console.warn("WebGL nicht verfügbar – Partikelfeld deaktiviert.", err);
+  console.warn("WebGL not available – hero scene disabled.", err);
 }
-const overlay = initProofOverlay();
 
+const overlay = initProofOverlay();
+hero.onPin((id) => {
+  const pin = PINS.find((p) => p.id === id);
+  if (!pin) return;
+  overlay.openGroup({ title: pin.title, subtitle: "Verified Knowledge Reference", claimIds: pin.claimIds }, document.querySelector<HTMLElement>(`[data-pin="${id}"]`) ?? document.body);
+});
+
+// ---------------------------------------------------------------- honest stats from the real data
+{
+  const sources = claims.flatMap((c) => c.sources);
+  const stat = (n: string | number, l: string) => `<div><dd>${n}</dd><dt>${l}</dt></div>`;
+  $("stats").innerHTML =
+    stat(claims.length, "Graded Claims") + stat(sources.length, "Sources Listed") +
+    stat(sources.filter((s) => s.verified).length, "Sources Checked") + stat(atlas.length, "Encyclopedia Entries") + stat("∞", "Expanding Universe");
+}
+
+// ---------------------------------------------------------------- manifesto
+const manifesto = $("manifesto");
+const setManifesto = (open: boolean) => {
+  manifesto.hidden = !open;
+  if (open) manifesto.querySelector<HTMLElement>("[data-close]")?.focus();
+};
+$("open-manifesto").addEventListener("click", () => setManifesto(true));
+$("open-manifesto-nav").addEventListener("click", () => setManifesto(true));
+manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => setManifesto(false)));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
+
+// ---------------------------------------------------------------- views
 type View = "hero" | "universe" | "atlas";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
@@ -31,10 +86,10 @@ let atlasView: ReturnType<typeof initAtlas> | null = null;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
 const stageEl = $("stage");
-
+const nav = $("nav");
+const pinsEl = $("pins");
 const stage = initStage(stageEl, reduceMotion, (id, from) => overlay.open(id, from));
 
-// --- filters (universe)
 for (const level of Object.keys(LEVEL_LABEL) as EvidenceLevel[]) {
   const li = document.createElement("li");
   li.style.setProperty("--c", `var(--lvl-${level})`);
@@ -66,7 +121,6 @@ $<HTMLInputElement>("search").addEventListener("input", (e) => {
 });
 $("universe-home").addEventListener("click", () => universe?.home());
 
-// --- view switching
 function fade(el: HTMLElement, show: boolean, done?: () => void) {
   if (show) {
     el.hidden = false;
@@ -76,57 +130,80 @@ function fade(el: HTMLElement, show: boolean, done?: () => void) {
   }
 }
 
-function go(next: View) {
-  if (next === view) return;
-  const prev = view;
-  view = next;
-  if (prev === "universe") { fade(matrixEl, false, () => universe?.stop()); }
-  if (prev === "atlas") { fade(atlasEl, false, () => atlasView?.stop()); }
-  if (next === "hero") { particles.resume(); return; }
-  particles.pause();
-  if (next === "universe") {
-    try {
-      universe ??= initUniverse($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), reduceMotion, (id) => {
-        const c = claims.find((x) => x.id === id);
-        if (c) {
-          // the universe sleeps while a stage is open: two WebGL scenes at once would only slow both down
-          universe?.stop();
-          stage.open(c, $("leave-matrix"), () => universe?.start());
-        }
-      });
-    } catch (err) {
-      console.warn("WebGL nicht verfügbar – Universum nicht darstellbar.", err);
-      alert("Das 3D-Universum braucht WebGL. Bitte Hardwarebeschleunigung im Browser aktivieren oder einen anderen Browser nutzen.");
-      view = prev; particles.resume();
-      return;
-    }
-    fade(matrixEl, true);
-    universe.start();
-    $("leave-matrix").focus();
-  }
-  if (next === "atlas") {
-    try {
-      atlasView ??= initAtlas(atlasEl, reduceMotion, (id, from) => overlay.open(id, from));
-    } catch (err) {
-      console.warn("WebGL nicht verfügbar – Atlas nicht darstellbar.", err);
-      alert("Der 3D-Atlas braucht WebGL. Bitte Hardwarebeschleunigung im Browser aktivieren oder einen anderen Browser nutzen.");
-      view = prev; particles.resume();
-      return;
-    }
-    fade(atlasEl, true);
-    atlasView.start();
-    $("leave-atlas").focus();
-  }
+function setChrome(forHero: boolean) {
+  nav.hidden = !forHero;
+  pinsEl.hidden = !forHero;
+  $("notice")?.toggleAttribute("hidden", !forHero);
 }
 
-$("enter-matrix").addEventListener("click", () => go("universe"));
-$("enter-atlas").addEventListener("click", () => go("atlas"));
+function openUniverse(instant = false): boolean {
+  try {
+    universe ??= initUniverse($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), reduceMotion, (id) => {
+      const c = claims.find((x) => x.id === id);
+      if (c) {
+        // the universe sleeps while a stage is open: two WebGL scenes at once would only slow both down
+        universe?.stop();
+        stage.open(c, $("leave-matrix"), () => universe?.start());
+      }
+    });
+  } catch (err) {
+    console.warn("WebGL not available – universe cannot be shown.", err);
+    alert("The 3D universe needs WebGL. Please enable hardware acceleration in your browser or use another browser.");
+    return false;
+  }
+  if (instant) { matrixEl.hidden = false; matrixEl.style.opacity = "1"; } else fade(matrixEl, true);
+  universe.start();
+  $("leave-matrix").focus();
+  return true;
+}
+
+function openAtlas(): boolean {
+  try {
+    atlasView ??= initAtlas(atlasEl, reduceMotion, (id, from) => overlay.open(id, from));
+  } catch (err) {
+    console.warn("WebGL not available – atlas cannot be shown.", err);
+    alert("The 3D atlas needs WebGL. Please enable hardware acceleration in your browser or use another browser.");
+    return false;
+  }
+  fade(atlasEl, true);
+  atlasView.start();
+  $("leave-atlas").focus();
+  return true;
+}
+
+function go(next: View, opts: { instant?: boolean } = {}) {
+  if (next === view) return;
+  const prev = view;
+  if (next === "universe" && !openUniverse(opts.instant)) return;
+  if (next === "atlas" && !openAtlas()) return;
+  view = next;
+  if (prev === "universe") fade(matrixEl, false, () => universe?.stop());
+  if (prev === "atlas") fade(atlasEl, false, () => atlasView?.stop());
+  if (next === "hero") { hero.resetCamera(); hero.resume(); setChrome(true); }
+  else { hero.pause(); setChrome(false); }
+}
+
+/** Cinematic entry: the camera flies into the brain, light floods the screen, the universe opens. */
+async function enterLibrary() {
+  if (view !== "hero") return;
+  const flash = $("flash");
+  const t = gsap.to(flash, { opacity: 1, duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.8, ease: "power2.in" });
+  await hero.transitionOut();
+  await t;
+  go("universe", { instant: true });
+  universe?.intro();
+  gsap.to(flash, { opacity: 0, duration: reduceMotion ? 0 : 1.2, ease: "power2.out" });
+}
+
+$("enter-matrix").addEventListener("click", enterLibrary);
+document.querySelectorAll<HTMLElement>("[data-view]").forEach((b) =>
+  b.addEventListener("click", () => (b.dataset.view === "atlas" ? go("atlas") : void enterLibrary())),
+);
 $("leave-matrix").addEventListener("click", () => go("hero"));
 $("leave-atlas").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;
-    // switch directly between universe and atlas
     if (view === "universe" || view === "atlas") {
       const from = view;
       view = "hero";
@@ -136,9 +213,22 @@ document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   }),
 );
 
-if (!reduceMotion) {
-  const tl = gsap.timeline({ delay: 0.3 });
-  tl.from("h1 .line > span", { yPercent: 110, duration: 1.2, ease: "power4.out", stagger: 0.15 })
-    .from("[data-reveal]:not(h1)", { opacity: 0, y: 18, duration: 0.9, ease: "power2.out", stagger: 0.18 }, "-=0.8");
-  particles.assemble();
+// ---------------------------------------------------------------- knowledge search
+initSearch($<HTMLInputElement>("nav-search"), $("search-results"), (it) => {
+  if (it.kind === "claim") overlay.open(it.id, $("nav-search"));
+  else { go("atlas"); atlasView?.select(it.id); }
+});
+
+// ---------------------------------------------------------------- intro (≈3 s, then fully interactive)
+function playIntro() {
+  const tl = hero.buildIntro();
+  if (reduceMotion) { html.classList.remove("intro"); tl.progress(1); return; }
+  // elements are hidden by the `intro` class until GSAP takes over their opacity
+  tl.set([nav, ...document.querySelectorAll("[data-reveal], [data-cta]")], { opacity: 0 }, 0)
+    .add(() => html.classList.remove("intro"), 0)
+    .from("h1 .line > span", { yPercent: 110, duration: 1.0, ease: "power4.out", stagger: 0.12 }, 2.2)
+    .to("[data-reveal]", { opacity: 1, duration: 0.9, ease: "power2.out", stagger: 0.08 }, 2.2)
+    .to([nav, ...document.querySelectorAll("[data-cta]")], { opacity: 1, duration: 0.8, ease: "power2.out", stagger: 0.1 }, 2.5);
+  tl.play();
 }
+try { playIntro(); } catch (err) { html.classList.remove("intro"); console.warn(err); }

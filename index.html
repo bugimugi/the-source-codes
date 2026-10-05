@@ -1,48 +1,65 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="data:," />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THE SOURCE CODES</title>
-    <meta name="description" content="Investigative Felddokumentation: Jede Aussage mit Quelle und Belegstufe." />
+    <meta name="description" content="Humanity's hidden library: an interconnected universe of knowledge – every claim with its sources and a graded level of evidence." />
+    <meta name="theme-color" content="#02070B" />
   </head>
   <body>
     <canvas id="gl" aria-hidden="true"></canvas>
+    <div id="pins" aria-label="Knowledge pins"></div>
+
+    <header class="nav" id="nav">
+      <a class="brand" href="/" aria-label="THE SOURCE CODES – home">
+        <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 4 36 33H4z"/><path d="M20 13 29 29H11z" opacity=".8"/><circle cx="20" cy="22" r="2.6"/><path d="M20 4v7M4 33l6-3M36 33l-6-3" opacity=".6"/>
+        </svg>
+        <span><small>THE</small>SOURCE CODES</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <button class="nav-link" data-view="universe">Knowledge</button>
+        <button class="nav-link" data-view="atlas">Encyclopedia</button>
+        <button class="nav-link" id="open-manifesto-nav">Method</button>
+        <button class="nav-link soon" aria-disabled="true" title="Coming soon">Maps</button>
+        <button class="nav-link soon" aria-disabled="true" title="Coming soon">Tools</button>
+        <button class="nav-link soon" aria-disabled="true" title="Coming soon">Research</button>
+      </nav>
+      <div class="nav-search">
+        <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+        <input id="nav-search" type="search" placeholder="Search the archive…" aria-label="Search the archive" autocomplete="off" />
+        <kbd aria-hidden="true">/</kbd>
+        <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+      </div>
+    </header>
 
     <main class="hero">
-      <p class="eyebrow" data-reveal>Investigative Felddokumentation</p>
+      <p class="eyebrow" data-reveal>Humanity's Hidden Library</p>
       <h1 data-reveal>
-        <span class="line"><span>THE SOURCE</span></span>
-        <span class="line"><span>CODES</span></span>
+        <span class="line"><span>THE SOURCE CODES</span></span>
       </h1>
-      <p class="lead" data-reveal>
-        Was ist <em>Beleg</em> – und was nur <em>Behauptung</em>? Jede Aussage
-        auf dieser Seite trägt ihre Quelle und ihre Belegstufe offen mit sich.
-      </p>
-
-      <p class="claim" data-reveal>
-        Lebende Zellen halten ein elektrisches Membranpotenzial aufrecht – bei
-        Nervenzellen in Ruhe etwa −70&nbsp;mV.
-        <button class="proof" data-claim="membrane-potential" aria-label="Belege zu dieser Aussage öffnen">
-          <span class="proof-dot"></span><span class="proof-i">i</span>
-        </button>
-      </p>
-
-      <div class="enter-row" data-reveal>
-        <button class="enter" id="enter-matrix">Wissens-Universum betreten <span aria-hidden="true">→</span></button>
-        <button class="enter ghost" id="enter-atlas">Atlas: Pflanzen &amp; Kristalle <span aria-hidden="true">→</span></button>
+      <p class="sub" data-reveal>An Interconnected Universe of Knowledge</p>
+      <ul class="pillars" data-reveal>
+        <li>Science</li><li>Nature</li><li>Consciousness</li><li>Ancient Wisdom</li><li>A Healthier Humanity</li>
+      </ul>
+      <div class="cta-row" data-cta>
+        <button class="cta primary" id="enter-matrix">Enter the Library <span aria-hidden="true">→</span></button>
+        <button class="cta secondary" id="open-manifesto"><span class="ring" aria-hidden="true"></span>Manifesto</button>
       </div>
-
-      <p class="hint" data-reveal>Bewege den Cursor durch das Feld · Klicke auf <span class="proof-inline">i</span> für den Nachweis</p>
+      <dl class="stats" id="stats" data-cta></dl>
+      <p class="hint" data-cta>Move the cursor through the scene · hover the glowing pins to open the evidence</p>
     </main>
 
-    <section id="matrix" class="matrix" hidden aria-label="Wissens-Universum">
+    <div id="flash" class="flash" aria-hidden="true"></div>
+
+    <section id="matrix" class="matrix" hidden aria-label="Knowledge universe">
       <canvas id="matrix-gl"></canvas>
       <div id="matrix-labels"></div>
       <header class="matrix-bar">
         <button class="back" id="leave-matrix">← Start</button>
-        <nav class="tabs" aria-label="Ansicht">
+        <nav class="tabs" aria-label="View">
           <button class="tab" aria-current="true">Universum</button>
           <button class="tab" data-goto="atlas">Atlas</button>
         </nav>
@@ -63,7 +80,7 @@
     <section id="atlas" class="atlas" hidden aria-label="Atlas">
       <header class="matrix-bar atlas-bar">
         <button class="back" id="leave-atlas">← Start</button>
-        <nav class="tabs" aria-label="Ansicht">
+        <nav class="tabs" aria-label="View">
           <button class="tab" data-goto="universe">Universum</button>
           <button class="tab" aria-current="true">Atlas</button>
         </nav>
@@ -78,12 +95,35 @@
       </div>
     </section>
 
-    <div id="overlay" class="overlay" hidden>
-      <div class="overlay-backdrop" data-close></div>
-      <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1"></section>
-    </div>
+    <aside id="overlay" class="proof" hidden role="dialog" aria-labelledby="proof-title" tabindex="-1">
+      <header class="proof-head">
+        <span class="proof-sun" aria-hidden="true"></span>
+        <div><h2 id="proof-title">PROOF OVERLAY</h2><p id="proof-sub">Verified Knowledge Reference</p></div>
+        <button class="proof-close" data-close aria-label="Close">×</button>
+      </header>
+      <div class="proof-claims"></div>
+      <div class="proof-tabs" role="tablist"></div>
+      <div class="proof-body"></div>
+    </aside>
 
-    <footer class="notice">Informationsangebot – keine medizinische Beratung. Inhalte ersetzen keine ärztliche Behandlung; Medikamente nie ohne Rücksprache mit Ärztin oder Arzt absetzen.</footer>
+    <section id="manifesto" class="manifesto" hidden role="dialog" aria-modal="true" aria-labelledby="manifesto-title">
+      <div class="manifesto-backdrop" data-close></div>
+      <div class="manifesto-card">
+        <button class="proof-close" data-close aria-label="Close">×</button>
+        <p class="eyebrow">Manifesto</p>
+        <h2 id="manifesto-title">How this library earns trust</h2>
+        <ol>
+          <li><strong>Every claim carries its sources.</strong> No statement stands alone.</li>
+          <li><strong>Evidence is graded, never implied.</strong> Verified, supported, preliminary, historical, traditional, disputed, unverified.</li>
+          <li><strong>Tradition is documented as tradition.</strong> Cultural and historical use is shown with its origin – it is not presented as proof of effect.</li>
+          <li><strong>Missing sources are shown openly</strong> as <em>Source pending verification</em>.</li>
+          <li><strong>Counting is not meaning.</strong> Numerical patterns in texts are shown with their counting rules, so anyone can check or dispute them.</li>
+          <li><strong>Information, not medical advice.</strong> Nothing here replaces a doctor. Never stop a prescribed treatment without medical advice.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer class="notice" id="notice">Information only – not medical advice. Content does not replace medical treatment; never stop medication without consulting a doctor.</footer>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

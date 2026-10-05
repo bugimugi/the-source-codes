@@ -43,7 +43,11 @@ export const AREA_LABEL: Record<Area, string> = {
   "kristalle-mineralien": "Kristalle & Mineralien",
 };
 
+export type SourceTab = "study" | "patent" | "historical" | "clinical" | "traditional" | "interview";
+
 export interface Source {
+  /** Overrides the proof-overlay tab derived from the source kind */
+  tab?: SourceTab;
   id: string;
   kind: SourceKind;
   title: string;

@@ -8,7 +8,16 @@ import { AREA_LABEL, LEVEL_LABEL, type Area, type EvidenceLevel } from "./data/t
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 
-const particles = initParticles($<HTMLCanvasElement>("gl"), reduceMotion);
+// WebGL can be unavailable (disabled hardware acceleration, old GPU): the page must still work without it.
+const noParticles = { pause() {}, resume() {}, assemble() {} };
+let particles: typeof noParticles;
+try {
+  particles = initParticles($<HTMLCanvasElement>("gl"), reduceMotion);
+} catch (err) {
+  particles = noParticles;
+  $("gl").remove();
+  console.warn("WebGL nicht verfügbar – Partikelfeld deaktiviert.", err);
+}
 const overlay = initProofOverlay();
 
 const matrixEl = $("matrix");
@@ -50,7 +59,15 @@ $<HTMLInputElement>("search").addEventListener("input", (e) => {
 });
 
 function enterMatrix() {
-  matrix ??= initMatrix($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), (id) => overlay.open(id, leaveBtn));
+  if (!matrix) {
+    try {
+      matrix = initMatrix($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), (id) => overlay.open(id, leaveBtn));
+    } catch (err) {
+      console.warn("WebGL nicht verfügbar – Matrix nicht darstellbar.", err);
+      alert("Die 3D-Matrix braucht WebGL. Bitte Hardwarebeschleunigung im Browser aktivieren oder einen anderen Browser nutzen.");
+      return;
+    }
+  }
   matrixEl.hidden = false;
   matrix.start();
   particles.pause();

@@ -1,0 +1,25 @@
+{
+  "id": "quran-numbers-month-day",
+  "area": "texte-tradition",
+  "status": "draft",
+  "statement": "Im Koran kommt „Monat“ (shahr) 12-mal und „Tag“ (yawm) 365-mal im Singular vor.",
+  "level": "supported",
+  "rationale": "Reproduzierbar unter einer festgelegten Regel; andere Regeln ergeben andere Zahlen.",
+  "body": "Eigene Zählung in zwei Textausgaben (identische Ergebnisse):\n\nshahr (Singular inkl. Akkusativ shahran und aller Präfixe): 12; die Dualform shahrayn (4:92, 58:4) und Plurale (ashhur, shuhūr) sind ausgenommen.\n\nyawm (Singular inkl. Akkusativ yawman und aller Präfixe wie wa-/bi-/li-/al-): 365; ausgenommen die Dualform yawmayn (3 Vorkommen), Plurale (ayyām), Formen mit Pronomen wie yawmuhum und yawma-idhin. Alle Vorkommen wurden formal gezählt, ohne zu prüfen, ob „Tag“ im Sinne eines Kalendertages gemeint ist (z. B. „Tag des Gerichts“).\n\nBei „yawm“ hängt das Ergebnis davon ab, ob man Dual (3) ein- oder ausschließt: mit Dual wären es 368.",
+  "sources": [
+    {
+      "id": "own-count-monthday",
+      "kind": "lab-record",
+      "title": "Wortzählung shahr / yawm in zwei Koranausgaben",
+      "author": "Eigene Zählung (Claude Code), 05.10.2026",
+      "date": "2026-10-05",
+      "place": "scripts/verify/quran-counts.py",
+      "citation": "Reproduzierbar: scripts/verify/quran-counts.py; Ausgabe in content/research/quran-counts-output-2026-10-05.txt",
+      "verified": true,
+      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt."
+    }
+  ],
+  "related": [
+    "quran-numerology-inference"
+  ]
+}

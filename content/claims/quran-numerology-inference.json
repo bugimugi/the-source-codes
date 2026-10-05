@@ -1,0 +1,55 @@
+{
+  "id": "quran-numerology-inference",
+  "area": "texte-tradition",
+  "status": "draft",
+  "statement": "Solche Zahlenverhältnisse im Koran (32:13, 115:115, 12 und 365) sind ein Beleg dafür, dass der Text Wissen enthält, das zur Zeit der Offenbarung nicht verfügbar war.",
+  "level": "unsupported",
+  "rationale": "Die Zählergebnisse sind teilweise reproduzierbar (siehe verknüpfte Einträge), aber sie hängen von frei gewählten Regeln ab: welche Wortformen, ob Bedeutung berücksichtigt wird, ob Dual/Plural, ob Artikel. Für 32:13 muss man einen Gottesnamen (52:28) als „Land“ mitzählen und das artikellose bahr auslassen; nach Bedeutung gezählt ist es 33:12. Außerdem fehlt ein Test: Wie oft entstehen vergleichbare „Treffer“ bei beliebigen Wortpaaren? Das Erdverhältnis wird von NOAA mit „etwa 71 %“ angegeben, nicht 71,11 %; die Zahl 71,11 % ist 32/45 und stammt aus der Zählung selbst.",
+  "body": "Wichtig zur Einordnung: Diese Bewertung betrifft die Zahlenargumentation, nicht den Glauben oder den Wert des Textes.\n\nOffener Prüfauftrag: 1) Eine Arabistin/ein Arabist soll die Bedeutungs-Lesarten (52:28, 8:42, 37:6, 41:12, 67:5) bestätigen. 2) Idealerweise ein Zufallstest: gleiche Zählregeln auf viele Wortpaare anwenden und schauen, wie oft Gleichstand oder Entsprechungen mit bekannten Naturverhältnissen entstehen.",
+  "sources": [
+    {
+      "id": "own-count-inference",
+      "kind": "lab-record",
+      "title": "Zählung unter alternativen Regeln (Singular/Bedeutung/Artikel) in zwei Koranausgaben",
+      "author": "Eigene Zählung (Claude Code), 05.10.2026",
+      "date": "2026-10-05",
+      "place": "scripts/verify/quran-counts.py",
+      "citation": "Reproduzierbar: scripts/verify/quran-counts.py; Ausgabe in content/research/quran-counts-output-2026-10-05.txt",
+      "verified": true,
+      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt."
+    },
+    {
+      "id": "noaa-ocean",
+      "kind": "primary-text",
+      "title": "How much water is in the ocean?",
+      "author": "NOAA National Ocean Service",
+      "citation": "Nur über Websuche gesehen, Seite nicht geöffnet. Laut Zusammenfassung: Ozean bedeckt mehr als 70 %; NOAA Global Ocean Monitoring nennt 71 %.",
+      "url": "https://oceanservice.noaa.gov/facts/oceanwater.html",
+      "verified": false
+    },
+    {
+      "id": "islamcompass",
+      "kind": "primary-text",
+      "title": "The Ratio Of Land To The Sea In Quran",
+      "author": "Islam Compass (befürwortend)",
+      "citation": "Nur über Websuche-Zusammenfassung gesehen – nicht geprüft",
+      "url": "https://islamcompass.com/the-ratio-of-land-to-the-sea-in-quran/",
+      "note": "Laut Zusammenfassung 33 : 13 = 46 statt 32 : 13.",
+      "verified": false
+    },
+    {
+      "id": "quranmiracles",
+      "kind": "primary-text",
+      "title": "Ratio of the sea and land surface",
+      "author": "quranmiracles.com (befürwortend)",
+      "citation": "Nur über Websuche-Zusammenfassung gesehen – nicht geprüft",
+      "url": "http://www.quranmiracles.com/2011/03/the-land-sea-ratio/",
+      "verified": false
+    }
+  ],
+  "related": [
+    "quran-numbers-3213",
+    "quran-numbers-115",
+    "quran-numbers-month-day"
+  ]
+}

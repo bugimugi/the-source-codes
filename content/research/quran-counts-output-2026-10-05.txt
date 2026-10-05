@@ -1,0 +1,18 @@
+
+===== A (quranenc): 6236 verses, 77429 tokens
+SEA  definite singular (al-/wa-l-/...): 32 | bare 'bahr' (24:40): 1 | dual: 5 | plural (bihar/abhur): 3  -> singular total 33, all forms 41
+LAND al-barr (fatha): 13 total, of which 52:28 (divine name 'the Kind'): 1  -> land meaning only: 12 | al-birr (righteousness, kasra, NOT land): 8
+     string-only count of 'البر' without vowels would give 21
+DUNYA al-dunya: 115 (of which 'nearest/lowest' 8:42, 37:6, 41:12, 67:5: 4 -> 'this world' reading: 111)
+AKHIRA al-akhira (fem., all prefixes): 115 | substring 'akhira/akhirah': 116 (extra hit: 3:72 'akhirahu' = 'its end')
+SHAHR singular (incl. accusative): 12 | dual 4:92, 58:4 excluded
+YAWM singular incl. prefixed + accusative: 365 | dual 'yawmayn' excluded: 3 | (suffixed forms such as yawmuhum and 'yawma-idhin' are separate words and excluded)
+
+===== B (tanzil): 6236 verses, 77433 tokens
+SEA  definite singular (al-/wa-l-/...): 32 | bare 'bahr' (24:40): 1 | dual: 5 | plural (bihar/abhur): 3  -> singular total 33, all forms 41
+LAND al-barr (fatha): 13 total, of which 52:28 (divine name 'the Kind'): 1  -> land meaning only: 12 | al-birr (righteousness, kasra, NOT land): 8
+     string-only count of 'البر' without vowels would give 21
+DUNYA al-dunya: 115 (of which 'nearest/lowest' 8:42, 37:6, 41:12, 67:5: 4 -> 'this world' reading: 111)
+AKHIRA al-akhira (fem., all prefixes): 115 | substring 'akhira/akhirah': 116 (extra hit: 3:72 'akhirahu' = 'its end')
+SHAHR singular (incl. accusative): 12 | dual 4:92, 58:4 excluded
+YAWM singular incl. prefixed + accusative: 365 | dual 'yawmayn' excluded: 3 | (suffixed forms such as yawmuhum and 'yawma-idhin' are separate words and excluded)

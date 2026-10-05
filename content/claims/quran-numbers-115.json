@@ -1,0 +1,36 @@
+{
+  "id": "quran-numbers-115",
+  "area": "texte-tradition",
+  "status": "draft",
+  "statement": "Im Koran kommen „die Welt“ (ad-dunyā) und „das Jenseits“ (al-ākhira) jeweils 115-mal vor.",
+  "level": "supported",
+  "rationale": "Reproduzierbar, aber nur bei wörtlicher Zählung der Form. Nach Bedeutung gezählt weicht ad-dunyā ab (111 : 115).",
+  "body": "Eigene Zählung in zwei Textausgaben (identische Ergebnisse):\n\nad-dunyā (alle Formen mit Artikel/Präfix): 115. In vier Stellen heißt dunyā aber „die nähere/niedrigste“: 8:42 (al-ʿudwa ad-dunyā, „die nähere Seite“), 37:6, 41:12 und 67:5 (as-samāʾ ad-dunyā, „der unterste/nächste Himmel“). Nach der Bedeutung „diese Welt“ bleiben 111 – das ist meine Lesart und sollte von einer Arabistin/einem Arabisten bestätigt werden.\n\nal-ākhira (feminin, bestimmt, alle Präfixe wie wa-/bi-/li-): 115. Die Teilstring-Suche ergibt 116, der zusätzliche Treffer ist 3:72 (ākhirahu, „sein Ende“) und zählt nicht. In 53:25 und 79:25 steht al-ākhira zusammen mit al-ūlā („das Erste“), nicht mit ad-dunyā.\n\nErgebnis: 115 : 115 nur bei meaning-agnostischer Formzählung; nach Bedeutung 111 : 115.",
+  "sources": [
+    {
+      "id": "own-count-115",
+      "kind": "lab-record",
+      "title": "Wortzählung ad-dunyā / al-ākhira in zwei Koranausgaben",
+      "author": "Eigene Zählung (Claude Code), 05.10.2026",
+      "date": "2026-10-05",
+      "place": "scripts/verify/quran-counts.py",
+      "citation": "Reproduzierbar: scripts/verify/quran-counts.py; Ausgabe in content/research/quran-counts-output-2026-10-05.txt",
+      "verified": true,
+      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt."
+    },
+    {
+      "id": "wikiislam-dunya",
+      "kind": "primary-text",
+      "title": "Dunya and akhira word count in the Qur'an",
+      "author": "WikiIslam (kritisch)",
+      "citation": "Nur über Websuche-Zusammenfassung gesehen, Seite war gesperrt – nicht geprüft",
+      "url": "https://wikiislam.net/wiki/Dunya_and_akhira_word_count_in_the_Qur'an",
+      "note": "Laut Zusammenfassung: dunyā und ākhira haben mehrere Bedeutungen.",
+      "verified": false
+    }
+  ],
+  "related": [
+    "quran-numbers-3213",
+    "quran-numerology-inference"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "apfel",
+  "status": "published",
+  "category": "obst",
+  "name": "Apfel",
+  "latin": "Malus domestica",
+  "model": {
+    "kind": "fruit",
+    "color": "#c8352a",
+    "shape": "apple"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Rosengewächse (Rosaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Frucht (Kernobst)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Tausende Sorten"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Apfel zählt zu den ältesten Kulturobstarten Europas und Asiens.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

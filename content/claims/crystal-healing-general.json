@@ -1,0 +1,22 @@
+{
+  "id": "crystal-healing-general",
+  "short": "Heilsteine allgemein",
+  "area": "kristalle-mineralien",
+  "status": "published",
+  "statement": "Heilsteine und Kristalle wirken gesundheitlich oder energetisch über den Placebo-Effekt hinaus.",
+  "level": "unsupported",
+  "rationale": "Mir ist keine kontrollierte Studie bekannt, die eine solche Wirkung zeigt. Eine Untersuchung von 2001 (aus dem Gedächtnis, noch zu prüfen) berichtete ähnliche Empfindungen bei echten und gefälschten Kristallen. Kulturelle Bedeutung und Schönheit der Steine sind davon unberührt.",
+  "sources": [
+    {
+      "id": "french-2001",
+      "kind": "conference-abstract",
+      "title": "Crystal-healing-Untersuchung (Titel zu ergänzen)",
+      "author": "C. C. French et al.",
+      "year": 2001,
+      "citation": "Vortrag, British Association Festival of Science 2001 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false,
+      "note": "Berichtet laut meiner Erinnerung ähnliche Empfindungen bei echten und gefälschten Kristallen; bitte Originalquelle prüfen."
+    }
+  ],
+  "related": []
+}

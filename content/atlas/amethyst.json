@@ -1,0 +1,75 @@
+{
+  "id": "amethyst",
+  "status": "published",
+  "category": "kristall",
+  "name": "Amethyst",
+  "latin": "Quarz (violette Varietät)",
+  "model": {
+    "kind": "quartz",
+    "color": "#9b59d0"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "SiO₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "7"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "trigonal"
+    },
+    {
+      "label": "Farbe",
+      "value": "violett durch Eisen-Spuren und natürliche Strahlung"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Name kommt aus dem Altgriechischen (amethystos, „nicht betrunken“): In der Antike galt der Stein als Schutz vor Trunkenheit.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Kronenchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    },
+    {
+      "system": "Chakra-Lehre",
+      "target": "Stirnchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [
+    {
+      "with": "quarz",
+      "note": "Bergkristall gilt in der modernen Steinkunde als „Verstärker“ anderer Steine.",
+      "origin": "modern"
+    }
+  ],
+  "claims": [
+    "crystal-amethyst-effects",
+    "crystal-healing-general"
+  ]
+}

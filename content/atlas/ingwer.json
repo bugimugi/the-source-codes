@@ -1,0 +1,57 @@
+{
+  "id": "ingwer",
+  "status": "published",
+  "category": "kraut",
+  "name": "Ingwer",
+  "latin": "Zingiber officinale",
+  "model": {
+    "kind": "rhizome",
+    "color": "#cfa86a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Ingwergewächse (Zingiberaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Rhizom (Wurzelstock)"
+    },
+    {
+      "label": "Scharfstoffe",
+      "value": "u. a. Gingerole"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "Ingwer wird in Süd- und Ostasien seit Jahrtausenden als Gewürz und in traditionellen Medizinsystemen verwendet.",
+  "associations": [
+    {
+      "system": "Traditionelle europäische Pflanzenheilkunde",
+      "target": "Magen-Darm-Trakt",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "ingwer-traditional-use"
+  ]
+}

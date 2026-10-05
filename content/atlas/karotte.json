@@ -1,0 +1,58 @@
+{
+  "id": "karotte",
+  "status": "published",
+  "category": "gemuese",
+  "name": "Karotte",
+  "latin": "Daucus carota subsp. sativus",
+  "model": {
+    "kind": "carrot",
+    "color": "#e8731a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Doldenblütler (Apiaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Wurzel"
+    },
+    {
+      "label": "Inhaltsstoff",
+      "value": "Beta-Carotin (Provitamin A); Vitamin A wird für den Sehvorgang benötigt"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "Die Karotte wird in Ähnlichkeitslisten oft dem Auge zugeordnet; ob das historisch begründet ist, ist unklar.",
+  "associations": [
+    {
+      "system": "Signaturenlehre",
+      "target": "Auge",
+      "origin": "unknown",
+      "note": "Beta-Carotin ist tatsächlich eine Vorstufe von Vitamin A; die Zuordnung nach Form ist davon unabhängig."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "signature-doctrine"
+  ]
+}

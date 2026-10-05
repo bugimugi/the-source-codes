@@ -1,0 +1,59 @@
+{
+  "id": "ringelblume",
+  "status": "published",
+  "category": "blume",
+  "name": "Ringelblume",
+  "latin": "Calendula officinalis",
+  "model": {
+    "kind": "flower",
+    "color": "#ff9d1a",
+    "color2": "#c2570a",
+    "petals": 28
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Korbblütler (Asteraceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Blütenköpfe"
+    },
+    {
+      "label": "Inhaltsstoffe",
+      "value": "u. a. Carotinoide und Flavonoide"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "Die Ringelblume ist eine alte Bauerngarten- und Salbenpflanze.",
+  "associations": [
+    {
+      "system": "Traditionelle europäische Pflanzenheilkunde",
+      "target": "Haut",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "ringelblume-traditional-use"
+  ]
+}

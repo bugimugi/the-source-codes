@@ -30,7 +30,8 @@ export type Area =
   | "pflanzenheilkunde"
   | "ernaehrung-umwelt"
   | "akustik-architektur"
-  | "texte-tradition";
+  | "texte-tradition"
+  | "kristalle-mineralien";
 
 export const AREA_LABEL: Record<Area, string> = {
   biophysik: "Biophysik",
@@ -39,6 +40,7 @@ export const AREA_LABEL: Record<Area, string> = {
   "ernaehrung-umwelt": "Ernährung & Umwelt",
   "akustik-architektur": "Akustik & Architektur",
   "texte-tradition": "Texte & Tradition",
+  "kristalle-mineralien": "Kristalle & Mineralien",
 };
 
 export interface Source {
@@ -78,6 +80,8 @@ export interface Claim {
   id: string;
   type?: ClaimType;
   area: Area;
+  /** Short title for graph labels (falls back to the statement) */
+  short?: string;
   /** The statement exactly as it is shown to the reader */
   statement: string;
   level: EvidenceLevel;
@@ -113,3 +117,64 @@ export const KIND_LABEL: Record<SourceKind, string> = {
   "conference-abstract": "Konferenzposter / Abstract",
   interview: "Interview",
 };
+
+// ---------------------------------------------------------------- Atlas (Guidebook)
+
+export type AtlasCategory = "kraut" | "blume" | "baum" | "obst" | "gemuese" | "kristall";
+
+export const CATEGORY_LABEL: Record<AtlasCategory, string> = {
+  kraut: "Kräuter",
+  blume: "Blumen",
+  baum: "Bäume",
+  obst: "Obst & Nüsse",
+  gemuese: "Gemüse",
+  kristall: "Kristalle & Heilsteine",
+};
+
+export type ModelKind =
+  | "quartz" | "fluorite" | "pyrite" | "garnet" | "tourmaline" | "malachite" | "lapis" | "obsidian"
+  | "flower" | "herb" | "lavender" | "rhizome" | "willow" | "nut" | "carrot" | "fruit";
+
+export interface ModelSpec {
+  kind: ModelKind;
+  color: string;
+  color2?: string;
+  /** flower: number of petals; fruit: "apple" | "tomato" */
+  petals?: number;
+  shape?: "apple" | "tomato";
+}
+
+/** A cultural/traditional mapping (organ, chakra, signature ...). Never an efficacy statement. */
+export interface Association {
+  system: string;
+  target: string;
+  origin: "traditional" | "modern" | "unknown";
+  note?: string;
+}
+
+export interface AtlasEntry {
+  id: string;
+  status: "draft" | "published";
+  category: AtlasCategory;
+  name: string;
+  /** Botanical or mineralogical name */
+  latin: string;
+  model: ModelSpec;
+  /** Verifiable descriptive facts (formula, hardness, botanical family ...) */
+  facts: { label: string; value: string }[];
+  /** Sources for the facts above */
+  sources: Source[];
+  /** Short cultural/historical text */
+  tradition: string;
+  associations: Association[];
+  /** Traditional pairings; shown on both sides */
+  combinations: { with: string; note: string; origin: "traditional" | "modern" | "unknown" }[];
+  /** Graded statements about this entry (effects, traditional use). Ids of claims. */
+  claims: string[];
+}
+
+export const ORIGIN_LABEL = {
+  traditional: "Überlieferung",
+  modern: "Moderne Lehre (20./21. Jh.)",
+  unknown: "Herkunft unklar",
+} as const;

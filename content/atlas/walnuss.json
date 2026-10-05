@@ -1,0 +1,58 @@
+{
+  "id": "walnuss",
+  "status": "published",
+  "category": "obst",
+  "name": "Walnuss",
+  "latin": "Juglans regia",
+  "model": {
+    "kind": "nut",
+    "color": "#8a6b45"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Walnussgewächse (Juglandaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Samen (Nuss)"
+    },
+    {
+      "label": "Inhalt",
+      "value": "reich an Fetten, darunter mehrfach ungesättigte Fettsäuren"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "In der Signaturenlehre der Frühen Neuzeit wurde die Walnuss wegen ihrer Form dem Kopf zugeordnet.",
+  "associations": [
+    {
+      "system": "Signaturenlehre",
+      "target": "Gehirn / Kopf",
+      "origin": "traditional",
+      "note": "Zuordnung nach äußerer Ähnlichkeit; ursprüngliche Quelle zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "signature-doctrine"
+  ]
+}

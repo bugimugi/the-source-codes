@@ -1,0 +1,70 @@
+{
+  "id": "lapislazuli",
+  "status": "published",
+  "category": "kristall",
+  "name": "Lapislazuli",
+  "latin": "Gestein aus Lazurit u. a.",
+  "model": {
+    "kind": "lapis",
+    "color": "#1f3f9b",
+    "color2": "#d4af37"
+  },
+  "facts": [
+    {
+      "label": "Zusammensetzung",
+      "value": "Gestein aus Lazurit, meist mit Calcit und Pyrit"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "ca. 5–5,5"
+    },
+    {
+      "label": "Historische Hauptquelle",
+      "value": "Afghanistan (Sar-i Sang)"
+    },
+    {
+      "label": "Verwendung",
+      "value": "Pigment Ultramarin, Schmuck"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Lapislazuli wird seit Jahrtausenden gehandelt; gemahlen ergab er das Pigment Ultramarin, das in der Malerei sehr wertvoll war.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Stirnchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    },
+    {
+      "system": "Chakra-Lehre",
+      "target": "Halschakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "crystal-lapislazuli-effects",
+    "crystal-healing-general"
+  ]
+}

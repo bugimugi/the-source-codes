@@ -1,0 +1,59 @@
+{
+  "id": "tomate",
+  "status": "published",
+  "category": "gemuese",
+  "name": "Tomate",
+  "latin": "Solanum lycopersicum",
+  "model": {
+    "kind": "fruit",
+    "color": "#d9261c",
+    "shape": "tomato"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Nachtschattengewächse (Solanaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Frucht (botanisch eine Beere)"
+    },
+    {
+      "label": "Farbstoff",
+      "value": "Lycopin"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "Die Zuordnung der Tomate zum Herzen stammt aus modernen „Ähnlichkeitslisten“; eine historische Quelle ist nicht bekannt.",
+  "associations": [
+    {
+      "system": "Signaturenlehre",
+      "target": "Herz",
+      "origin": "modern",
+      "note": "In populären Ähnlichkeitslisten; historische Quelle unbekannt."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "signature-doctrine"
+  ]
+}

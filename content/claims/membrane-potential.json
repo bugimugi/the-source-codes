@@ -1,5 +1,6 @@
 {
   "id": "membrane-potential",
+  "short": "Membranpotenzial",
   "area": "biophysik",
   "statement": "Lebende Zellen halten ein elektrisches Membranpotenzial aufrecht – bei Nervenzellen in Ruhe etwa −70 mV.",
   "level": "established",

@@ -1,0 +1,69 @@
+{
+  "id": "granat",
+  "status": "published",
+  "category": "kristall",
+  "name": "Granat",
+  "latin": "Granat (Mineralgruppe)",
+  "model": {
+    "kind": "garnet",
+    "color": "#8b1a2b"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "Silikat-Mischkristallgruppe (je nach Art unterschiedlich)"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "ca. 6,5–7,5"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "kubisch"
+    },
+    {
+      "label": "Typische Form",
+      "value": "Rhombendodekaeder"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Granat wird seit der Antike als Schmuckstein genutzt; der Name erinnert an die Samen des Granatapfels.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Wurzelchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [
+    {
+      "with": "obsidian",
+      "note": "Beide werden in der modernen Lehre dem Wurzelchakra zugeordnet.",
+      "origin": "modern"
+    }
+  ],
+  "claims": [
+    "crystal-granat-effects",
+    "crystal-healing-general"
+  ]
+}

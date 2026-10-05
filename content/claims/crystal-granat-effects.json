@@ -1,0 +1,24 @@
+{
+  "id": "crystal-granat-effects",
+  "short": "Granat – Wirkung",
+  "area": "kristalle-mineralien",
+  "status": "published",
+  "statement": "Granat wirkt gesundheitlich oder energetisch (zugeordnet: Wurzelchakra).",
+  "level": "unsupported",
+  "rationale": "Die Zuordnung zu Chakren ist eine Lehre (überwiegend modern), kein Messbefund. Für eine Wirkung über Placebo hinaus ist mir keine Studie bekannt (siehe verknüpften Eintrag).",
+  "sources": [
+    {
+      "id": "french-2001",
+      "kind": "conference-abstract",
+      "title": "Crystal-healing-Untersuchung (Titel zu ergänzen)",
+      "author": "C. C. French et al.",
+      "year": 2001,
+      "citation": "Vortrag, British Association Festival of Science 2001 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false,
+      "note": "Berichtet laut meiner Erinnerung ähnliche Empfindungen bei echten und gefälschten Kristallen; bitte Originalquelle prüfen."
+    }
+  ],
+  "related": [
+    "crystal-healing-general"
+  ]
+}

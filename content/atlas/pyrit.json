@@ -1,0 +1,63 @@
+{
+  "id": "pyrit",
+  "status": "published",
+  "category": "kristall",
+  "name": "Pyrit",
+  "latin": "Pyrit",
+  "model": {
+    "kind": "pyrite",
+    "color": "#c9a227"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "FeS₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "6–6,5"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "kubisch"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "„Katzengold“ – metallisch messinggelb, oft in Würfeln"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Name leitet sich vom griechischen pyr („Feuer“) ab, weil Pyrit beim Schlagen Funken gibt.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Solarplexus-Chakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "crystal-pyrit-effects",
+    "crystal-healing-general"
+  ]
+}

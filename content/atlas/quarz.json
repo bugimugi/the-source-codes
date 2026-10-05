@@ -1,0 +1,63 @@
+{
+  "id": "quarz",
+  "status": "published",
+  "category": "kristall",
+  "name": "Bergkristall (Quarz)",
+  "latin": "Quarz",
+  "model": {
+    "kind": "quartz",
+    "color": "#dfefff"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "SiO₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "7"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "trigonal (Tiefquarz)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "piezoelektrisch – wird in Quarzuhren und Schwingquarzen genutzt"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Klarer Quarz wurde in vielen Kulturen als „Eis der Götter“ oder Schmuck- und Kultstein verwendet; der Name „Kristall“ geht auf das griechische krystallos („Eis“) zurück.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Kronenchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "crystal-quarz-effects",
+    "crystal-healing-general"
+  ]
+}

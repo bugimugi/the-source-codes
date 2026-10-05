@@ -1,0 +1,63 @@
+{
+  "id": "obsidian",
+  "status": "published",
+  "category": "kristall",
+  "name": "Obsidian",
+  "latin": "Vulkanisches Glas",
+  "model": {
+    "kind": "obsidian",
+    "color": "#0b0b12"
+  },
+  "facts": [
+    {
+      "label": "Zusammensetzung",
+      "value": "vulkanisches Glas (amorph, kein Kristall)"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "ca. 5–5,5"
+    },
+    {
+      "label": "Bruch",
+      "value": "muschelig, sehr scharfkantig"
+    },
+    {
+      "label": "Verwendung",
+      "value": "Steinzeitliche Klingen und Spiegel"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Aus Obsidian wurden seit der Steinzeit Klingen und Pfeilspitzen geschlagen; in Mesoamerika auch polierte Spiegel.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Wurzelchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "crystal-obsidian-effects",
+    "crystal-healing-general"
+  ]
+}

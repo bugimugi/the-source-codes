@@ -29,21 +29,53 @@
         </button>
       </p>
 
-      <button class="enter" id="enter-matrix" data-reveal>Wissens-Matrix betreten <span aria-hidden="true">→</span></button>
+      <div class="enter-row" data-reveal>
+        <button class="enter" id="enter-matrix">Wissens-Universum betreten <span aria-hidden="true">→</span></button>
+        <button class="enter ghost" id="enter-atlas">Atlas: Pflanzen &amp; Kristalle <span aria-hidden="true">→</span></button>
+      </div>
 
       <p class="hint" data-reveal>Bewege den Cursor durch das Feld · Klicke auf <span class="proof-inline">i</span> für den Nachweis</p>
     </main>
 
-    <section id="matrix" class="matrix" hidden aria-label="Wissens-Matrix">
+    <section id="matrix" class="matrix" hidden aria-label="Wissens-Universum">
       <canvas id="matrix-gl"></canvas>
       <div id="matrix-labels"></div>
       <header class="matrix-bar">
-        <button class="back" id="leave-matrix">← Zurück</button>
+        <button class="back" id="leave-matrix">← Start</button>
+        <nav class="tabs" aria-label="Ansicht">
+          <button class="tab" aria-current="true">Universum</button>
+          <button class="tab" data-goto="atlas">Atlas</button>
+        </nav>
         <input id="search" class="search" type="search" placeholder="Suchen …" aria-label="Aussagen durchsuchen" />
+        <button class="chip" id="universe-home">Überblick</button>
         <ul class="legend" id="legend"></ul>
         <div class="chips" id="areas" role="group" aria-label="Bereich filtern"></div>
       </header>
-      <p class="matrix-hint">Ziehen zum Drehen · Knoten oder Beschriftung anklicken für den Nachweis</p>
+      <p class="matrix-hint">Ziehen zum Drehen · Mausrad zum Zoomen · Galaxie oder Stern anklicken, um hineinzufliegen</p>
+    </section>
+
+    <section id="stage" class="stage" hidden aria-label="Themenbühne">
+      <canvas id="stage-gl"></canvas>
+      <button class="stage-close" aria-label="Bühne schließen">×</button>
+      <aside class="stage-panel"></aside>
+    </section>
+
+    <section id="atlas" class="atlas" hidden aria-label="Atlas">
+      <header class="matrix-bar atlas-bar">
+        <button class="back" id="leave-atlas">← Start</button>
+        <nav class="tabs" aria-label="Ansicht">
+          <button class="tab" data-goto="universe">Universum</button>
+          <button class="tab" aria-current="true">Atlas</button>
+        </nav>
+        <input class="search atlas-search" type="search" placeholder="Pflanze oder Stein suchen …" aria-label="Atlas durchsuchen" />
+        <select class="atlas-target" aria-label="Nach Zuordnung filtern"></select>
+        <div class="chips atlas-cats" role="group" aria-label="Kategorie filtern"></div>
+      </header>
+      <div class="atlas-body">
+        <aside class="atlas-list"><div class="atlas-list-items"></div></aside>
+        <div class="atlas-view"><canvas id="atlas-gl"></canvas><p class="atlas-title"></p></div>
+        <article class="atlas-detail"></article>
+      </div>
     </section>
 
     <div id="overlay" class="overlay" hidden>

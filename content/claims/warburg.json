@@ -1,5 +1,6 @@
 {
   "id": "warburg",
+  "short": "Warburg-Effekt",
   "area": "biophysik",
   "statement": "Viele Tumorzellen bevorzugen die Glykolyse auch bei vorhandenem Sauerstoff (Warburg-Effekt).",
   "level": "supported",

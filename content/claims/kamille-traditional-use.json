@@ -1,0 +1,21 @@
+{
+  "id": "kamille-traditional-use",
+  "short": "Kamille – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Kamillenblüten werden traditionell bei leichten Magen-Darm-Beschwerden und zur Mundspülung angewendet.",
+  "level": "historical",
+  "rationale": "Als traditionelles pflanzliches Arzneimittel in Monographien beschrieben (Angaben zu prüfen). Das beschreibt die dokumentierte traditionelle Anwendung, keine Heilungsaussage; Wirksamkeit und Anwendung sind in der jeweiligen Monographie nachzulesen und ersetzen keine ärztliche Beratung.",
+  "sources": [
+    {
+      "id": "hmpc-mono",
+      "kind": "historical-document",
+      "title": "Gemeinschaftsmonographie (HMPC) – Nummer und Titel noch zu ergänzen",
+      "author": "EMA, HMPC",
+      "citation": "Seite zur Pflanze auf ema.europa.eu nachschlagen",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "related": []
+}

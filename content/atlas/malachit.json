@@ -1,0 +1,69 @@
+{
+  "id": "malachit",
+  "status": "published",
+  "category": "kristall",
+  "name": "Malachit",
+  "latin": "Malachit",
+  "model": {
+    "kind": "malachite",
+    "color": "#1fa86a"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "Cu₂CO₃(OH)₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "3,5–4"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "monoklin"
+    },
+    {
+      "label": "Erscheinung",
+      "value": "gebänderte, nierige Kupfererz-Krusten"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Malachit wurde als Kupfererz und gemahlen als grünes Pigment verwendet.",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Herzchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [
+    {
+      "with": "lapislazuli",
+      "note": "Historisch beide als Malerpigmente genutzt: Malachit als Grün, Lapislazuli als Ultramarin.",
+      "origin": "traditional"
+    }
+  ],
+  "claims": [
+    "crystal-malachit-effects",
+    "crystal-healing-general"
+  ]
+}

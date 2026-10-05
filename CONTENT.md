@@ -52,3 +52,14 @@ Pro Thema möglichst:
 - ob Original-Dokumente vorliegen (PDF, Messprotokoll).
 
 Daraus erstelle ich Entwürfe mit vorgeschlagener Belegstufe und markiere, was noch zu prüfen ist.
+
+## Atlas-Einträge (`content/atlas/*.json`)
+
+Ein Eintrag beschreibt eine Pflanze, ein Kraut, Obst/Gemüse oder einen Stein.
+- `facts`: überprüfbare Beschreibung (Formel, Härte, botanische Familie ...), mit `sources`.
+- `tradition`: kurzer kultureller/historischer Text.
+- `associations`: Zuordnungen zu Organ, Chakra, Signaturenlehre usw. **Immer mit `origin`** (`traditional`, `modern`, `unknown`) – die Seite zeigt sie als „Zuordnung nach dem jeweiligen System, kein Wirkbeleg“.
+- `combinations`: überlieferte Kombinationen (werden auf beiden Seiten angezeigt).
+- `claims`: Ids der bewerteten Aussagen zu Wirkung oder Anwendung. **Jede Wirkungsaussage ist ein Claim** mit Belegstufe und gehört nicht in `facts`.
+- `model`: Typ und Farbe für das prozedurale 3D-Modell (`quartz`, `fluorite`, `pyrite`, `garnet`, `tourmaline`, `malachite`, `lapis`, `obsidian`, `flower`, `herb`, `lavender`, `rhizome`, `willow`, `nut`, `carrot`, `fruit`).
+- Neue Modellformen: `src/gl/models.ts` erweitern. Echte Fotos oder gescannte 3D-Modelle (glTF) lassen sich später ergänzen, brauchen aber freie Lizenzen.

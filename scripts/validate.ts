@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { validateClaims } from "../src/data/validate.ts";
-import type { Claim } from "../src/data/types.ts";
+import { validateAtlas } from "../src/data/validateAtlas.ts";
+import type { AtlasEntry, Claim } from "../src/data/types.ts";
 
 const dir = new URL("../content/claims/", import.meta.url);
 const claims: Claim[] = readdirSync(dir)
@@ -14,7 +15,15 @@ const claims: Claim[] = readdirSync(dir)
     }
   });
 
-const { errors, warnings } = validateClaims(claims);
+const atlasDir = new URL("../content/atlas/", import.meta.url);
+const atlasEntries: AtlasEntry[] = readdirSync(atlasDir)
+  .filter((f) => f.endsWith(".json") && !f.startsWith("_"))
+  .map((f) => JSON.parse(readFileSync(new URL(f, atlasDir), "utf8")) as AtlasEntry);
+
+const c1 = validateClaims(claims);
+const c2 = validateAtlas(atlasEntries, claims);
+const errors = [...c1.errors, ...c2.errors];
+const warnings = [...c1.warnings, ...c2.warnings];
 const verbose = process.argv.includes("--report");
 if (verbose && warnings.length) console.log(`Hinweise:\n${warnings.map((w) => "  - " + w).join("\n")}\n`);
 if (errors.length) {
@@ -22,4 +31,4 @@ if (errors.length) {
   process.exit(1);
 }
 const published = claims.filter((c) => c.status === "published").length;
-console.log(`OK – ${claims.length} Aussagen (${published} veröffentlicht, ${claims.length - published} Entwurf), ${warnings.length} Hinweise${verbose ? "" : " (mit --report anzeigen)"}`);
+console.log(`OK – ${claims.length} Aussagen (${published} veröffentlicht, ${claims.length - published} Entwurf), ${atlasEntries.length} Atlas-Einträge, ${warnings.length} Hinweise${verbose ? "" : " (mit --report anzeigen)"}`);

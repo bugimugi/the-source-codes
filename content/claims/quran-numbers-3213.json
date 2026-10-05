@@ -9,14 +9,19 @@
   "sources": [
     {
       "id": "own-count-3213",
-      "kind": "lab-record",
+      "kind": "text-count",
       "title": "Wortzählung al-bahr / al-barr in zwei Koranausgaben",
       "author": "Eigene Zählung (Claude Code), 05.10.2026",
       "date": "2026-10-05",
       "place": "scripts/verify/quran-counts.py",
       "citation": "Reproduzierbar: scripts/verify/quran-counts.py; Ausgabe in content/research/quran-counts-output-2026-10-05.txt",
       "verified": true,
-      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt."
+      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt.",
+      "method": "Formen von al-bahr (Singular, mit Artikel und Präfixen wa-/bi-/li-/fa-) bzw. al-barr (Fatha-Lesung, ohne al-birr); Dual und Plural ausgenommen; kein Abgleich der Bedeutung. Alternative Regel (nach Bedeutung, ohne 52:28, mit bare bahr 24:40): 33:12.",
+      "editions": [
+        "quran-json 3.1.2 (Noble Qur'an Encyclopedia)",
+        "@muslims-community/quran 1.1.0 (Tanzil)"
+      ]
     },
     {
       "id": "wikiislam-landwater",
@@ -42,5 +47,6 @@
     "quran-numerology-inference",
     "quran-numbers-115",
     "alaqa-embryology"
-  ]
+  ],
+  "type": "text-finding"
 }

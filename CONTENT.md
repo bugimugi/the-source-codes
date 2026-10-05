@@ -23,6 +23,14 @@ Jede Aussage ist eine Datei in `content/claims/<id>.json` (Vorlage: `_template.j
 
 Die Stufe richtet sich nach der Beweislage, nicht nach der Quellenart. Ein Interview oder Laborprotokoll allein trägt „gesichert“/„belegt“ nicht.
 
+## Textbefunde (Zählungen in Texten)
+
+Aussagen darüber, was ein Text enthält (z. B. Wortzählungen in Koran, Bibel, historischen Schriften), bekommen `"type": "text-finding"`.
+- Quelle vom Typ `text-count` mit **`method`** (genaue Zählregel: welche Wortformen, Präfixe, Dual/Plural, Bedeutung ja/nein) und **`editions`** (mindestens zwei unabhängige Textausgaben, mit derselben Regel gezählt).
+- Erreichbar ist höchstens „Belegt, Deutung offen“ (`supported`), nie „Gesichert“. Die Aussage nennt nur die Zahl; was sie *bedeutet*, ist ein eigener Eintrag (`type: "empirical"`) und braucht echte Belege.
+- Alternative Regeln, die andere Zahlen ergeben, gehören in `method` oder `body`.
+- Zählskripte unter `scripts/verify/`, damit jede Zahl nachprüfbar ist.
+
 ## Interviews
 
 - `consent: true` erst setzen, wenn die Einwilligung zur Veröffentlichung von Name und Aussagen **schriftlich** vorliegt.

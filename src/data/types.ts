@@ -19,6 +19,7 @@ export type SourceKind =
   | "historical-document"
   | "primary-text"
   | "lab-record"
+  | "text-count"
   | "preprint"
   | "conference-abstract"
   | "interview";
@@ -54,6 +55,10 @@ export interface Source {
   verified: boolean;
   /** Free-text note, e.g. methodological caveats */
   note?: string;
+  /** text-count: the exact counting rule, so that anyone can reproduce or dispute the number */
+  method?: string;
+  /** text-count: independent editions/texts that were counted with the same rule (at least two) */
+  editions?: string[];
   /** Interviews / lab records: ISO date (YYYY-MM-DD) and place of the conversation or measurement */
   date?: string;
   place?: string;
@@ -61,8 +66,17 @@ export interface Source {
   consent?: boolean;
 }
 
+/**
+ * "empirical" (default): needs studies/measurements.
+ * "text-finding": a statement about what a text contains (e.g. word counts). It may reach
+ * "supported" through a reproducible text-count source, never "established", and it says
+ * nothing about what the finding means – interpretations are separate claims.
+ */
+export type ClaimType = "empirical" | "text-finding";
+
 export interface Claim {
   id: string;
+  type?: ClaimType;
   area: Area;
   /** The statement exactly as it is shown to the reader */
   statement: string;
@@ -94,6 +108,7 @@ export const KIND_LABEL: Record<SourceKind, string> = {
   "historical-document": "Historisches Dokument",
   "primary-text": "Primärtext",
   "lab-record": "Laborprotokoll / Messung",
+  "text-count": "Textzählung (Primärtext-Befund)",
   preprint: "Preprint (nicht begutachtet)",
   "conference-abstract": "Konferenzposter / Abstract",
   interview: "Interview",

@@ -9,17 +9,23 @@
   "sources": [
     {
       "id": "own-count-monthday",
-      "kind": "lab-record",
+      "kind": "text-count",
       "title": "Wortzählung shahr / yawm in zwei Koranausgaben",
       "author": "Eigene Zählung (Claude Code), 05.10.2026",
       "date": "2026-10-05",
       "place": "scripts/verify/quran-counts.py",
       "citation": "Reproduzierbar: scripts/verify/quran-counts.py; Ausgabe in content/research/quran-counts-output-2026-10-05.txt",
       "verified": true,
-      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt."
+      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt.",
+      "method": "shahr bzw. yawm im Singular (inkl. Akkusativ und Präfixen); Dual, Plural und Formen mit Pronomen ausgenommen; kein Abgleich der Bedeutung. Mit Dual: yawm 368.",
+      "editions": [
+        "quran-json 3.1.2 (Noble Qur'an Encyclopedia)",
+        "@muslims-community/quran 1.1.0 (Tanzil)"
+      ]
     }
   ],
   "related": [
     "quran-numerology-inference"
-  ]
+  ],
+  "type": "text-finding"
 }

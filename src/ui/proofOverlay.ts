@@ -22,6 +22,8 @@ function sourceNode(s: Source): HTMLElement {
   box.append(el("strong", { text: s.title }));
   const meta = [s.author, s.year, s.date, s.place, s.citation].filter(Boolean).join(" · ");
   box.append(el("small", { text: meta }));
+  if (s.method) box.append(el("small", { text: `Zählregel: ${s.method}` }));
+  if (s.editions?.length) box.append(el("small", { text: `Ausgaben: ${s.editions.join(" · ")}` }));
   if (s.note) box.append(el("small", { text: s.note }));
   if (!s.verified) {
     box.append(el("small", { className: "warn", text: "⚠ Zitat noch nicht gegen das Original geprüft" }));

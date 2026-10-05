@@ -9,14 +9,19 @@
   "sources": [
     {
       "id": "own-count-115",
-      "kind": "lab-record",
+      "kind": "text-count",
       "title": "Wortzählung ad-dunyā / al-ākhira in zwei Koranausgaben",
       "author": "Eigene Zählung (Claude Code), 05.10.2026",
       "date": "2026-10-05",
       "place": "scripts/verify/quran-counts.py",
       "citation": "Reproduzierbar: scripts/verify/quran-counts.py; Ausgabe in content/research/quran-counts-output-2026-10-05.txt",
       "verified": true,
-      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt."
+      "note": "Zwei digitale Ausgaben des Hafs-Textes mit identischer Regel gezählt: (A) npm quran-json 3.1.2 (Noble Qur'an Encyclopedia), (B) npm @muslims-community/quran 1.1.0 (Tanzil). Beide liefern identische Zahlen. Digitale Ausgaben, keine Handschriften; corpus.quran.com und tanzil.net waren vom Netzwerk gesperrt.",
+      "method": "Formen von ad-dunyā bzw. al-ākhira (feminin, bestimmt, mit Präfixen); 3:72 (ākhirahu) ausgenommen; kein Abgleich der Bedeutung. Alternative Regel (Bedeutung „diese Welt“, ohne 8:42, 37:6, 41:12, 67:5): 111:115.",
+      "editions": [
+        "quran-json 3.1.2 (Noble Qur'an Encyclopedia)",
+        "@muslims-community/quran 1.1.0 (Tanzil)"
+      ]
     },
     {
       "id": "wikiislam-dunya",
@@ -32,5 +37,6 @@
   "related": [
     "quran-numbers-3213",
     "quran-numerology-inference"
-  ]
+  ],
+  "type": "text-finding"
 }

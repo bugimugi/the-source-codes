@@ -1,0 +1,25 @@
+{
+  "name": "the-source-codes",
+  "version": "0.1.0",
+  "description": "THE SOURCE CODES – investigative field documentation with graded evidence",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "validate:data": "node --experimental-strip-types scripts/validate.ts"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/three": "*",
+    "typescript": "*",
+    "vite": "*"
+  }
+}

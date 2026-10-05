@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE SOURCE CODES</title>
+    <meta name="description" content="Investigative Felddokumentation: Jede Aussage mit Quelle und Belegstufe." />
+  </head>
+  <body>
+    <canvas id="gl" aria-hidden="true"></canvas>
+
+    <main class="hero">
+      <p class="eyebrow" data-reveal>Investigative Felddokumentation</p>
+      <h1 data-reveal>
+        <span class="line"><span>THE SOURCE</span></span>
+        <span class="line"><span>CODES</span></span>
+      </h1>
+      <p class="lead" data-reveal>
+        Was ist <em>Beleg</em> – und was nur <em>Behauptung</em>? Jede Aussage
+        auf dieser Seite trägt ihre Quelle und ihre Belegstufe offen mit sich.
+      </p>
+
+      <p class="claim" data-reveal>
+        Lebende Zellen halten ein elektrisches Membranpotenzial aufrecht – bei
+        Nervenzellen in Ruhe etwa −70&nbsp;mV.
+        <button class="proof" data-claim="membrane-potential" aria-label="Belege zu dieser Aussage öffnen">
+          <span class="proof-dot"></span><span class="proof-i">i</span>
+        </button>
+      </p>
+
+      <p class="hint" data-reveal>Bewege den Cursor durch das Feld · Klicke auf <span class="proof-inline">i</span> für den Nachweis</p>
+    </main>
+
+    <div id="overlay" class="overlay" hidden>
+      <div class="overlay-backdrop" data-close></div>
+      <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1"></section>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

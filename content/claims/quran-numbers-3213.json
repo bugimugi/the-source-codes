@@ -1,0 +1,30 @@
+{
+  "id": "quran-numbers-3213",
+  "area": "texte-tradition",
+  "status": "draft",
+  "statement": "Im Koran stehen „Meer“ und „Land“ im Verhältnis 32:13, das dem Erdverhältnis von 71,11 % zu 28,88 % entspricht.",
+  "level": "hypothesis",
+  "rationale": "Prüfung ausstehend: Wortzählung selbst am Quranic Arabic Corpus (corpus.quran.com) durchführen und Ergebnis eintragen. Die reale Erdoberfläche besteht laut USGS zu ca. 71 % aus Wasser, nicht exakt 71,11 % (nicht geprüft). Dasselbe gilt für 115:115.",
+  "sources": [
+    {
+      "id": "qac",
+      "kind": "primary-text",
+      "title": "Quranic Arabic Corpus",
+      "author": "corpus.quran.com",
+      "citation": "Zum Nachzählen",
+      "url": "https://corpus.quran.com",
+      "verified": false
+    },
+    {
+      "id": "usgs",
+      "kind": "lab-record",
+      "title": "USGS – Wasseranteil der Erdoberfläche",
+      "author": "USGS",
+      "citation": "Konkrete Seite noch ergänzen",
+      "verified": false
+    }
+  ],
+  "related": [
+    "alaqa-embryology"
+  ]
+}

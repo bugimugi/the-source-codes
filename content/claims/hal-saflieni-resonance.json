@@ -1,0 +1,23 @@
+{
+  "id": "hal-saflieni-resonance",
+  "area": "akustik-architektur",
+  "status": "draft",
+  "statement": "Im Hal-Saflieni-Hypogäum (Malta) liegen Resonanzen für männliche Stimmen bei ca. 114 Hz und 68–70 Hz – nicht exakt bei 110/111 Hz.",
+  "level": "supported",
+  "rationale": "Archäoakustische Messung der Universität Malta. Relevanz der Resonanzen für Wirkungen auf den Menschen ist damit nicht gezeigt. Publikationsform (begutachtet?) noch klären.",
+  "sources": [
+    {
+      "id": "um-saflieni",
+      "kind": "lab-record",
+      "title": "Archaeoacoustic Analysis of the Ħal Saflieni Hypogeum in Malta",
+      "author": "Univ. Malta (Autoren noch ergänzen)",
+      "citation": "OA-Repositorium der Universität Malta",
+      "url": "https://www.um.edu.mt/library/oar/bitstream/123456789/16630/1/OA%20Archaeoacoustic%20Analysis%20of%20the%20%C4%A6al%20Saflieni%20Hypogeum%20in%20Malta.pdf",
+      "verified": false
+    }
+  ],
+  "related": [
+    "cook-110hz",
+    "chladni"
+  ]
+}

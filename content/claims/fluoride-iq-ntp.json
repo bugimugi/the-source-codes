@@ -1,0 +1,33 @@
+{
+  "id": "fluoride-iq-ntp",
+  "area": "ernaehrung-umwelt",
+  "status": "draft",
+  "statement": "Hohe Fluoridexposition (über 1,5 mg/L im Trinkwasser) hängt mit niedrigerem IQ bei Kindern zusammen.",
+  "level": "supported",
+  "rationale": "Mäßige Konfidenz laut NTP-Monographie. Die Studie trifft ausdrücklich keine Aussage zur Fluoridierung bei 0,7 mg/L. Eine Meta-Analyse (JAMA Pediatrics 2025) wird erwähnt. Betrifft Neuroentwicklung, nicht die Zirbeldrüse – getrennt halten.",
+  "sources": [
+    {
+      "id": "ntp-2024",
+      "kind": "systematic-review",
+      "title": "Fluoride Exposure and Neurodevelopment and Cognition",
+      "author": "National Toxicology Program",
+      "year": 2024,
+      "citation": "NTP Monograph 08. DOI 10.22427/NTP-MGRAPH-8",
+      "url": "https://ntp.niehs.nih.gov/publications/monographs/mgraph08",
+      "verified": false
+    },
+    {
+      "id": "taylor-2025",
+      "kind": "systematic-review",
+      "title": "Meta-Analyse zu Fluorid und Neuroentwicklung (Titel noch zu ergänzen)",
+      "author": "Taylor et al.",
+      "year": 2025,
+      "citation": "JAMA Pediatrics, 2025; erwähnt in PMC12700148",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12700148/",
+      "verified": false
+    }
+  ],
+  "related": [
+    "fluoride-pineal"
+  ]
+}

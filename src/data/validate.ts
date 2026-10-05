@@ -10,8 +10,8 @@ const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
  *
  * Errors:
  * - duplicate claim ids, missing rationale, no source
- * - "established"/"supported" need a verified peer-reviewed source;
- *   interviews, patents and lab records alone cannot carry them
+ * - published "established"/"supported" claims need a verified peer-reviewed source
+ *   (drafts only get a warning); interviews, patents and lab records alone cannot carry them
  * - interviews need written consent (consent: true) and an ISO date
  * - published claims need a related target that exists
  * Warnings:
@@ -35,7 +35,9 @@ export function validateClaims(claims: Claim[]): { errors: string[]; warnings: s
       STRONG_LEVELS.includes(c.level) &&
       !c.sources.some((s) => STRONG_SOURCES.includes(s.kind) && s.verified)
     ) {
-      errors.push(`${c.id}: Stufe "${c.level}" braucht eine verifizierte Peer-Review-Quelle`);
+      (c.status === "published" ? errors : warnings).push(
+        `${c.id}: Stufe "${c.level}" braucht vor der Veröffentlichung eine verifizierte Peer-Review-Quelle`,
+      );
     }
     for (const s of c.sources) {
       if (s.kind === "interview") {

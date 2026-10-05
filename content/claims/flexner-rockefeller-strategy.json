@@ -1,0 +1,40 @@
+{
+  "id": "flexner-rockefeller-strategy",
+  "area": "medizingeschichte",
+  "status": "draft",
+  "statement": "Der Flexner-Report war eine gezielte Strategie, Naturheilkunde zugunsten eines Pharmakartells zu verdrängen.",
+  "level": "hypothesis",
+  "rationale": "Interpretation, nur teilweise belegbar. Belegt ist: Der Report wurde von der Carnegie-Stiftung beauftragt (nicht von Rockefeller) und es folgten zahlreiche Schulschließungen. Die Rolle des Rockefeller General Education Board bei der Umsetzung ist in der Primärliteratur noch zu klären und nicht aus Zusammenfassungen zu übernehmen.",
+  "sources": [
+    {
+      "id": "rockarch",
+      "kind": "historical-document",
+      "title": "Early 20th-century reforms of medical education worldwide",
+      "author": "Rockefeller Archive Center",
+      "citation": "Archivseite",
+      "url": "https://resource.rockarch.org/story/early-20th-century-reforms-of-medical-education-worldwide/",
+      "verified": false
+    },
+    {
+      "id": "ucsf-flexner",
+      "kind": "historical-document",
+      "title": "The Flexner Report",
+      "author": "UCSF Library",
+      "citation": "Archivseite",
+      "url": "https://history.library.ucsf.edu/flexner_report.html",
+      "verified": false
+    },
+    {
+      "id": "brown-1979",
+      "kind": "primary-text",
+      "title": "Rockefeller Medicine Men",
+      "author": "E. Richard Brown",
+      "year": 1979,
+      "citation": "Buch, 1979 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": [
+    "flexner"
+  ]
+}

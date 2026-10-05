@@ -1,0 +1,32 @@
+{
+  "id": "membrane-words-frequencies",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Wörter oder Frequenzen können ein abgestürztes Membranpotenzial reparieren und dadurch Krebs beheben.",
+  "level": "unsupported",
+  "rationale": "Keine Quelle gefunden. Die Depolarisations-These zur Krebsentstehung wird diskutiert (Cone 1971), ein Beleg für Behebung durch Wörter oder Frequenzen fehlt. Quellen unten sind nur Suchhinweise.",
+  "sources": [
+    {
+      "id": "cone-1971",
+      "kind": "peer-reviewed",
+      "title": "Depolarisations-These (Titel noch zu ermitteln)",
+      "author": "C. D. Cone",
+      "year": 1971,
+      "citation": "J Theor Biol, 1971 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    },
+    {
+      "id": "lipton-2005",
+      "kind": "primary-text",
+      "title": "The Biology of Belief",
+      "author": "Bruce Lipton",
+      "year": 2005,
+      "citation": "Buch, 2005 – populärwissenschaftlich",
+      "verified": false
+    }
+  ],
+  "related": [
+    "levin-bioelectric",
+    "words-collapse-proteins"
+  ]
+}

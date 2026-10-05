@@ -1,0 +1,25 @@
+{
+  "id": "levin-bioelectric",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Bioelektrische Signale von Zellen steuern Embryonalentwicklung, Regeneration und Krebs – ein aktives Forschungsfeld.",
+  "level": "hypothesis",
+  "rationale": "Perspektiv-Artikel mit Forschungsfahrplan, kein klinischer Beleg. Zeigt, dass Bioelektrizität erforscht wird, nicht dass sich Krebs damit behandeln lässt.",
+  "sources": [
+    {
+      "id": "levin-2021",
+      "kind": "peer-reviewed",
+      "title": "Bioelectric signaling: Reprogrammable circuits underlying embryogenesis, regeneration, and cancer",
+      "author": "Michael Levin",
+      "year": 2021,
+      "citation": "Cell 184(8):1971–1989. DOI 10.1016/j.cell.2021.02.034",
+      "url": "https://www.cell.com/cell/fulltext/S0092-8674(21)00223-3",
+      "verified": false
+    }
+  ],
+  "related": [
+    "membrane-potential",
+    "warburg",
+    "membrane-words-frequencies"
+  ]
+}

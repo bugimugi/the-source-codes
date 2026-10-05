@@ -1,0 +1,45 @@
+{
+  "id": "rife-holland-dcrff",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Gepulste Felder um 156–162 kHz verringerten in Zellkultur das Wachstum einer Leukämie-Zelllinie (ALL) im Durchschnitt um ca. 38 %.",
+  "level": "hypothesis",
+  "rationale": "In vitro; Preprint und Konferenzposter, keine begutachtete Journal-Publikation gefunden; keine Tier- oder Humandaten. Gemessen wurde Wachstumshemmung, nicht Zerstörung. Wirkung auf gesunde Zellen im Preprint nicht geklärt (nicht geprüft). Zahlen in Hollands Materialien schwanken (38/43/44/65/72 %) – immer genaue Zahl mit Zelllinie, Frequenz und Quelle angeben. Ein Teil der Daten sei laut Pressebericht wegen beschädigter Geräte nicht verwertbar gewesen.",
+  "body": "Nicht als Beleg verwenden: PEMF Magazine und zapper-pro.si (Werbetexte bzw. Verkaufsseiten).",
+  "sources": [
+    {
+      "id": "holland-preprint-2023",
+      "kind": "preprint",
+      "title": "Destructive Cancer Resonant Frequency Formant (DCRFF) Reduces Acute Lymphoblastic Leukemia Growth",
+      "author": "Anthony G. Holland (Novobiotronics / Skidmore College), J. Bare",
+      "year": 2023,
+      "citation": "Preprints.org 202305.2053",
+      "url": "https://www.preprints.org/manuscript/202305.2053",
+      "note": "Nicht verwechseln mit Prof. Anthony J. Holland (Psychiater, Cambridge) oder Prof. Anthony Holland (RMIT).",
+      "verified": false
+    },
+    {
+      "id": "holland-bioem-2015",
+      "kind": "conference-abstract",
+      "title": "Cell Fragmentation and Inhibition of Proliferation of Human Leukemia Cells In Vitro by Frequency-Specific Amplitude Modulated RF Pulsed Plasmas",
+      "author": "Anthony G. Holland et al.",
+      "year": 2015,
+      "citation": "BIOEM 2015 (Poster/Abstract)",
+      "url": "https://www.researchgate.net/publication/304597060",
+      "verified": false
+    },
+    {
+      "id": "holland-ted",
+      "kind": "primary-text",
+      "title": "Shattering Cancer with Resonant Frequencies (TEDxSkidmoreCollege) – Transkript",
+      "author": "Anthony G. Holland",
+      "citation": "Vortrag, Transkript auf singjupost.com",
+      "url": "https://singjupost.com/anthony-holland-shattering-cancer-with-resonant-frequencies-at-tedxskidmorecollege-transcript/",
+      "verified": false
+    }
+  ],
+  "related": [
+    "rife",
+    "ttfields-glioblastoma"
+  ]
+}

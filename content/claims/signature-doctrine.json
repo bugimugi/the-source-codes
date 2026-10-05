@@ -1,0 +1,20 @@
+{
+  "id": "signature-doctrine",
+  "area": "pflanzenheilkunde",
+  "status": "draft",
+  "statement": "Nahrungsmittel, die Organen ähneln (Karotte – Auge, Walnuss – Gehirn), heilen diese Organe (Signaturenlehre).",
+  "level": "historical",
+  "rationale": "Als historisch-kulturelle Lehre dokumentiert, Wirkbelege gibt es nicht. Quelle ist ein Suchhinweis aus dem Gedächtnis.",
+  "sources": [
+    {
+      "id": "bennett-2007",
+      "kind": "peer-reviewed",
+      "title": "Doctrine of Signatures (Titel zu prüfen)",
+      "author": "B. C. Bennett",
+      "year": 2007,
+      "citation": "Economic Botany, 2007 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": []
+}

@@ -19,6 +19,8 @@ export type SourceKind =
   | "historical-document"
   | "primary-text"
   | "lab-record"
+  | "preprint"
+  | "conference-abstract"
   | "interview";
 
 export type Area =
@@ -26,7 +28,8 @@ export type Area =
   | "medizingeschichte"
   | "pflanzenheilkunde"
   | "ernaehrung-umwelt"
-  | "akustik-architektur";
+  | "akustik-architektur"
+  | "texte-tradition";
 
 export const AREA_LABEL: Record<Area, string> = {
   biophysik: "Biophysik",
@@ -34,6 +37,7 @@ export const AREA_LABEL: Record<Area, string> = {
   pflanzenheilkunde: "Pflanzenheilkunde",
   "ernaehrung-umwelt": "Ernährung & Umwelt",
   "akustik-architektur": "Akustik & Architektur",
+  "texte-tradition": "Texte & Tradition",
 };
 
 export interface Source {
@@ -89,6 +93,8 @@ export const KIND_LABEL: Record<SourceKind, string> = {
   patent: "Patentschrift",
   "historical-document": "Historisches Dokument",
   "primary-text": "Primärtext",
-  "lab-record": "Laborprotokoll",
+  "lab-record": "Laborprotokoll / Messung",
+  preprint: "Preprint (nicht begutachtet)",
+  "conference-abstract": "Konferenzposter / Abstract",
   interview: "Interview",
 };

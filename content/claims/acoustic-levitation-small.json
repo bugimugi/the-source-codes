@@ -1,0 +1,31 @@
+{
+  "id": "acoustic-levitation-small",
+  "area": "akustik-architektur",
+  "status": "draft",
+  "statement": "Mit Ultraschall lassen sich kleine, leichte Objekte schweben lassen (akustische Levitation).",
+  "level": "supported",
+  "rationale": "Laborprinzip für Kleinstobjekte. Quellen sind noch Suchhinweise aus dem Gedächtnis und müssen gefunden und geprüft werden.",
+  "sources": [
+    {
+      "id": "brandt-2001",
+      "kind": "peer-reviewed",
+      "title": "Acoustic levitation (Titel zu prüfen)",
+      "author": "E. H. Brandt",
+      "year": 2001,
+      "citation": "Nature, 2001 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    },
+    {
+      "id": "marzo-2015",
+      "kind": "peer-reviewed",
+      "title": "Holographic acoustic elements for manipulation of levitated objects",
+      "author": "A. Marzo et al.",
+      "year": 2015,
+      "citation": "Nat Commun, 2015 – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": [
+    "acoustic-levitation"
+  ]
+}

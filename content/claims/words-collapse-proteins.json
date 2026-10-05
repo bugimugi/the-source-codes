@@ -1,0 +1,22 @@
+{
+  "id": "words-collapse-proteins",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Negative Worte und Flüche lassen Proteine „kollabieren“, positive Absichten aktivieren die DNA-Reparatur.",
+  "level": "unsupported",
+  "rationale": "Keine Quelle gefunden.",
+  "sources": [
+    {
+      "id": "words-claim",
+      "kind": "primary-text",
+      "title": "Verbreitete Behauptung – Primärquelle noch zu ermitteln",
+      "author": "unbekannt",
+      "citation": "Herkunft wird recherchiert",
+      "verified": false
+    }
+  ],
+  "related": [
+    "emoto-water-intention",
+    "membrane-words-frequencies"
+  ]
+}

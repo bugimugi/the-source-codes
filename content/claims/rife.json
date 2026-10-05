@@ -14,5 +14,9 @@
       "verified": false
     }
   ],
-  "status": "published"
+  "status": "published",
+  "related": [
+    "rife-holland-dcrff",
+    "ttfields-glioblastoma"
+  ]
 }

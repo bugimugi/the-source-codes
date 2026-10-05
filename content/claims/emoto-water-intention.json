@@ -1,0 +1,41 @@
+{
+  "id": "emoto-water-intention",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Absichtsvolle Gedanken beeinflussen die Form von Wasserkristallen beim Gefrieren.",
+  "level": "hypothesis",
+  "rationale": "Eine verblindete Replikation (über 2.500 Beurteiler, p = 0,03 einseitig). Der Autor selbst nennt die Effekte klein und schwach; die Bewertung („Schönheit“ der Kristalle) ist subjektiv. Nur eine Replikation, Stufe ist an der Grenze zu „nicht belegt“.",
+  "sources": [
+    {
+      "id": "radin-2008",
+      "kind": "peer-reviewed",
+      "title": "Effects of Distant Intention on Water Crystal Formation: A Triple-Blind Replication",
+      "author": "D. Radin, N. Lund, M. Emoto, T. Kizu",
+      "year": 2008,
+      "citation": "J Scientific Exploration 22(4):481–493",
+      "url": "https://philpapers.org/rec/RADEOD-2",
+      "verified": false
+    },
+    {
+      "id": "radin-2006",
+      "kind": "peer-reviewed",
+      "title": "Vorläuferstudie",
+      "author": "D. Radin et al.",
+      "year": 2006,
+      "citation": "Explore, DOI 10.1016/J.EXPLORE.2006.06.004",
+      "verified": false
+    },
+    {
+      "id": "emoto-1999",
+      "kind": "primary-text",
+      "title": "Messages from Water",
+      "author": "Masaru Emoto",
+      "year": 1999,
+      "citation": "Buch, 1999",
+      "verified": false
+    }
+  ],
+  "related": [
+    "words-collapse-proteins"
+  ]
+}

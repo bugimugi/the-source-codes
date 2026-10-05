@@ -1,0 +1,24 @@
+{
+  "id": "ttfields-glioblastoma",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Frequenzbasierte Krebstherapie ist klinisch geprüft: Tumor Treating Fields plus Temozolomid gegen Temozolomid allein bei Glioblastom (randomisierte Phase-3-Studie, 695 Patienten).",
+  "level": "supported",
+  "rationale": "Gegenüberstellung zu Rife und Holland: hier gibt es eine randomisierte klinische Studie. Ergebnisse (Überlebensdaten) und Zulassungsstatus müssen noch aus der Originalarbeit bzw. Behördenquellen übernommen werden.",
+  "sources": [
+    {
+      "id": "stupp-2017",
+      "kind": "peer-reviewed",
+      "title": "Effect of Tumor-Treating Fields Plus Maintenance Temozolomide vs Maintenance Temozolomide Alone on Survival in Patients With Glioblastoma",
+      "author": "R. Stupp et al.",
+      "year": 2017,
+      "citation": "JAMA 318(23):2306–2316. DOI 10.1001/jama.2017.18718",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2666504",
+      "verified": false
+    }
+  ],
+  "related": [
+    "rife-holland-dcrff",
+    "rife"
+  ]
+}

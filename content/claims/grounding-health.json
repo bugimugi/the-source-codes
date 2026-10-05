@@ -1,0 +1,41 @@
+{
+  "id": "grounding-health",
+  "area": "biophysik",
+  "status": "draft",
+  "statement": "Elektrische Erdung des Körpers (Earthing, z. B. Barfußgehen, leitende Matten) hat gesundheitliche Effekte.",
+  "level": "hypothesis",
+  "rationale": "Kleine Studien, kaum Kontrollgruppen (die Blutviskositäts-Studie hatte N = 10 und keine Kontrolle); mögliche Interessenkonflikte noch selbst zu prüfen. Kritische Übersichtsarbeit liegt vor.",
+  "sources": [
+    {
+      "id": "chevalier-2012",
+      "kind": "peer-reviewed",
+      "title": "Earthing: Health Implications of Reconnecting the Human Body to the Earth's Surface Electrons",
+      "author": "G. Chevalier, S. T. Sinatra, J. L. Oschman, K. Sokal, P. Sokal",
+      "year": 2012,
+      "citation": "J Environ Public Health 2012:291541. DOI 10.1155/2012/291541",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3265077",
+      "verified": false
+    },
+    {
+      "id": "grounding-review",
+      "kind": "peer-reviewed",
+      "title": "Grounding … An integrative review (kritische Übersicht)",
+      "author": "Autoren noch ergänzen",
+      "citation": "ScienceDirect S2319417022001573",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2319417022001573",
+      "verified": false
+    },
+    {
+      "id": "menigoz-2020",
+      "kind": "peer-reviewed",
+      "title": "Übersichtsarbeit zu Grounding",
+      "author": "W. Menigoz et al.",
+      "year": 2020,
+      "citation": "Explore 16:152–160",
+      "verified": false
+    }
+  ],
+  "related": [
+    "sujud-grounding"
+  ]
+}

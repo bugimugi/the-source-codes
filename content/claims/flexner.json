@@ -12,10 +12,12 @@
       "author": "Abraham Flexner",
       "year": 1910,
       "citation": "Carnegie Foundation for the Advancement of Teaching, Bulletin No. 4",
-      "verified": true
+      "verified": true,
+      "url": "https://archive.org/details/medicaleducation00flexiala"
     }
   ],
   "related": [
+    "flexner-rockefeller-strategy",
     "willow-bark"
   ],
   "status": "published"

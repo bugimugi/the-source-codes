@@ -1,0 +1,31 @@
+{
+  "id": "alaqa-embryology",
+  "area": "texte-tradition",
+  "status": "draft",
+  "statement": "Das Koran-Wort ʿalaqa (Sure 23:12–14) beschreibt das Blutegel-Stadium des Embryos.",
+  "level": "hypothesis",
+  "rationale": "Es ist eine Frage von Wortbedeutung und Textgeschichte: Deutungen unterscheiden sich, antike Embryologie (Galen, Aristoteles) ist als Vergleich heranzuziehen. Alle Quellen sind noch aus dem Gedächtnis und ungeprüft.",
+  "sources": [
+    {
+      "id": "moore-1982",
+      "kind": "primary-text",
+      "title": "The Developing Human (3. Aufl.)",
+      "author": "K. Moore, A. Az-Zindani",
+      "year": 1982,
+      "citation": "Buch, 1982 – nicht geprüft",
+      "verified": false
+    },
+    {
+      "id": "musallam-1983",
+      "kind": "primary-text",
+      "title": "Sex and Society in Islam",
+      "author": "B. Musallam",
+      "year": 1983,
+      "citation": "Buch, 1983 – nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": [
+    "quran-numbers-3213"
+  ]
+}

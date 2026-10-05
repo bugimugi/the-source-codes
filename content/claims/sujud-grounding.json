@@ -1,0 +1,21 @@
+{
+  "id": "sujud-grounding",
+  "area": "texte-tradition",
+  "status": "draft",
+  "statement": "Beim Sujud fließt elektrische Überladung (EMF-Stress, freie Radikale) als Elektronenstrom in die Erde ab.",
+  "level": "unsupported",
+  "rationale": "Keine Studie gefunden. Die religiöse Praxis selbst ist davon unberührt; geprüft wird nur die physikalische Behauptung.",
+  "sources": [
+    {
+      "id": "sujud-claim",
+      "kind": "primary-text",
+      "title": "Verbreitete Behauptung – Primärquelle noch zu ermitteln",
+      "author": "unbekannt",
+      "citation": "Herkunft wird recherchiert",
+      "verified": false
+    }
+  ],
+  "related": [
+    "grounding-health"
+  ]
+}

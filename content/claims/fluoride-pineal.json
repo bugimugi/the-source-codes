@@ -12,11 +12,23 @@
       "author": "Jennifer Luke",
       "year": 2001,
       "citation": "Caries Res 35(2):125–128",
+      "verified": false,
+      "note": "11 Leichen (Durchschnitt ca. 82 Jahre): Zirbeldrüse enthielt deutlich mehr Fluorid als Muskel, Fluorid korrelierte mit Kalzium. Funktion der Zirbeldrüse wurde nicht gemessen.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11275672/"
+    },
+    {
+      "id": "science-feedback",
+      "kind": "historical-document",
+      "title": "Einordnung: Luke zeigte keine Funktionsschädigung der Zirbeldrüse",
+      "author": "Science Feedback",
+      "citation": "Faktencheck",
+      "url": "https://science.feedback.org/review/insufficient-evidence-to-support-kanye-west-claim-fluoride-in-toothpaste-harms-pineal-gland-joe-rogan-experience/",
       "verified": false
     }
   ],
   "related": [
-    "fluoride-intuition"
+    "fluoride-intuition",
+    "fluoride-iq-ntp"
   ],
   "status": "published"
 }

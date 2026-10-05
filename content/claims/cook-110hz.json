@@ -1,0 +1,23 @@
+{
+  "id": "cook-110hz",
+  "area": "akustik-architektur",
+  "status": "draft",
+  "statement": "Eine Raumresonanz bei ca. 110 Hz ging in einer Pilotstudie mit veränderter Hirnaktivität einher (EEG, geringere Aktivität links temporal).",
+  "level": "hypothesis",
+  "rationale": "Pilotstudie mit 30 gesunden Erwachsenen, kleine Stichprobe, nicht breit repliziert.",
+  "sources": [
+    {
+      "id": "cook-2008",
+      "kind": "peer-reviewed",
+      "title": "Ancient Architectural Acoustic Resonance Patterns and Regional Brain Activity",
+      "author": "I. A. Cook, S. K. Pajot, A. F. Leuchter",
+      "year": 2008,
+      "citation": "Time and Mind 1(1):95–104",
+      "verified": false
+    }
+  ],
+  "related": [
+    "hal-saflieni-resonance",
+    "hz432-theta"
+  ]
+}

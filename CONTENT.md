@@ -63,3 +63,12 @@ Ein Eintrag beschreibt eine Pflanze, ein Kraut, Obst/Gemüse oder einen Stein.
 - `claims`: Ids der bewerteten Aussagen zu Wirkung oder Anwendung. **Jede Wirkungsaussage ist ein Claim** mit Belegstufe und gehört nicht in `facts`.
 - `model`: Typ und Farbe für das prozedurale 3D-Modell (`quartz`, `fluorite`, `pyrite`, `garnet`, `tourmaline`, `malachite`, `lapis`, `obsidian`, `flower`, `herb`, `lavender`, `rhizome`, `willow`, `nut`, `carrot`, `fruit`).
 - Neue Modellformen: `src/gl/models.ts` erweitern. Echte Fotos oder gescannte 3D-Modelle (glTF) lassen sich später ergänzen, brauchen aber freie Lizenzen.
+
+## Pilot-Workflow (Inhalte zuerst, Fachprüfung danach)
+
+1. Neue Inhalte vom Betreiber als Claim anlegen: `level: "claimed"`, Quelle `kind: "editorial-input"`, `review: {"state": "pending"}`.
+2. `npm run review:export` erzeugt `exports/expert-review.md`: alle Aussagen mit Quellen und Platz für das Urteil der Fachleute.
+3. Nach der Prüfung pro Aussage eintragen: `review: {"state": "confirmed" | "corrected" | "rejected", "reviewer": "Name", "role": "Fachgebiet", "date": "YYYY-MM-DD", "note": "…"}`
+   und eine **echte Belegstufe** statt `claimed` vergeben (bei `corrected` auch den Text anpassen).
+4. `npm run release:check` zeigt, was noch offen ist. `npm run build:release` bricht ab, solange etwas ungeprüft ist.
+5. Der Pilot-Hinweis auf der Seite verschwindet von selbst, wenn alle veröffentlichten Aussagen geprüft sind.

@@ -8,19 +8,39 @@ Eine interaktive Wissens-Webseite („digitale Bibliothek“) über Körper, Nat
 Kernprinzip: **Jede Aussage hat Quellen und eine Belegstufe.** Das System dafür (content/, src/data/) ist der wertvollste Teil.
 Domain `thesourcecodes.io` ist noch NICHT gekauft – nicht als existierend darstellen.
 
-## Redaktionelle Regeln (nicht verhandelbar)
-- Keine erfundenen Quellen, Studien, DOIs, Zahlen, Statistiken. Fehlendes als „Source pending verification“ kennzeichnen.
-- Keine Heilversprechen, keine medizinischen Ratschläge. Tradition (Chakren, Signaturenlehre, Kristallwirkung) wird als
-  Überlieferung mit Herkunft gezeigt, nie als Wirkbeleg. Wirkungsaussagen sind bewertete Claims (content/claims/).
-- Belegstufen: established, supported, hypothesis, historical, unsupported, refuted. „established/supported“ braucht für
-  veröffentlichte Claims eine verifizierte Peer-Review-Quelle (Ausnahme: `type: "text-finding"` mit offengelegter Zählregel).
-- Koran-/Textzahlen: nur als Textbefund mit Zählregel und zwei Textausgaben (`scripts/verify/quran-counts.py`). Deutungen
-  („Wunder“) sind ein eigener Claim, aktuell „unsupported“. Koran-Einträge bleiben `status: "draft"`, bis eine Arabistin/ein
-  Hodja sie geprüft hat (Prüfbogen: content/research/pruefbogen-arabistik.md).
-- Mockups enthalten Platzhalter wie „10,000+ Verified References“ oder „VERIFIED“-Stempel: NICHT übernehmen. Zahlen kommen
-  aus den echten Daten (siehe src/main.ts, Stats).
-- Erst bei Gesundheitsthemen: Hinweis „Informationsangebot – keine medizinische Beratung“ bleibt sichtbar.
-- Impressum/Datenschutz fehlen noch (Nutzer liefert Name/Anschrift später). Nicht erfinden.
+## Arbeitsmodus: PILOT (vom Nutzer so festgelegt)
+Die Webseite ist ein **Pilotprojekt**. Sie wird zuerst mit allen Inhalten gebaut, die der Nutzer liefert, auch wenn sie nicht
+belegt sind. Erst wenn alles steht, prüfen Fachleute (Ärzte, Wissenschaftler, Physiker, Arabisten …) die Richtigkeit und
+korrigieren. Deshalb gilt:
+
+**Gelockert**
+- Inhalte des Nutzers werden so übernommen, wie er sie liefert – im Wortlaut und in der Absicht. Nicht abschwächen, nicht
+  umdeuten, nicht stillschweigend „korrigieren“. Hält Claude etwas für sachlich falsch, sagt es das in einem Satz und
+  pflegt es trotzdem ein (Hinweis in `rationale`), damit die Fachleute genau dort ansetzen können.
+- Neue, ungeprüfte Inhalte: `level: "claimed"`, Quelle `kind: "editorial-input"` („Angabe des Betreibers, ungeprüft“),
+  `review: { "state": "pending" }`, `status: "published"` (sichtbar in der Pilotseite). Die Pflicht zu Peer-Review-Quellen
+  gilt erst nach der Fachprüfung (siehe `src/data/validate.ts`).
+- Bereits vergebene Belegstufen bleiben, wenn Gegenbelege bekannt sind (z. B. Rife = `unsupported`). `claimed` ist nur für
+  das, was noch niemand bewertet hat. Koran-Einträge dürfen in der Pilotseite sichtbar sein (Review `pending`).
+- Inhaltlich breit und mutig sein ist erlaubt.
+
+**Bleibt (Schutzlinien, auch im Pilot)**
+1. Keine erfundenen Quellen, DOIs, Studien, Zahlen, Zitate oder Experten. Fehlt eine Quelle: „Source pending verification“.
+2. Nichts wird `confirmed`/`corrected`/„verified“ ohne echte Prüfung durch eine genannte Person mit Datum (`review.reviewer`, `review.date`).
+3. Keine Anleitungen, Medikamente abzusetzen oder zu ersetzen, keine Dosierungen oder Behandlungsanleitungen für Krankheiten
+   (z. B. Krebs), keine Heilversprechen im eigenen Ton der Seite. Behauptungen erscheinen als Behauptung (`claimed`), nicht
+   als Tatsache. Der Hinweis „keine medizinische Beratung“ bleibt sichtbar.
+4. Der Pilot-Hinweis (Banner in `src/main.ts`) bleibt sichtbar, bis alle veröffentlichten Aussagen geprüft sind. **Nichts
+   Ungeprüftes wird öffentlich ausgeliefert:** `npm run build:release` (Prüfschranke `release:check`) muss bestehen, bevor
+   deployt wird. Kein Hosting auf einer öffentlichen Domain im Pilotstatus.
+5. Datenschutz bleibt (Einwilligung bei Interviews, keine privaten Daten, Noreply-Mailadresse in Commits).
+6. Zählungen in Texten (Koran usw.) nur als Textbefund mit Zählregel und zwei Ausgaben; Deutungen sind eigene Claims.
+7. Mockups enthalten Platzhalter („10,000+ Verified References“, „VERIFIED“-Stempel): nicht übernehmen, Zahlen aus echten Daten.
+8. Impressum/Datenschutz nicht erfinden (Nutzer liefert Name/Anschrift später). Domain `thesourcecodes.io` ist noch nicht gekauft.
+
+**Ablauf bis zur Veröffentlichung**
+Seite bauen → `npm run review:export` (erzeugt `exports/expert-review.md` für die Fachleute) → Fachleute prüfen →
+Ergebnisse eintragen (`review`, echte Belegstufe, Korrekturen) → `npm run build:release` → erst dann veröffentlichen.
 
 ## Datenschutz & Git
 - Repository ist **öffentlich** (github.com/bugimugi/the-source-codes). Keine privaten Daten, keine Interviews mit Klarnamen

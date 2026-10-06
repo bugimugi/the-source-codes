@@ -1,14 +1,15 @@
 import gsap from "gsap";
 import { claims } from "../data/claims";
-import { KIND_LABEL, type Claim, type Source, type SourceTab } from "../data/types";
+import { KIND_LABEL, isSettled, type Claim, type Source, type SourceTab } from "../data/types";
 
 /** Evidence status shown in the proof overlay (derived from level and kind of claim). */
-export type Status = "VERIFIED" | "SUPPORTED" | "PRELIMINARY" | "HISTORICAL" | "TRADITIONAL" | "DISPUTED" | "UNVERIFIED";
+export type Status = "UNREVIEWED" | "VERIFIED" | "SUPPORTED" | "PRELIMINARY" | "HISTORICAL" | "TRADITIONAL" | "DISPUTED" | "UNVERIFIED";
 
 const isTraditional = (c: Claim) => c.id.endsWith("traditional-use") || c.id === "signature-doctrine";
 
 export function statusOf(c: Claim): Status {
   switch (c.level) {
+    case "claimed": return "UNREVIEWED";
     case "established": return "VERIFIED";
     case "supported": return "SUPPORTED";
     case "hypothesis": return "PRELIMINARY";
@@ -19,7 +20,7 @@ export function statusOf(c: Claim): Status {
 }
 
 const STATUS_COLOR: Record<Status, string> = {
-  VERIFIED: "#5fe3a8", SUPPORTED: "#9bd16b", PRELIMINARY: "#f2c76b", HISTORICAL: "#8fb7ff",
+  UNREVIEWED: "#b9a4ff", VERIFIED: "#5fe3a8", SUPPORTED: "#9bd16b", PRELIMINARY: "#f2c76b", HISTORICAL: "#8fb7ff",
   TRADITIONAL: "#cbaa67", DISPUTED: "#ff6b7d", UNVERIFIED: "#ff9f6b",
 };
 
@@ -30,6 +31,7 @@ const TABS: { id: SourceTab; label: string }[] = [
   { id: "clinical", label: "Clinical" },
   { id: "traditional", label: "Traditional" },
   { id: "interview", label: "Interview" },
+  { id: "editorial", label: "Editorial" },
 ];
 
 function tabOf(s: Source, c: Claim): SourceTab {
@@ -37,6 +39,7 @@ function tabOf(s: Source, c: Claim): SourceTab {
   switch (s.kind) {
     case "patent": return "patent";
     case "interview": return "interview";
+    case "editorial-input": return "editorial";
     case "historical-document":
     case "primary-text": return isTraditional(c) ? "traditional" : "historical";
     default: return "study";
@@ -51,6 +54,7 @@ const GLYPH: Record<SourceTab, string> = {
   clinical: '<path d="M6 21h8l3-9 5 18 4-12 2 3h6"/><circle cx="20" cy="20" r="14"/>',
   traditional: '<path d="M20 34V16"/><path d="M20 22c-8 0-11-6-11-12 8 0 11 5 11 12zM20 26c7 0 10-5 10-11-7 0-10 5-10 11z"/>',
   interview: '<path d="M8 10h24v16H20l-7 6v-6H8z"/><path d="M14 16h12M14 21h8"/>',
+  editorial: '<path d="M10 30l2-8 14-14 6 6-14 14z"/><path d="M23 11l6 6"/>',
 };
 
 function icon(tab: SourceTab) {
@@ -104,6 +108,10 @@ export function initProofOverlay() {
     b.style.setProperty("--c", STATUS_COLOR[st]);
     row.append(b);
     if (!c.sources.some((s) => s.verified)) row.append(el("span", "badge-pending", "SOURCE PENDING VERIFICATION"));
+    const rv = c.review;
+    row.append(el("span", isSettled(c) ? "badge-ok" : "badge-review", isSettled(c)
+      ? `EXPERT REVIEW: ${rv!.state === "corrected" ? "CORRECTED" : "CONFIRMED"} · ${rv!.reviewer ?? ""}`
+      : rv?.state === "in-review" ? "EXPERT REVIEW: IN PROGRESS" : rv?.state === "rejected" ? "EXPERT REVIEW: REJECTED" : "EXPERT REVIEW: PENDING"));
     head.append(row, el("p", "", c.rationale));
     bodyEl.append(head);
     const list = c.sources.filter((s) => tabOf(s, c) === tab);

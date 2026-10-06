@@ -7,3 +7,4 @@ dist/
 # Only optimised pieces cut out of them go to public/assets/.
 design/mockups/*
 !design/mockups/README.md
+exports/

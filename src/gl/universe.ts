@@ -7,7 +7,7 @@ import { AREA_LABEL, LEVEL_LABEL, type Area, type Claim, type EvidenceLevel } fr
 import { dot, glowTexture, rng } from "./models";
 
 const LEVEL_COLOR: Record<EvidenceLevel, number> = {
-  established: 0x6ee7a8, supported: 0x9bd16b, hypothesis: 0xf2c76b,
+  claimed: 0xb9a4ff, established: 0x6ee7a8, supported: 0x9bd16b, hypothesis: 0xf2c76b,
   historical: 0x8fb7ff, unsupported: 0xff9f6b, refuted: 0xff6b7d,
 };
 

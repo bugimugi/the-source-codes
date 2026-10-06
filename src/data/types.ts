@@ -5,6 +5,7 @@
  */
 
 export type EvidenceLevel =
+  | "claimed" // stated by the editor, not yet assessed or reviewed by experts (pilot content)
   | "established" // robust, replicated, scientific consensus
   | "supported" // observed in peer-reviewed work; causal role / scope debated
   | "hypothesis" // plausible, preliminary, not yet replicated
@@ -22,6 +23,7 @@ export type SourceKind =
   | "text-count"
   | "preprint"
   | "conference-abstract"
+  | "editorial-input"
   | "interview";
 
 export type Area =
@@ -43,7 +45,7 @@ export const AREA_LABEL: Record<Area, string> = {
   "kristalle-mineralien": "Kristalle & Mineralien",
 };
 
-export type SourceTab = "study" | "patent" | "historical" | "clinical" | "traditional" | "interview";
+export type SourceTab = "study" | "patent" | "historical" | "clinical" | "traditional" | "interview" | "editorial";
 
 export interface Source {
   /** Overrides the proof-overlay tab derived from the source kind */
@@ -80,6 +82,21 @@ export interface Source {
  */
 export type ClaimType = "empirical" | "text-finding";
 
+/** Expert review of a claim. A missing review means "pending". */
+export type ReviewState = "pending" | "in-review" | "confirmed" | "corrected" | "rejected";
+
+export interface Review {
+  state: ReviewState;
+  /** Required once confirmed/corrected */
+  reviewer?: string;
+  role?: string;
+  /** ISO date YYYY-MM-DD */
+  date?: string;
+  note?: string;
+}
+
+export const isSettled = (c: { review?: Review }) => c.review?.state === "confirmed" || c.review?.state === "corrected";
+
 export interface Claim {
   id: string;
   type?: ClaimType;
@@ -96,11 +113,14 @@ export interface Claim {
   body?: string;
   /** Drafts are validated but never shown on the site */
   status: "draft" | "published";
+  /** Expert review status; missing = pending (pilot content) */
+  review?: Review;
   /** Related claim ids – edges of the knowledge network */
   related?: string[];
 }
 
 export const LEVEL_LABEL: Record<EvidenceLevel, string> = {
+  claimed: "Behauptung – ungeprüft",
   established: "Gesichert",
   supported: "Belegt, Deutung offen",
   hypothesis: "Hypothese",
@@ -120,6 +140,7 @@ export const KIND_LABEL: Record<SourceKind, string> = {
   preprint: "Preprint (nicht begutachtet)",
   "conference-abstract": "Konferenzposter / Abstract",
   interview: "Interview",
+  "editorial-input": "Redaktionelle Angabe (ungeprüft)",
 };
 
 // ---------------------------------------------------------------- Atlas (Guidebook)

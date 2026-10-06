@@ -1,7 +1,7 @@
 {
   "name": "the-source-codes",
   "version": "0.1.0",
-  "description": "THE SOURCE CODES – investigative field documentation with graded evidence",
+  "description": "THE SOURCE CODES \u2013 investigative field documentation with graded evidence",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,10 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "validate:data": "node --experimental-strip-types scripts/validate.ts",
-    "report": "node --experimental-strip-types scripts/validate.ts --report"
+    "report": "node --experimental-strip-types scripts/validate.ts --report",
+    "release:check": "node --experimental-strip-types scripts/release-check.ts",
+    "review:export": "node --experimental-strip-types scripts/export-review.ts",
+    "build:release": "npm run release:check && npm run build"
   },
   "license": "UNLICENSED",
   "private": true,

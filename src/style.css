@@ -8,7 +8,7 @@
   --serif: "Cinzel", "Cormorant Garamond", Georgia, serif;
   --serif-text: "Cormorant Garamond", Georgia, serif;
   --sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --lvl-established: #5fe3a8; --lvl-supported: #9bd16b; --lvl-hypothesis: #f2c76b;
+  --lvl-claimed: #b9a4ff; --lvl-established: #5fe3a8; --lvl-supported: #9bd16b; --lvl-hypothesis: #f2c76b;
   --lvl-historical: #8fb7ff; --lvl-unsupported: #ff9f6b; --lvl-refuted: #ff6b7d;
 }
 * { box-sizing: border-box; margin: 0; }
@@ -104,8 +104,9 @@ h1 .line > span { display: block; }
 .proof-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .status { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.22rem 0.7rem; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); color: var(--c); font-size: 0.66rem; letter-spacing: 0.14em; background: color-mix(in srgb, var(--c) 8%, transparent); }
 .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
-.badge-pending, .badge-ok { display: inline-block; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.22rem 0.6rem; border-radius: 8px; width: fit-content; }
+.badge-pending, .badge-ok, .badge-review { display: inline-block; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.22rem 0.6rem; border-radius: 8px; width: fit-content; }
 .badge-pending { color: #ffb36b; border: 1px dashed rgba(255, 179, 107, 0.55); }
+.badge-review { color: #b9a4ff; border: 1px dashed rgba(185, 164, 255, 0.55); }
 .badge-ok { color: var(--cyan); border: 1px solid rgba(88, 214, 232, 0.4); }
 .proof-source { display: grid; grid-template-columns: 64px 1fr; gap: 0.2rem 0.9rem; padding: 0.9rem 0; border-top: 1px solid var(--line); }
 .proof-thumb { grid-row: span 2; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--line); background: radial-gradient(circle at 30% 30%, rgba(88, 214, 232, 0.14), rgba(2, 7, 11, 0.7)); color: var(--gold); }
@@ -244,3 +245,5 @@ h1 .line > span { display: block; }
 }
 
 .atlas-search { width: 14rem; }
+
+.notice .pilot { display: block; color: var(--gold-hi); letter-spacing: 0.08em; margin-bottom: 0.15rem; }

@@ -14,7 +14,7 @@ import { initAtlas } from "./ui/atlas";
 import { initSearch } from "./ui/search";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
-import { AREA_LABEL, LEVEL_LABEL, type Area, type EvidenceLevel } from "./data/types";
+import { AREA_LABEL, LEVEL_LABEL, isSettled, type Area, type EvidenceLevel } from "./data/types";
 import { AREA_ORDER } from "./data/areas";
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -61,10 +61,18 @@ hero.onPin((id) => {
 // ---------------------------------------------------------------- honest stats from the real data
 {
   const sources = claims.flatMap((c) => c.sources);
+  const reviewed = claims.filter(isSettled).length;
+  const pending = claims.length - reviewed;
   const stat = (n: string | number, l: string) => `<div><dd>${n}</dd><dt>${l}</dt></div>`;
   $("stats").innerHTML =
-    stat(claims.length, "Graded Claims") + stat(sources.length, "Sources Listed") +
-    stat(sources.filter((s) => s.verified).length, "Sources Checked") + stat(atlas.length, "Encyclopedia Entries") + stat("∞", "Expanding Universe");
+    stat(claims.length, "Graded Claims") + stat(reviewed, "Expert-Reviewed") + stat(sources.length, "Sources Listed") +
+    stat(atlas.length, "Encyclopedia Entries") + stat("∞", "Expanding Universe");
+  // Pilot: unreviewed content is allowed while the site is built, but it must never look final.
+  // The banner disappears by itself once every published claim has been reviewed by an expert.
+  const notice = $("notice");
+  notice.innerHTML = (pending > 0
+    ? `<strong class="pilot">PILOT VERSION – ${pending} of ${claims.length} statements are awaiting expert review. Not for public release.</strong> `
+    : "") + "Information only – not medical advice. Content does not replace medical treatment; never stop medication without consulting a doctor.";
 }
 
 // ---------------------------------------------------------------- manifesto

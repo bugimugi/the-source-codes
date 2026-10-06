@@ -1,4 +1,4 @@
-import type { Claim, EvidenceLevel, SourceKind } from "./types";
+import { isSettled, type Claim, type EvidenceLevel, type SourceKind } from "./types.ts";
 
 const STRONG_SOURCES: SourceKind[] = ["peer-reviewed", "systematic-review"];
 const STRONG_LEVELS: EvidenceLevel[] = ["established", "supported"];
@@ -7,6 +7,10 @@ const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 /**
  * Integrity rules for the knowledge base. Returns blocking errors and
  * non-blocking warnings.
+ *
+ * Pilot workflow: content is built first and reviewed by experts afterwards. Until a claim is reviewed
+ * (review.state "confirmed"/"corrected"), source rules are warnings; after review they are errors.
+ * `npm run release:check` is the separate gate that blocks unreviewed content from release.
  *
  * Errors:
  * - duplicate claim ids, missing rationale, no source
@@ -51,7 +55,7 @@ export function validateClaims(claims: Claim[]): { errors: string[]; warnings: s
       STRONG_LEVELS.includes(c.level) &&
       !c.sources.some((s) => (STRONG_SOURCES.includes(s.kind) && s.verified) || (finding && goodCount(s)))
     ) {
-      (c.status === "published" ? errors : warnings).push(
+      (c.status === "published" && isSettled(c) ? errors : warnings).push(
         `${c.id}: Stufe "${c.level}" braucht vor der Veröffentlichung eine verifizierte Peer-Review-Quelle`,
       );
     }
@@ -65,6 +69,9 @@ export function validateClaims(claims: Claim[]): { errors: string[]; warnings: s
     if (c.sources.length > 0 && c.sources.every((s) => s.kind === "interview") && c.level !== "hypothesis" && c.level !== "unsupported" && c.level !== "refuted") {
       warnings.push(`${c.id}: nur Interview-Quellen, aber Stufe "${c.level}"`);
     }
+    if (c.level === "claimed" && isSettled(c)) errors.push(`${c.id}: Nach der Fachprüfung muss eine echte Belegstufe statt „claimed“ vergeben werden`);
+    if (isSettled(c) && (!c.review?.reviewer?.trim() || !c.review?.date || !ISO_DATE.test(c.review.date)))
+      errors.push(`${c.id}: Fachprüfung ohne Name (reviewer) oder Datum (YYYY-MM-DD)`);
     for (const r of c.related ?? []) {
       if (!ids.has(r)) errors.push(`${c.id}: unbekannte Verknüpfung "${r}"`);
     }

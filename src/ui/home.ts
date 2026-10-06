@@ -28,7 +28,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
   const tile = (t: (typeof TILES)[number], i: number) => {
     const soon = t.action.type === "soon";
     return `<button class="tile${soon ? " is-soon" : ""}" data-tile="${i}" ${soon ? 'aria-disabled="true"' : ""}>
-      ${slot(t.slot, "tile-img", 'data-fit="cover"')}<span class="tile-text"><strong>${esc(t.title)}</strong><small>${esc(t.sub)}</small></span>${soon ? '<span class="soon-tag">bald</span>' : ""}</button>`;
+      ${slot(t.slot, "tile-img", 'data-fit="cover" data-sizes="(max-width: 700px) 50vw, (max-width: 1200px) 25vw, 13vw"')}<span class="tile-text"><strong>${esc(t.title)}</strong><small>${esc(t.sub)}</small></span>${soon ? '<span class="soon-tag">bald</span>' : ""}</button>`;
   };
 
   root.innerHTML = `

@@ -1,7 +1,7 @@
 {
   "name": "the-source-codes",
   "version": "0.1.0",
-  "description": "THE SOURCE CODES \u2013 investigative field documentation with graded evidence",
+  "description": "THE SOURCE CODES – investigative field documentation with graded evidence",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,8 @@
     "release:check": "node --experimental-strip-types scripts/release-check.ts",
     "review:export": "node --experimental-strip-types scripts/export-review.ts",
     "build:release": "npm run release:check && npm run build",
-    "assets:list": "node --experimental-strip-types scripts/assets-list.ts"
+    "assets:list": "node --experimental-strip-types scripts/assets-list.ts",
+    "assets:optimize": "node --experimental-strip-types scripts/assets-optimize.ts"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@types/node": "*",
     "@types/three": "*",
+    "sharp": "^0.35.5",
     "typescript": "*",
     "vite": "*"
   }

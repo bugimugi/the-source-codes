@@ -15,7 +15,7 @@ out.push("# Bildliste (Asset-Liste) für THE SOURCE CODES", "",
   "- **Typ „Schwarz“:** Leuchtendes Motiv auf **reinem Schwarz** erzeugen. Der Code legt es mit „Screen“-Überblendung über die Szene (keine Transparenz nötig).",
   "- **Typ „Szene“:** Vollständiges, deckendes Bild.",
   "- **Format:** Seitenverhältnis wie in der Tabelle (Pixelgröße = Zielgröße, größer ist in Ordnung). PNG/JPG in bester Qualität.",
-  "- **Ablage:** Originale in `design/assets-raw/` (bleibt lokal). Optimierte Dateien heißen `<Name>.webp` / `.avif` und liegen in `public/assets/`; sobald eine Datei dort liegt, wird sie automatisch verwendet.",
+  "- **Ablage:** Originale in `design/assets-raw/` (bleibt lokal), Dateiname = Name aus der Tabelle (z. B. `hero-world.png`). Dann `npm run assets:optimize` ausführen: es erzeugt verkleinerte WebP-Dateien in `public/assets/` (mehrere Breiten), trägt die Herkunft in `CREDITS.md` ein und warnt bei falschem Format oder nicht schwarzem Hintergrund. Sobald eine Datei dort liegt, wird sie automatisch verwendet.",
   "- **Herkunft:** Pro Bild Werkzeug, Prompt und Datum in `public/assets/CREDITS.md`. Erzeugte Bilder realer Orte als „Illustration“ kennzeichnen; für reale Orte sind eigene oder frei lizenzierte Fotos besser.",
   "- Keine erkennbaren realen lebenden Personen.", "");
 const rows = Object.entries(SLOTS as Record<string, typeof ATLAS_SLOT & { mobile?: string }>);

@@ -35,9 +35,9 @@ function sources(name: string): { type: string; srcset: string }[] {
   });
 }
 
-function pictureHtml(name: string, alt: string, eager: boolean, mobile?: string): string {
+function pictureHtml(name: string, alt: string, eager: boolean, mobile?: string, sizes = "100vw"): string {
   const src = (n: string, media?: string) =>
-    sources(n).map((s) => `<source type="${s.type}" srcset="${s.srcset}"${media ? ` media="${media}"` : ""}${/ \d+w/.test(s.srcset) ? ' sizes="100vw"' : ""}>`).join("");
+    sources(n).map((s) => `<source type="${s.type}" srcset="${s.srcset}"${media ? ` media="${media}"` : ""}${/ \d+w/.test(s.srcset) ? ` sizes="${sizes}"` : ""}>`).join("");
   const fallbackUrl = BASE + (manifest[name].find((f) => /\.(jpe?g|png)$/i.test(f)) ?? manifest[name][0]);
   const dims = slotDef(name)!;
   return `<picture>${mobile && hasAsset(mobile) ? src(mobile, "(max-width: 700px)") : ""}${src(name)}` +
@@ -54,7 +54,7 @@ function fill(el: HTMLElement): void {
   if (el.dataset.fit === "cover") el.classList.add("slot-cover");
   if (!hasAsset(name)) { el.classList.add("slot-empty"); return; }
   // decorative by default; give data-alt when the image carries information
-  el.innerHTML = pictureHtml(name, el.dataset.alt ?? "", el.dataset.eager === "true", def.mobile);
+  el.innerHTML = pictureHtml(name, el.dataset.alt ?? "", el.dataset.eager === "true", def.mobile, el.dataset.sizes);
   el.classList.remove("slot-empty");
   el.classList.add("slot-filled");
   if (!el.dataset.alt) el.setAttribute("aria-hidden", "true");

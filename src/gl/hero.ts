@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { buildModel, dot, glowTexture, rng } from "./models";
 import { hasAsset } from "../assets/slots";
 import { slotDef } from "../assets/registry";
+import { buildDna, buildPlanets } from "../ui/heroLayers";
 
 /**
  * Cinematic hero: a translucent human (head in profile, torso frontal) drawn from light,
@@ -543,22 +544,28 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
   }
 
   // ---- picture layers (parallax, pin positions, fly-in)
-  // Parallax is applied to the <img> itself: a transform on the layer <div> would end the "screen" blending of the black motifs.
+  // Parallax uses the individual `translate` / `scale` properties on the picture itself (never `transform` on a layer <div>,
+  // which would end the "screen" blending of the black motifs, and never on top of the CSS `rotate` of planets and DNA).
   const layersEl = document.querySelector<HTMLElement>(".hero-layers");
-  const LAYERS = [
-    { sel: ".hl-world", depth: 6, grow: 1.04 }, { sel: ".hl-bokeh", depth: 16, grow: 1.04 }, { sel: ".hl-planets", depth: 11, grow: 1 },
-    { sel: ".hl-dna", depth: 20, grow: 1 }, { sel: ".hl-lotus", depth: 24, grow: 1 }, { sel: ".hl-figure", depth: 12, grow: 1 },
-  ].map((l) => ({ ...l, el: document.querySelector<HTMLElement>(`.hero-layers ${l.sel}`), img: document.querySelector<HTMLElement>(`.hero-layers ${l.sel} img`) }));
-  const figEl = LAYERS.find((l) => l.sel === ".hl-figure")!.el;
-  const worldL = LAYERS[0];
+  const q1 = (sel: string) => document.querySelector<HTMLElement>(`.hero-layers ${sel}`);
+  const planets = imageFigure && q1(".hl-planets") ? buildPlanets(q1(".hl-planets")!) : [];
+  const dnaLoop = imageFigure && q1(".hl-dna") ? buildDna(q1(".hl-dna")!, reduceMotion) : null;
+  const imgOf = (sel: string) => q1(`${sel} img`);
+  const LAYERS: { el: HTMLElement | null; depth: number; grow: number }[] = [
+    { el: imgOf(".hl-world"), depth: 6, grow: 1.04 }, { el: imgOf(".hl-bokeh"), depth: 16, grow: 1.04 },
+    ...planets.map((pl) => ({ el: pl.el, depth: pl.depth, grow: 1 })),
+    ...(dnaLoop ? [{ el: dnaLoop.el as HTMLElement, depth: 20, grow: 1 }] : []),
+    { el: imgOf(".hl-woman"), depth: 11, grow: 1 }, { el: imgOf(".hl-body"), depth: 14, grow: 1 }, { el: imgOf(".hl-lotus"), depth: 24, grow: 1 },
+  ];
+  const worldGrow = 1.04, worldDepth = 6;
   const narrow = matchMedia("(max-width: 700px)");
   // Where the pins sit on the pictures, as fractions of the picture (tune these when the artwork is replaced).
-  // desktop: on hero-figure; phone: on hero-mobile (shown by the world layer, cropped to cover).
-  const PIN_SPOTS: Record<string, { desktop: [number, number]; mobile: [number, number] }> = {
-    neural: { desktop: [0.686, 0.093], mobile: [0.638, 0.129] },
-    plants: { desktop: [0.365, 0.168], mobile: [0.383, 0.096] },
-    dna: { desktop: [0.9, 0.5], mobile: [0.8, 0.24] },
-    bioelectric: { desktop: [0.709, 0.292], mobile: [0.65, 0.245] },
+  // desktop: on the layer named in `on`; phone: on hero-mobile (shown by the world layer, cropped to cover).
+  const PIN_SPOTS: Record<string, { on: string; desktop: [number, number]; mobile: [number, number] }> = {
+    neural: { on: ".hl-body", desktop: [0.686, 0.093], mobile: [0.638, 0.129] },
+    plants: { on: ".hl-woman", desktop: [0.365, 0.168], mobile: [0.383, 0.096] },
+    dna: { on: ".hl-dna", desktop: [0.5, 0.42], mobile: [0.8, 0.24] },
+    bioelectric: { on: ".hl-body", desktop: [0.709, 0.292], mobile: [0.65, 0.245] },
   };
   const mob = slotDef("hero-mobile")!;
   const par = { x: 0, y: 0 };
@@ -570,11 +577,13 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
       const W = layersEl.clientWidth, H = layersEl.clientHeight, sc = Math.max(W / mob.w, H / mob.h);
       const [fx, fy] = spot.mobile;
       const x0 = (W - mob.w * sc) / 2 + fx * mob.w * sc, y0 = (H - mob.h * sc) / 2 + fy * mob.h * sc;
-      return { x: W / 2 + (x0 - W / 2) * worldL.grow + par.x * worldL.depth, y: H / 2 + (y0 - H / 2) * worldL.grow + par.y * worldL.depth };
+      return { x: W / 2 + (x0 - W / 2) * worldGrow + par.x * worldDepth, y: H / 2 + (y0 - H / 2) * worldGrow + par.y * worldDepth };
     }
-    if (!figEl) return null;
+    const el = q1(spot.on);
+    const depth = LAYERS.find((l) => l.el && el?.contains(l.el))?.depth ?? 12;
+    if (!el) return null;
     const [fx, fy] = spot.desktop;
-    return { x: figEl.offsetLeft + fx * figEl.offsetWidth + par.x * 12, y: figEl.offsetTop + fy * figEl.offsetHeight + par.y * 12 };
+    return { x: el.offsetLeft + fx * el.offsetWidth + par.x * depth, y: el.offsetTop + fy * el.offsetHeight + par.y * depth };
   }
 
   // ---- pins (hover: reveal label, click: proof overlay)
@@ -647,7 +656,8 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
     if (imageFigure) {
       par.x = reduceMotion ? 0 : -smooth.x;
       par.y = reduceMotion ? 0 : -smooth.y * 0.6;
-      LAYERS.forEach((l) => { if (l.img) l.img.style.transform = `translate3d(${par.x * l.depth}px, ${par.y * l.depth}px, 0) scale(${l.grow})`; });
+      LAYERS.forEach((l) => { if (l.el) { l.el.style.translate = `${par.x * l.depth}px ${par.y * l.depth}px`; l.el.style.scale = String(l.grow); } });
+      if (!narrow.matches) dnaLoop?.draw(t); // hidden on phones
       pinEls.forEach((b) => {
         const xy = pinXY(b.dataset.pin!);
         if (xy) b.style.transform = `translate(${xy.x}px, ${xy.y}px) translate(-50%, -50%)`;
@@ -673,9 +683,10 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
       if (imageWorld) {
         // the generated pictures fade in layer by layer (opacity on the <img>, so the black motifs keep blending)
         const im = (sel: string) => document.querySelector<HTMLElement>(`.hero-layers ${sel} img`);
+        const fadeIn = (els: (HTMLElement | null)[]) => els.filter(Boolean) as HTMLElement[];
         tl.from(im(".hl-world"), { opacity: 0, duration: 1.8, ease: "power1.inOut" }, 0.1)
-          .from([im(".hl-bokeh"), im(".hl-planets")].filter(Boolean), { opacity: 0, duration: 1.6, stagger: 0.2, ease: "power1.out" }, 0.9)
-          .from([im(".hl-dna"), im(".hl-lotus"), im(".hl-figure")].filter(Boolean), { opacity: 0, duration: 1.6, stagger: 0.25, ease: "power2.out" }, 1.4)
+          .from(fadeIn([im(".hl-bokeh"), ...planets.map((pl) => pl.el)]), { opacity: 0, duration: 1.6, stagger: 0.15, ease: "power1.out" }, 0.9)
+          .from(fadeIn([dnaLoop?.el ?? im(".hl-dna"), im(".hl-woman"), im(".hl-body"), im(".hl-lotus")]), { opacity: 0, duration: 1.6, stagger: 0.25, ease: "power2.out" }, 1.4)
           .from(pinsRoot, { opacity: 0, duration: 0.8 }, 2.6);
         if (!imageFigure) {
           tl.to(shared.uReveal, { value: 1, duration: 1.1, ease: "power2.inOut" }, 1.2)

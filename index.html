@@ -43,20 +43,24 @@
           <div class="hl hl-bokeh" data-slot="hero-bokeh" data-fit="cover" data-eager="true"></div>
           <div class="hl hl-planets" data-slot="hero-planets"></div>
           <div class="hl hl-dna" data-slot="hero-dna"></div>
+          <div class="hl hl-woman" data-slot="hero-figure" data-eager="true"></div>
+          <div class="hl hl-body" data-slot="hero-figure" data-eager="true"></div>
           <div class="hl hl-lotus" data-slot="hero-lotus"></div>
-          <div class="hl hl-figure" data-slot="hero-figure" data-eager="true"></div>
         </div>
         <canvas id="gl" aria-hidden="true"></canvas>
         <div id="pins" aria-label="Wissens-Pins"></div>
-        <aside class="levels" aria-labelledby="levels-title">
-          <h2 id="levels-title">Wissensebenen</h2>
-          <ul id="levels"></ul>
-          <p>Jede Aussage trägt ihre Belegstufe.</p>
+        <aside class="levels" aria-label="Wissensebenen">
+          <button class="levels-toggle" id="levels-toggle" aria-expanded="false" aria-controls="levels-body">Wissensebenen <span aria-hidden="true">▾</span></button>
+          <div id="levels-body" class="levels-body" hidden>
+            <ul id="levels"></ul>
+            <p>Jede Aussage trägt ihre Belegstufe.</p>
+          </div>
         </aside>
         <div class="hero">
           <p class="eyebrow" data-reveal>Natur · Mensch · Wissenschaft · Altes Wissen</p>
           <h1 id="hero-title" data-reveal>
-            <span class="line"><span>THE SOURCE CODES</span></span>
+            <span class="line"><span>THE</span></span>
+            <span class="line"><span>SOURCE CODES</span></span>
           </h1>
           <p class="sub" data-reveal>Eine verbundene Enzyklopädie über Pflanzen, überliefertes Heilwissen, den menschlichen Körper, Frequenzen, alte Kulturen und die verborgenen Zusammenhänge der Natur. Jede Aussage mit Quellen und Belegstufe.</p>
           <div class="cta-row" data-cta>

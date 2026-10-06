@@ -82,6 +82,12 @@ hero.onPin((id) => {
     { label: "Nicht belegt / widerlegt", levels: ["unsupported", "refuted"], c: "var(--lvl-unsupported)" },
     { label: "Behauptung – ungeprüft", levels: ["claimed"], c: "var(--lvl-claimed)" },
   ];
+  // the legend stays closed until asked for: it opens on click and closes on a second click, Escape or a click elsewhere
+  const lvToggle = $("levels-toggle"), lvBody = $("levels-body");
+  const setLevels = (open: boolean) => { lvBody.hidden = !open; lvToggle.setAttribute("aria-expanded", String(open)); lvToggle.classList.toggle("open", open); };
+  lvToggle.addEventListener("click", () => setLevels(lvBody.hidden !== false));
+  document.addEventListener("click", (e) => { if (!lvBody.hidden && !(e.target as HTMLElement).closest(".levels")) setLevels(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !lvBody.hidden) { setLevels(false); lvToggle.focus(); } });
   $("levels").innerHTML = groups
     .map((g) => `<li style="--c:${g.c}">${g.label}<em>${claims.filter((c) => g.levels.includes(c.level)).length}</em></li>`).join("");
   // Pilot: unreviewed content is allowed while the site is built, but it must never look final.

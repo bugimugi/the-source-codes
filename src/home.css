@@ -11,19 +11,41 @@ html { scroll-padding-top: 84px; }
 .hl.slot { position: absolute; }
 .hl.slot-cover { inset: 0; }
 .hero-layers .slot img { animation: none; }
-.hl-planets { top: 5%; left: 30%; width: 20%; }
-.hl-planets img { opacity: 0.85; } /* opacity on the <img>, not the layer: a layer with opacity would stop the "screen" blending */
-.hl-dna { display: none; } /* hero-figure already contains a DNA strand; the asset stays available for other pages */
+/* planets (cut out of hero-planets by JS): each one turns slowly on its own; screen blending is on the element itself */
+.hl-planets.slot { inset: 0; aspect-ratio: auto; overflow: visible; }
+.planet { position: absolute; aspect-ratio: 1; border-radius: 50%; background-repeat: no-repeat; mix-blend-mode: screen; opacity: 0.9;
+  animation: planet-spin var(--spin, 200s) linear infinite var(--dir, normal); }
+@keyframes planet-spin { to { rotate: 360deg; } }
+/* DNA (canvas built by JS: one helix turn repeated and scrolled); tilted like in the design, soft ends */
+.hl-dna { left: 49.5%; top: -2%; height: 74%; }
+/* the tilt sits on the canvas itself: a rotated wrapper would end the screen blending */
+.dna-canvas { display: block; width: 100%; height: 100%; mix-blend-mode: screen; rotate: -13deg;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%); }
 .hl-lotus { left: 38%; bottom: -10%; width: 16%; }
-.hl-figure { right: 10%; bottom: -4%; height: 96%; }
+@media (max-height: 780px) { .hl-planets { display: none; } } /* no free band above the text on low windows */
+/* hero-figure is shown twice with different crops: the woman (left part) and the anatomy hologram (middle part). The DNA strand
+   at the right edge of the picture is masked out (the animated DNA layer replaces it). Both fade out at the hips / shoulders. */
+/* sizes follow the hero height but never grow past what the width allows (tall windows would otherwise push the woman over the text) */
+.hl-woman { left: 40.3%; top: -2%; height: min(125%, 70vw); }
+.hl-body { left: 27.5%; top: 4%; height: min(170%, 95vw); }
+.hl-woman img { --mx: linear-gradient(90deg, #000 0 50%, transparent 60%); --my: linear-gradient(180deg, #000 0 55%, transparent 80%);
+  -webkit-mask-image: var(--mx), var(--my); mask-image: var(--mx), var(--my); -webkit-mask-composite: source-in; mask-composite: intersect; }
+.hl-body img { --mx: linear-gradient(90deg, transparent 0 46%, #000 51% 85%, transparent 89%); --my: linear-gradient(180deg, #000 0 50%, transparent 66%);
+  -webkit-mask-image: var(--mx), var(--my); mask-image: var(--mx), var(--my); -webkit-mask-composite: source-in; mask-composite: intersect; }
 /* readability: darken the text side and the bottom edge a little, above the pictures but below pins and text */
 .hero-section::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: linear-gradient(90deg, rgba(2, 7, 11, 0.8) 0%, rgba(2, 7, 11, 0.5) 32%, transparent 54%), linear-gradient(0deg, var(--bg) 0, transparent 20%); }
+  background: linear-gradient(90deg, rgba(2, 7, 11, 0.8) 0%, rgba(2, 7, 11, 0.5) 26%, transparent 44%), linear-gradient(0deg, var(--bg) 0, transparent 20%); }
 .hero-section #gl { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; }
 .hero-section #pins { position: absolute; inset: 0; z-index: 3; }
-.hero-section .hero { position: absolute; inset: 0; z-index: 4; height: 100%; }
-.levels { position: absolute; z-index: 4; top: 92px; right: clamp(16px, 3vw, 44px); width: 176px; padding: 14px 16px; border: 1px solid var(--gold-line); border-radius: 14px; background: rgba(5, 18, 25, 0.62); backdrop-filter: blur(14px); }
-.levels h2 { font-size: 0.64rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; font-weight: 500; }
+.hero-section .hero { position: absolute; inset: 0; z-index: 4; height: 100%; max-width: min(740px, 46vw); justify-content: flex-end; padding-bottom: 56px; }
+.hero-section h1 { font-size: clamp(2.2rem, 4vw, 3.8rem); }
+.levels { position: absolute; z-index: 4; top: 92px; right: clamp(16px, 3vw, 44px); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.levels-toggle { all: unset; cursor: pointer; box-sizing: border-box; padding: 0.5rem 0.95rem; border: 1px solid var(--gold-line); border-radius: 99px; background: rgba(5, 18, 25, 0.62); backdrop-filter: blur(14px); font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.levels-toggle span { display: inline-block; transition: transform 0.25s; }
+.levels-toggle.open span { transform: rotate(180deg); }
+.levels-toggle:hover, .levels-toggle:focus-visible { border-color: var(--gold); color: var(--gold-hi); }
+.levels-body { width: 230px; padding: 14px 16px; border: 1px solid var(--gold-line); border-radius: 14px; background: rgba(5, 18, 25, 0.78); backdrop-filter: blur(14px); }
+.levels-body[hidden] { display: none; }
 .levels ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
 .levels li { display: grid; grid-template-columns: 12px 1fr auto; gap: 0.6rem; align-items: center; font-size: 0.78rem; color: var(--ivory); }
 .levels li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
@@ -147,10 +169,9 @@ html { scroll-padding-top: 84px; }
 .nav-cta:hover, .nav-cta:focus-visible { background: var(--gold); color: var(--bg); }
 
 /* ---- responsive */
-@media (max-width: 1200px) { .hl-planets, .levels { display: none; } .hl-figure { right: -2%; height: 86%; } .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav-link:nth-child(n+7) { display: none; } }
+@media (max-width: 1200px) { .hl-planets, .hl-dna { display: none; } .hl-woman { left: 44%; height: min(104%, 66vw); } .hl-body { left: 30%; height: min(145%, 90vw); } .hero-section .hero { justify-content: center; padding-top: 96px; padding-bottom: 40px; } .hero .hint { display: none; } .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav-link:nth-child(n+7) { display: none; } }
 @media (max-width: 1000px) {
   .split, .plant-grid, .trio, .bands { grid-template-columns: 1fr; }
-  .levels { display: none; }
   .fl-chips { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .cond-body { margin-left: 0; }
 }
@@ -164,7 +185,11 @@ html { scroll-padding-top: 84px; }
   .hero-section { max-height: none; height: auto; min-height: 112vh; }
   .hero-section::before { background: linear-gradient(0deg, var(--bg) 0, rgba(2, 7, 11, 0.92) 44%, transparent 68%); }
   /* on phones hero-mobile (shown by the world layer) already contains figure, hologram and DNA */
-  .hl-figure, .hl-planets, .hl-lotus { display: none; }
+  .hl-woman, .hl-body, .hl-planets, .hl-dna, .hl-lotus { display: none; }
+  .hero-section .hero { max-width: 100%; justify-content: flex-end; padding-top: 60px; padding-bottom: 76px; }
+  .hero-section h1 { font-size: clamp(2rem, 11vw, 3rem); }
+  .levels { top: auto; bottom: 14px; right: 16px; }
+  .levels-body { position: absolute; bottom: 44px; right: 0; }
 }
 
 /* nav: readable over scrolled content */
@@ -172,3 +197,5 @@ html { scroll-padding-top: 84px; }
 .nav-links { min-width: 0; }
 .nav { transition: background 0.3s, border-color 0.3s; border-bottom: 1px solid transparent; }
 .nav.solid { background: rgba(2, 7, 11, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--gold-line); }
+
+@media (prefers-reduced-motion: reduce) { .planet { animation: none; } }

@@ -30,8 +30,10 @@ html { scroll-padding-top: 84px; }
 .hl-body { left: 27.5%; top: 4%; height: min(170%, 95vw); }
 .hl-woman img { --mx: linear-gradient(90deg, #000 0 50%, transparent 60%); --my: linear-gradient(180deg, #000 0 55%, transparent 80%);
   -webkit-mask-image: var(--mx), var(--my); mask-image: var(--mx), var(--my); -webkit-mask-composite: source-in; mask-composite: intersect; }
-.hl-body img { --mx: linear-gradient(90deg, transparent 0 46%, #000 51% 85%, transparent 89%); --my: linear-gradient(180deg, #000 0 50%, transparent 66%);
-  -webkit-mask-image: var(--mx), var(--my); mask-image: var(--mx), var(--my); -webkit-mask-composite: source-in; mask-composite: intersect; }
+/* --mdna cuts out the DNA strand of the picture (an ellipse around it) so only the animated DNA layer shows */
+.hl-body img { --mx: linear-gradient(90deg, transparent 0 46%, #000 51% 85%, transparent 88%); --my: linear-gradient(180deg, #000 0 50%, transparent 66%);
+  --mdna: radial-gradient(ellipse 11% 36% at 91% 36%, transparent 0 86%, #000 100%);
+  -webkit-mask-image: var(--mx), var(--my), var(--mdna); mask-image: var(--mx), var(--my), var(--mdna); -webkit-mask-composite: source-in; mask-composite: intersect; }
 /* readability: darken the text side and the bottom edge a little, above the pictures but below pins and text */
 .hero-section::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background: linear-gradient(90deg, rgba(2, 7, 11, 0.8) 0%, rgba(2, 7, 11, 0.5) 26%, transparent 44%), linear-gradient(0deg, var(--bg) 0, transparent 20%); }

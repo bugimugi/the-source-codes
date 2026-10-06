@@ -8,3 +8,7 @@ dist/
 design/mockups/*
 !design/mockups/README.md
 exports/
+
+# Full-size image originals stay local; optimised copies go to public/assets/
+design/assets-raw/*
+!design/assets-raw/.gitkeep

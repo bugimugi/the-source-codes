@@ -57,10 +57,16 @@ Befehle: `npm install`, `npm run dev` (http://localhost:5173), `npm run build`, 
 Der Build läuft nur durch, wenn `validate:data` besteht.
 
 ## Design (v2)
-Der Nutzer hat die komplette Webseite als **fertige Entwurfsbilder** (Vorschauen). Sie liegen in `design/mockups/` und sind
-**nur Referenz** (werden nie ausgeliefert und NICHT committet – `.gitignore` schließt sie aus, weil das Repository öffentlich ist; niemals mit `git add -f` erzwingen). Aufgabe: Seiten in echtem Code nachbauen (Text, Buttons, Navigation, Overlays als
-HTML/CSS), die Bildwelten aus den Entwürfen ausschneiden, nach WebP/AVIF optimieren und als Ebenen in `public/assets/` legen.
-Ebenen mit leichter Parallax zur Maus; WebGL-Partikel, Pins und Kamerafahrten bleiben darüber. Details: `docs/V2-PLAN.md`.
+Der Nutzer hat **Landingpage-Vorschaubilder** als Layout-Vorlage (`design/mockups/`, nur lokal, NICHT committet – `.gitignore`
+schließt sie aus, weil das Repository öffentlich ist; niemals mit `git add -f` erzwingen). Die Vorschauen sind **keine
+Bildquellen**: Text und Oberfläche sind eingebacken, die Auflösung ist zu klein. Die einzelnen Bildwelten (Hero-Figur, Welt,
+Planeten, Kartenbilder, Organe …) werden vom Nutzer **separat erzeugt**; die Liste mit Prompts steht in `docs/ASSET-LIST.md`.
+Aufgabe: Seiten in echtem Code nachbauen (Text, Buttons, Navigation, Overlays als HTML/CSS) und die Bilder, sobald sie vorliegen,
+als Ebenen einbauen. Originale lokal in `design/assets-raw/` (ignoriert); optimierte Fassungen (WebP/AVIF, mehrere Größen)
+nach `public/assets/` mit Eintrag in `public/assets/CREDITS.md`. Leuchtende Motive liegen auf reinem Schwarz und werden mit
+`mix-blend-mode: screen` bzw. additiver Überblendung eingesetzt. Bis ein Bild existiert, bleibt der prozedurale Platzhalter
+(Slot mit Fallback) – nichts blockieren. Ebenen mit leichter Parallax zur Maus; WebGL-Partikel, Pins und Kamerafahrten darüber.
+Details: `docs/V2-PLAN.md`. Bildgenerierung (Higgsfield, Adobe u. a.) kostet Guthaben: nie ohne ausdrückliche Rückfrage.
 - Farben/Typografie: siehe `docs/DESIGN.md` (Deep Space #02070B, Gold #CBAA67/#F0D18B, Cyan #58D6E8, Elfenbein #ECE8DE;
   Cinzel/Cormorant für Titel, Inter für UI, Großbuchstaben mit weitem Letterspacing).
 - Hero-Texte sind Englisch (laut Vorgabe); Universum/Atlas/Bühnen aktuell Deutsch → später DE/EN-Umschalter klären.

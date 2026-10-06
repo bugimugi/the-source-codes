@@ -1,6 +1,9 @@
-# Design mockups (reference only)
+# Design mockups (reference only, local only)
 
-Put the finished design images here, one file per page or section, in order:
+**These images are NOT committed to Git** (see `.gitignore`): the repository is public and the full designs
+should not be visible before launch. Copy the files into this folder on your own computer; nothing is uploaded.
+
+Put the finished design images here, one file per page or section, in order (copy them in with the Explorer):
 
     01-startseite.png
     02-wissensmatrix.png

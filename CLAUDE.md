@@ -38,7 +38,7 @@ Der Build läuft nur durch, wenn `validate:data` besteht.
 
 ## Design (v2)
 Der Nutzer hat die komplette Webseite als **fertige Entwurfsbilder** (Vorschauen). Sie liegen in `design/mockups/` und sind
-**nur Referenz** (werden nie ausgeliefert). Aufgabe: Seiten in echtem Code nachbauen (Text, Buttons, Navigation, Overlays als
+**nur Referenz** (werden nie ausgeliefert und NICHT committet – `.gitignore` schließt sie aus, weil das Repository öffentlich ist; niemals mit `git add -f` erzwingen). Aufgabe: Seiten in echtem Code nachbauen (Text, Buttons, Navigation, Overlays als
 HTML/CSS), die Bildwelten aus den Entwürfen ausschneiden, nach WebP/AVIF optimieren und als Ebenen in `public/assets/` legen.
 Ebenen mit leichter Parallax zur Maus; WebGL-Partikel, Pins und Kamerafahrten bleiben darüber. Details: `docs/V2-PLAN.md`.
 - Farben/Typografie: siehe `docs/DESIGN.md` (Deep Space #02070B, Gold #CBAA67/#F0D18B, Cyan #58D6E8, Elfenbein #ECE8DE;

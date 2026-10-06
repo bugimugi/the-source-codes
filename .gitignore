@@ -2,3 +2,8 @@ node_modules/
 dist/
 .env
 *.log
+
+# Full design mockups stay on the local machine (the repository is public).
+# Only optimised pieces cut out of them go to public/assets/.
+design/mockups/*
+!design/mockups/README.md

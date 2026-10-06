@@ -4,6 +4,7 @@ import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/600.css";
 import "@fontsource-variable/inter";
 import "./style.css";
+import "./home.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
 import { initParticles } from "./gl/particles";
@@ -12,9 +13,10 @@ import { initProofOverlay } from "./ui/proofOverlay";
 import { initStage } from "./ui/stage";
 import { initAtlas } from "./ui/atlas";
 import { initSearch } from "./ui/search";
+import { initHome } from "./ui/home";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
-import { AREA_LABEL, LEVEL_LABEL, isSettled, type Area, type EvidenceLevel } from "./data/types";
+import { AREA_LABEL, LEVEL_LABEL, isSettled, type Area, type AtlasCategory, type EvidenceLevel } from "./data/types";
 import { AREA_ORDER } from "./data/areas";
 import { mountSlots } from "./assets/slots";
 
@@ -67,14 +69,23 @@ hero.onPin((id) => {
   const pending = claims.length - reviewed;
   const stat = (n: string | number, l: string) => `<div><dd>${n}</dd><dt>${l}</dt></div>`;
   $("stats").innerHTML =
-    stat(claims.length, "Graded Claims") + stat(reviewed, "Expert-Reviewed") + stat(sources.length, "Sources Listed") +
-    stat(atlas.length, "Encyclopedia Entries") + stat("∞", "Expanding Universe");
+    stat(claims.length, "Bewertete Aussagen") + stat(reviewed, "Fachlich geprüft") + stat(sources.length, "Quellen gelistet") +
+    stat(atlas.length, "Atlas-Einträge") + stat("∞", "Wachsendes Universum");
+  // Wissensebenen: real counts per evidence group
+  const groups: { label: string; levels: EvidenceLevel[]; c: string }[] = [
+    { label: "Wissenschaftlich belegt", levels: ["established", "supported"], c: "var(--lvl-established)" },
+    { label: "Historisch dokumentiert", levels: ["historical"], c: "var(--lvl-historical)" },
+    { label: "Hypothese", levels: ["hypothesis"], c: "var(--lvl-hypothesis)" },
+    { label: "Nicht belegt / widerlegt", levels: ["unsupported", "refuted"], c: "var(--lvl-unsupported)" },
+    { label: "Behauptung – ungeprüft", levels: ["claimed"], c: "var(--lvl-claimed)" },
+  ];
+  $("levels").innerHTML = groups
+    .map((g) => `<li style="--c:${g.c}">${g.label}<em>${claims.filter((c) => g.levels.includes(c.level)).length}</em></li>`).join("");
   // Pilot: unreviewed content is allowed while the site is built, but it must never look final.
   // The banner disappears by itself once every published claim has been reviewed by an expert.
-  const notice = $("notice");
-  notice.innerHTML = (pending > 0
-    ? `<strong class="pilot">PILOT VERSION – ${pending} of ${claims.length} statements are awaiting expert review. Not for public release.</strong> `
-    : "") + "Information only – not medical advice. Content does not replace medical treatment; never stop medication without consulting a doctor.";
+  $("notice").innerHTML = (pending > 0
+    ? `<strong class="pilot">PILOTVERSION – ${pending} von ${claims.length} Aussagen warten auf die Fachprüfung. Nicht zur Veröffentlichung bestimmt.</strong><br>`
+    : "") + "Informationsangebot – keine medizinische Beratung. Die Inhalte ersetzen keine ärztliche Behandlung; Medikamente nie ohne Rücksprache mit Ärztin oder Arzt absetzen.";
 }
 
 // ---------------------------------------------------------------- manifesto
@@ -142,9 +153,15 @@ function fade(el: HTMLElement, show: boolean, done?: () => void) {
 
 function setChrome(forHero: boolean) {
   nav.hidden = !forHero;
-  pinsEl.hidden = !forHero;
-  $("notice")?.toggleAttribute("hidden", !forHero);
+  html.classList.toggle("lock", !forHero);
 }
+
+addEventListener("scroll", () => nav.classList.toggle("solid", scrollY > 40), { passive: true });
+
+// the hero scene only renders while it is on screen and the home page is the active view
+let heroInView = true;
+const syncHero = () => (view === "hero" && heroInView ? hero.resume() : hero.pause());
+new IntersectionObserver((e) => { heroInView = e[0].isIntersecting; syncHero(); }).observe($("top"));
 
 function openUniverse(instant = false): boolean {
   try {
@@ -181,21 +198,26 @@ function openAtlas(): boolean {
   return true;
 }
 
-function go(next: View, opts: { instant?: boolean } = {}) {
-  if (next === view) return;
+function go(next: View, opts: { instant?: boolean } = {}): boolean {
+  if (next === view) return false;
   const prev = view;
-  if (next === "universe" && !openUniverse(opts.instant)) return;
-  if (next === "atlas" && !openAtlas()) return;
+  if (next === "universe" && !openUniverse(opts.instant)) return false;
+  if (next === "atlas" && !openAtlas()) return false;
   view = next;
+  if (next !== "hero") home?.stopAudio();
   if (prev === "universe") fade(matrixEl, false, () => universe?.stop());
   if (prev === "atlas") fade(atlasEl, false, () => atlasView?.stop());
-  if (next === "hero") { hero.resetCamera(); hero.resume(); setChrome(true); }
-  else { hero.pause(); setChrome(false); }
+  if (next === "hero") { hero.resetCamera(); setChrome(true); }
+  else setChrome(false);
+  syncHero();
+  return true;
 }
 
 /** Cinematic entry: the camera flies into the brain, light floods the screen, the universe opens. */
 async function enterLibrary() {
   if (view !== "hero") return;
+  // far down the page the flight into the hero would be invisible: open the library directly
+  if (scrollY > innerHeight * 0.5) { if (go("universe")) universe?.intro(); return; }
   const flash = $("flash");
   const t = gsap.to(flash, { opacity: 1, duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.8, ease: "power2.in" });
   await hero.transitionOut();
@@ -205,9 +227,26 @@ async function enterLibrary() {
   gsap.to(flash, { opacity: 0, duration: reduceMotion ? 0 : 1.2, ease: "power2.out" });
 }
 
+// ---------------------------------------------------------------- home page (sections below the hero)
+const home = initHome($("home"), {
+  openAtlas(category: AtlasCategory | null, id?: string) {
+    if (!go("atlas")) return;
+    if (id) atlasView?.select(id);
+    else atlasView?.showCategory(category);
+  },
+  openUniverse() { void enterLibrary(); },
+  openClaim: (id, from) => overlay.open(id, from),
+}, reduceMotion);
+
 $("enter-matrix").addEventListener("click", enterLibrary);
 document.querySelectorAll<HTMLElement>("[data-view]").forEach((b) =>
   b.addEventListener("click", () => (b.dataset.view === "atlas" ? go("atlas") : void enterLibrary())),
+);
+document.querySelectorAll<HTMLElement>("[data-scroll]").forEach((b) =>
+  b.addEventListener("click", () => {
+    if (b.dataset.scroll === "top") scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    else home.scrollTo(b.dataset.scroll!);
+  }),
 );
 $("leave-matrix").addEventListener("click", () => go("hero"));
 $("leave-atlas").addEventListener("click", () => go("hero"));

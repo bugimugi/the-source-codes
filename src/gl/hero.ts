@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import gsap from "gsap";
 import { buildModel, dot, glowTexture, rng } from "./models";
+import { hasAsset } from "../assets/slots";
 
 /**
  * Cinematic hero: a translucent human (head in profile, torso frontal) drawn from light,
@@ -350,10 +351,12 @@ function flowerOfLife(fade: { value: number }) {
 }
 
 export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins: HeroPin[], reduceMotion: boolean): HeroApi {
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: "high-performance" });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
   const dpr = Math.min(devicePixelRatio, innerWidth < 800 ? 1.5 : 1.75);
   renderer.setPixelRatio(dpr);
-  renderer.setClearColor(0x02070b);
+  // once the generated hero world exists, the canvas becomes a transparent layer on top of it
+  const imageWorld = hasAsset("hero-world");
+  renderer.setClearColor(0x02070b, imageWorld ? 0 : 1);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
   const mobile = innerWidth < 800;
@@ -468,6 +471,7 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
   // ---- the world behind
   const world = new THREE.Group();
   scene.add(world);
+  world.visible = !imageWorld;
   world.add(Object.assign(ridge(46, -9, 3.0, 3, "#2a6a7c", "#02070b", fade, -3.6), { renderOrder: -3 }));
   world.add(Object.assign(ridge(40, -6.5, 2.2, 8, "#164453", "#02070b", fade, -3.6), { renderOrder: -2 }));
   world.add(Object.assign(ridge(34, -4.2, 1.4, 15, "#0b2530", "#02070b", fade, -3.6), { renderOrder: -1 }));

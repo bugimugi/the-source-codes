@@ -244,6 +244,14 @@ export function initAtlas(
       });
     },
     stop() { renderer?.setAnimationLoop(null); },
+    /** Jump to a category (null = all); used by the home page tiles. */
+    showCategory(c: AtlasCategory | null) {
+      category = c;
+      catButtons.forEach((b, i) => b.setAttribute("aria-pressed", String(c !== null && b.textContent === CATEGORY_LABEL[c])));
+      renderList();
+      const first = atlas.find((e) => !c || e.category === c);
+      if (first) select(first);
+    },
     select: (id: string) => { const e = byId.get(id); if (e) select(e); },
     resize,
   };

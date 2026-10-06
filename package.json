@@ -12,7 +12,8 @@
     "report": "node --experimental-strip-types scripts/validate.ts --report",
     "release:check": "node --experimental-strip-types scripts/release-check.ts",
     "review:export": "node --experimental-strip-types scripts/export-review.ts",
-    "build:release": "npm run release:check && npm run build"
+    "build:release": "npm run release:check && npm run build",
+    "assets:list": "node --experimental-strip-types scripts/assets-list.ts"
   },
   "license": "UNLICENSED",
   "private": true,

@@ -1,5 +1,5 @@
 import manifest from "virtual:asset-manifest";
-import { SLOTS, type SlotName } from "./registry";
+import { slotDef, type SlotName } from "./registry";
 
 /**
  * Image slots. Markup: <div data-slot="hero-figure"></div>  (or slotHtml("hero-figure")).
@@ -39,14 +39,14 @@ function pictureHtml(name: string, alt: string, eager: boolean, mobile?: string)
   const src = (n: string, media?: string) =>
     sources(n).map((s) => `<source type="${s.type}" srcset="${s.srcset}"${media ? ` media="${media}"` : ""}${/ \d+w/.test(s.srcset) ? ' sizes="100vw"' : ""}>`).join("");
   const fallbackUrl = BASE + (manifest[name].find((f) => /\.(jpe?g|png)$/i.test(f)) ?? manifest[name][0]);
-  const dims = SLOTS[name as SlotName];
+  const dims = slotDef(name)!;
   return `<picture>${mobile && hasAsset(mobile) ? src(mobile, "(max-width: 700px)") : ""}${src(name)}` +
     `<img src="${fallbackUrl}" alt="${alt}" width="${dims.w}" height="${dims.h}" decoding="async" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}></picture>`;
 }
 
 function fill(el: HTMLElement): void {
-  const name = el.dataset.slot as SlotName;
-  const def = SLOTS[name];
+  const name = el.dataset.slot as string;
+  const def = slotDef(name);
   if (!def) { console.warn(`Unknown image slot "${name}" – add it to src/assets/registry.ts`); return; }
   el.classList.add("slot", def.bg === "black" ? "slot-black" : "slot-scene");
   el.style.setProperty("--slot-ratio", `${def.w} / ${def.h}`);
@@ -66,7 +66,7 @@ export function mountSlots(root: ParentNode = document): void {
 }
 
 /** Markup for a slot, for UI built from template strings. Call mountSlots() on the container afterwards. */
-export function slotHtml(name: SlotName, opts: { cover?: boolean; alt?: string; eager?: boolean; className?: string } = {}): string {
+export function slotHtml(name: SlotName | `atlas-${string}`, opts: { cover?: boolean; alt?: string; eager?: boolean; className?: string } = {}): string {
   const a = [`data-slot="${name}"`];
   if (opts.cover) a.push('data-fit="cover"');
   if (opts.alt) a.push(`data-alt="${opts.alt}"`);

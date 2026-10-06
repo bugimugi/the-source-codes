@@ -2,22 +2,28 @@ import { atlas } from "../data/atlas";
 import { claims } from "../data/claims";
 import { AREA_LABEL, CATEGORY_LABEL } from "../data/types";
 
-interface Item { kind: "claim" | "atlas"; id: string; title: string; sub: string; hay: string }
+export interface SearchItem { kind: "claim" | "atlas"; id: string; title: string; sub: string; hay: string }
 
-const items: Item[] = [
-  ...claims.map((c): Item => ({
+const items: SearchItem[] = [
+  ...claims.map((c): SearchItem => ({
     kind: "claim", id: c.id, title: c.short ?? c.statement, sub: `Claim · ${AREA_LABEL[c.area]}`,
     hay: `${c.short ?? ""} ${c.statement} ${c.rationale}`.toLowerCase(),
   })),
-  ...atlas.map((e): Item => ({
+  ...atlas.map((e): SearchItem => ({
     kind: "atlas", id: e.id, title: `${e.name} (${e.latin})`, sub: `Encyclopedia · ${CATEGORY_LABEL[e.category]}`,
     hay: `${e.name} ${e.latin} ${e.tradition} ${e.facts.map((f) => f.value).join(" ")} ${e.associations.map((a) => a.target).join(" ")}`.toLowerCase(),
   })),
 ];
 
+/** All words must appear; returns the best `limit` entries. */
+export function searchItems(q: string, limit = 8): SearchItem[] {
+  const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  return words.length ? items.filter((i) => words.every((w) => i.hay.includes(w))).slice(0, limit) : [];
+}
+
 /** Knowledge search over claims and atlas entries with keyboard support ("/" focuses the field). */
 export function initSearch(input: HTMLInputElement, list: HTMLElement, onPick: (item: { kind: "claim" | "atlas"; id: string }) => void) {
-  let shown: Item[] = [];
+  let shown: SearchItem[] = [];
   let active = 0;
 
   function render() {
@@ -43,7 +49,7 @@ export function initSearch(input: HTMLInputElement, list: HTMLElement, onPick: (
     });
   }
 
-  function pick(it: Item) {
+  function pick(it: SearchItem) {
     input.value = "";
     list.hidden = true;
     input.blur();
@@ -51,8 +57,7 @@ export function initSearch(input: HTMLInputElement, list: HTMLElement, onPick: (
   }
 
   input.addEventListener("input", () => {
-    const q = input.value.trim().toLowerCase();
-    shown = q ? items.filter((i) => q.split(/\s+/).every((w) => i.hay.includes(w))).slice(0, 8) : [];
+    shown = searchItems(input.value);
     active = 0;
     render();
   });

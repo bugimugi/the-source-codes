@@ -92,7 +92,8 @@ content/atlas/). 47 Aussagen, 21 Atlas-Einträge, viele Zitate noch `verified: f
    `public/assets/CREDITS.md` dokumentieren. Nichts kaufen, keine KI-3D-Erzeugung.
 4. **Sparsamer Verbrauch.** Kleine Schritte, Dateien nur lesen, wenn nötig. Entwurfsbilder nicht wiederholt ansehen: sie sind in
    `docs/MOCKUP-NOTES.md` beschrieben, dort nachschlagen. Nach jedem Schritt dem Nutzer sagen, dass er `/usage` ansehen kann.
-5. **Nichts pushen**, solange der Nutzer es nicht ausdrücklich verlangt (nur lokale Commits).
+5. **Pushen:** Eine Cloud-Sitzung (Credit-Abrechnung) darf nach jeder fertigen, gebauten Phase auf `v2-design` pushen – der Nutzer holt es
+   mit `git pull`. Nie nach `main`, nie Force-Push. Lokale Sitzungen (PowerShell) pushen nur auf ausdrücklichen Wunsch.
 
 ## Arbeitsweise
 - Vor jeder größeren Änderung kurz den Plan nennen; nach jeder Phase: Build, im Browser prüfen (Konsole ohne Fehler),

@@ -1,7 +1,8 @@
 /**
- * Bild-Slots. Single source of truth for every image position on the site: name, fixed format, background type.
- * Mirrors docs/ASSET-LIST.md (binding). Files live in public/assets/ as <name>.avif|webp|jpg|png,
- * optionally with width variants <name>-<width>.<ext>. Until a file exists the slot shows its fallback.
+ * Image slots. Single source of truth for every image position on the site: name, fixed format, background type,
+ * priority, page and a prompt core. `npm run assets:list` generates docs/ASSET-LIST.md from this file.
+ * Files live in public/assets/ as <name>.avif|webp|jpg|png, optionally with width variants <name>-<width>.<ext>.
+ * Until a file exists the slot shows its fallback. Atlas pictures use the dynamic name `atlas-<id>` (see slotDef).
  */
 export interface SlotDef {
   w: number;
@@ -10,63 +11,98 @@ export interface SlotDef {
   bg: "black" | "scene";
   /** portrait variant used below 700 px viewport width */
   mobile?: string;
+  /** 1 = needed first (hero), 6 = last */
+  prio: number;
+  page: string;
+  /** English prompt core; the shared style anchor is added by docs/ASSET-LIST.md */
+  prompt: string;
 }
 
-const s = (w: number, h: number, bg: SlotDef["bg"] = "scene", mobile?: string): SlotDef => ({ w, h, bg, mobile });
-const black = (w: number, h: number): SlotDef => s(w, h, "black");
+const d = (page: string, prio: number, bg: SlotDef["bg"], w: number, h: number, prompt: string, mobile?: string): SlotDef => ({ w, h, bg, mobile, prio, page, prompt });
+const HOME = "Startseite";
 
 export const SLOTS = {
-  // Priority 1 – hero
-  "hero-world": s(3840, 2160, "scene", "hero-mobile"),
-  "hero-figure": black(2400, 3000),
-  "hero-planets": black(2400, 1600),
-  "hero-dna": black(1200, 2400),
-  "hero-lotus": black(1600, 1600),
-  "hero-bokeh": black(3840, 2160),
-  "hero-mobile": s(1080, 1920),
-  // Priority 2 – knowledge matrix
-  "matrix-quantum-battery": s(1200, 800),
-  "matrix-grounding": s(1200, 800),
-  "matrix-resonance-sites": s(1200, 800),
-  "matrix-frequency-apothecary": s(1200, 800),
-  "matrix-organ-nature": s(1200, 800),
-  "matrix-center-emblem": black(1200, 800),
-  // Priority 3 – body & plants
-  "body-front": black(2400, 3600),
-  "organ-heart": black(1600, 1600),
-  "organ-brain": black(1600, 1600),
-  "organ-lungs": black(1600, 1600),
-  "organ-liver": black(1600, 1600),
-  "organ-stomach": black(1600, 1600),
-  "organ-intestines": black(1600, 1600),
-  "organ-kidneys": black(1600, 1600),
-  "organ-skin": black(1600, 1600),
-  "organ-immune": black(1600, 1600),
-  "organ-endocrine": black(1600, 1600),
-  "heart-botanical": black(2000, 2400),
-  "plant-hawthorn": black(1000, 1000),
-  "plant-garlic": black(1000, 1000),
-  "plant-cacao": black(1000, 1000),
-  // Priority 4 – places of resonance
-  "globe-earth": black(3000, 3000),
-  "site-giza": s(1600, 1000),
-  "site-machu-picchu": s(1600, 1000),
-  "site-angkor-wat": s(1600, 1000),
-  "site-goebekli-tepe": s(1600, 1000),
-  "site-malta-hypogeum": s(1600, 1000),
-  "site-stonehenge": s(1600, 1000),
-  "site-istanbul-mosque-dome": s(1600, 1000),
-  "diagram-dome-acoustics": black(1600, 1600),
-  "cymatics-1": black(1600, 1600),
-  "cymatics-2": black(1600, 1600),
-  "cymatics-3": black(1600, 1600),
-  // Priority 5 – frequency lab & food
-  "lab-waveform-bg": black(3840, 1000),
-  "food-organ-signatures": s(1400, 900),
-  "food-nutrients-compounds": s(1400, 900),
-  "food-diy-lab": s(1400, 900),
-  "food-recipes-protocols": s(1400, 900),
-  "food-plants-herbs": s(1400, 900),
+  // ---- Startseite: hero (priority 1)
+  "hero-world": d(HOME, 1, "scene", 3840, 2160, "wide cinematic night landscape, ancient temple city and dense jungle with a waterfall on the far left, pyramids and misty mountains on the far right, deep starry sky with planets, large calm dark area on the left 40 percent for text, empty space in the right center for a figure, no people", "hero-mobile"),
+  "hero-figure": d(HOME, 1, "black", 2400, 3000, "profile of a serene woman with a crown of lush plants and flowers, beside a translucent glowing human body hologram with visible organs, neural pathways and a DNA helix, scientific hologram, on a pure black background"),
+  "hero-planets": d(HOME, 1, "black", 2400, 1600, "four separate detailed planets and moons with atmosphere glow, different sizes, wide spacing, on a pure black background"),
+  "hero-dna": d(HOME, 1, "black", 1200, 2400, "glowing double helix DNA strand, gold and cyan, vertical, elegant, on a pure black background"),
+  "hero-lotus": d(HOME, 1, "black", 1600, 1600, "cluster of glowing luminous lotus and tropical flowers in pink and amber, on a pure black background"),
+  "hero-bokeh": d(HOME, 1, "black", 3840, 2160, "floating golden dust particles and soft bokeh lights, sparse, dark, on a pure black background"),
+  "hero-mobile": d(HOME, 1, "scene", 1080, 1920, "portrait version: same figure and world, figure in the upper half, dark calm area in the lower half for text"),
+
+  // ---- Startseite: knowledge matrix tiles (priority 2), portrait tiles
+  "tile-pflanzen": d(HOME, 2, "scene", 1000, 1200, "lush green medicinal plant with large leaves and small flowers, glowing, dark background"),
+  "tile-baeume": d(HOME, 2, "scene", 1000, 1200, "ancient majestic tree with wide crown at dusk, golden light, dark background"),
+  "tile-gemuese-obst": d(HOME, 2, "scene", 1000, 1200, "colourful arrangement of fresh fruit and vegetables, rich colours, dark background"),
+  "tile-pilze": d(HOME, 2, "scene", 1000, 1200, "cluster of medicinal mushrooms on moss, soft glow, dark forest background"),
+  "tile-mineralien": d(HOME, 2, "scene", 1000, 1200, "raw mineral crystals in blue and white with fine facets, glowing, dark background"),
+  "tile-kristalle": d(HOME, 2, "scene", 1000, 1200, "large amethyst crystal cluster in violet, glowing, dark background"),
+  "tile-koerper": d(HOME, 2, "scene", 1000, 1200, "translucent human torso with glowing organs, blue and orange, dark background"),
+  "tile-naehrstoffe": d(HOME, 2, "scene", 1000, 1200, "glowing spheres in different colours representing vitamins and minerals, molecular look, dark background"),
+  "tile-krankheiten": d(HOME, 2, "scene", 1000, 1200, "human silhouette with glowing red and blue signal lines, scientific, dark background"),
+  "tile-atem": d(HOME, 2, "scene", 1000, 1200, "person meditating in lotus pose with soft light rays, dark background"),
+  "tile-frequenzen": d(HOME, 2, "scene", 1000, 1200, "glowing concentric sound waves and geometric ripples in violet and blue, dark background"),
+  "tile-geometrie": d(HOME, 2, "scene", 1000, 1200, "golden flower of life sacred geometry, glowing lines, dark background"),
+  "tile-chakren": d(HOME, 2, "scene", 1000, 1200, "meditating figure with seven glowing colourful energy centres along the spine, dark background"),
+  "tile-kulturen": d(HOME, 2, "scene", 1000, 1200, "ancient Egyptian pyramids and temple at golden hour, dramatic sky"),
+  "tile-orte": d(HOME, 2, "scene", 1000, 1200, "ancient standing stones at dusk, dramatic sky, mystic atmosphere"),
+  "tile-lab": d(HOME, 2, "scene", 1000, 1200, "glass laboratory flasks with a seedling and glowing liquid, dark background"),
+
+  // ---- Startseite: body atlas, plant atlas, sections (priority 3)
+  "body-front": d(HOME, 3, "black", 2400, 3600, "translucent human body, front view, anatomical, glowing blue with organs visible in red and orange, on a pure black background"),
+  "nutrient-ashwagandha": d(HOME, 3, "black", 800, 800, "ashwagandha root and green leaves, glowing, on a pure black background"),
+  "nutrient-kurkuma": d(HOME, 3, "black", 800, 800, "fresh turmeric roots and powder, warm orange glow, on a pure black background"),
+  "nutrient-ingwer": d(HOME, 3, "black", 800, 800, "fresh ginger root pieces, warm glow, on a pure black background"),
+  "nutrient-knoblauch": d(HOME, 3, "black", 800, 800, "garlic bulbs and cloves, soft glow, on a pure black background"),
+  "nutrient-gruener-tee": d(HOME, 3, "black", 800, 800, "green tea leaves, fresh and glowing, on a pure black background"),
+  "nutrient-magnesium": d(HOME, 3, "black", 800, 800, "glowing blue molecule sphere with orbiting dots, on a pure black background"),
+  "nutrient-omega3": d(HOME, 3, "black", 800, 800, "golden drops of oil with a nut, glowing, on a pure black background"),
+  "nutrient-vitamin-d": d(HOME, 3, "black", 800, 800, "glowing sun symbol over a drop, warm gold, on a pure black background"),
+  "condition-bg": d(HOME, 3, "scene", 1600, 900, "profile of a calm young woman with a glowing network of light around her head, dark background, space on the right"),
+  "freq-orb": d(HOME, 3, "black", 1200, 1200, "glowing violet sacred geometry sphere with a meditating silhouette in front, on a pure black background"),
+  "band-geometrie": d(HOME, 3, "scene", 1800, 600, "golden flower of life geometry glowing on a dark background, space on the left for text"),
+  "band-kulturen": d(HOME, 3, "scene", 1800, 600, "ancient pyramids and temple ruins at golden hour, space on the left for text"),
+  "band-orte": d(HOME, 3, "scene", 1800, 600, "sacred mountain site with ancient terraces in mist, space on the left for text"),
+  "diy-extrakte": d(HOME, 3, "scene", 800, 1000, "glass bottles with plant extracts and herbs on a dark wooden table"),
+  "diy-wasser": d(HOME, 3, "scene", 800, 1000, "glowing structured water in a glass with a swirling vortex, dark background"),
+  "diy-raeuchern": d(HOME, 3, "scene", 800, 1000, "smoking incense bowl with herbs, atmospheric, dark background"),
+  "diy-mikroskop": d(HOME, 3, "scene", 800, 1000, "antique microscope with warm light, dark background"),
+  "library-bg": d(HOME, 3, "scene", 1800, 900, "old library with tall shelves and an open ancient book in warm light, space on the left for text"),
+  "connected-earth": d(HOME, 3, "scene", 1800, 900, "Earth from space with a glowing network of connections across continents, dark space"),
+
+  // ---- later pages (priority 4–6)
+  "organ-heart": d("Körper", 4, "black", 1600, 1600, "one anatomical human heart, realistic but translucent and softly glowing, on a pure black background"),
+  "organ-brain": d("Körper", 4, "black", 1600, 1600, "one anatomical human brain, realistic but translucent and softly glowing, on a pure black background"),
+  "organ-lungs": d("Körper", 4, "black", 1600, 1600, "anatomical human lungs, translucent and softly glowing, on a pure black background"),
+  "organ-liver": d("Körper", 4, "black", 1600, 1600, "anatomical human liver, translucent and softly glowing, on a pure black background"),
+  "organ-stomach": d("Körper", 4, "black", 1600, 1600, "anatomical human stomach, translucent and softly glowing, on a pure black background"),
+  "organ-intestines": d("Körper", 4, "black", 1600, 1600, "anatomical human intestines, translucent and softly glowing, on a pure black background"),
+  "organ-kidneys": d("Körper", 4, "black", 1600, 1600, "anatomical human kidneys, translucent and softly glowing, on a pure black background"),
+  "organ-skin": d("Körper", 4, "black", 1600, 1600, "cross-section of human skin layers, translucent and softly glowing, on a pure black background"),
+  "organ-immune": d("Körper", 4, "black", 1600, 1600, "immune cells and lymph network, translucent and glowing, on a pure black background"),
+  "organ-endocrine": d("Körper", 4, "black", 1600, 1600, "endocrine glands (pituitary, thyroid) as glowing anatomical illustration, on a pure black background"),
+  "heart-botanical": d("Körper", 4, "black", 2000, 2400, "anatomical heart whose vessels grow into botanical plants and flowers, glowing, on a pure black background"),
+  "globe-earth": d("Orte", 5, "black", 3000, 3000, "holographic Earth globe with glowing network lines connecting glowing points, on a pure black background"),
+  "site-giza": d("Orte", 5, "scene", 1600, 1000, "Giza pyramids at dusk, dramatic light (better: own or freely licensed photo)"),
+  "site-machu-picchu": d("Orte", 5, "scene", 1600, 1000, "Machu Picchu in morning mist (better: own or freely licensed photo)"),
+  "site-angkor-wat": d("Orte", 5, "scene", 1600, 1000, "Angkor Wat at sunrise (better: own or freely licensed photo)"),
+  "site-goebekli-tepe": d("Orte", 5, "scene", 1600, 1000, "Göbekli Tepe stone pillars (better: own or freely licensed photo)"),
+  "site-malta-hypogeum": d("Orte", 5, "scene", 1600, 1000, "carved chamber of the Hypogeum of Malta, warm light"),
+  "site-stonehenge": d("Orte", 5, "scene", 1600, 1000, "Stonehenge at dusk (better: own or freely licensed photo)"),
+  "site-istanbul-mosque-dome": d("Orte", 5, "scene", 1600, 1000, "Ottoman mosque dome interior with golden light and geometric patterns, no people"),
+  "diagram-dome-acoustics": d("Orte", 5, "black", 1600, 1600, "cross-section of a dome with sound waves, blueprint style, gold lines, on a pure black background"),
+  "cymatics-1": d("Frequenz", 5, "black", 1600, 1600, "cymatic sand pattern, sacred geometry, glowing, on a pure black background"),
+  "cymatics-2": d("Frequenz", 5, "black", 1600, 1600, "cymatic water pattern, concentric symmetry, glowing, on a pure black background"),
+  "cymatics-3": d("Frequenz", 5, "black", 1600, 1600, "cymatic membrane pattern with fine nodal lines, glowing, on a pure black background"),
+  "lab-waveform-bg": d("Frequenz", 5, "black", 3840, 1000, "wide glowing sine waves in cyan and gold, on a pure black background"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;
+
+/** Pictures for atlas entries are generated per entry: `atlas-<id>`, motif on black, square. */
+export const ATLAS_SLOT: SlotDef = { w: 1000, h: 1000, bg: "black", prio: 3, page: "Atlas", prompt: "one botanical or mineral subject, scientific illustration meets glowing light, on a pure black background" };
+
+export function slotDef(name: string): SlotDef | undefined {
+  return (SLOTS as Record<string, SlotDef>)[name] ?? (name.startsWith("atlas-") ? ATLAS_SLOT : undefined);
+}

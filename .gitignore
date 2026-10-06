@@ -12,3 +12,7 @@ exports/
 # Full-size image originals stay local; optimised copies go to public/assets/
 design/assets-raw/*
 !design/assets-raw/.gitkeep
+
+# Landing-page previews may also be kept in public/references on the local machine: never commit them.
+# (source-codes-master.png was committed early on and stays tracked; new files are ignored.)
+public/references/*

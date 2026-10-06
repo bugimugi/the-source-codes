@@ -57,8 +57,9 @@ Befehle: `npm install`, `npm run dev` (http://localhost:5173), `npm run build`, 
 Der Build läuft nur durch, wenn `validate:data` besteht.
 
 ## Design (v2)
-Der Nutzer hat **Landingpage-Vorschaubilder** als Layout-Vorlage (`design/mockups/`, nur lokal, NICHT committet – `.gitignore`
-schließt sie aus, weil das Repository öffentlich ist; niemals mit `git add -f` erzwingen). Die Vorschauen sind **keine
+Der Nutzer hat **Landingpage-Vorschaubilder** als Layout-Vorlage. Sie liegen lokal in `design/mockups/` und/oder `public/references/`
+(beides NICHT committet – `.gitignore` schließt sie aus, weil das Repository öffentlich ist; niemals mit `git add -f`
+erzwingen; vor jedem Commit `git status` prüfen). `public/references` wird im Produktions-Build entfernt (`vite.config.ts`). Die Vorschauen sind **keine
 Bildquellen**: Text und Oberfläche sind eingebacken, die Auflösung ist zu klein. Die einzelnen Bildwelten (Hero-Figur, Welt,
 Planeten, Kartenbilder, Organe …) werden vom Nutzer **separat erzeugt**; die Liste mit Prompts steht in `docs/ASSET-LIST.md`.
 Aufgabe: Seiten in echtem Code nachbauen (Text, Buttons, Navigation, Overlays als HTML/CSS) und die Bilder, sobald sie vorliegen,

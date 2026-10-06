@@ -39,12 +39,12 @@
     <main id="main">
       <section class="hero-section" id="top" aria-labelledby="hero-title">
         <div class="hero-layers" aria-hidden="true">
-          <div class="hl hl-world" data-slot="hero-world" data-fit="cover"></div>
-          <div class="hl hl-bokeh" data-slot="hero-bokeh" data-fit="cover"></div>
+          <div class="hl hl-world" data-slot="hero-world" data-fit="cover" data-eager="true"></div>
+          <div class="hl hl-bokeh" data-slot="hero-bokeh" data-fit="cover" data-eager="true"></div>
           <div class="hl hl-planets" data-slot="hero-planets"></div>
           <div class="hl hl-dna" data-slot="hero-dna"></div>
           <div class="hl hl-lotus" data-slot="hero-lotus"></div>
-          <div class="hl hl-figure" data-slot="hero-figure"></div>
+          <div class="hl hl-figure" data-slot="hero-figure" data-eager="true"></div>
         </div>
         <canvas id="gl" aria-hidden="true"></canvas>
         <div id="pins" aria-label="Wissens-Pins"></div>

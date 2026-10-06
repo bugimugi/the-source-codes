@@ -10,14 +10,19 @@ html { scroll-padding-top: 84px; }
 .hero-layers { position: absolute; inset: 0; z-index: 0; }
 .hl.slot { position: absolute; }
 .hl.slot-cover { inset: 0; }
-.hl-planets { top: 2%; left: 34%; width: 44%; }
-.hl-dna { right: 1%; top: -6%; height: 72%; }
-.hl-lotus { right: 20%; top: 0; width: 24%; }
-.hl-figure { right: 3%; bottom: -3%; height: 106%; }
+.hero-layers .slot img { animation: none; }
+.hl-planets { top: 5%; left: 30%; width: 20%; }
+.hl-planets img { opacity: 0.85; } /* opacity on the <img>, not the layer: a layer with opacity would stop the "screen" blending */
+.hl-dna { display: none; } /* hero-figure already contains a DNA strand; the asset stays available for other pages */
+.hl-lotus { left: 38%; bottom: -10%; width: 16%; }
+.hl-figure { right: 10%; bottom: -4%; height: 96%; }
+/* readability: darken the text side and the bottom edge a little, above the pictures but below pins and text */
+.hero-section::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(90deg, rgba(2, 7, 11, 0.8) 0%, rgba(2, 7, 11, 0.5) 32%, transparent 54%), linear-gradient(0deg, var(--bg) 0, transparent 20%); }
 .hero-section #gl { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; }
 .hero-section #pins { position: absolute; inset: 0; z-index: 3; }
 .hero-section .hero { position: absolute; inset: 0; z-index: 4; height: 100%; }
-.levels { position: absolute; z-index: 4; top: 92px; right: clamp(16px, 3vw, 44px); width: 250px; padding: 14px 16px; border: 1px solid var(--gold-line); border-radius: 14px; background: rgba(5, 18, 25, 0.62); backdrop-filter: blur(14px); }
+.levels { position: absolute; z-index: 4; top: 92px; right: clamp(16px, 3vw, 44px); width: 176px; padding: 14px 16px; border: 1px solid var(--gold-line); border-radius: 14px; background: rgba(5, 18, 25, 0.62); backdrop-filter: blur(14px); }
 .levels h2 { font-size: 0.64rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; font-weight: 500; }
 .levels ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
 .levels li { display: grid; grid-template-columns: 12px 1fr auto; gap: 0.6rem; align-items: center; font-size: 0.78rem; color: var(--ivory); }
@@ -142,7 +147,7 @@ html { scroll-padding-top: 84px; }
 .nav-cta:hover, .nav-cta:focus-visible { background: var(--gold); color: var(--bg); }
 
 /* ---- responsive */
-@media (max-width: 1200px) { .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav-link:nth-child(n+7) { display: none; } }
+@media (max-width: 1200px) { .hl-planets, .levels { display: none; } .hl-figure { right: -2%; height: 86%; } .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav-link:nth-child(n+7) { display: none; } }
 @media (max-width: 1000px) {
   .split, .plant-grid, .trio, .bands { grid-template-columns: 1fr; }
   .levels { display: none; }
@@ -156,8 +161,10 @@ html { scroll-padding-top: 84px; }
   .lab-grid { grid-template-columns: 1fr; } .orb.slot { max-width: 180px; justify-self: center; }
   .diy { grid-template-columns: repeat(2, 1fr); }
   .nav-cta { display: none; }
-  .hero-section { max-height: none; }
-  .hl-figure { right: -8%; height: 70%; top: 6%; bottom: auto; } .hl-dna { display: none; }
+  .hero-section { max-height: none; height: auto; min-height: 112vh; }
+  .hero-section::before { background: linear-gradient(0deg, var(--bg) 0, rgba(2, 7, 11, 0.92) 44%, transparent 68%); }
+  /* on phones hero-mobile (shown by the world layer) already contains figure, hologram and DNA */
+  .hl-figure, .hl-planets, .hl-lotus { display: none; }
 }
 
 /* nav: readable over scrolled content */

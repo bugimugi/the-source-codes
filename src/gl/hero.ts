@@ -2,6 +2,7 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { buildModel, dot, glowTexture, rng } from "./models";
 import { hasAsset } from "../assets/slots";
+import { slotDef } from "../assets/registry";
 
 /**
  * Cinematic hero: a translucent human (head in profile, torso frontal) drawn from light,
@@ -356,6 +357,8 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
   renderer.setPixelRatio(dpr);
   // once the generated hero world exists, the canvas becomes a transparent layer on top of it
   const imageWorld = hasAsset("hero-world");
+  // with the generated figure the picture layers carry the scene; the procedural human / flowers / DNA step aside
+  const imageFigure = imageWorld && hasAsset("hero-figure");
   renderer.setClearColor(0x02070b, imageWorld ? 0 : 1);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
@@ -516,17 +519,63 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
   dg.setAttribute("position", new THREE.BufferAttribute(dust, 3));
   const dustPts = new THREE.Points(dg, new THREE.PointsMaterial({ color: GOLD_HI, size: 0.07, map: dot(), alphaTest: 0.03, transparent: true, opacity: reduceMotion ? 0.7 : 0, depthWrite: false, blending: THREE.AdditiveBlending }));
   scene.add(dustPts);
+  const hazes: THREE.Sprite[] = [];
   const haze = (color: THREE.Color, x: number, y: number, z: number, s: number, o: number) => {
     const sp2 = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTexture(), color, blending: THREE.AdditiveBlending, transparent: true, opacity: o, depthWrite: false }));
     sp2.scale.setScalar(s);
     sp2.position.set(x, y, z);
     scene.add(sp2);
+    hazes.push(sp2);
     return sp2;
   };
   haze(DEEP, 0.4, 0.4, -6, 16, 0.22);
   haze(GOLD, -5.5, -1.8, -6, 9, 0.09);
   haze(new THREE.Color("#2a4aa8"), 5.5, 2.5, -8, 10, 0.1);
   const spark = haze(GOLD_HI, brainC.x, 0.6, 0.1, 0.0, 0);
+
+  if (imageWorld) { stars.visible = false; hazes.forEach((h) => (h.visible = false)); }
+  if (imageFigure) {
+    human.visible = false;
+    lotus.forEach((f) => (f.visible = false));
+    dnaTop.visible = dnaChest.visible = false;
+    orbit.visible = false;
+    spark.visible = false;
+  }
+
+  // ---- picture layers (parallax, pin positions, fly-in)
+  // Parallax is applied to the <img> itself: a transform on the layer <div> would end the "screen" blending of the black motifs.
+  const layersEl = document.querySelector<HTMLElement>(".hero-layers");
+  const LAYERS = [
+    { sel: ".hl-world", depth: 6, grow: 1.04 }, { sel: ".hl-bokeh", depth: 16, grow: 1.04 }, { sel: ".hl-planets", depth: 11, grow: 1 },
+    { sel: ".hl-dna", depth: 20, grow: 1 }, { sel: ".hl-lotus", depth: 24, grow: 1 }, { sel: ".hl-figure", depth: 12, grow: 1 },
+  ].map((l) => ({ ...l, el: document.querySelector<HTMLElement>(`.hero-layers ${l.sel}`), img: document.querySelector<HTMLElement>(`.hero-layers ${l.sel} img`) }));
+  const figEl = LAYERS.find((l) => l.sel === ".hl-figure")!.el;
+  const worldL = LAYERS[0];
+  const narrow = matchMedia("(max-width: 700px)");
+  // Where the pins sit on the pictures, as fractions of the picture (tune these when the artwork is replaced).
+  // desktop: on hero-figure; phone: on hero-mobile (shown by the world layer, cropped to cover).
+  const PIN_SPOTS: Record<string, { desktop: [number, number]; mobile: [number, number] }> = {
+    neural: { desktop: [0.686, 0.093], mobile: [0.638, 0.129] },
+    plants: { desktop: [0.365, 0.168], mobile: [0.383, 0.096] },
+    dna: { desktop: [0.9, 0.5], mobile: [0.8, 0.24] },
+    bioelectric: { desktop: [0.709, 0.292], mobile: [0.65, 0.245] },
+  };
+  const mob = slotDef("hero-mobile")!;
+  const par = { x: 0, y: 0 };
+  /** Pixel position of a pin inside the hero section (parallax included). */
+  function pinXY(id: string): { x: number; y: number } | null {
+    const spot = PIN_SPOTS[id];
+    if (!spot || !layersEl) return null;
+    if (narrow.matches) {
+      const W = layersEl.clientWidth, H = layersEl.clientHeight, sc = Math.max(W / mob.w, H / mob.h);
+      const [fx, fy] = spot.mobile;
+      const x0 = (W - mob.w * sc) / 2 + fx * mob.w * sc, y0 = (H - mob.h * sc) / 2 + fy * mob.h * sc;
+      return { x: W / 2 + (x0 - W / 2) * worldL.grow + par.x * worldL.depth, y: H / 2 + (y0 - H / 2) * worldL.grow + par.y * worldL.depth };
+    }
+    if (!figEl) return null;
+    const [fx, fy] = spot.desktop;
+    return { x: figEl.offsetLeft + fx * figEl.offsetWidth + par.x * 12, y: figEl.offsetTop + fy * figEl.offsetHeight + par.y * 12 };
+  }
 
   // ---- pins (hover: reveal label, click: proof overlay)
   const pinEls = pins.map((p) => {
@@ -595,6 +644,16 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
     stars.rotation.y = reduceMotion ? 0 : t * 0.004;
     renderer.render(scene, camera);
     const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight;
+    if (imageFigure) {
+      par.x = reduceMotion ? 0 : -smooth.x;
+      par.y = reduceMotion ? 0 : -smooth.y * 0.6;
+      LAYERS.forEach((l) => { if (l.img) l.img.style.transform = `translate3d(${par.x * l.depth}px, ${par.y * l.depth}px, 0) scale(${l.grow})`; });
+      pinEls.forEach((b) => {
+        const xy = pinXY(b.dataset.pin!);
+        if (xy) b.style.transform = `translate(${xy.x}px, ${xy.y}px) translate(-50%, -50%)`;
+      });
+      return;
+    }
     pinEls.forEach((b) => {
       const pos = pinAnchors[b.dataset.pin!]?.();
       if (!pos) return;
@@ -611,6 +670,21 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
     onPin: (h) => { pinHandler = h; },
     buildIntro() {
       const tl = gsap.timeline({ paused: true });
+      if (imageWorld) {
+        // the generated pictures fade in layer by layer (opacity on the <img>, so the black motifs keep blending)
+        const im = (sel: string) => document.querySelector<HTMLElement>(`.hero-layers ${sel} img`);
+        tl.from(im(".hl-world"), { opacity: 0, duration: 1.8, ease: "power1.inOut" }, 0.1)
+          .from([im(".hl-bokeh"), im(".hl-planets")].filter(Boolean), { opacity: 0, duration: 1.6, stagger: 0.2, ease: "power1.out" }, 0.9)
+          .from([im(".hl-dna"), im(".hl-lotus"), im(".hl-figure")].filter(Boolean), { opacity: 0, duration: 1.6, stagger: 0.25, ease: "power2.out" }, 1.4)
+          .from(pinsRoot, { opacity: 0, duration: 0.8 }, 2.6);
+        if (!imageFigure) {
+          tl.to(shared.uReveal, { value: 1, duration: 1.1, ease: "power2.inOut" }, 1.2)
+            .to([stars.material, dustPts.material], { opacity: (_i: number, tg: THREE.Material) => (tg === stars.material ? 0.9 : 0.7), duration: 0.8 }, 0.8);
+        } else {
+          tl.to(dustPts.material, { opacity: 0.5, duration: 1.2 }, 1.2);
+        }
+        return tl;
+      }
       // 0.0s: almost black; 0.4s: a small golden point of light
       tl.to(spark.material, { opacity: 0.9, duration: 0.5, ease: "power2.out" }, 0.4)
         .to(spark.scale, { x: 0.9, y: 0.9, duration: 0.6, ease: "power2.out" }, 0.4)
@@ -624,11 +698,21 @@ export function initHero(canvas: HTMLCanvasElement, pinsRoot: HTMLElement, pins:
       return tl;
     },
     resetCamera() {
+      if (imageFigure && layersEl) { gsap.killTweensOf([layersEl, pinsRoot]); gsap.set(layersEl, { clearProps: "transform" }); gsap.set(pinsRoot, { opacity: 1 }); }
       flying = false;
       camera.fov = 38;
       camera.updateProjectionMatrix();
     },
     transitionOut() {
+      if (imageFigure && layersEl) {
+        // fly into the brain of the hologram: the whole picture stack zooms towards the "neural" pin
+        const o = pinXY("neural") ?? { x: layersEl.clientWidth / 2, y: layersEl.clientHeight / 2 };
+        gsap.set(layersEl, { transformOrigin: `${o.x}px ${o.y}px` });
+        gsap.to(pinsRoot, { opacity: 0, duration: reduceMotion ? 0 : 0.4 });
+        return new Promise<void>((resolve) => {
+          gsap.to(layersEl, { scale: 3.6, duration: reduceMotion ? 0.01 : 1.5, ease: "power3.in", onComplete: resolve });
+        });
+      }
       return new Promise<void>((resolve) => {
         flying = true;
         const target = { z: CAM_HOME.z, fov: 38, y: CAM_HOME.y, x: camera.position.x };

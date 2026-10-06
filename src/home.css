@@ -17,9 +17,9 @@ html { scroll-padding-top: 84px; }
   animation: planet-spin var(--spin, 200s) linear infinite var(--dir, normal); }
 @keyframes planet-spin { to { rotate: 360deg; } }
 /* DNA (canvas built by JS: one helix turn repeated and scrolled); tilted like in the design, soft ends */
-.hl-dna { left: 49.5%; top: -2%; height: 74%; }
+.hl-dna { left: 58.3%; top: -2%; height: 74%; } /* between the woman and the anatomy figure */
 /* the tilt sits on the canvas itself: a rotated wrapper would end the screen blending */
-.dna-canvas { display: block; width: 100%; height: 100%; mix-blend-mode: screen; rotate: -13deg;
+.dna-canvas { display: block; width: 100%; height: 100%; mix-blend-mode: screen; rotate: 12deg;
   -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 16%, #000 80%, transparent 100%); }
 .hl-lotus { left: 38%; bottom: -10%; width: 16%; }
 @media (max-height: 780px) { .hl-planets { display: none; } } /* no free band above the text on low windows */
@@ -27,7 +27,7 @@ html { scroll-padding-top: 84px; }
    at the right edge of the picture is masked out (the animated DNA layer replaces it). Both fade out at the hips / shoulders. */
 /* sizes follow the hero height but never grow past what the width allows (tall windows would otherwise push the woman over the text) */
 .hl-woman { left: 40.3%; top: -2%; height: min(125%, 70vw); }
-.hl-body { left: 27.5%; top: 4%; height: min(170%, 95vw); }
+.hl-body { left: 33.7%; top: 7%; height: min(145%, 82vw); }
 .hl-woman img { --mx: linear-gradient(90deg, #000 0 50%, transparent 60%); --my: linear-gradient(180deg, #000 0 55%, transparent 80%);
   -webkit-mask-image: var(--mx), var(--my); mask-image: var(--mx), var(--my); -webkit-mask-composite: source-in; mask-composite: intersect; }
 /* --mdna cuts out the DNA strand of the picture (an ellipse around it) so only the animated DNA layer shows */
@@ -171,7 +171,7 @@ html { scroll-padding-top: 84px; }
 .nav-cta:hover, .nav-cta:focus-visible { background: var(--gold); color: var(--bg); }
 
 /* ---- responsive */
-@media (max-width: 1200px) { .hl-planets, .hl-dna { display: none; } .hl-woman { left: 44%; height: min(104%, 66vw); } .hl-body { left: 30%; height: min(145%, 90vw); } .hero-section .hero { justify-content: center; padding-top: 96px; padding-bottom: 40px; } .hero .hint { display: none; } .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav-link:nth-child(n+7) { display: none; } }
+@media (max-width: 1200px) { .hl-planets, .hl-dna { display: none; } .hl-woman { left: 44%; height: min(104%, 66vw); } .hl-body { left: 33%; height: min(125%, 78vw); } .hero-section .hero { justify-content: center; padding-top: 96px; padding-bottom: 40px; } .hero .hint { display: none; } .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav-link:nth-child(n+7) { display: none; } }
 @media (max-width: 1000px) {
   .split, .plant-grid, .trio, .bands { grid-template-columns: 1fr; }
   .fl-chips { grid-template-columns: repeat(5, minmax(0, 1fr)); }

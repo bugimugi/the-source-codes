@@ -188,6 +188,7 @@ html { scroll-padding-top: 84px; }
   .hero-section::before { background: linear-gradient(0deg, var(--bg) 0, rgba(2, 7, 11, 0.92) 44%, transparent 68%); }
   /* on phones hero-mobile (shown by the world layer) already contains figure, hologram and DNA */
   .hl-woman, .hl-body, .hl-planets, .hl-dna, .hl-lotus { display: none; }
+  .sec-head { flex-wrap: wrap; } .sec-head h2 { font-size: 1.4rem; }
   .hero-section .hero { max-width: 100%; justify-content: flex-end; padding-top: 60px; padding-bottom: 76px; }
   .hero-section h1 { font-size: clamp(2rem, 11vw, 3rem); }
   .levels { top: auto; bottom: 14px; right: 16px; }

@@ -16,6 +16,7 @@ export interface HomeApi {
 }
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+const glyph = (e: { category: string }) => (e.category === "kristall" ? "◆" : "✿"); // placeholder mark until the picture exists
 const slot = (name: SlotName | `atlas-${string}`, cls = "", attrs = "") => `<div class="${cls}" data-slot="${name}" ${attrs}></div>`;
 
 /** Builds the sections below the hero from data. Everything shown is derived from content/ or is clearly marked as upcoming. */
@@ -59,7 +60,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
         <button class="link" data-act="atlas-all">Alle Pflanzen <span aria-hidden="true">→</span></button></div>
       ${featured ? `<div class="plant-grid">
         <article class="plant-feature">
-          ${slot(`atlas-${featured.id}` as `atlas-${string}`, "plant-img atlas-fallback", `style="--tint:${featured.model.color}"`)}
+          ${slot(`atlas-${featured.id}` as `atlas-${string}`, "plant-img atlas-fallback", `style="--tint:${featured.model.color}" data-glyph="${glyph(featured)}"`)}
           <div class="plant-info">
             <h3>${esc(featured.name)}</h3><p class="latin">${esc(featured.latin)}</p>
             <ul class="facts">${featured.facts.slice(0, 3).map((f) => `<li><span>${esc(f.label)}</span> ${esc(f.value)}</li>`).join("")}</ul>
@@ -68,7 +69,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
             <button class="cta ghost small" data-act="atlas-entry" data-id="${featured.id}">Pflanze erkunden <span aria-hidden="true">→</span></button>
           </div>
         </article>
-        <ul class="plant-list">${list.map((e) => `<li><button data-act="atlas-entry" data-id="${e.id}">${slot(`atlas-${e.id}` as `atlas-${string}`, "pl-img atlas-fallback", `style="--tint:${e.model.color}"`)}<span><strong>${esc(e.name)}</strong><small>${esc(e.associations[0]?.target ?? CATEGORY_LABEL[e.category])}</small></span><i aria-hidden="true">›</i></button></li>`).join("")}</ul>
+        <ul class="plant-list">${list.map((e) => `<li><button data-act="atlas-entry" data-id="${e.id}">${slot(`atlas-${e.id}` as `atlas-${string}`, "pl-img atlas-fallback", `style="--tint:${e.model.color}" data-glyph="${glyph(e)}"`)}<span><strong>${esc(e.name)}</strong><small>${esc(e.associations[0]?.target ?? CATEGORY_LABEL[e.category])}</small></span><i aria-hidden="true">›</i></button></li>`).join("")}</ul>
       </div>` : ""}
     </section>
   </div>

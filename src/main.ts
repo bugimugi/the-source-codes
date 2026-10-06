@@ -16,10 +16,12 @@ import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
 import { AREA_LABEL, LEVEL_LABEL, isSettled, type Area, type EvidenceLevel } from "./data/types";
 import { AREA_ORDER } from "./data/areas";
+import { mountSlots } from "./assets/slots";
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const html = document.documentElement;
+mountSlots();
 if (!reduceMotion) html.classList.add("intro");
 
 // ---------------------------------------------------------------- hero (with WebGL fallbacks)

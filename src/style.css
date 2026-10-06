@@ -247,3 +247,13 @@ h1 .line > span { display: block; }
 .atlas-search { width: 14rem; }
 
 .notice .pilot { display: block; color: var(--gold-hi); letter-spacing: 0.08em; margin-bottom: 0.15rem; }
+
+/* ---- image slots (src/assets/slots.ts): fixed format, plain fallback until a file exists in public/assets */
+.slot { position: relative; display: block; overflow: hidden; aspect-ratio: var(--slot-ratio); }
+.slot-cover { position: absolute; inset: 0; aspect-ratio: auto; }
+.slot-empty.slot-scene { background: linear-gradient(160deg, var(--navy), var(--bg)); }
+.slot picture, .slot img { display: block; width: 100%; height: 100%; }
+.slot img { object-fit: cover; }
+.slot-black img { mix-blend-mode: screen; }
+@media (prefers-reduced-motion: no-preference) { .slot img { animation: slot-in 0.6s ease both; } }
+@keyframes slot-in { from { opacity: 0; } }

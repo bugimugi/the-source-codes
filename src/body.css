@@ -13,17 +13,27 @@
 .bv-list button[aria-pressed="true"], .bv-card[aria-pressed="true"] { border-color: var(--gold); background: rgba(203, 170, 103, 0.14); }
 .bv-list button:focus-visible, .bv-card:focus-visible, .bp:focus-visible, .bv-rel button:focus-visible { outline: 2px solid var(--ivory); outline-offset: 2px; }
 .bv-stage { position: relative; height: min(calc(100vh - 150px), 880px); justify-self: center; aspect-ratio: 2 / 3; max-width: 100%; }
-/* the picture is screened onto the page as a whole so its black background vanishes */
-.bv-body-img.slot { position: absolute; inset: 0; aspect-ratio: auto; mix-blend-mode: screen; }
-.bv-body-img.slot img { mix-blend-mode: normal; object-fit: contain; }
-.bv-body-img.slot-empty { background: radial-gradient(ellipse 28% 42% at 50% 46%, rgba(88, 214, 232, 0.14), transparent 70%); }
+/* shared body stage (src/ui/bodyStage.ts): also used on the home page */
+.bs { position: relative; overflow: hidden; border-radius: 14px; }
+.bs::before { content: ""; position: absolute; inset: 8% 22%; border-radius: 50%; background: radial-gradient(circle, rgba(88, 214, 232, 0.14), transparent 70%); }
+/* the picture is screened onto the page as a whole (it has its own stacking context through the transform) so its black background vanishes */
+.bs-zoom.slot { position: absolute; transform-origin: 0 0; aspect-ratio: auto; mix-blend-mode: screen; transition: transform 0.8s cubic-bezier(0.22, 0.7, 0.2, 1); overflow: visible; }
+.bs-zoom.slot img { mix-blend-mode: normal; }
+.bs-zoom.slot-empty { background: radial-gradient(ellipse 28% 42% at 50% 46%, rgba(88, 214, 232, 0.14), transparent 70%); }
+.bs-still .bs-zoom.slot, .bs-still .bp { transition: none; }
+.bs-pins { position: absolute; inset: 0; pointer-events: none; }
+.bs .bp { transition: left 0.8s cubic-bezier(0.22, 0.7, 0.2, 1), top 0.8s cubic-bezier(0.22, 0.7, 0.2, 1), opacity 0.4s; pointer-events: auto; }
+.bs .bp.bp-hidden { opacity: 0; pointer-events: none; }
+.bs-back { all: unset; position: absolute; left: 10px; bottom: 10px; z-index: 3; cursor: pointer; font-size: 0.74rem; letter-spacing: 0.06em; color: var(--gold-hi); padding: 0.45rem 0.8rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 99px; background: rgba(5, 18, 25, 0.85); }
+.bs-back:hover, .bs-back:focus-visible { border-color: var(--gold); }
+.bs-back[hidden] { display: none; }
 .bp { all: unset; position: absolute; transform: translate(-50%, -50%); cursor: pointer; z-index: 2; }
 .bp-ring { display: block; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--gold-hi); background: radial-gradient(circle, var(--gold-hi) 0 3px, rgba(2, 7, 11, 0.45) 4px); box-shadow: 0 0 0 4px rgba(2, 7, 11, 0.4), 0 0 14px rgba(240, 209, 139, 0.6); transition: transform 0.2s; }
 .bp:hover .bp-ring, .bp[aria-pressed="true"] .bp-ring { transform: scale(1.25); }
 .bp[aria-pressed="true"] .bp-ring { background: radial-gradient(circle, #fff 0 3px, var(--gold-hi) 4px); }
 .bp-label { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-hi); padding: 0.3rem 0.6rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 8px; background: rgba(5, 18, 25, 0.88); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
 .bp:hover .bp-label, .bp:focus-visible .bp-label, .bp[aria-pressed="true"] .bp-label { opacity: 1; }
-.bv-detail { padding: clamp(14px, 1.8vw, 22px); border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 18px; background: rgba(5, 18, 25, 0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.bv-detail { padding: clamp(14px, 1.8vw, 22px); border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 18px; background: rgba(5, 18, 25, 0.9); }
 .bv-organ-img.slot { width: min(100%, 220px); margin: 0 auto 0.6rem; mix-blend-mode: screen; }
 .bv-organ-img.slot img { mix-blend-mode: normal; }
 .bv-organ-img.slot-empty { background: radial-gradient(circle, rgba(88, 214, 232, 0.18), transparent 65%); }
@@ -40,8 +50,9 @@
 .bv-systems h2, .bv-botanical h2 { font-family: var(--serif); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; font-size: clamp(1.1rem, 1.6vw, 1.4rem); margin-bottom: 0.8rem; }
 .bv-systems-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .bv-card { display: grid; gap: 0.4rem; padding: 8px 8px 10px; text-align: center; }
-.bv-card .slot { aspect-ratio: 1; border-radius: 8px; background: #000; }
-.bv-card .slot-empty { background: radial-gradient(circle, rgba(88, 214, 232, 0.14), rgba(2, 7, 11, 0.6) 70%); }
+.bv-card .slot { aspect-ratio: 1; border-radius: 8px; mix-blend-mode: screen; }
+.bv-card .slot-empty { background: radial-gradient(circle, rgba(88, 214, 232, 0.14), transparent 70%); }
+.nb-list li { display: flex; }
 .bv-botanical { display: grid; grid-template-columns: minmax(200px, 360px) minmax(0, 1fr); gap: clamp(14px, 3vw, 40px); align-items: center; margin-top: 34px; padding: clamp(14px, 2vw, 24px); border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 18px; background: rgba(6, 19, 26, 0.7); }
 .bv-heart.slot { mix-blend-mode: screen; }
 .bv-heart.slot img { mix-blend-mode: normal; }
@@ -65,3 +76,9 @@
   .bv-bar .tabs { display: none; }
   .bv-scroll { padding-top: 70px; }
 }
+
+.nb-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.bv-detail .nb-list li { display: flex; align-items: center; gap: 0.5rem; min-width: 0; padding: 4px 6px 4px 4px; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 99px; background: rgba(2, 7, 11, 0.5); }
+.bv-detail .nb-img.slot { flex: none; width: 38px; border-radius: 50%; border: 1px solid var(--gold); background: radial-gradient(circle, rgba(88, 214, 232, 0.18), rgba(2, 7, 11, 0.85)); }
+.bv-detail .nb-list span { display: grid; font-size: 0.72rem; line-height: 1.2; min-width: 0; }
+.bv-detail .nb-list strong { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .bv-detail .nb-list small { color: var(--muted); font-size: 0.6rem; }

@@ -1,7 +1,9 @@
 import { atlas } from "../data/atlas";
 import { claims } from "../data/claims";
 import { BODY_ORGANS } from "../data/body";
-import { BANDS, BUBBLES, CONDITIONS, DIY, FREQUENCIES, ORGANS, TILES } from "../data/home";
+import { createBodyStage } from "./bodyStage";
+import { organById, organDetailHtml } from "./organDetail";
+import { BANDS, CONDITIONS, DIY, FREQUENCIES, ORGANS, TILES } from "../data/home";
 import { CATEGORY_LABEL, type AtlasCategory } from "../data/types";
 import { mountSlots } from "../assets/slots";
 import type { SlotName } from "../assets/registry";
@@ -46,14 +48,14 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       <h2 id="h-body">Der menschliche Körper</h2>
       <p>Entdecke, wie Pflanzen, Nährstoffe, Frequenzen und Lebensstil mit deinen Organen und Systemen zusammenhängen.</p>
       <div class="body-wrap">
-        <ul class="organs" aria-label="Organe und Systeme">${ORGANS.map((o) => `<li><button data-organ="${esc(o)}">${esc(o)}</button></li>`).join("")}</ul>
-        <div class="body-stage">
-          <svg class="bubble-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${BUBBLES.map((b) => `<line x1="${b.x}" y1="${b.y}" x2="50" y2="50"/>`).join("")}</svg>
-          ${slot("body-front", "body-img")}
-          ${BUBBLES.map((b) => `<div class="bubble" style="left:${b.x}%;top:${b.y}%">${slot(b.slot, "bubble-img")}<span><strong>${esc(b.name)}</strong><small>${esc(b.kind)}</small></span></div>`).join("")}
+        <ul class="organs" aria-label="Organe und Systeme">${ORGANS.map((o) => `<li><button data-organ="${esc(o)}" aria-pressed="false">${esc(o)}</button></li>`).join("")}</ul>
+        <div class="body-main">
+          <div class="body-stage" id="body-stage" role="group" aria-label="Anatomie: Organ anklicken"></div>
+          <p class="body-hint" id="body-hint">Wähle ein Organ in der Liste oder direkt am Körper.</p>
+          <div class="organ-card" id="organ-card" hidden aria-live="polite"></div>
         </div>
       </div>
-      <p class="fine">Die Zuordnungen von Organen zu Pflanzen und Nährstoffen werden als bewertete Aussagen mit Quellen aufgebaut. Die Pflanzen und Nährstoffe rund um den Körper sind Beispiele, keine Behandlungsempfehlungen.</p>
+      <p class="fine">Die Pflanzen und Nährstoffe, die nach einem Klick auf ein Organ erscheinen, sind vorläufige Platzhalter-Zuordnungen (ungeprüft, ohne Quelle) und keine Behandlungsempfehlungen. Sie werden durch bewertete Aussagen mit Quellen ersetzt.</p>
       <button class="cta ghost" data-act="body">Körper-Atlas öffnen <span aria-hidden="true">→</span></button>
     </section>
 
@@ -143,12 +145,16 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }
-    const organ = t.closest<HTMLElement>("[data-organ]");
+    const organ = t.closest<HTMLElement>(".organs [data-organ]");
     if (organ) {
       const id = BODY_ORGANS.find((o) => o.name.startsWith(organ.dataset.organ!))?.id;
-      if (id) api.openBody(id); else say(`${organ.dataset.organ}: Dieser Bereich folgt in einer späteren Phase.`);
+      if (id) bodyStage.select(id); else say(`${organ.dataset.organ}: Dieser Bereich folgt in einer späteren Phase.`);
       return;
     }
+    const oc = t.closest<HTMLElement>("[data-open-body]");
+    if (oc) { api.openBody(oc.dataset.openBody); return; }
+    const at = t.closest<HTMLElement>("[data-atlas]");
+    if (at) { api.openAtlas(null, at.dataset.atlas!); return; }
     const cl = t.closest<HTMLElement>("[data-claim]");
     if (cl) api.openClaim(cl.dataset.claim!, cl);
     const cond = t.closest<HTMLElement>("[data-cond]");
@@ -178,6 +184,28 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
   root.querySelector<HTMLFormElement>(".cond-search")!.addEventListener("submit", (e) => { e.preventDefault(); runCondition((document.getElementById("cond-q") as HTMLInputElement).value); });
 
   mountSlots(root);
+
+  // body explorer: pins on the picture, a click zooms in and shows the organ card; plants / nutrients appear only then
+  const card = document.getElementById("organ-card")!;
+  const hint = document.getElementById("body-hint")!;
+  const narrow = matchMedia("(max-width: 700px)");
+  const bodyStage = createBodyStage(document.getElementById("body-stage")!, {
+    reduceMotion,
+    focus: (w, h) => [narrow.matches ? w / 2 : w * 0.26, h * 0.5],
+    onSelect: (id) => {
+      const o = id ? organById(id) : undefined;
+      root.querySelectorAll<HTMLElement>(".organs [data-organ]").forEach((b) => b.setAttribute("aria-pressed", String(!!o && o.name.startsWith(b.dataset.organ!))));
+      hint.hidden = !!o;
+      card.hidden = !o;
+      if (o) {
+        card.innerHTML = organDetailHtml(o) + `<button class="cta ghost small" data-open-body="${o.id}">Auf der Körper-Seite ansehen <span aria-hidden="true">→</span></button>`;
+        mountSlots(card);
+        card.scrollTop = 0;
+      }
+    },
+  });
+  root.addEventListener("keydown", (e) => { if (e.key === "Escape" && bodyStage.current) bodyStage.select(null); });
+
   const lab = initFreqLab(document.getElementById("freqlab")!.closest(".lab") as HTMLElement, reduceMotion);
   return { stopAudio: lab.stop, say, scrollTo };
 }

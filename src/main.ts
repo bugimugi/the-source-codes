@@ -238,6 +238,7 @@ function openBodyView(organ?: string): boolean {
   bodyView ??= initBody(bodyEl, {
     openClaim: (id, from) => overlay.open(id, from),
     openAtlas: (_c, id) => { bodyEl.hidden = true; view = "hero"; go("atlas"); atlasView?.select(id); },
+    reduceMotion,
   });
   if (organ) bodyView.show(organ);
   fade(bodyEl, true);

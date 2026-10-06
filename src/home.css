@@ -94,19 +94,21 @@ html { scroll-padding-top: 84px; }
 .organs { list-style: none; padding: 0; display: grid; align-content: start; gap: 2px; }
 .organs button { all: unset; box-sizing: border-box; width: 100%; cursor: pointer; font-size: 0.78rem; padding: 0.42rem 0.6rem; border-radius: 8px; color: var(--muted); border-left: 2px solid transparent; }
 .organs button:hover, .organs button[aria-pressed="true"] { color: var(--ivory); background: rgba(203, 170, 103, 0.1); border-left-color: var(--gold); }
-.body-stage { position: relative; min-height: clamp(480px, 40vw, 640px); }
-.body-stage::before { content: ""; position: absolute; inset: 8% 25%; border-radius: 50%; background: radial-gradient(circle, rgba(88, 214, 232, 0.16), transparent 70%); }
-.body-img.slot { position: absolute; left: 50%; top: 0; height: 100%; transform: translateX(-50%);
-  /* the black picture background must vanish: the whole slot is screened onto the page (a transform makes it its own
-     stacking context, so a blend on the <img> alone would only act inside it and leave a black rectangle) */
-  mix-blend-mode: screen; }
-.body-img.slot img { mix-blend-mode: normal; }
-.bubble-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
-.bubble-lines line { stroke: var(--gold); stroke-width: 0.25; stroke-dasharray: 1.4 1.6; opacity: 0.45; vector-effect: non-scaling-stroke; }
-.bubble { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0.5rem; }
-.bubble-img.slot { width: clamp(52px, 4.4vw, 68px); border-radius: 50%; border: 1px solid var(--gold); background: radial-gradient(circle, rgba(88, 214, 232, 0.18), rgba(2, 7, 11, 0.85)); }
-.bubble span { white-space: nowrap; display: grid; font-size: 0.72rem; line-height: 1.2; }
-.bubble strong { font-weight: 600; color: var(--ivory); } .bubble small { color: var(--muted); font-size: 0.62rem; }
+.body-main { position: relative; min-width: 0; }
+.body-stage { height: clamp(480px, 40vw, 640px); }
+.body-hint { margin-top: 0.5rem; font-size: 0.74rem; color: var(--muted); text-align: center; }
+.organ-card { position: absolute; top: 0; right: 0; width: min(47%, 410px); max-height: 100%; overflow: auto; padding: 14px 16px; border: 1px solid var(--gold-line); border-radius: 14px; background: rgba(5, 18, 25, 0.9); }
+.organ-card[hidden] { display: none; }
+.organ-card .bv-organ-img.slot { width: min(100%, 150px); margin: 0 auto 0.4rem; }
+.organ-card h2 { font-family: var(--serif-text); font-weight: 600; font-size: 1.35rem; text-transform: none; letter-spacing: 0; margin-bottom: 0.3rem; }
+.organ-card h3 { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 1rem 0 0.4rem; }
+.organ-card p { font-size: 0.8rem; line-height: 1.55; color: var(--ivory); opacity: 0.9; }
+.organ-card .cta { margin-top: 0.9rem; }
+.nb-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.nb-list li { display: flex; align-items: center; gap: 0.5rem; min-width: 0; padding: 4px 6px 4px 4px; border: 1px solid var(--gold-line); border-radius: 99px; background: rgba(2, 7, 11, 0.5); }
+.nb-img.slot { flex: none; width: 38px; border-radius: 50%; border: 1px solid var(--gold); background: radial-gradient(circle, rgba(88, 214, 232, 0.18), rgba(2, 7, 11, 0.85)); }
+.nb-list span { display: grid; font-size: 0.72rem; line-height: 1.2; min-width: 0; }
+.nb-list strong { font-weight: 600; color: var(--ivory); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .nb-list small { color: var(--muted); font-size: 0.6rem; }
 
 /* ---- plant atlas */
 .plant-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
@@ -187,11 +189,9 @@ html { scroll-padding-top: 84px; }
 @media (max-width: 700px) {
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .body-wrap { grid-template-columns: 1fr; }
-  /* phones: the body on top, the nutrient bubbles in two columns underneath (no room for the free arrangement) */
-  .body-stage { min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 8px; }
-  .body-stage::before, .bubble-lines { display: none; }
-  .body-img.slot { position: relative; left: auto; top: auto; transform: none; grid-column: 1 / -1; height: 360px; justify-self: center; }
-  .bubble { position: static; transform: none; } .organs { grid-template-columns: repeat(3, 1fr); }
+  .body-stage { height: 440px; }
+  .organ-card { position: static; width: auto; max-height: none; margin-top: 10px; }
+  .organs { grid-template-columns: repeat(3, 1fr); } .organs { grid-template-columns: repeat(3, 1fr); }
   .plant-feature { grid-template-columns: 1fr; } .plant-img.slot { max-width: 180px; } .plant-list { grid-template-columns: 1fr; }
   .lab-grid { grid-template-columns: 1fr; } .orb.slot { max-width: 180px; justify-self: center; }
   .diy { grid-template-columns: repeat(2, 1fr); }

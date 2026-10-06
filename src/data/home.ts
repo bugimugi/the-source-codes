@@ -32,16 +32,21 @@ export const TILES: Tile[] = [
 
 export const ORGANS = ["Gehirn", "Herz", "Lunge", "Leber", "Magen", "Darm", "Immunsystem", "Hormone", "Knochen", "Muskeln", "Haut", "Nervensystem"];
 
-/** Items around the body. Only names and kind – effects belong to graded claims, not to a label. */
-export const BUBBLES: { name: string; kind: string; slot: SlotName; x: number; y: number }[] = [
-  { name: "Ashwagandha", kind: "Heilpflanze", slot: "nutrient-ashwagandha", x: 14, y: 12 },
-  { name: "Kurkuma", kind: "Gewürzwurzel", slot: "nutrient-kurkuma", x: 8, y: 40 },
-  { name: "Ingwer", kind: "Gewürzwurzel", slot: "nutrient-ingwer", x: 14, y: 68 },
-  { name: "Knoblauch", kind: "Zwiebelgewächs", slot: "nutrient-knoblauch", x: 22, y: 90 },
-  { name: "Grüner Tee", kind: "Teepflanze", slot: "nutrient-gruener-tee", x: 82, y: 12 },
-  { name: "Magnesium", kind: "Mineralstoff", slot: "nutrient-magnesium", x: 90, y: 38 },
-  { name: "Omega-3", kind: "Fettsäure", slot: "nutrient-omega3", x: 86, y: 64 },
-  { name: "Vitamin D", kind: "Vitamin", slot: "nutrient-vitamin-d", x: 78, y: 88 },
+/**
+ * Plants and nutrients shown next to an organ after it was clicked. `organs` are ids from data/body.ts.
+ * PLACEHOLDER PAIRING chosen by Claude to make the page work: the mockup only placed these items around the body and
+ * names no organ. The page labels it "vorläufig, ungeprüft" and names no effect. The operator decides the real pairing
+ * (each one then becomes a graded claim with sources). Kurkuma and Grüner Tee have no organ yet and are not shown.
+ */
+export const BUBBLES: { name: string; kind: string; slot: SlotName; organs: string[] }[] = [
+  { name: "Ashwagandha", kind: "Heilpflanze", slot: "nutrient-ashwagandha", organs: ["gehirn"] },
+  { name: "Kurkuma", kind: "Gewürzwurzel", slot: "nutrient-kurkuma", organs: [] },
+  { name: "Ingwer", kind: "Gewürzwurzel", slot: "nutrient-ingwer", organs: ["magen", "darm"] },
+  { name: "Knoblauch", kind: "Zwiebelgewächs", slot: "nutrient-knoblauch", organs: ["herz"] },
+  { name: "Grüner Tee", kind: "Teepflanze", slot: "nutrient-gruener-tee", organs: [] },
+  { name: "Magnesium", kind: "Mineralstoff", slot: "nutrient-magnesium", organs: ["gehirn"] },
+  { name: "Omega-3", kind: "Fettsäure", slot: "nutrient-omega3", organs: ["gehirn"] },
+  { name: "Vitamin D", kind: "Vitamin", slot: "nutrient-vitamin-d", organs: ["immunsystem"] },
 ];
 
 export const CONDITIONS = ["Kopfschmerzen", "Schlafprobleme", "Schnupfen", "Bauchschmerzen", "Hauterkrankungen", "Immunsystem", "Stress & Angst", "Verdauungsprobleme", "Gelenkschmerzen", "Energie & Müdigkeit"];

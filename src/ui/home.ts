@@ -11,6 +11,7 @@ import { initFreqLab } from "./freqlab";
 export interface HomeApi {
   openAtlas(category: AtlasCategory | null, id?: string): void;
   openUniverse(): void;
+  openFx(mode: "kymatik" | "geometrie"): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -97,10 +98,11 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       </div>
       <div class="fl-chips">${FREQUENCIES.map((f) => `<button class="fl-chip" data-hz="${f.hz}" aria-pressed="false"><strong>${f.hz}</strong><small>${esc(f.label)}</small></button>`).join("")}</div>
       <p class="fine">Die Bezeichnungen sind überlieferte Zuschreibungen (Solfeggio-Lehre u. a.). Eine heilende Wirkung einzelner Frequenzen ist nicht belegt.</p>
+      <button class="cta ghost small" data-act="fx" data-mode="kymatik">Kymatik in 3D öffnen <span aria-hidden="true">→</span></button>
     </section>
   </div>
 
-  <div class="bands">${BANDS.map((b) => `<section class="band" id="${b.id}">${slot(b.slot, "band-bg", 'data-fit="cover"')}<div><h2>${esc(b.title)}</h2><p>${esc(b.text)}</p><button class="cta ghost small" data-act="soon">${esc(b.button)} <span class="soon-tag inline">bald</span></button></div></section>`).join("")}</div>
+  <div class="bands">${BANDS.map((b) => `<section class="band" id="${b.id}">${slot(b.slot, "band-bg", 'data-fit="cover"')}<div><h2>${esc(b.title)}</h2><p>${esc(b.text)}</p>${"fx" in b ? `<button class="cta ghost small" data-act="fx" data-mode="${b.fx}">${esc(b.button)} <span aria-hidden="true">→</span></button>` : `<button class="cta ghost small" data-act="soon">${esc(b.button)} <span class="soon-tag inline">bald</span></button>`}</div></section>`).join("")}</div>
 
   <div class="trio">
     <section class="sec" id="labor" aria-labelledby="h-diy"><h2 id="h-diy">DIY Labor</h2><p>Experimente, Rezepte und praktische Anwendungen.</p>
@@ -122,6 +124,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       const a = TILES[Number(tileEl.dataset.tile)].action;
       if (a.type === "atlas") api.openAtlas(a.category);
       else if (a.type === "scroll") scrollTo(a.target);
+      else if (a.type === "fx") api.openFx(a.mode);
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }
@@ -129,6 +132,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
     if (act) {
       const k = act.dataset.act;
       if (k === "universe") api.openUniverse();
+      else if (k === "fx") api.openFx(act.dataset.mode === "geometrie" ? "geometrie" : "kymatik");
       else if (k === "atlas-all") api.openAtlas(null);
       else if (k === "atlas-entry") api.openAtlas(null, act.dataset.id);
       else say("Dieser Bereich folgt in einer späteren Phase.");

@@ -4,6 +4,7 @@ import type { SlotName } from "../assets/registry";
 export type TileAction =
   | { type: "atlas"; category: AtlasCategory }
   | { type: "scroll"; target: string }
+  | { type: "fx"; mode: "kymatik" | "geometrie" }
   | { type: "soon" };
 
 export interface Tile { title: string; sub: string; slot: SlotName; action: TileAction }
@@ -20,8 +21,8 @@ export const TILES: Tile[] = [
   { title: "Nährstoffe", sub: "Vitamine, Mineralien, Aminosäuren", slot: "tile-naehrstoffe", action: { type: "soon" } },
   { title: "Krankheiten & Beschwerden", sub: "Von Schnupfen bis chronisch", slot: "tile-krankheiten", action: { type: "scroll", target: "beschwerden" } },
   { title: "Atem & Meditation", sub: "Atemtechniken & Nervensystem", slot: "tile-atem", action: { type: "soon" } },
-  { title: "Frequenzen & Vibrationen", sub: "Klang, Frequenz & Resonanz", slot: "tile-frequenzen", action: { type: "scroll", target: "frequenz" } },
-  { title: "Geometrie", sub: "Heilige Geometrie & Mathematik", slot: "tile-geometrie", action: { type: "scroll", target: "geometrie" } },
+  { title: "Frequenzen & Vibrationen", sub: "Klang, Frequenz & Resonanz", slot: "tile-frequenzen", action: { type: "fx", mode: "kymatik" } },
+  { title: "Geometrie", sub: "Heilige Geometrie & Mathematik", slot: "tile-geometrie", action: { type: "fx", mode: "geometrie" } },
   { title: "Chakren", sub: "Energiezentren & Bewusstsein", slot: "tile-chakren", action: { type: "soon" } },
   { title: "Alte Kulturen", sub: "Wissen der Zivilisationen", slot: "tile-kulturen", action: { type: "scroll", target: "kulturen" } },
   { title: "Heilige Orte", sub: "Orte besonderer Bedeutung", slot: "tile-orte", action: { type: "scroll", target: "orte" } },
@@ -51,7 +52,7 @@ export const FREQUENCIES: { hz: number; label: string }[] = [
 ];
 
 export const BANDS = [
-  { id: "geometrie", title: "Heilige Geometrie", text: "Muster, die sich in Natur, Kunst und Architektur wiederholen: Blume des Lebens, Goldener Schnitt, Platonische Körper.", slot: "band-geometrie" as SlotName, button: "Geometrie erkunden" },
+  { id: "geometrie", title: "Heilige Geometrie", text: "Muster, die sich in Natur, Kunst und Architektur wiederholen: Blume des Lebens, Goldener Schnitt, Platonische Körper.", slot: "band-geometrie" as SlotName, button: "Geometrie erkunden", fx: "geometrie" as const },
   { id: "kulturen", title: "Alte Kulturen", text: "Tauche in das Wissen früherer Zivilisationen ein: Ägypten, Griechenland, Indien, China, Maya, Inka und mehr.", slot: "band-kulturen" as SlotName, button: "Kulturen erkunden" },
   { id: "orte", title: "Heilige Orte", text: "Orte von besonderer historischer und kultureller Bedeutung: Giza, Machu Picchu, Angkor Wat, Stonehenge.", slot: "band-orte" as SlotName, button: "Orte entdecken" },
 ];

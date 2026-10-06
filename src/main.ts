@@ -5,6 +5,7 @@ import "@fontsource/cormorant-garamond/600.css";
 import "@fontsource-variable/inter";
 import "./style.css";
 import "./home.css";
+import "./fx.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
 import { initParticles } from "./gl/particles";
@@ -14,6 +15,8 @@ import { initStage } from "./ui/stage";
 import { initAtlas } from "./ui/atlas";
 import { initSearch } from "./ui/search";
 import { initHome } from "./ui/home";
+import { initFx } from "./ui/fx";
+import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
 import { AREA_LABEL, LEVEL_LABEL, isSettled, type Area, type AtlasCategory, type EvidenceLevel } from "./data/types";
@@ -100,12 +103,15 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas";
+type View = "hero" | "universe" | "atlas" | "fx";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
+let fxView: ReturnType<typeof initFx> | null = null;
+let fxMode: FxMode = "kymatik";
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
+const fxEl = $("fx");
 const stageEl = $("stage");
 const nav = $("nav");
 const pinsEl = $("pins");
@@ -198,15 +204,34 @@ function openAtlas(): boolean {
   return true;
 }
 
+function openFxView(): boolean {
+  // the canvas needs its real size when the scene starts, so the view is unhidden first
+  fxEl.hidden = false;
+  try {
+    fxView ??= initFx(fxEl, reduceMotion);
+    fxView.start(fxMode);
+  } catch (err) {
+    fxEl.hidden = true;
+    console.warn("WebGL not available – frequency page cannot be shown.", err);
+    alert("The 3D frequency page needs WebGL. Please enable hardware acceleration in your browser or use another browser.");
+    return false;
+  }
+  fade(fxEl, true);
+  $("leave-fx").focus();
+  return true;
+}
+
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === view) return false;
   const prev = view;
   if (next === "universe" && !openUniverse(opts.instant)) return false;
   if (next === "atlas" && !openAtlas()) return false;
+  if (next === "fx" && !openFxView()) return false;
   view = next;
   if (next !== "hero") home?.stopAudio();
   if (prev === "universe") fade(matrixEl, false, () => universe?.stop());
   if (prev === "atlas") fade(atlasEl, false, () => atlasView?.stop());
+  if (prev === "fx") fade(fxEl, false, () => fxView?.stop());
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
   else setChrome(false);
   syncHero();
@@ -235,6 +260,7 @@ const home = initHome($("home"), {
     else atlasView?.showCategory(category);
   },
   openUniverse() { void enterLibrary(); },
+  openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
   openClaim: (id, from) => overlay.open(id, from),
 }, reduceMotion);
 
@@ -250,15 +276,18 @@ document.querySelectorAll<HTMLElement>("[data-scroll]").forEach((b) =>
 );
 $("leave-matrix").addEventListener("click", () => go("hero"));
 $("leave-atlas").addEventListener("click", () => go("hero"));
+$("leave-fx").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;
-    if (view === "universe" || view === "atlas") {
-      const from = view;
-      view = "hero";
-      if (from === "universe") { matrixEl.hidden = true; universe?.stop(); } else { atlasEl.hidden = true; atlasView?.stop(); }
-      go(target);
-    }
+    if (view === "hero" || view === target) return;
+    // switch straight from one full-screen view to another: close the current one at once, then open the target
+    const from = view;
+    view = "hero";
+    if (from === "universe") { matrixEl.hidden = true; universe?.stop(); }
+    else if (from === "atlas") { atlasEl.hidden = true; atlasView?.stop(); }
+    else { fxEl.hidden = true; fxView?.stop(); }
+    go(target);
   }),
 );
 

@@ -79,6 +79,8 @@ Details: `docs/V2-PLAN.md`. Bildgenerierung (Higgsfield, Adobe u. a.) kostet Gut
 Hero (src/gl/hero.ts), Proof-Overlay mit Tabs/Status (src/ui/proofOverlay.ts), Wissenssuche (src/ui/search.ts), Manifest,
 Universum mit Galaxien und Themenbühnen (src/gl/universe.ts, stages.ts), Atlas für Pflanzen/Kristalle (src/ui/atlas.ts,
 content/atlas/). 47 Aussagen, 21 Atlas-Einträge, viele Zitate noch `verified: false`.
+Dazu die scrollende Startseite (src/ui/home.ts, src/data/home.ts) und die Frequenz-Seite mit berechnetem 3D: Kymatik-Platte
+und Heilige Geometrie (src/ui/fx.ts, src/gl/fxscene.ts, src/data/cymatics.ts, src/data/geometry.ts; Ton: src/audio/tone.ts).
 
 ## Harte Regeln (vom Nutzer festgelegt, gelten immer)
 1. **Keine Zusatzkosten.** Keine kostenpflichtigen Dienste, APIs, Modelle, Plugins oder Bildgeneratoren, keine Einkäufe. Nur freie

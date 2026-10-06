@@ -1,0 +1,42 @@
+/* Frequency page: 3D cymatics + geometry. Loaded after home.css. */
+.fx { position: fixed; inset: 0; z-index: 5; background: radial-gradient(ellipse at 38% 40%, #08202b, #02070B 70%); }
+.fx[hidden] { display: none; }
+.fx canvas#fx-gl { position: absolute; left: 0; top: 0; width: calc(100% - min(440px, 38vw)); height: 100%; display: block; cursor: grab; touch-action: none; }
+.fx-bar { background: linear-gradient(#02070Bee, #02070B99); }
+.fx-panel { position: absolute; z-index: 2; top: 84px; right: 16px; bottom: 16px; width: min(420px, calc(38vw - 8px)); overflow: auto; padding: clamp(16px, 2vw, 26px); border: 1px solid var(--gold-line); border-radius: 18px; background: rgba(5, 18, 25, 0.82); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); }
+.fx-eyebrow { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+.fx-panel h2 { font-family: var(--serif); font-weight: 400; letter-spacing: 0.06em; font-size: 1.45rem; line-height: 1.2; margin-bottom: 0.9rem; }
+.fx-panel h3 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 1.3rem 0 0.4rem; font-weight: 500; }
+.fx-panel p { font-size: 0.86rem; line-height: 1.6; color: var(--ivory); opacity: 0.88; margin-bottom: 0.6rem; }
+.fx-panel p.fx-small { font-size: 0.74rem; color: var(--muted); opacity: 1; }
+.fx-notice { font-size: 0.72rem !important; color: var(--muted) !important; border-top: 1px solid var(--gold-line); padding-top: 0.8rem; margin-top: 1rem; }
+.fx-readout { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.3rem 0.9rem; margin-bottom: 0.9rem; }
+.fx-hz { font-family: var(--serif-text); font-size: 2.6rem; font-weight: 500; line-height: 1; color: var(--gold-hi); }
+.fx-mode { font-size: 0.72rem; color: var(--muted); }
+.fx-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.9rem; }
+.fx-play { all: unset; flex: none; cursor: pointer; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; box-shadow: 0 0 20px rgba(203, 170, 103, 0.2); }
+.fx-play span { width: 0; height: 0; border-left: 13px solid var(--gold-hi); border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 4px; }
+.fx-play.is-playing span { width: 14px; height: 16px; border: 0; margin: 0; background: linear-gradient(90deg, var(--gold-hi) 0 35%, transparent 35% 65%, var(--gold-hi) 65%); }
+.fx-play:focus-visible, .fx-chip:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+.fx-slider { flex: 1; min-width: 0; accent-color: var(--gold); height: 24px; }
+.fx-chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 0.9rem; }
+.fx-chips.shapes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fx-chip { all: unset; box-sizing: border-box; cursor: pointer; text-align: center; padding: 0.45rem 0.3rem; border: 1px solid var(--gold-line); border-radius: 10px; background: rgba(2, 7, 11, 0.45); display: grid; gap: 0.05rem; transition: border-color 0.2s, background 0.2s; }
+.fx-chip strong { font-size: 0.88rem; font-weight: 500; }
+.fx-chip small { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.05em; }
+.fx-chip[aria-pressed="true"] { border-color: var(--gold); background: rgba(203, 170, 103, 0.14); }
+.fx-chip:hover { border-color: var(--gold); }
+.fx-trad { font-size: 0.78rem !important; }
+.fx-trad span { color: var(--gold); margin-right: 0.35rem; }
+.fx-trad[hidden] { display: none; }
+.fx-scope { width: 100%; height: 80px; display: block; margin: 0.4rem 0 0.2rem; }
+.fx-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0.6rem 0; }
+.fx-facts div { border: 1px solid var(--gold-line); border-radius: 10px; padding: 0.5rem; text-align: center; background: rgba(2, 7, 11, 0.45); }
+.fx-facts dt { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.fx-facts dd { font-family: var(--serif-text); font-size: 1.6rem; color: var(--gold-hi); margin: 0; }
+
+@media (max-width: 800px) {
+  .fx canvas#fx-gl { width: 100%; height: 44vh; }
+  .fx-panel { top: calc(44vh + 8px); left: 12px; right: 12px; bottom: 12px; width: auto; }
+  .fx-bar .tabs:first-of-type { display: none; }
+}

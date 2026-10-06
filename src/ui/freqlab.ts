@@ -1,4 +1,5 @@
 import { FREQUENCIES } from "../data/home";
+import { createTone } from "../audio/tone";
 
 /**
  * Frequency lab: a plain sine tone with a live waveform. The tone never starts by itself; it begins on a click,
@@ -12,10 +13,7 @@ export function initFreqLab(root: HTMLElement, reduceMotion: boolean) {
   const chips = [...root.querySelectorAll<HTMLButtonElement>(".fl-chip")];
   const ctx2d = canvas.getContext("2d")!;
   let hz = 432;
-  let audio: AudioContext | null = null;
-  let osc: OscillatorNode | null = null;
-  let gain: GainNode | null = null;
-  let analyser: AnalyserNode | null = null;
+  const tone = createTone();
   let playing = false;
   let visible = true;
   let raf = 0;
@@ -31,42 +29,13 @@ export function initFreqLab(root: HTMLElement, reduceMotion: boolean) {
     play.classList.toggle("is-playing", playing);
   }
 
-  function start() {
-    try {
-      audio ??= new AudioContext();
-      void audio.resume();
-      osc = audio.createOscillator();
-      gain = audio.createGain();
-      analyser = audio.createAnalyser();
-      analyser.fftSize = 2048;
-      osc.type = "sine";
-      osc.frequency.value = hz;
-      gain.gain.value = 0;
-      osc.connect(gain).connect(analyser).connect(audio.destination);
-      osc.start();
-      // fade in to a deliberately low level
-      gain.gain.linearRampToValueAtTime(0.08, audio.currentTime + 0.6);
-      playing = true;
-    } catch (e) {
-      console.warn("Audio nicht verfügbar", e);
-      playing = false;
-    }
-  }
-
-  function stop() {
-    if (!audio || !osc || !gain) { playing = false; return; }
-    const o = osc, g = gain, a = audio;
-    g.gain.cancelScheduledValues(a.currentTime);
-    g.gain.setTargetAtTime(0, a.currentTime, 0.12);
-    setTimeout(() => { try { o.stop(); o.disconnect(); g.disconnect(); } catch { /* already stopped */ } }, 500);
-    osc = gain = analyser = null;
-    playing = false;
-  }
+  const start = () => { playing = tone.start(hz); };
+  const stop = () => { tone.stop(); playing = false; };
 
   play.addEventListener("click", () => { playing ? stop() : start(); show(); loop(); });
   chips.forEach((c) => c.addEventListener("click", () => {
     hz = Number(c.dataset.hz);
-    if (osc && audio) osc.frequency.setTargetAtTime(hz, audio.currentTime, 0.05);
+    tone.setHz(hz);
     show();
   }));
 
@@ -84,6 +53,7 @@ export function initFreqLab(root: HTMLElement, reduceMotion: boolean) {
     ctx2d.shadowBlur = 8;
     ctx2d.beginPath();
     const mid = h / 2;
+    const analyser = tone.analyser;
     if (analyser) {
       analyser.getByteTimeDomainData(buf);
       for (let i = 0; i < buf.length; i++) {

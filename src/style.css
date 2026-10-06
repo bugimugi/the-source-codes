@@ -243,6 +243,7 @@ h1 .line > span { display: block; }
   .atlas-body { grid-template-columns: 1fr; grid-template-rows: 38vh auto auto; overflow: auto; padding-top: 150px; }
   .atlas-view { grid-row: 1; } .atlas-detail { grid-row: 2; margin: 0 12px; } .atlas-list { grid-row: 3; }
 }
+@media (max-width: 700px) { .atlas-body { padding-top: 206px; } }
 
 .atlas-search { width: 14rem; }
 

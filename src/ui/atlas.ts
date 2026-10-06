@@ -4,6 +4,8 @@ import { atlas } from "../data/atlas";
 import { claims } from "../data/claims";
 import { CATEGORY_LABEL, LEVEL_LABEL, ORIGIN_LABEL, type AtlasCategory, type AtlasEntry } from "../data/types";
 import { buildModel, disposeObject, glowTexture, makeEnvironment } from "../gl/models";
+import { hasAsset, mountSlots } from "../assets/slots";
+import { createDepthCard } from "./depthCard";
 
 const CHAKRA_COLOR: Record<string, string> = {
   Wurzelchakra: "#e0453a", Sakralchakra: "#f08a3c", "Solarplexus-Chakra": "#f2cf3e", Herzchakra: "#46c46f",
@@ -23,6 +25,9 @@ export function initAtlas(
   const title = root.querySelector<HTMLElement>(".atlas-title")!;
   const search = root.querySelector<HTMLInputElement>(".atlas-search")!;
   const targetSel = root.querySelector<HTMLSelectElement>(".atlas-target")!;
+  const viewEl = root.querySelector<HTMLElement>(".atlas-view")!;
+  const card = createDepthCard(viewEl, reduceMotion);
+  let cardMode = false; // true while the selected entry is shown as a picture instead of the 3D model
   const claimById = new Map(claims.map((c) => [c.id, c]));
   const byId = new Map(atlas.map((e) => [e.id, e]));
 
@@ -67,12 +72,16 @@ export function initAtlas(
       const b = document.createElement("button");
       b.className = "atlas-item";
       b.setAttribute("aria-current", String(e.id === selected.id));
-      b.innerHTML = `<span class="swatch" style="background:${e.model.color}"></span><span><strong></strong><small></small></span>`;
+      const pic = hasAsset(`atlas-${e.id}`);
+      b.innerHTML = pic
+        ? `<span class="swatch thumb" style="--c:${e.model.color}"><div data-slot="atlas-${e.id}" data-fit="cover" data-sizes="48px"></div></span><span><strong></strong><small></small></span>`
+        : `<span class="swatch" style="background:${e.model.color}"></span><span><strong></strong><small></small></span>`;
       b.querySelector("strong")!.textContent = e.name;
       b.querySelector("small")!.textContent = `${CATEGORY_LABEL[e.category]} · ${e.latin}`;
       b.addEventListener("click", () => select(e));
       listEl.append(b);
     }
+    mountSlots(listEl);
     if (!items.length) {
       const p = document.createElement("p");
       p.className = "atlas-empty";
@@ -208,12 +217,28 @@ export function initAtlas(
     // the halo takes the colour of the first chakra association (cultural colour code), else the model colour
     const first = e.associations.find((a) => CHAKRA_COLOR[a.target]);
     (halo.material as THREE.SpriteMaterial).color.set(first ? CHAKRA_COLOR[first.target] : e.model.color);
-    title.textContent = first ? `${e.name} · Halo = Farbe der traditionellen Zuordnung (${first.target})` : e.name;
+  }
+
+  /** Picture (2.5D card) when a generated image exists for the entry, otherwise the procedural 3D model. */
+  function applyEntry(e: AtlasEntry) {
+    const first = e.associations.find((a) => CHAKRA_COLOR[a.target]);
+    const color = first ? CHAKRA_COLOR[first.target] : e.model.color;
+    const note = first ? ` · Leuchtfarbe = Farbe der traditionellen Zuordnung (${first.target})` : "";
+    cardMode = hasAsset(`atlas-${e.id}`);
+    canvas.style.visibility = cardMode ? "hidden" : "visible";
+    if (cardMode) {
+      card.show(e.id, color, `${e.name} · Illustration (mit KI erzeugt)${note}`);
+      title.textContent = "";
+    } else {
+      card.hide();
+      if (renderer) setModel(e);
+      title.textContent = `${e.name}${note}`;
+    }
   }
 
   function select(e: AtlasEntry) {
     selected = e;
-    if (renderer) setModel(e);
+    applyEntry(e);
     renderList();
     renderDetail(e);
     detail.scrollTop = 0;
@@ -235,15 +260,16 @@ export function initAtlas(
     start() {
       if (!renderer) { initGL(); }
       resize();
-      setModel(selected);
+      applyEntry(selected);
       renderList();
       renderDetail(selected);
       renderer!.setAnimationLoop(() => {
+        if (cardMode) return; // a picture is shown: nothing to draw in 3D
         controls.update();
         renderer!.render(scene, camera);
       });
     },
-    stop() { renderer?.setAnimationLoop(null); },
+    stop() { renderer?.setAnimationLoop(null); card.hide(); },
     /** Jump to a category (null = all); used by the home page tiles. */
     showCategory(c: AtlasCategory | null) {
       category = c;

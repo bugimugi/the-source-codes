@@ -6,6 +6,7 @@ import "@fontsource-variable/inter";
 import "./style.css";
 import "./home.css";
 import "./fx.css";
+import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
 import { initParticles } from "./gl/particles";

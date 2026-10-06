@@ -1,0 +1,23 @@
+/* 2.5D picture card (src/ui/depthCard.ts) */
+.dc-stage { position: absolute; inset: 0; container-type: size; display: grid; place-items: center; align-content: center; gap: 0.6rem; padding: 12px 12px 44px; pointer-events: none; }
+.dc-stage[hidden] { display: none; }
+.dc { --dc: #58D6E8; position: relative; width: min(100cqw, calc(100cqh - 34px), 640px); aspect-ratio: 1; will-change: transform;
+  /* the black picture backgrounds must vanish against the page: the whole card is screened onto it (a tilted card is its own
+     stacking context, so a blend on the <img> would only act inside the card and leave a black square) */
+  mix-blend-mode: screen; }
+.dc .slot-black img { mix-blend-mode: normal; }
+.dc > * { position: absolute; inset: 0; }
+.dc .slot { aspect-ratio: auto; }
+.dc-glow { background: radial-gradient(circle at 50% 52%, color-mix(in srgb, var(--dc) 42%, transparent), transparent 62%); filter: blur(10px); }
+/* filter / scale / translate sit on the <img> itself so the "screen" blending of the black motif stays intact */
+.dc-far.slot { overflow: visible; } /* the blurred copy must not be cut at the card edge (it would leave a hard line) */
+.dc-far img { filter: blur(26px) saturate(1.5); opacity: 0.6; scale: 1.12; translate: var(--fx, 0) var(--fy, 0); }
+.dc-img img { translate: var(--ix, 0) var(--iy, 0); }
+.dc-far img, .dc-img img { animation: none; }
+.dc-spec { background: radial-gradient(circle at var(--sx, 50%) var(--sy, 42%), rgba(255, 255, 255, 0.4), transparent 38%); mix-blend-mode: overlay; }
+.dc-motes i { position: absolute; width: var(--s); height: var(--s); border-radius: 50%; background: var(--gold-hi, #F0D18B); box-shadow: 0 0 8px 1px rgba(240, 209, 139, 0.8); opacity: 0; animation: dc-rise var(--d) ease-in-out var(--w) infinite; }
+@keyframes dc-rise { 0% { transform: translateY(14px); opacity: 0; } 30% { opacity: 0.85; } 100% { transform: translateY(-46px); opacity: 0; } }
+.dc-cap { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--muted, #93A7AE); text-align: center; }
+.atlas-item .thumb { position: relative; overflow: hidden; background: #02070B; border-color: var(--c, rgba(255, 255, 255, 0.35)); }
+.atlas-item .thumb .slot { position: absolute; inset: 0; aspect-ratio: auto; }
+@media (prefers-reduced-motion: reduce) { .dc-motes i { animation: none; opacity: 0; } }

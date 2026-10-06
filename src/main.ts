@@ -6,6 +6,7 @@ import "@fontsource-variable/inter";
 import "./style.css";
 import "./home.css";
 import "./fx.css";
+import "./body.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -17,6 +18,7 @@ import { initAtlas } from "./ui/atlas";
 import { initSearch } from "./ui/search";
 import { initHome } from "./ui/home";
 import { initFx } from "./ui/fx";
+import { initBody } from "./ui/body";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
@@ -110,15 +112,17 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx";
+type View = "hero" | "universe" | "atlas" | "fx" | "body";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
 let fxView: ReturnType<typeof initFx> | null = null;
 let fxMode: FxMode = "kymatik";
+let bodyView: ReturnType<typeof initBody> | null = null;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
 const fxEl = $("fx");
+const bodyEl = $("body");
 const stageEl = $("stage");
 const nav = $("nav");
 const pinsEl = $("pins");
@@ -228,17 +232,33 @@ function openFxView(): boolean {
   return true;
 }
 
+let pendingOrgan: string | undefined;
+function openBodyView(organ?: string): boolean {
+  bodyEl.hidden = false;
+  bodyView ??= initBody(bodyEl, {
+    openClaim: (id, from) => overlay.open(id, from),
+    openAtlas: (_c, id) => { bodyEl.hidden = true; view = "hero"; go("atlas"); atlasView?.select(id); },
+  });
+  if (organ) bodyView.show(organ);
+  fade(bodyEl, true);
+  $("leave-body").focus();
+  return true;
+}
+
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === view) return false;
   const prev = view;
   if (next === "universe" && !openUniverse(opts.instant)) return false;
   if (next === "atlas" && !openAtlas()) return false;
   if (next === "fx" && !openFxView()) return false;
+  if (next === "body" && !openBodyView(pendingOrgan)) return false;
+  pendingOrgan = undefined;
   view = next;
   if (next !== "hero") home?.stopAudio();
   if (prev === "universe") fade(matrixEl, false, () => universe?.stop());
   if (prev === "atlas") fade(atlasEl, false, () => atlasView?.stop());
   if (prev === "fx") fade(fxEl, false, () => fxView?.stop());
+  if (prev === "body") fade(bodyEl, false);
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
   else setChrome(false);
   syncHero();
@@ -267,6 +287,7 @@ const home = initHome($("home"), {
     else atlasView?.showCategory(category);
   },
   openUniverse() { void enterLibrary(); },
+  openBody(organ?: string) { if (view === "body") { if (organ) bodyView?.show(organ); } else { pendingOrgan = organ; go("body"); } },
   openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
   openClaim: (id, from) => overlay.open(id, from),
 }, reduceMotion);
@@ -284,6 +305,7 @@ document.querySelectorAll<HTMLElement>("[data-scroll]").forEach((b) =>
 $("leave-matrix").addEventListener("click", () => go("hero"));
 $("leave-atlas").addEventListener("click", () => go("hero"));
 $("leave-fx").addEventListener("click", () => go("hero"));
+$("leave-body").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;
@@ -293,7 +315,8 @@ document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
     view = "hero";
     if (from === "universe") { matrixEl.hidden = true; universe?.stop(); }
     else if (from === "atlas") { atlasEl.hidden = true; atlasView?.stop(); }
-    else { fxEl.hidden = true; fxView?.stop(); }
+    else if (from === "fx") { fxEl.hidden = true; fxView?.stop(); }
+    else bodyEl.hidden = true;
     go(target);
   }),
 );

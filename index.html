@@ -85,6 +85,7 @@
           <button class="tab" aria-current="true">Universum</button>
           <button class="tab" data-goto="atlas">Atlas</button>
           <button class="tab" data-goto="fx">Frequenz</button>
+          <button class="tab" data-goto="body">Körper</button>
         </nav>
         <input id="search" class="search" type="search" placeholder="Suchen …" aria-label="Aussagen durchsuchen" />
         <button class="chip" id="universe-home">Überblick</button>
@@ -107,6 +108,7 @@
           <button class="tab" data-goto="universe">Universum</button>
           <button class="tab" aria-current="true">Atlas</button>
           <button class="tab" data-goto="fx">Frequenz</button>
+          <button class="tab" data-goto="body">Körper</button>
         </nav>
         <input class="search atlas-search" type="search" placeholder="Pflanze oder Stein suchen …" aria-label="Atlas durchsuchen" />
         <select class="atlas-target" aria-label="Nach Zuordnung filtern"></select>
@@ -127,6 +129,7 @@
           <button class="tab" data-goto="universe">Universum</button>
           <button class="tab" data-goto="atlas">Atlas</button>
           <button class="tab" aria-current="true">Frequenz</button>
+          <button class="tab" data-goto="body">Körper</button>
         </nav>
         <div class="tabs" role="group" aria-label="Darstellung">
           <button class="tab" data-fx-mode="kymatik" aria-current="true">Kymatik</button>
@@ -134,6 +137,43 @@
         </div>
       </header>
       <aside class="fx-panel" aria-live="polite"></aside>
+    </section>
+
+    <section id="body" class="bodyview" hidden aria-label="Der menschliche Körper">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-body">← Start</button>
+        <nav class="tabs" aria-label="View">
+          <button class="tab" data-goto="universe">Universum</button>
+          <button class="tab" data-goto="atlas">Atlas</button>
+          <button class="tab" data-goto="fx">Frequenz</button>
+          <button class="tab" aria-current="true">Körper</button>
+        </nav>
+      </header>
+      <div class="bv-scroll">
+        <div class="bv-hero">
+          <div class="bv-intro">
+            <p class="fx-eyebrow">Anatomie · Natur · Überlieferung</p>
+            <h1>Der menschliche Körper</h1>
+            <p>Wähle ein Organ. Du siehst, was es anatomisch ist, welche Pflanzen und Steine ihm in Überlieferungen zugeordnet werden und welche Aussagen die Bibliothek dazu führt.</p>
+            <ul class="bv-list" aria-label="Organe"></ul>
+          </div>
+          <div class="bv-stage"><div class="bv-body-img" data-slot="body-front" data-eager="true"></div></div>
+          <aside class="bv-detail" aria-live="polite"></aside>
+        </div>
+        <section class="bv-systems" aria-label="Organsysteme">
+          <h2>Die Organsysteme</h2>
+          <div class="bv-systems-grid"></div>
+        </section>
+        <section class="bv-botanical" aria-label="Herz und Pflanzenwelt">
+          <div class="bv-heart" data-slot="heart-botanical"></div>
+          <div>
+            <h2>Körper und Natur</h2>
+            <p>Das Bild zeigt ein Herz, dessen Gefäße in Pflanzen übergehen: eine künstlerische Darstellung der Idee, dass Körper und Natur zusammenhängen. Es ist eine Illustration, keine Anatomie und keine Aussage über Wirkungen.</p>
+            <p class="bv-small">Illustration (mit KI erzeugt).</p>
+          </div>
+        </section>
+        <p class="bv-notice bv-foot"></p>
+      </div>
     </section>
 
     <aside id="overlay" class="proof" hidden role="dialog" aria-labelledby="proof-title" tabindex="-1">

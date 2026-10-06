@@ -1,5 +1,6 @@
 import { atlas } from "../data/atlas";
 import { claims } from "../data/claims";
+import { BODY_ORGANS } from "../data/body";
 import { BANDS, BUBBLES, CONDITIONS, DIY, FREQUENCIES, ORGANS, TILES } from "../data/home";
 import { CATEGORY_LABEL, type AtlasCategory } from "../data/types";
 import { mountSlots } from "../assets/slots";
@@ -12,6 +13,7 @@ export interface HomeApi {
   openAtlas(category: AtlasCategory | null, id?: string): void;
   openUniverse(): void;
   openFx(mode: "kymatik" | "geometrie"): void;
+  openBody(organ?: string): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -51,8 +53,8 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
           ${BUBBLES.map((b) => `<div class="bubble" style="left:${b.x}%;top:${b.y}%">${slot(b.slot, "bubble-img")}<span><strong>${esc(b.name)}</strong><small>${esc(b.kind)}</small></span></div>`).join("")}
         </div>
       </div>
-      <p class="fine">Die Zuordnungen von Organen zu Pflanzen und Nährstoffen werden als bewertete Aussagen mit Quellen aufgebaut. Der interaktive Körper folgt.</p>
-      <button class="cta ghost" data-act="soon">Körper-Atlas öffnen <span class="soon-tag inline">bald</span></button>
+      <p class="fine">Die Zuordnungen von Organen zu Pflanzen und Nährstoffen werden als bewertete Aussagen mit Quellen aufgebaut. Die Pflanzen und Nährstoffe rund um den Körper sind Beispiele, keine Behandlungsempfehlungen.</p>
+      <button class="cta ghost" data-act="body">Körper-Atlas öffnen <span aria-hidden="true">→</span></button>
     </section>
 
     <section class="sec" id="natur" aria-labelledby="h-plants">
@@ -126,6 +128,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       if (a.type === "atlas") api.openAtlas(a.category);
       else if (a.type === "scroll") scrollTo(a.target);
       else if (a.type === "fx") api.openFx(a.mode);
+      else if (a.type === "body") api.openBody();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }
@@ -133,6 +136,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
     if (act) {
       const k = act.dataset.act;
       if (k === "universe") api.openUniverse();
+      else if (k === "body") api.openBody();
       else if (k === "fx") api.openFx(act.dataset.mode === "geometrie" ? "geometrie" : "kymatik");
       else if (k === "atlas-all") api.openAtlas(null);
       else if (k === "atlas-entry") api.openAtlas(null, act.dataset.id);
@@ -140,7 +144,11 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       return;
     }
     const organ = t.closest<HTMLElement>("[data-organ]");
-    if (organ) { root.querySelectorAll(".organs button").forEach((b) => b.setAttribute("aria-pressed", String(b === organ))); say(`${organ.dataset.organ}: Der interaktive Körper-Atlas folgt.`); return; }
+    if (organ) {
+      const id = BODY_ORGANS.find((o) => o.name.startsWith(organ.dataset.organ!))?.id;
+      if (id) api.openBody(id); else say(`${organ.dataset.organ}: Dieser Bereich folgt in einer späteren Phase.`);
+      return;
+    }
     const cl = t.closest<HTMLElement>("[data-claim]");
     if (cl) api.openClaim(cl.dataset.claim!, cl);
     const cond = t.closest<HTMLElement>("[data-cond]");

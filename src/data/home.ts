@@ -5,6 +5,7 @@ export type TileAction =
   | { type: "atlas"; category: AtlasCategory }
   | { type: "scroll"; target: string }
   | { type: "fx"; mode: "kymatik" | "geometrie" }
+  | { type: "body" }
   | { type: "soon" };
 
 export interface Tile { title: string; sub: string; slot: SlotName; action: TileAction }
@@ -17,7 +18,7 @@ export const TILES: Tile[] = [
   { title: "Pilze & Mykologie", sub: "Arten & Inhaltsstoffe", slot: "tile-pilze", action: { type: "soon" } },
   { title: "Mineralien", sub: "Elemente & Spurenelemente", slot: "tile-mineralien", action: { type: "atlas", category: "kristall" } },
   { title: "Kristalle & Heilsteine", sub: "Eigenschaften & Überlieferung", slot: "tile-kristalle", action: { type: "atlas", category: "kristall" } },
-  { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "scroll", target: "koerper" } },
+  { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "body" } },
   { title: "Nährstoffe", sub: "Vitamine, Mineralien, Aminosäuren", slot: "tile-naehrstoffe", action: { type: "soon" } },
   { title: "Krankheiten & Beschwerden", sub: "Von Schnupfen bis chronisch", slot: "tile-krankheiten", action: { type: "scroll", target: "beschwerden" } },
   { title: "Atem & Meditation", sub: "Atemtechniken & Nervensystem", slot: "tile-atem", action: { type: "soon" } },

@@ -82,6 +82,7 @@ content/atlas/). 47 Aussagen, 21 Atlas-Einträge, viele Zitate noch `verified: f
 Dazu die scrollende Startseite (src/ui/home.ts, src/data/home.ts) und die Frequenz-Seite mit berechnetem 3D: Kymatik-Platte
 und Heilige Geometrie (src/ui/fx.ts, src/gl/fxscene.ts, src/data/cymatics.ts, src/data/geometry.ts; Ton: src/audio/tone.ts).
 Bilder für Atlas-Einträge (`atlas-<id>`) erscheinen als 2,5D-Karte (src/ui/depthCard.ts); ohne Bild bleibt das einfache 3D-Modell.
+Körper-Seite mit Organ-Pins auf dem Anatomie-Bild (src/ui/body.ts, src/data/body.ts; Zuordnungen kommen nur aus dem Atlas, Wort für Wort).
 Bild-Werkzeug: `npm run assets:optimize` (Originale in design/assets-raw → WebP in public/assets).
 
 ## Harte Regeln (vom Nutzer festgelegt, gelten immer)

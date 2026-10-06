@@ -12,6 +12,17 @@ automatische Qualitätsstufen. Die Seite bleibt ohne WebGL benutzbar (Bild-Slots
 Nicht verhandelbar bleibt das Kernprinzip: Jede Aussage hat Quelle und Belegstufe. Ein anklickbares Organ öffnet das Proof-Overlay
 mit den zugehörigen Aussagen (`claimIds`), nie freie Texte im 3D-Code.
 
+## Verbindliche Vorgaben des Betreibers (siehe CLAUDE.md „Harte Regeln“)
+1. **Keine Zusatzkosten:** nur freie Software und freie Assets (bevorzugt CC0/gemeinfrei, sonst Quellenangabe in `CREDITS.md`).
+   Alle in diesem Plan genannten Werkzeuge sind kostenlos und Open Source. Kein Kauf, keine bezahlte KI.
+2. **3D nur mit echtem Mehrwert:** Geometrie, Frequenzen, Schwingungen, Wellen, Kymatik, Chakren-Darstellung, Körper/Organe, Weltkugel.
+   **Pflanzen, Kräuter, Obst, Gemüse, Kristalle, Orte und Hintergründe sind Bilder** (vom Betreiber erzeugt) und bekommen Tiefe
+   durch **2,5D** (Punkt 3b).
+3. **Berechnetes 3D wird im Code erzeugt**, ohne fremde Modelle. **Fremde Modelle nur für Körper, Organe und Erde**, frei lizenziert.
+4. **Sparsam arbeiten:** kleine Schritte, Entwurfsbilder nur über `docs/MOCKUP-NOTES.md`.
+
+Folge: Der Modellbedarf schrumpft auf **drei Gruppen** (Körper, Organe, Erde). Alles andere ist Code (3D) oder Bild (2,5D).
+
 ## Ausgangslage im Repository
 - Vite 8 + TypeScript, Three.js 0.170, GSAP. Kein React.
 - `src/gl/*` sind **prozedurale** Szenen (Hero, Universum, Bühnen), jede mit **eigenem Canvas und eigenem WebGL-Kontext**
@@ -30,7 +41,7 @@ mit den zugehörigen Aussagen (`claimIds`), nie freie Texte im 3D-Code.
 | Three.js | ausgereift, alle Loader und Effekt-Bibliotheken | `WebGPURenderer` mit WebGL2-Rückfall vorhanden, Ökosystem (Post-Processing, Shader) kleiner |
 | Risiko für Pilot | niedrig | höher (zwei Codepfade testen) |
 
-Begründung: Der Qualitätsgewinn für diese Szenen (ein Körper, Organe, Kristalle, Erde) kommt aus Modellen, Licht und
+Begründung: Der Qualitätsgewinn für diese Szenen (Körper, Organe, Erde, berechnete Wellen und Geometrie) kommt aus Modellen, Licht und
 Post-Processing, nicht aus Compute-Shadern. WebGPU wäre ein Mehraufwand ohne sichtbaren Gewinn. Der Renderer wird hinter einer
 dünnen Schicht (`src/gl/core/renderer.ts`) gekapselt, damit ein späterer Wechsel möglich bleibt.
 
@@ -43,6 +54,8 @@ per `import()` geladen werden.
 
 ## 2) Asset-Pipeline (GLB, Kompression, Texturen, LOD)
 **Format:** glTF 2.0 / **GLB** (binär). Eine Datei pro Modell, Quelle und Lizenz im Eintrag in `public/assets/CREDITS.md`.
+
+Die Pipeline gilt **nur für Körper, Organe und Erde** (alles andere entsteht im Code oder ist ein Bild).
 
 **Ablauf je Modell** (Skript `npm run models:optimize`, später):
 1. Original (beliebiges Format) bleibt lokal in `design/assets-raw/models/` (Git-ignoriert).
@@ -65,15 +78,30 @@ Stufe 0 (niedrigste) ist immer ein Teil des ersten Downloads, höhere Stufen lad
 - KTX2-Werkzeug `toktx` (KTX-Software, Open Source) für die Umwandlung, nur lokal.
 
 ## 3) Beleuchtung und Materialien
-- **PBR-Materialien** (`MeshStandardMaterial`/`MeshPhysicalMaterial`): Kristalle mit `transmission`, `ior`, `thickness`,
-  `iridescence`; Körper/Organe als durchscheinende „Hologramm“-Materialien (Fresnel-Rand, additive Glut) über Standard-PBR, nicht
-  als reiner Shader-Trick.
+- **PBR-Materialien** (`MeshStandardMaterial`/`MeshPhysicalMaterial`): Körper/Organe als durchscheinende „Hologramm“-Materialien
+  (Fresnel-Rand, additive Glut) über Standard-PBR, nicht als reiner Shader-Trick; Erde mit Tag-/Nacht-Textur, Wolken, Atmosphäre.
+  Berechnete Objekte (Geometrie, Wellen, Kymatik, Energiezentren) bekommen eigene Shader-/Standardmaterialien im Code.
+  Kristalle sind **Bilder** (2,5D, Punkt 3b), kein Transmission-Material.
 - **HDRI-Umgebungslicht** (`PMREMGenerator`): kleine, dunkle Studio-/Nachthimmel-HDRIs (1–2k, als `.hdr`/KTX2 vorgefiltert).
   Quelle: Poly Haven (CC0, keine Quellenpflicht, wir nennen sie trotzdem in `CREDITS.md`).
 - **Lichtrig pro Szene:** 1 Schlüssellicht (Gold), 1 Gegenlicht (Cyan), HDRI als Grundlicht. Wenige echte Lichter (Budget siehe 6);
   Rest als „gebackene“ Lichtkarten oder Emissive.
-- **Schatten:** nur dort, wo sie sichtbar nützen (Kristall auf Fels); sonst Kontaktschatten per Textur. Standard: aus.
+- **Schatten:** nur dort, wo sie sichtbar nützen (z. B. Körper auf Boden); sonst Kontaktschatten per Textur. Standard: aus.
 - Farbraum: sRGB-Ausgabe, ACES-/AgX-Tonemapping (wird beim Look-Abgleich gewählt), Farbwerte aus `docs/DESIGN.md`.
+
+## 3b) 2,5D für Bilder (Pflanzen, Kräuter, Obst, Gemüse, Kristalle, Orte, Hintergründe)
+Diese Motive bleiben Bilder des Betreibers (Bild-Slots) und werden **mit Ebenen statt Modellen** lebendig gemacht:
+- **Ebenen mit Parallax:** Hintergrund / Motiv / Vordergrund bewegen sich mit unterschiedlicher Stärke zur Maus (am Handy langsame
+  Eigenbewegung; Neigungssensor nur, wenn der Browser es erlaubt).
+- **Leichte Neigung der Karte** zur Maus (CSS-3D `perspective`/`rotateX/Y`, kleine Winkel).
+- **Lichtreflex:** wandernder Glanz über dem Motiv (CSS-Verlauf mit `mix-blend-mode: screen`), folgt dem Zeiger.
+- **Glow:** weiche Leuchtkanten (`filter: drop-shadow`, Screen-Überblendung bei Motiven auf Schwarz), Pulsieren sehr sparsam.
+- **Partikel:** wenige Staub-/Funkenpartikel als **ein** gemeinsames Partikelsystem über der Szene, nicht ein Canvas pro Karte.
+- Technik: **reines CSS/JS** (Transform/Opacity, GPU-beschleunigt), kein WebGL pro Karte. Fehlt das Bild, bleibt der Slot-Verlauf.
+  Bei `prefers-reduced-motion` stehen die Ebenen still.
+- Für echte Ebenen liefert der Betreiber Motiv und Hintergrund getrennt (PNG/WebP mit Transparenz oder Motiv auf Schwarz); das
+  wird pro Bild in `docs/ASSET-LIST.md` ergänzt. Ohne Ebenen genügt ein Einzelbild (dann nur Neigung, Reflex, Glow).
+- Komponente: `src/ui/depthCard.ts` (später), nutzt die vorhandenen Slots.
 
 ## 4) Post-Processing
 Bibliothek: **`postprocessing`** (pmndrs, Open Source, Three.js-kompatibel). Begründung: fasst Effekte zu **wenigen
@@ -147,36 +175,23 @@ Effekte, Schattenqualität, LOD-Stufe, Partikelanzahl, Texturgröße.
 - **Fehlerpfad:** schlägt ein Modell fehl, bleibt der Bild-Slot stehen und die Seite funktioniert weiter (mit Konsolenhinweis).
 - **Zwischenspeicher:** langlebige Dateinamen mit Inhalts-Hash (Vite macht das), damit Wiederbesuche nichts neu laden.
 
-## 8) Benötigte 3D-Modelle, Herkunft, Kosten, Lizenzen
-**Grundsatz:** Nur Material, das dem Betreiber gehört, selbst erzeugt oder frei lizenziert ist. Pro Modell Eintrag in
-`public/assets/CREDITS.md` (Quelle-URL, Autor, Lizenz, Datum, Änderungen). **Lizenzen vor Übernahme prüfen:**
-- **CC0 / Public Domain:** ohne Auflage, bevorzugt.
-- **CC BY:** erlaubt, Namensnennung Pflicht (Credits-Seite auf der Website nötig).
-- **CC BY-SA:** abgeleitete Modelle müssten unter gleicher Lizenz stehen; **nur nach Rückfrage**.
-- **CC BY-NC / „nicht kommerziell“:** **nicht verwenden**, falls die Seite je Einnahmen hat oder haben könnte.
-- **Händler-Lizenzen (Kauf):** Nutzungsrechte für Web/Weitergabe der Datei prüfen; eine GLB-Datei im öffentlichen Auslieferordner
-  ist technisch herunterladbar. „Standard“-Lizenzen verbieten das oft.
-- Preise ändern sich; **vor jedem Kauf Preis und Lizenztext prüfen und beim Betreiber nachfragen.** Hier stehen bewusst keine Preise.
+## 8) Benötigte 3D-Modelle, Herkunft, Lizenz (nur kostenlos)
+**Grundsatz:** Nur frei lizenziertes Material, bevorzugt **CC0/gemeinfrei**. Pro Datei ein Eintrag in `public/assets/CREDITS.md`
+(Quelle-URL, Autor, Lizenz, Datum, Änderungen). **Nichts kaufen, keine KI-3D-Erzeugung** (CLAUDE.md).
+- **CC0 / Public Domain:** bevorzugt, ohne Auflage.
+- **CC BY:** erlaubt, Namensnennung Pflicht (Credits-Seite auf der Website).
+- **CC BY-SA:** nur nach Rückfrage (abgeleitete Modelle müssten unter gleicher Lizenz stehen). **CC BY-NC:** nicht verwenden.
+- NASA-Material ist meist gemeinfrei; **Nutzungsbedingungen je Datei prüfen** (einzelne Bilder haben Drittrechte).
 
-| Bereich | Modelle | Mögliche Herkunft | Hinweis |
+| Bereich | Umsetzung | Herkunft (alle kostenlos) | Hinweis |
 |---|---|---|---|
-| **Körper** | Ganzkörper (transparent nutzbar), Skelett/Muskeln optional | BodyParts3D/Anatomography (Japan, CC BY-SA, Einschränkung beachten); Sketchfab (nur CC0/CC BY filtern); Kauf bei Anatomie-Händlern; **Eigenbau/Blender** aus Basis-Mesh | Medizinische Genauigkeit durch Fachleute prüfen lassen (Pilot-Review) |
-| **Organe** (Herz, Gehirn, Lunge, Leber, Magen, Darm, Nieren, Haut, Immun, Endokrin) | je ein sauberes Einzelmodell | wie oben; Smithsonian 3D (teils CC0); NIH 3D Print Exchange (Lizenz je Modell) | Namen/Beschriftung zweisprachig; Pick-Mesh je Organ |
-| **Pflanzen** | Weißdorn, Knoblauch, Kakao u. a. aus `ASSET-LIST` | Photogrammetrie-/Pflanzenmodelle (Poly Haven, Sketchfab CC0/CC BY); eigene Fotogrammetrie; KI-erzeugt | Pflanzen sind oft schwer (Blätter): LOD/Instancing nötig |
-| **Kristalle/Minerale** | Quarz, Amethyst, Citrin, Fluorit u. a. (`content/atlas/`) | Smithsonian 3D, Sketchfab (CC0/CC BY), prozedural in Blender (Geometry Nodes) mit `transmission`-Material | Kristalle eignen sich gut für **prozedurale** Eigenerzeugung (kleine Dateien) |
-| **Erde/Kosmos** | Erdkugel, Planeten, Sterne | NASA-Bildmaterial (Blue Marble, Texturen; Nutzungsbedingungen prüfen); Solar System Scope (Lizenz prüfen, CC BY); eigene Kugel + Texturen + Atmosphären-Shader | Kugel selbst ist trivial, Qualität kommt aus Texturen (KTX2, 8k nur auf „ultra“) |
-| **Orte** | Giza, Machu Picchu, Angkor Wat, Göbekli Tepe, Stonehenge, Hypogäum, Moscheekuppel | Photogrammetrie unter freier Lizenz (Sketchfab, Wikimedia, CyArk – **Lizenz je Eintrag**); sonst Bild-Slots (`site-*`) | Ein Ort kann auch zunächst nur ein **Foto-Slot** bleiben; reale Orte nicht als „echt“ kennzeichnen, wenn KI-erzeugt |
+| **Körper** (Ganzkörper) | frei lizenziertes GLB, transparent nutzbar | Sketchfab (nur CC0/CC BY filtern), NIH 3D, Smithsonian 3D; BodyParts3D ist CC BY-SA → nur nach Rückfrage; sonst freies Basis-Mesh in Blender selbst bearbeiten | Lizenz klären, bevor etwas verbaut wird. Medizinische Prüfung durch Fachleute im Pilot-Review |
+| **Organe** (Herz, Gehirn, Lunge, Leber, Magen, Darm, Nieren, Haut, Immun, Endokrin) | je ein Einzelmodell, Pick-Mesh je Organ | wie Körper; „Immun“ und „Endokrin“ ggf. als berechnete Darstellung (Zellen/Drüsen) im Code | Taugt kein freies Modell: berechnete Stilisierung im Code statt Kauf |
+| **Erde/Weltkugel** | Kugel im Code + Texturen | **NASA Visible Earth** (Blue Marble, Nachtlichter, Höhe/Wolken), Lizenz je Datei prüfen und dokumentieren | Texturen als KTX2; 8k nur auf „ultra“ |
+| **Geometrie, Wellen, Kymatik, Chakren, Energiezentren, Partikel** | **im Code erzeugt** (Three.js, Shader), keine Modelle | – | Kymatik als Shader/Partikelfeld (Chladni-Formeln), Chakren als berechnete Geometrie |
+| **Pflanzen, Kräuter, Obst, Gemüse, Kristalle, Orte, Hintergründe** | **Bilder** des Betreibers in Slots, Tiefe durch 2,5D (3b) | vom Betreiber erzeugt; für reale Orte eigene oder frei lizenzierte Fotos (Wikimedia Commons, Unsplash-Lizenz) | **Keine 3D-Modelle** |
 
-**Drei Beschaffungswege im Vergleich**
-1. **Frei lizenziert:** kostenlos, aber uneinheitlicher Look und Aufräumarbeit. Gut für Erde, Pflanzen, Orte.
-2. **Kaufen:** schnell, einheitlich, kostet Geld (nicht ohne Rückfrage), Lizenz auf Weitergabe prüfen. Sinnvoll für den Körper.
-3. **KI-erzeugt:** Bild-zu-3D-Werkzeuge liefern oft unsaubere Geometrie (Löcher, schlechte Topologie, schlechte UVs) und
-   brauchen Nacharbeit; eignen sich für Pflanzen/Felsen, **nicht** für medizinisch korrekte Organe. **Kosten fallen an** (Guthaben
-   bei Higgsfield o. Ä.): **nie ohne ausdrückliche Rückfrage** (siehe CLAUDE.md). Rechtslage der Nutzung KI-erzeugter
-   Modelle beim jeweiligen Anbieter prüfen.
-
-**Empfehlung:** Körper + Organe **zuerst klären** (Qualität und Fachprüfung entscheiden hier), Kristalle **prozedural selbst**
-bauen, Erde **selbst** aus Texturen, Pflanzen/Orte **anfangs als Bild-Slots**, später freie Modelle.
+Wegfall gegenüber dem ersten Entwurf: Pflanzen-, Kristall- und Orts-GLBs sowie alle Kauf- und KI-Wege.
 
 ## 9) Ruckelfreiheit messen und auf der echten Grafikkarte testen
 **Eingebauter Messmodus** (`?debug=perf`, nie im Produktions-Build sichtbar):
@@ -207,11 +222,12 @@ Jede Phase endet mit Build ohne Fehler, Konsole sauber, Messbericht (ab Phase 1)
 | **0 – Messbasis** | Debug-Overlay, Messlauf, Qualitätsstufen-Gerüst, `chrome://gpu`-Auswertung des Betreibers | Bericht der echten Grafikkarte, Budgets bestätigt oder angepasst |
 | **1 – Kern** | Gemeinsamer Renderer/Canvas, Szenen-Modul-Schnittstelle, Kontextverlust-Behandlung, Resize, Pausieren, dynamische Auflösung; bestehende Szenen als erste Module (noch prozedural) | Alte Szenen laufen im neuen Kern, Speichertest bestanden |
 | **2 – Laden** | LoadingManager, Ladebildschirm, `import()`-Aufteilung, Meshopt/KTX2-Dekoder (selbst gehostet), Poster-Übergabe vom Slot zur Szene | Hero zeigt Slot-Bild sofort, Szene folgt ohne Sprung |
-| **3 – Look** | HDRI, Lichtrig, Tonemapping, Post-Processing-Stufen, PBR-Materialtest mit einem Kristall | Look-Referenz im Browser abgenommen |
+| **3 – Look** | HDRI, Lichtrig, Tonemapping, Post-Processing-Stufen, PBR-Materialtest mit Erde und einem Organ | Look-Referenz im Browser abgenommen |
 | **4 – Scroll/Kamera** | Lenis + ScrollTrigger, Kamerabahn, Haltepunkte, Frei-Modus, Tastatur, Reduced Motion | Hero-Kamerafahrt steuerbar, Handy-Gesten getestet |
-| **5 – Pipeline** | `models:optimize`, Credits-Prozess, erstes echtes GLB (Kristall, selbst gebaut) | Datei < Budget, dekodiert im Worker |
+| **5 – Pipeline** | `models:optimize`, Credits-Prozess, erstes freies GLB (Körper) | Datei < Budget, dekodiert im Worker |
 | **6 – Körper** | Körpermodell + Organe, Pick-Meshes, Hover/Klick → Proof-Overlay, HTML-Liste als Zugang | Organ anklicken öffnet echte Aussagen |
-| **7 – Rest** | Erde, Pflanzen, Orte, Atlas; wo Modelle fehlen: Bild-Slots | je Szene Messbericht |
+| **7 – Erde und berechnetes 3D** | Weltkugel (NASA-Texturen), Frequenz-/Kymatik-/Wellen-/Geometrie-/Chakren-Szenen im Code | je Szene Messbericht |
+| **7b – 2,5D-Karten** | `depthCard`: Ebenen, Parallax, Neigung, Reflex, Glow, gemeinsames Partikelsystem für Pflanzen, Kristalle, Orte, Hintergründe | wirkt schon mit Platzhaltern, wird mit echten Ebenen besser |
 | **8 – Polieren** | Bewegung final, Handy-Feinschliff, Lighthouse, Release-Check (`build:release`) | bereit zur Fachprüfung (Pilot-Regeln bleiben) |
 
 Die **Startseite** (Layout, Navigation, Typografie, Panels, Suche) ist unabhängig von den Phasen 1–8 mit Bild-Slots baubar und
@@ -219,7 +235,7 @@ kann **vor** Phase 0 beginnen.
 
 ## Offene Fragen an den Betreiber
 1. Grafikkarte/Rechner/Handy für Tests (Schritt 9.1).
-2. Budget für Körper-/Organmodelle: frei lizenziert (Aufwand) oder gekauft (Kosten)? Preis- und Lizenzprüfung vor Kauf.
-3. Neue Pakete: `lenis`, `postprocessing`, `@gltf-transform/cli` (nur Entwicklung) – einverstanden?
+2. Entschieden: nur frei lizenziert, kein Kauf. Offen bleibt nur, welches freie Körpermodell taugt (Lizenzprüfung vor dem Einbau).
+3. Neue Pakete, alle kostenlos/Open Source: `lenis`, `postprocessing`, `@gltf-transform/cli` (nur Entwicklung) – einverstanden?
 4. WebGPU später prüfen oder ganz weglassen?
 5. Wie viel Gewicht hat der Handy-Auftritt im Pilot (volles 3D oder nur Poster plus ein einfaches 3D)?

@@ -67,7 +67,7 @@ als Ebenen einbauen. Originale lokal in `design/assets-raw/` (ignoriert); optimi
 nach `public/assets/` mit Eintrag in `public/assets/CREDITS.md`. Leuchtende Motive liegen auf reinem Schwarz und werden mit
 `mix-blend-mode: screen` bzw. additiver Überblendung eingesetzt. Bis ein Bild existiert, bleibt der prozedurale Platzhalter
 (Slot mit Fallback) – nichts blockieren. Ebenen mit leichter Parallax zur Maus; WebGL-Partikel, Pins und Kamerafahrten darüber.
-Details: `docs/V2-PLAN.md`. Bildgenerierung (Higgsfield, Adobe u. a.) kostet Guthaben: nie ohne ausdrückliche Rückfrage.
+Details: `docs/V2-PLAN.md`. Bildgenerierung (Higgsfield, Adobe u. a.) kostet Guthaben: Claude nutzt sie nicht (siehe „Harte Regeln“).
 - Farben/Typografie: siehe `docs/DESIGN.md` (Deep Space #02070B, Gold #CBAA67/#F0D18B, Cyan #58D6E8, Elfenbein #ECE8DE;
   Cinzel/Cormorant für Titel, Inter für UI, Großbuchstaben mit weitem Letterspacing).
 - Hero-Texte sind Englisch (laut Vorgabe); Universum/Atlas/Bühnen aktuell Deutsch → später DE/EN-Umschalter klären.
@@ -80,9 +80,23 @@ Hero (src/gl/hero.ts), Proof-Overlay mit Tabs/Status (src/ui/proofOverlay.ts), W
 Universum mit Galaxien und Themenbühnen (src/gl/universe.ts, stages.ts), Atlas für Pflanzen/Kristalle (src/ui/atlas.ts,
 content/atlas/). 47 Aussagen, 21 Atlas-Einträge, viele Zitate noch `verified: false`.
 
+## Harte Regeln (vom Nutzer festgelegt, gelten immer)
+1. **Keine Zusatzkosten.** Keine kostenpflichtigen Dienste, APIs, Modelle, Plugins oder Bildgeneratoren, keine Einkäufe. Nur freie
+   Software und Assets mit freier Lizenz (bevorzugt CC0/gemeinfrei, sonst mit Quellenangabe in `public/assets/CREDITS.md`).
+   Im Zweifel erst fragen. Claude erzeugt selbst keine Bilder und keine KI-3D-Modelle.
+2. **3D nur mit echtem Mehrwert:** Geometrie, Frequenzen, Schwingungen, Wellen, Kymatik, Chakren-Darstellung, menschlicher Körper
+   und Organe, Weltkugel. **Pflanzen, Kräuter, Obst, Gemüse, Kristalle, Orte und Hintergründe sind BILDER** (vom Nutzer erzeugt),
+   keine 3D-Modelle. Tiefe dafür durch **2,5D**: mehrere Ebenen mit Parallax, leichte Neigung zur Maus, Lichtreflex, Glow, Partikel.
+3. **Berechnetes 3D** (Geometrie, Wellen, Kymatik, Partikel, Energiezentren) wird im Code erzeugt, ohne fremde Modelle. Für
+   **Körper, Organe und Erde** nur frei lizenzierte Modelle/Texturen (z. B. NASA Visible Earth); Lizenz prüfen und in
+   `public/assets/CREDITS.md` dokumentieren. Nichts kaufen, keine KI-3D-Erzeugung.
+4. **Sparsamer Verbrauch.** Kleine Schritte, Dateien nur lesen, wenn nötig. Entwurfsbilder nicht wiederholt ansehen: sie sind in
+   `docs/MOCKUP-NOTES.md` beschrieben, dort nachschlagen. Nach jedem Schritt dem Nutzer sagen, dass er `/usage` ansehen kann.
+5. **Nichts pushen**, solange der Nutzer es nicht ausdrücklich verlangt (nur lokale Commits).
+
 ## Arbeitsweise
 - Vor jeder größeren Änderung kurz den Plan nennen; nach jeder Phase: Build, im Browser prüfen (Konsole ohne Fehler),
   Desktop UND Handy ansehen, kurz dokumentieren.
-- Neue Pakete nur mit Begründung. Keine kostenpflichtigen Dienste/APIs (z. B. Bildgenerierung) ohne Rückfrage.
+- Neue Pakete nur mit Begründung und nur kostenlose, freie (Open Source).
 - Bilder: nur Material, das dem Nutzer gehört, selbst erzeugt oder frei lizenziert ist. Herkunft/Generator bei Bedarf erfragen.
 - Offene Inhaltsaufgaben stehen in `content/research/` und `CONTENT.md`.

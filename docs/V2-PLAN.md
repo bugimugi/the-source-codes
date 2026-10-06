@@ -17,4 +17,4 @@ Goal: rebuild the site in real code from the finished design images, keeping the
 6. Check each page in the browser (desktop + phone), then merge `v2-design` into `main`.
 
 ## Fallback
-`git checkout v1-procedural` restores the procedural version.
+`git checkout v1-procedural` (branch) restores the procedural version.

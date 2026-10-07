@@ -22,6 +22,7 @@ export interface HomeApi {
   openCultures(): void;
   openNutrients(): void;
   openEnergy(): void;
+  openLab(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -143,6 +144,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "cultures") api.openCultures();
       else if (a.type === "nutrients") api.openNutrients();
       else if (a.type === "energy") api.openEnergy();
+      else if (a.type === "lab") api.openLab();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

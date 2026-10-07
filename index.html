@@ -311,6 +311,61 @@
       </aside>
     </section>
 
+    <section id="lab" class="culturesview labview" hidden aria-label="Rezepte und Rituale">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-lab">← Start</button>
+        <nav class="tabs" aria-label="Ansicht" data-tabs="lab"></nav>
+      </header>
+      <div class="bv-scroll cu-scroll">
+        <div class="lb-hero">
+          <p class="fx-eyebrow">Hausmittel · Überlieferung · Rituale</p>
+          <h1 class="lb-title"></h1>
+          <p class="lb-lead"></p>
+        </div>
+        <div class="lb-stations" role="tablist" aria-label="Station wählen">
+          <button role="tab" id="lb-tab-bench" aria-controls="lb-bench" data-station="bench" aria-selected="true"><strong>Werkbank</strong><small>Zutaten, Gefäß, Schritte</small></button>
+          <button role="tab" id="lb-tab-ritual" aria-controls="lb-ritual" data-station="ritual" aria-selected="false" tabindex="-1"><strong>Ritualraum</strong><small>Steine, Klang, Chakren</small></button>
+          <button role="tab" id="lb-tab-fabrics" aria-controls="lb-fabrics" data-station="fabrics" aria-selected="false" tabindex="-1"><strong>Stoffe</strong><small>Kleidung &amp; Gewebe</small></button>
+        </div>
+
+        <section id="lb-bench" class="lb-panel" role="tabpanel" aria-labelledby="lb-tab-bench">
+          <div class="lb-bench"></div>
+        </section>
+
+        <section id="lb-ritual" class="lb-panel" role="tabpanel" aria-labelledby="lb-tab-ritual" hidden>
+          <div class="cu-journey-head"><h2>Ritualraum</h2><p>Chakren, Heilsteine und Klang lassen sich im Alltag nicht sehen. Hier kannst du dir vorstellen, wie die Überlieferung sich das Zusammenspiel denkt: eine Person im Schneidersitz, Steine im Raum, ein Ton. Es ist eine Vorstellungshilfe, keine Messung.</p></div>
+          <div class="rt">
+            <div class="rt-stage">
+              <svg class="rt-svg" role="img" aria-label="Draufsicht auf einen Raum: Eine Person sitzt im Schneidersitz, davor liegen Heilsteine mit einem Radius-Ring; sieben Chakra-Punkte entlang der Körpermitte"></svg>
+              <p class="rt-state" aria-live="polite"></p>
+            </div>
+            <div class="rt-controls">
+              <h3>1 · Heilsteine wählen</h3>
+              <div class="rt-palette" role="group" aria-label="Heilsteine"></div>
+              <ul class="rt-placed"></ul>
+              <h3>2 · Radius</h3>
+              <label class="rt-rad">Wirkradius (freie Annahme)<input class="rt-radius" type="range" min="0.5" max="3" step="0.1" value="1.5"><output class="rt-radius-out"></output></label>
+              <h3>3 · Klang</h3>
+              <div class="rt-freqs" role="group" aria-label="Frequenz wählen"></div>
+              <div class="rt-actions"><button class="cu-ghost rt-sound" aria-pressed="false">Klang einschalten</button><button class="cu-link rt-reset">Zustand zurücksetzen</button></div>
+            </div>
+            <aside class="rt-evidence" aria-label="Einordnung"></aside>
+          </div>
+        </section>
+
+        <section id="lb-fabrics" class="lb-panel" role="tabpanel" aria-labelledby="lb-tab-fabrics" hidden>
+          <div class="lb-fabrics"></div>
+        </section>
+
+        <section class="lb-more" aria-label="Weiterlesen"><p>Auch ein Naturphänomen, nur größer: wie die Erde selbst Energie erzeugt, speichert und verteilt.</p><button class="cu-ghost" data-goto="energy">Freie Energie der Erde <span aria-hidden="true">→</span></button></section>
+        <p class="lb-notice br-notice"></p>
+      </div>
+      <aside class="cu-file" hidden role="dialog" aria-labelledby="cu-file-title">
+        <button class="cu-file-close" aria-label="Schließen">×</button>
+        <div class="cu-file-body"></div>
+      </aside>
+    </section>
+
     <aside id="overlay" class="proof" hidden role="dialog" aria-labelledby="proof-title" tabindex="-1">
       <header class="proof-head">
         <span class="proof-sun" aria-hidden="true"></span>

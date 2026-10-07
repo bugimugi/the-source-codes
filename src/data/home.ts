@@ -11,6 +11,7 @@ export type TileAction =
   | { type: "places" }
   | { type: "cultures" }
   | { type: "energy" }
+  | { type: "lab" }
   | { type: "nutrients" }
   | { type: "soon" };
 
@@ -33,7 +34,7 @@ export const TILES: Tile[] = [
   { title: "Chakren", sub: "Energiezentren & Bewusstsein", slot: "tile-chakren", action: { type: "chakra" } },
   { title: "Alte Kulturen", sub: "Wissen der Zivilisationen", slot: "tile-kulturen", action: { type: "cultures" } },
   { title: "Heilige Orte", sub: "Orte besonderer Bedeutung", slot: "tile-orte", action: { type: "places" } },
-  { title: "Lab & Experimente", sub: "Selbst ausprobieren", slot: "tile-lab", action: { type: "energy" } },
+  { title: "Lab & Experimente", sub: "Selbst ausprobieren", slot: "tile-lab", action: { type: "lab" } },
 ];
 
 export const ORGANS = ["Gehirn", "Herz", "Lunge", "Leber", "Magen", "Darm", "Immunsystem", "Hormone", "Knochen", "Muskeln", "Haut", "Nervensystem"];

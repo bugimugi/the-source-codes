@@ -10,6 +10,7 @@ import "./body.css";
 import "./breath.css";
 import "./cultures.css";
 import "./energy.css";
+import "./lab.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -28,6 +29,8 @@ import { initPlaces } from "./ui/places";
 import { initCultures } from "./ui/cultures";
 import { initNutrients } from "./ui/nutrients";
 import { initEnergy } from "./ui/energy";
+import { initLab } from "./ui/lab";
+import type { StationId } from "./data/lab";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
@@ -121,7 +124,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -136,6 +139,8 @@ let culturesView: ReturnType<typeof initCultures> | null = null;
 let nutrientsView: ReturnType<typeof initNutrients> | null = null;
 let energyView: ReturnType<typeof initEnergy> | null = null;
 let pendingEnergy: string | undefined;
+let labView: ReturnType<typeof initLab> | null = null;
+let pendingLab: StationId | undefined;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
@@ -147,12 +152,13 @@ const placesEl = $("places");
 const culturesEl = $("cultures");
 const nutrientsEl = $("nutrients");
 const energyEl = $("energy");
+const labEl = $("lab");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
   { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
   { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
-  { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" },
+  { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
 ];
 document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
   nav.innerHTML = VIEW_TABS.map((t) => (t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
@@ -284,6 +290,15 @@ function openEnergyView(id?: string): boolean {
   return true;
 }
 
+function openLabView(station?: StationId): boolean {
+  labEl.hidden = false;
+  labView ??= initLab(labEl, { reduceMotion, openClaim: (cid, from) => overlay.open(cid, from) });
+  labView.start(station);
+  fade(labEl, true);
+  $("leave-lab").focus();
+  return true;
+}
+
 function openNutrientsView(): boolean {
   nutrientsEl.hidden = false;
   nutrientsView ??= initNutrients(nutrientsEl, { openClaim: (cid, from) => overlay.open(cid, from) });
@@ -362,6 +377,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   cultures: { el: culturesEl, stop: () => culturesView?.stop() },
   nutrients: { el: nutrientsEl, stop: () => nutrientsView?.stop() },
   energy: { el: energyEl, stop: () => energyView?.stop() },
+  lab: { el: labEl, stop: () => labView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -377,11 +393,15 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "cultures" && !openCulturesView()) return false;
   if (next === "nutrients" && !openNutrientsView()) return false;
   if (next === "energy" && !openEnergyView(pendingEnergy)) return false;
+  if (next === "lab" && !openLabView(pendingLab)) return false;
   pendingEnergy = undefined;
+  pendingLab = undefined;
   pendingOrgan = undefined;
   pendingChakra = undefined;
   pendingPlace = undefined;
   view = next;
+  // with many tabs the bar scrolls sideways: keep the current page's tab in sight
+  if (next !== "hero") SCREENS[next].el.querySelector<HTMLElement>(".tabs [aria-current]")?.scrollIntoView({ inline: "center", block: "nearest" });
   if (next !== "hero") home?.stopAudio();
   if (prev !== "hero") fade(SCREENS[prev].el, false, SCREENS[prev].stop);
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
@@ -417,6 +437,7 @@ const home = initHome($("home"), {
   openCultures() { go("cultures"); },
   openNutrients() { go("nutrients"); },
   openEnergy(id?: string) { if (view === "energy") energyView?.start(id); else { pendingEnergy = id; go("energy"); } },
+  openLab(station?: StationId) { if (view === "lab") labView?.start(station); else { pendingLab = station; go("lab"); } },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
   openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
@@ -443,6 +464,7 @@ $("leave-places").addEventListener("click", () => go("hero"));
 $("leave-cultures").addEventListener("click", () => go("hero"));
 $("leave-nutrients").addEventListener("click", () => go("hero"));
 $("leave-energy").addEventListener("click", () => go("hero"));
+$("leave-lab").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

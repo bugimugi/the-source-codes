@@ -1,5 +1,6 @@
 import { isSettled } from "../src/data/types.ts";
 import { loadAtlas, loadClaims } from "./load.ts";
+import { RECIPES } from "../src/data/recipes.ts";
 
 /**
  * Release gate. The pilot site may contain unreviewed content; a public release may not.
@@ -14,6 +15,7 @@ for (const c of claims) {
   if (c.level === "claimed") problems.push(`${c.id}: Belegstufe noch „claimed“`);
   for (const s of c.sources) if (!s.verified) problems.push(`${c.id}/${s.id}: Quelle nicht gegen das Original geprüft`);
 }
+for (const r of RECIPES) if (r.review?.state !== "confirmed" && r.review?.state !== "corrected") problems.push(`rezept/${r.id}: Fachprüfung offen (${r.review?.state ?? "pending"})`);
 for (const e of atlas) for (const s of e.sources) if (!s.verified) problems.push(`atlas/${e.id}/${s.id}: Quelle nicht geprüft`);
 
 if (problems.length) {

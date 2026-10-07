@@ -175,6 +175,9 @@ h1 .line > span { display: block; }
 .back { all: unset; pointer-events: auto; cursor: pointer; color: var(--muted); font-size: 0.9rem; }
 .back:hover, .back:focus-visible { color: var(--fg); }
 .tabs { display: flex; gap: 0.2rem; padding: 0.2rem; border: 1px solid var(--line); border-radius: 99px; background: var(--glass); }
+.matrix-bar .tabs { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.matrix-bar .tabs::-webkit-scrollbar { display: none; }
+.matrix-bar .tabs .tab { flex: none; }
 .tab { all: unset; pointer-events: auto; cursor: pointer; padding: 0.3rem 0.9rem; border-radius: 99px; font-size: 0.82rem; color: var(--muted); }
 .tab[aria-current="true"] { background: var(--accent); color: var(--bg); }
 .tab:not([aria-current="true"]):hover { color: var(--fg); }

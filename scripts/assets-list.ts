@@ -20,7 +20,7 @@ out.push("# Bildliste (Asset-Liste) für THE SOURCE CODES", "",
   "- Keine erkennbaren realen lebenden Personen.", "");
 const rows = Object.entries(SLOTS as Record<string, typeof ATLAS_SLOT & { mobile?: string }>);
 const prios = [...new Set(rows.map(([, d]) => d.prio))].sort();
-const titles: Record<number, string> = { 1: "Priorität 1 – Hero (zuerst)", 2: "Priorität 2 – Wissensmatrix-Kacheln", 3: "Priorität 3 – Startseiten-Abschnitte", 4: "Priorität 4 – Körper-Seite", 5: "Priorität 5 – Orte und Frequenzen" };
+const titles: Record<number, string> = { 1: "Priorität 1 – Hero (zuerst)", 2: "Priorität 2 – Wissensmatrix-Kacheln", 3: "Priorität 3 – Startseiten-Abschnitte", 4: "Priorität 4 – Körper-Seite", 5: "Priorität 5 – Orte und Frequenzen", 6: "Priorität 6 – Alte Kulturen" };
 for (const p of prios) {
   out.push(`## ${titles[p] ?? `Priorität ${p}`}`, "", "| Datei | Größe | Typ | Prompt-Kern |", "|---|---|---|---|");
   for (const [name, d] of rows.filter(([, x]) => x.prio === p))

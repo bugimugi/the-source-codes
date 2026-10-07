@@ -20,6 +20,7 @@ export interface SlotDef {
 
 const d = (page: string, prio: number, bg: SlotDef["bg"], w: number, h: number, prompt: string, mobile?: string): SlotDef => ({ w, h, bg, mobile, prio, page, prompt });
 const HOME = "Startseite";
+const CULT = "Alte Kulturen";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -96,6 +97,25 @@ export const SLOTS = {
   "cymatics-2": d("Frequenz", 5, "black", 1600, 1600, "cymatic water pattern, concentric symmetry, glowing, on a pure black background"),
   "cymatics-3": d("Frequenz", 5, "black", 1600, 1600, "cymatic membrane pattern with fine nodal lines, glowing, on a pure black background"),
   "lab-waveform-bg": d("Frequenz", 5, "black", 3840, 1000, "wide glowing sine waves in cyan and gold, on a pure black background"),
+
+  // ---- Alte Kulturen (priority 6): illustrations of places and objects; no readable text, no real living people
+  "cult-hero": d(CULT, 6, "scene", 3200, 1500, "ancient world panorama at sunset, pyramids and a river valley in the distance, a carved stone wall at the right edge, a hooded wanderer seen from behind on the left, dark calm area on the left for text"),
+  "cult-01": d(CULT, 6, "scene", 1800, 700, "Göbekli Tepe at golden hour, circle of large T-shaped limestone pillars with animal reliefs, wide landscape, no people"),
+  "cult-02": d(CULT, 6, "scene", 1800, 700, "Stonehenge and a passage tomb at dusk with a low sun, early Neolithic landscape, no people"),
+  "cult-03": d(CULT, 6, "scene", 1800, 700, "Giza pyramids and the Sphinx at sunset, warm desert light, no people"),
+  "cult-04": d(CULT, 6, "scene", 1800, 700, "Mesopotamian ziggurat beside a river at dusk, mud-brick city, clay tablets in the foreground, no people"),
+  "cult-05": d(CULT, 6, "scene", 1800, 700, "Indus Valley city of Mohenjo-daro, brick streets and the Great Bath at evening, no people"),
+  "cult-06": d(CULT, 6, "scene", 1800, 700, "ancient Chinese landscape with a pagoda, terracotta warriors in rows and misty mountains, no real people"),
+  "cult-07": d(CULT, 6, "scene", 1800, 700, "Maya step pyramid in the jungle at sunrise, stone relief of a calendar in the foreground, no people"),
+  "cult-08": d(CULT, 6, "scene", 1800, 700, "Petra Treasury carved in rose-red rock with a Roman aqueduct and Inca stone walls blended into one dusk scene, no people"),
+  "cult-theme-architektur": d(CULT, 6, "scene", 600, 600, "monumental ancient stone architecture, pyramids and temple columns, warm light"),
+  "cult-theme-technologie": d(CULT, 6, "scene", 600, 600, "ancient bronze gear mechanism like the Antikythera device, close-up, warm light"),
+  "cult-theme-spiritualitaet": d(CULT, 6, "scene", 600, 600, "ancient temple interior with candle light and carved reliefs, no people"),
+  "cult-theme-astronomie": d(CULT, 6, "scene", 600, 600, "ancient stone observatory under a starry sky with a bright planet, no people"),
+  "cult-theme-gesellschaft": d(CULT, 6, "scene", 600, 600, "ancient market city street from above at dusk, clay houses, no recognisable faces"),
+  "cult-theme-artefakte": d(CULT, 6, "scene", 600, 600, "clay tablet with cuneiform and a carved stone seal on dark cloth, close-up"),
+  "cult-theme-mythen": d(CULT, 6, "scene", 600, 600, "winged guardian relief of ancient Mesopotamia, glowing gold on dark stone"),
+  "cult-theme-verborgenes": d(CULT, 6, "scene", 600, 600, "narrow ancient stone passage leading to a lit chamber, mysterious, no people"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

@@ -9,6 +9,8 @@ export type TileAction =
   | { type: "chakra" }
   | { type: "breath" }
   | { type: "places" }
+  | { type: "cultures" }
+  | { type: "nutrients" }
   | { type: "soon" };
 
 export interface Tile { title: string; sub: string; slot: SlotName; action: TileAction }
@@ -22,13 +24,13 @@ export const TILES: Tile[] = [
   { title: "Mineralien", sub: "Elemente & Spurenelemente", slot: "tile-mineralien", action: { type: "atlas", category: "kristall" } },
   { title: "Kristalle & Heilsteine", sub: "Eigenschaften & Überlieferung", slot: "tile-kristalle", action: { type: "atlas", category: "kristall" } },
   { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "body" } },
-  { title: "Nährstoffe", sub: "Vitamine, Mineralien, Aminosäuren", slot: "tile-naehrstoffe", action: { type: "soon" } },
+  { title: "Nährstoffe", sub: "Vitamine, Mineralien, Aminosäuren", slot: "tile-naehrstoffe", action: { type: "nutrients" } },
   { title: "Krankheiten & Beschwerden", sub: "Von Schnupfen bis chronisch", slot: "tile-krankheiten", action: { type: "scroll", target: "beschwerden" } },
   { title: "Atem & Meditation", sub: "Atemtechniken & Nervensystem", slot: "tile-atem", action: { type: "breath" } },
   { title: "Frequenzen & Vibrationen", sub: "Klang, Frequenz & Resonanz", slot: "tile-frequenzen", action: { type: "fx", mode: "kymatik" } },
   { title: "Geometrie", sub: "Heilige Geometrie & Mathematik", slot: "tile-geometrie", action: { type: "fx", mode: "geometrie" } },
   { title: "Chakren", sub: "Energiezentren & Bewusstsein", slot: "tile-chakren", action: { type: "chakra" } },
-  { title: "Alte Kulturen", sub: "Wissen der Zivilisationen", slot: "tile-kulturen", action: { type: "scroll", target: "kulturen" } },
+  { title: "Alte Kulturen", sub: "Wissen der Zivilisationen", slot: "tile-kulturen", action: { type: "cultures" } },
   { title: "Heilige Orte", sub: "Orte besonderer Bedeutung", slot: "tile-orte", action: { type: "places" } },
   { title: "Lab & Experimente", sub: "Selbst ausprobieren", slot: "tile-lab", action: { type: "scroll", target: "labor" } },
 ];
@@ -62,7 +64,7 @@ export const FREQUENCIES: { hz: number; label: string }[] = [
 
 export const BANDS = [
   { id: "geometrie", title: "Heilige Geometrie", text: "Muster, die sich in Natur, Kunst und Architektur wiederholen: Blume des Lebens, Goldener Schnitt, Platonische Körper.", slot: "band-geometrie" as SlotName, button: "Geometrie erkunden", fx: "geometrie" as const },
-  { id: "kulturen", title: "Alte Kulturen", text: "Tauche in das Wissen früherer Zivilisationen ein: Ägypten, Griechenland, Indien, China, Maya, Inka und mehr.", slot: "band-kulturen" as SlotName, button: "Kulturen erkunden" },
+  { id: "kulturen", title: "Alte Kulturen", text: "Tauche in das Wissen früherer Zivilisationen ein: Ägypten, Griechenland, Indien, China, Maya, Inka und mehr.", slot: "band-kulturen" as SlotName, button: "Kulturen erkunden", cultures: true as const },
   { id: "orte", title: "Heilige Orte", text: "Orte von besonderer historischer und kultureller Bedeutung: Giza, Machu Picchu, Angkor Wat, Stonehenge.", slot: "band-orte" as SlotName, button: "Orte entdecken", places: true as const },
 ];
 

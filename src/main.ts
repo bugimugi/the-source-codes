@@ -8,6 +8,7 @@ import "./home.css";
 import "./fx.css";
 import "./body.css";
 import "./breath.css";
+import "./cultures.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -23,6 +24,8 @@ import { initBody } from "./ui/body";
 import { initChakra } from "./ui/chakra";
 import { initBreath } from "./ui/breath";
 import { initPlaces } from "./ui/places";
+import { initCultures } from "./ui/cultures";
+import { initNutrients } from "./ui/nutrients";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
@@ -116,7 +119,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -127,6 +130,8 @@ let chakraView: ReturnType<typeof initChakra> | null = null;
 let breathView: ReturnType<typeof initBreath> | null = null;
 let placesView: ReturnType<typeof initPlaces> | null = null;
 let pendingPlace: string | undefined;
+let culturesView: ReturnType<typeof initCultures> | null = null;
+let nutrientsView: ReturnType<typeof initNutrients> | null = null;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
@@ -135,11 +140,14 @@ const bodyEl = $("body");
 const chakraEl = $("chakra");
 const breathEl = $("breath");
 const placesEl = $("places");
+const culturesEl = $("cultures");
+const nutrientsEl = $("nutrients");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
   { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
   { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
+  { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" },
 ];
 document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
   nav.innerHTML = VIEW_TABS.map((t) => (t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
@@ -253,6 +261,23 @@ function openFxView(): boolean {
   return true;
 }
 
+function openCulturesView(): boolean {
+  culturesEl.hidden = false;
+  culturesView ??= initCultures(culturesEl, { reduceMotion });
+  culturesView.start();
+  fade(culturesEl, true);
+  $("leave-cultures").focus();
+  return true;
+}
+
+function openNutrientsView(): boolean {
+  nutrientsEl.hidden = false;
+  nutrientsView ??= initNutrients(nutrientsEl, { openClaim: (cid, from) => overlay.open(cid, from) });
+  fade(nutrientsEl, true);
+  $("leave-nutrients").focus();
+  return true;
+}
+
 function openPlacesView(id?: string): boolean {
   placesEl.hidden = false;
   try {
@@ -320,6 +345,8 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   chakra: { el: chakraEl, stop: () => chakraView?.stop() },
   breath: { el: breathEl, stop: () => breathView?.stop() },
   places: { el: placesEl, stop: () => placesView?.stop() },
+  cultures: { el: culturesEl, stop: () => culturesView?.stop() },
+  nutrients: { el: nutrientsEl, stop: () => nutrientsView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -332,6 +359,8 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "chakra" && !openChakraView(pendingChakra)) return false;
   if (next === "breath" && !openBreathView()) return false;
   if (next === "places" && !openPlacesView(pendingPlace)) return false;
+  if (next === "cultures" && !openCulturesView()) return false;
+  if (next === "nutrients" && !openNutrientsView()) return false;
   pendingOrgan = undefined;
   pendingChakra = undefined;
   pendingPlace = undefined;
@@ -368,6 +397,8 @@ const home = initHome($("home"), {
   openUniverse() { void enterLibrary(); },
   openBody(organ?: string) { if (view === "body") { if (organ) bodyView?.show(organ); } else { pendingOrgan = organ; go("body"); } },
   openBreath() { go("breath"); },
+  openCultures() { go("cultures"); },
+  openNutrients() { go("nutrients"); },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
   openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
@@ -391,6 +422,8 @@ $("leave-body").addEventListener("click", () => go("hero"));
 $("leave-chakra").addEventListener("click", () => go("hero"));
 $("leave-breath").addEventListener("click", () => go("hero"));
 $("leave-places").addEventListener("click", () => go("hero"));
+$("leave-cultures").addEventListener("click", () => go("hero"));
+$("leave-nutrients").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

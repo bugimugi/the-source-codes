@@ -106,6 +106,28 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `cymatics-3` | 1600×1600 | Schwarz | cymatic membrane pattern with fine nodal lines, glowing, on a pure black background |
 | `lab-waveform-bg` | 3840×1000 | Schwarz | wide glowing sine waves in cyan and gold, on a pure black background |
 
+## Priorität 6 – Alte Kulturen
+
+| Datei | Größe | Typ | Prompt-Kern |
+|---|---|---|---|
+| `cult-hero` | 3200×1500 | Szene | ancient world panorama at sunset, pyramids and a river valley in the distance, a carved stone wall at the right edge, a hooded wanderer seen from behind on the left, dark calm area on the left for text |
+| `cult-01` | 1800×700 | Szene | Göbekli Tepe at golden hour, circle of large T-shaped limestone pillars with animal reliefs, wide landscape, no people |
+| `cult-02` | 1800×700 | Szene | Stonehenge and a passage tomb at dusk with a low sun, early Neolithic landscape, no people |
+| `cult-03` | 1800×700 | Szene | Giza pyramids and the Sphinx at sunset, warm desert light, no people |
+| `cult-04` | 1800×700 | Szene | Mesopotamian ziggurat beside a river at dusk, mud-brick city, clay tablets in the foreground, no people |
+| `cult-05` | 1800×700 | Szene | Indus Valley city of Mohenjo-daro, brick streets and the Great Bath at evening, no people |
+| `cult-06` | 1800×700 | Szene | ancient Chinese landscape with a pagoda, terracotta warriors in rows and misty mountains, no real people |
+| `cult-07` | 1800×700 | Szene | Maya step pyramid in the jungle at sunrise, stone relief of a calendar in the foreground, no people |
+| `cult-08` | 1800×700 | Szene | Petra Treasury carved in rose-red rock with a Roman aqueduct and Inca stone walls blended into one dusk scene, no people |
+| `cult-theme-architektur` | 600×600 | Szene | monumental ancient stone architecture, pyramids and temple columns, warm light |
+| `cult-theme-technologie` | 600×600 | Szene | ancient bronze gear mechanism like the Antikythera device, close-up, warm light |
+| `cult-theme-spiritualitaet` | 600×600 | Szene | ancient temple interior with candle light and carved reliefs, no people |
+| `cult-theme-astronomie` | 600×600 | Szene | ancient stone observatory under a starry sky with a bright planet, no people |
+| `cult-theme-gesellschaft` | 600×600 | Szene | ancient market city street from above at dusk, clay houses, no recognisable faces |
+| `cult-theme-artefakte` | 600×600 | Szene | clay tablet with cuneiform and a carved stone seal on dark cloth, close-up |
+| `cult-theme-mythen` | 600×600 | Szene | winged guardian relief of ancient Mesopotamia, glowing gold on dark stone |
+| `cult-theme-verborgenes` | 600×600 | Szene | narrow ancient stone passage leading to a lit chamber, mysterious, no people |
+
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
 Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or mineral subject, scientific illustration meets glowing light, on a pure black background. Das Motiv steht im Prompt-Kern jeweils zuerst.
@@ -134,4 +156,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 88 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 105 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

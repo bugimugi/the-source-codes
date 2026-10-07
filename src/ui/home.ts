@@ -19,6 +19,8 @@ export interface HomeApi {
   openChakra(id?: string): void;
   openBreath(): void;
   openPlaces(id?: string): void;
+  openCultures(): void;
+  openNutrients(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -110,7 +112,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
     </section>
   </div>
 
-  <div class="bands">${BANDS.map((b) => `<section class="band" id="${b.id}">${slot(b.slot, "band-bg", 'data-fit="cover"')}<div><h2>${esc(b.title)}</h2><p>${esc(b.text)}</p>${"places" in b ? `<button class="cta ghost small" data-act="places">${esc(b.button)} <span aria-hidden="true">→</span></button>` : "fx" in b ? `<button class="cta ghost small" data-act="fx" data-mode="${b.fx}">${esc(b.button)} <span aria-hidden="true">→</span></button>` : `<button class="cta ghost small" data-act="soon">${esc(b.button)} <span class="soon-tag inline">bald</span></button>`}</div></section>`).join("")}</div>
+  <div class="bands">${BANDS.map((b) => `<section class="band" id="${b.id}">${slot(b.slot, "band-bg", 'data-fit="cover"')}<div><h2>${esc(b.title)}</h2><p>${esc(b.text)}</p>${"cultures" in b ? `<button class="cta ghost small" data-act="cultures">${esc(b.button)} <span aria-hidden="true">→</span></button>` : "places" in b ? `<button class="cta ghost small" data-act="places">${esc(b.button)} <span aria-hidden="true">→</span></button>` : "fx" in b ? `<button class="cta ghost small" data-act="fx" data-mode="${b.fx}">${esc(b.button)} <span aria-hidden="true">→</span></button>` : `<button class="cta ghost small" data-act="soon">${esc((b as { button: string }).button)} <span class="soon-tag inline">bald</span></button>`}</div></section>`).join("")}</div>
 
   <div class="trio">
     <section class="sec" id="labor" aria-labelledby="h-diy"><h2 id="h-diy">DIY Labor</h2><p>Experimente, Rezepte und praktische Anwendungen.</p>
@@ -137,6 +139,8 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "chakra") api.openChakra();
       else if (a.type === "breath") api.openBreath();
       else if (a.type === "places") api.openPlaces();
+      else if (a.type === "cultures") api.openCultures();
+      else if (a.type === "nutrients") api.openNutrients();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }
@@ -146,6 +150,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       if (k === "universe") api.openUniverse();
       else if (k === "body") api.openBody();
       else if (k === "places") api.openPlaces();
+      else if (k === "cultures") api.openCultures();
       else if (k === "fx") api.openFx(act.dataset.mode === "geometrie" ? "geometrie" : "kymatik");
       else if (k === "atlas-all") api.openAtlas(null);
       else if (k === "atlas-entry") api.openAtlas(null, act.dataset.id);

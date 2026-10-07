@@ -216,6 +216,67 @@
       <aside class="fx-panel" aria-live="polite"></aside>
     </section>
 
+    <section id="cultures" class="culturesview" hidden aria-label="Alte Kulturen">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-cultures">← Start</button>
+        <nav class="tabs" aria-label="Ansicht" data-tabs="cultures"></nav>
+      </header>
+      <div class="bv-scroll cu-scroll">
+        <div class="cu-hero">
+          <div class="cu-hero-bg" data-slot="cult-hero" data-fit="cover" data-eager="true"></div>
+          <div class="cu-hero-text">
+            <p class="fx-eyebrow">Alte Kulturen · Zivilisationen · Akten</p>
+            <h1>Spuren einer vergessenen Welt.</h1>
+            <p>Eine Reise durch die großen Zivilisationen der Menschheit: ihre Bauten, ihr Wissen, ihre Technik, ihr Glaube und die Rätsel, die bis heute bleiben. Jede Akte trennt, was dokumentiert ist, was überliefert wird und was nur behauptet wird.</p>
+            <div class="cu-cta"><button class="cu-primary" data-scroll-to="cu-journey">Zeitreise starten <span aria-hidden="true">→</span></button><button class="cu-ghost" data-list="claims">Behauptungen prüfen</button></div>
+          </div>
+          <aside class="cu-quote">Wissen verbindet die Vergangenheit mit der Zukunft.</aside>
+        </div>
+        <div class="cu-themes" role="group" aria-label="Thema wählen"></div>
+        <section class="cu-journey" aria-label="Eine Reise durch die Zeit">
+          <div class="cu-journey-head"><h2>Eine Reise durch die Zeit</h2><p>Acht Akten, von den ältesten Steinanlagen bis zu den Reichen der Antike und Amerikas. Wähle ein Thema oben, um die passenden Einträge zu finden, oder öffne eine Akte.</p></div>
+          <div class="cu-stations"><svg class="cu-pathsvg" aria-hidden="true"><path class="cu-path-glow"/><path class="cu-path"/></svg></div>
+        </section>
+        <section class="cu-patterns" aria-label="Verbindungen und Muster">
+          <div class="cu-journey-head"><h2>Verbindungen &amp; Muster</h2><p class="cu-answer"></p></div>
+          <div class="cu-pattern-grid"></div>
+        </section>
+        <section class="cu-more" aria-label="Weitere Akten">
+          <button class="cu-card more" data-list="raetsel"><h3>Archäologische Rätsel</h3><p>Die größten ungelösten Fragen, gesammelt aus allen Akten.</p></button>
+          <button class="cu-card more" data-list="claims"><h3>Behauptungen &amp; Gegenbelege</h3><p>Was kursiert, was dagegen spricht und wie gut es belegt ist.</p></button>
+          <div class="cu-card more soon" aria-disabled="true"><h3>Weltweite Entdeckungen <span class="soon-tag inline">bald</span></h3><p>Neue Funde und Deutungen aus aller Welt.</p></div>
+          <button class="cu-card more" data-scroll-to="cu-journey"><h3>Zeitleiste der Menschheit</h3><p>Alle Kulturen im Überblick, von oben nach unten.</p></button>
+        </section>
+        <p class="cu-notice br-notice"></p>
+      </div>
+      <aside class="cu-file" hidden role="dialog" aria-labelledby="cu-file-title">
+        <button class="cu-file-close" aria-label="Akte schließen">×</button>
+        <div class="cu-file-body"></div>
+      </aside>
+    </section>
+
+    <section id="nutrients" class="culturesview nutview" hidden aria-label="Nährstoffe">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-nutrients">← Start</button>
+        <nav class="tabs" aria-label="Ansicht" data-tabs="nutrients"></nav>
+      </header>
+      <div class="bv-scroll cu-scroll">
+        <div class="nu-hero">
+          <p class="fx-eyebrow">Ernährung · Lehrbuchwissen</p>
+          <h1>Bausteine deines Lebens.</h1>
+          <p>Vitamine, Mineralstoffe, Spurenelemente, Fettsäuren und Aminosäuren: was sie sind, wofür der Körper sie braucht und in welchen Lebensmitteln sie stecken. Mengen und Dosierungen nennt diese Seite bewusst nicht.</p>
+        </div>
+        <div class="nu-filter" role="group" aria-label="Gruppe wählen"></div>
+        <div class="nu-grid"></div>
+        <section class="cu-more nu-info" aria-label="Wichtige Hinweise"></section>
+        <p class="cu-notice br-notice"></p>
+      </div>
+      <aside class="cu-file" hidden role="dialog" aria-labelledby="cu-file-title">
+        <button class="cu-file-close" aria-label="Schließen">×</button>
+        <div class="cu-file-body"></div>
+      </aside>
+    </section>
+
     <aside id="overlay" class="proof" hidden role="dialog" aria-labelledby="proof-title" tabindex="-1">
       <header class="proof-head">
         <span class="proof-sun" aria-hidden="true"></span>

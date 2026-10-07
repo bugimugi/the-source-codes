@@ -76,7 +76,7 @@ export function initFabrics(root: HTMLElement, api: LabApi) {
   function render() {
     const list = b && cmp.checked ? [a, b] : [a];
     figs.className = `fb-figs n${list.length}`;
-    figs.innerHTML = list.map((f, i) => `<figure class="fb-fig${(i === 0 ? "a" : "b") === slot && list.length > 1 ? " active" : ""}" data-slot="${i === 0 ? "a" : "b"}">${figureSvg(f, i === 0 ? "a" : "b")}</figure>`).join("");
+    figs.innerHTML = list.map((f, i) => `<figure class="fb-fig${(i === 0 ? "a" : "b") === slot && list.length > 1 ? " active" : ""}" data-fslot="${i === 0 ? "a" : "b"}">${figureSvg(f, i === 0 ? "a" : "b")}</figure>`).join("");
     pick.querySelectorAll<HTMLElement>("[data-fabric]").forEach((el) => el.setAttribute("aria-pressed", String(el.dataset.fabric === a.id || (cmp.checked && el.dataset.fabric === b?.id))));
     info.innerHTML = list.map((f) => `<article class="fb-card"><h4>${esc(f.name)}</h4><p>${esc(f.text)}</p><p class="fb-claimline"><strong>Behauptung:</strong> ${esc(f.claimText)}${f.circulating ? `<small>Zahl in diesen Listen: ${esc(f.circulating)}. Ungeprüft, keine belegte Einheit.</small>` : ""}</p><dl>${f.facts.map((x) => `<div><dt>${esc(x.label)}</dt><dd>${esc(x.value)}</dd></div>`).join("")}</dl></article>`).join("");
     draw();
@@ -113,7 +113,7 @@ export function initFabrics(root: HTMLElement, api: LabApi) {
       return;
     }
     const fg = el.closest<HTMLElement>(".fb-fig");
-    if (fg && cmp.checked) { slot = fg.dataset.slot as "a" | "b"; render(); }
+    if (fg && cmp.checked) { slot = fg.dataset.fslot as "a" | "b"; render(); }
   });
   cmp.addEventListener("change", () => { if (cmp.checked && !b) b = FABRICS.find((f) => f.id === "polyester")!; slot = "a"; render(); });
 

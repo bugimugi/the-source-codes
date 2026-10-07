@@ -3,10 +3,11 @@ import { mountSlots } from "../assets/slots";
 import { initRitual } from "./labRitual";
 import { initBench } from "./labBench";
 import { initFabrics } from "./labFabrics";
+import { initEarth } from "./labEarth";
 
-export interface LabApi { reduceMotion: boolean; openClaim(id: string, from: HTMLElement): void }
+export interface LabApi { reduceMotion: boolean; openClaim(id: string, from: HTMLElement): void; openEnergy(id: string): void }
 
-const ORDER: StationId[] = ["bench", "ritual", "fabrics"];
+const ORDER: StationId[] = ["bench", "ritual", "fabrics", "earth"];
 
 /**
  * "Rezepte & Rituale": three stations, one visible at a time. The workbench shows how a traditional recipe is made (vessel,
@@ -19,6 +20,7 @@ export function initLab(root: HTMLElement, api: LabApi) {
     bench: root.querySelector<HTMLElement>("#lb-bench")!,
     ritual: root.querySelector<HTMLElement>("#lb-ritual")!,
     fabrics: root.querySelector<HTMLElement>("#lb-fabrics")!,
+    earth: root.querySelector<HTMLElement>("#lb-earth")!,
   };
   root.querySelector<HTMLElement>(".lb-title")!.textContent = LAB_NAME;
   root.querySelector<HTMLElement>(".lb-lead")!.textContent = LAB_LEAD;
@@ -26,6 +28,7 @@ export function initLab(root: HTMLElement, api: LabApi) {
 
   const bench = initBench(root.querySelector<HTMLElement>(".lb-bench")!, api);
   const fabrics = initFabrics(root.querySelector<HTMLElement>(".lb-fabrics")!, api);
+  const earth = initEarth(root.querySelector<HTMLElement>(".lb-earth")!, api);
   let ritual: ReturnType<typeof initRitual> | null = null;
   mountSlots(root);
   let current: StationId = "bench";
@@ -46,6 +49,7 @@ export function initLab(root: HTMLElement, api: LabApi) {
       if (active) ritual.start();
     } else ritual?.stop();
     if (id !== "fabrics") fabrics.stop(); else if (active) fabrics.start();
+    if (id !== "earth") earth.stop(); else if (active) earth.start();
   }
 
   tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.station as StationId)));
@@ -64,6 +68,6 @@ export function initLab(root: HTMLElement, api: LabApi) {
       show(station ?? current);
       if (recipe) bench.open(recipe);
     },
-    stop() { active = false; ritual?.stop(); fabrics.stop(); bench.stop(); },
+    stop() { active = false; ritual?.stop(); fabrics.stop(); earth.stop(); bench.stop(); },
   };
 }

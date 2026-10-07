@@ -292,7 +292,11 @@ function openEnergyView(id?: string): boolean {
 
 function openLabView(station?: StationId): boolean {
   labEl.hidden = false;
-  labView ??= initLab(labEl, { reduceMotion, openClaim: (cid, from) => overlay.open(cid, from) });
+  labView ??= initLab(labEl, {
+    reduceMotion,
+    openClaim: (cid, from) => overlay.open(cid, from),
+    openEnergy: (eid) => { labEl.hidden = true; labView?.stop(); view = "hero"; pendingEnergy = eid; go("energy"); },
+  });
   labView.start(station);
   fade(labEl, true);
   $("leave-lab").focus();

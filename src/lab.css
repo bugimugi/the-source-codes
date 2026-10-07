@@ -5,7 +5,7 @@
 .lb-lead { font-size: 0.96rem; line-height: 1.65; color: var(--ivory); opacity: 0.9; }
 
 /* stations */
-.lb-stations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 20px 0 22px; }
+.lb-stations { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 20px 0 22px; }
 .lb-stations button { all: unset; cursor: pointer; box-sizing: border-box; display: grid; gap: 0.15rem; padding: 0.8rem 1rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 14px; background: rgba(6, 19, 26, 0.7); transition: border-color 0.2s, background 0.2s; }
 .lb-stations button strong { font-family: var(--serif); font-weight: 500; letter-spacing: 0.06em; font-size: 1.02rem; }
 .lb-stations button small { font-size: 0.7rem; color: var(--muted); }
@@ -159,6 +159,58 @@
 .fb-card dl div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 0.6rem; font-size: 0.78rem; } .fb-card dt { color: var(--muted); } .fb-card dd { margin: 0; }
 .fb-claim { margin-top: 20px; max-width: 46rem; }
 .fb-note { margin-top: 14px; max-width: 46rem; }
+
+/* ------------------------------------------------------------ earth and metals */
+.ea-sec { margin-top: 28px; padding-top: 6px; }
+.ea-sec + .ea-sec { margin-top: 44px; padding-top: 26px; border-top: 1px solid var(--gold-line, rgba(203,170,103,.28)); }
+.ea-h { font-family: var(--serif); font-weight: 500; font-size: clamp(1.2rem, 2vw, 1.7rem); letter-spacing: 0.04em; color: var(--ivory); text-transform: none; margin: 0 0 0.9rem; }
+.labview .ea-h { font-size: clamp(1.2rem, 2vw, 1.7rem); letter-spacing: 0.04em; color: var(--ivory); }
+.ea-views { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 14px; }
+.ea-view { all: unset; cursor: pointer; box-sizing: border-box; display: grid; gap: 0.1rem; padding: 0.6rem 0.8rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 12px; background: rgba(6, 19, 26, 0.7); }
+.ea-view strong { font-weight: 500; font-size: 0.84rem; } .ea-view small { font-size: 0.68rem; color: var(--muted); }
+.ea-view[aria-pressed="true"] { border-color: var(--gold-hi); background: rgba(240, 209, 139, 0.12); }
+.ea-view:focus-visible, .ea-cap-tip:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+.ea { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr); gap: clamp(12px, 2vw, 26px); align-items: start; }
+.ea-stage { position: relative; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 18px; overflow: hidden; background: #08121c; }
+.ea-svg { display: block; width: 100%; height: auto; }
+.ea-svg2 { max-height: 460px; background: radial-gradient(ellipse at 50% 30%, #12232d, #05090e 75%); }
+.ea-state { margin: 0; padding: 0.8rem 1rem 0.9rem; font-size: 0.78rem; line-height: 1.55; background: rgba(2, 7, 11, 0.94); border-top: 1px solid var(--gold-line, rgba(203,170,103,.28)); min-height: 4.6rem; }
+.ea-state strong { color: var(--gold-hi); font-weight: 500; }
+.ea-controls { display: grid; gap: 0.2rem; align-content: start; }
+.ea-controls.dim .ea-surf, .ea-controls.dim .ea-shoe { opacity: 0.35; pointer-events: none; }
+.ea-controls h4 { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0.8rem 0 0.4rem; } .ea-controls h4:first-child { margin-top: 0; }
+.ea-surf, .ea-shoe, .ea-metals, .ea-shapes, .rt-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.ea-actions [hidden] { display: none !important; }
+.ea-actions { display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; align-items: center; margin-top: 1rem; }
+.ea-surfnote { margin-top: 0.8rem; }
+.ea-info { display: grid; grid-template-columns: 1.6fr 1fr; gap: 12px; margin-top: 14px; }
+.ea-claim, .ea-claims { margin-top: 18px; max-width: 46rem; } .ea-claim h4, .ea-claims h4, .ea-ptext h4 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 0.5rem; }
+.ea-ptext h4 { font-family: var(--serif-text); text-transform: none; letter-spacing: 0; font-size: 1.3rem; color: var(--ivory); font-weight: 600; }
+.ea-ptext p { font-size: 0.88rem; line-height: 1.65; margin-top: 0.4rem; }
+.ea-ptabs { display: flex; flex-wrap: wrap; gap: 7px; margin: 0.9rem 0; }
+.ea-bars { display: grid; gap: 5px; margin-top: 1rem; }
+.ea-bar { display: grid; grid-template-columns: 4.4rem minmax(0, 1fr) 3rem; gap: 0.6rem; align-items: center; font-size: 0.76rem; color: var(--muted); }
+.ea-bar i { height: 9px; border-radius: 99px; background: rgba(255, 255, 255, 0.07); overflow: hidden; } .ea-bar b { display: block; height: 100%; border-radius: 99px; }
+.ea-bar em { font-style: normal; text-align: right; font-variant-numeric: tabular-nums; } .ea-bar.on { color: var(--ivory); } .ea-bar.on i { outline: 1px solid var(--gold-hi); }
+.ea-cards { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; margin-top: 14px; }
+.ea-facts { padding-left: 1.1rem; margin: 0.5rem 0; display: grid; gap: 0.35rem; font-size: 0.82rem; line-height: 1.55; }
+.ea-open { margin-top: 1.2rem; }
+.ea-cap-tip { cursor: pointer; filter: drop-shadow(0 0 8px rgba(255, 220, 120, 0.65)); }
+.ea-glint { transform-box: fill-box; transform-origin: center; animation: ea-glint 3.4s ease-in-out infinite; }
+@keyframes ea-glint { 0%, 55%, 100% { opacity: 0; transform: scale(0.3) rotate(0); } 70% { opacity: 1; transform: scale(1) rotate(25deg); } }
+.ea-src { padding-left: 1.1rem; margin-top: 2rem; display: grid; gap: 0.3rem; max-width: 52rem; } .ea-src a { color: var(--gold-hi); }
+.ea-note { margin-top: 0.8rem; max-width: 52rem; }
+.ea-pstate { font-size: 0.7rem; color: var(--muted); }
+@media (max-width: 1000px) {
+  .ea { display: block; }
+  .ea-info, .ea-cards { grid-template-columns: 1fr; }
+  .ea-views { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ea-view small { display: none; } .ea-view strong { font-size: 0.72rem; }
+  .ea-stage { position: sticky; top: 52px; z-index: 3; box-shadow: 0 10px 24px rgba(2, 7, 11, 0.8); margin-bottom: 14px; }
+  .ea-svg2 { max-height: 230px; }
+  .ea-state { font-size: 0.66rem; padding: 0.6rem 0.8rem; min-height: 0; }
+}
+@media (max-width: 640px) { .lb-stations { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .ea-glint { animation: none; opacity: 0; } }
 
 @media (max-width: 1000px) {
   .fb { grid-template-columns: 1fr; }

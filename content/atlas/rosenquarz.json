@@ -1,0 +1,62 @@
+{
+  "id": "rosenquarz",
+  "status": "published",
+  "category": "kristall",
+  "name": "Rosenquarz",
+  "latin": "Quarz (rosa Varietät)",
+  "model": {
+    "kind": "quartz",
+    "color": "#f0a8c0"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "SiO₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "7"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "trigonal (meist derb, ohne sichtbare Kristalle)"
+    },
+    {
+      "label": "Farbe",
+      "value": "rosa; die Ursache (feine Einschlüsse oder Spurenelemente) wird diskutiert"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Rosenquarz gilt in der modernen Steinkunde als „Stein des Herzens“ und wird dem Herzchakra zugeordnet; das ist eine moderne Zuordnung (Quelle zu prüfen).",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Herzchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "crystal-healing-general"
+  ]
+}

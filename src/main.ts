@@ -15,6 +15,7 @@ import "./plants.css";
 import "./plantProfile.css";
 import "./produce.css";
 import "./trees.css";
+import "./minerals.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -38,6 +39,7 @@ import { initPlants } from "./ui/plants";
 import { initPlantProfile, type ProfileFrom } from "./ui/plantProfile";
 import { initProduce } from "./ui/produce";
 import { initTrees } from "./ui/trees";
+import { initMinerals } from "./ui/minerals";
 import type { StationId } from "./data/lab";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
@@ -132,7 +134,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "plant";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "minerals" | "plant";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -152,6 +154,7 @@ let plantsView: ReturnType<typeof initPlants> | null = null;
 let plantView: ReturnType<typeof initPlantProfile> | null = null;
 let produceView: ReturnType<typeof initProduce> | null = null;
 let treesView: ReturnType<typeof initTrees> | null = null;
+let mineralsView: ReturnType<typeof initMinerals> | null = null;
 let pendingPlant: string | undefined;
 let pendingPlantFrom: ProfileFrom = "plants";
 let plantFrom: ProfileFrom = "plants";
@@ -172,10 +175,11 @@ const plantsEl = $("plants");
 const plantEl = $("plant");
 const produceEl = $("produce");
 const treesEl = $("trees");
+const mineralsEl = $("minerals");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
-  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "trees", label: "Bäume" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
+  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "trees", label: "Bäume" }, { id: "minerals", label: "Mineralien" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
   { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
   { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
 ];
@@ -337,6 +341,8 @@ function fromPlant(next: () => void) { plantEl.hidden = true; plantView?.stop();
 function fromProduce(next: () => void) { produceEl.hidden = true; produceView?.stop(); view = "hero"; next(); }
 /** leaves the tree atlas for another view */
 function fromTrees(next: () => void) { treesEl.hidden = true; treesView?.stop(); view = "hero"; next(); }
+/** leaves the mineral atlas for another view */
+function fromMinerals(next: () => void) { mineralsEl.hidden = true; mineralsView?.stop(); view = "hero"; next(); }
 
 function openPlantView(id?: string, from: ProfileFrom = "plants"): boolean {
   if (!id) return false;
@@ -393,6 +399,20 @@ function openTreesView(): boolean {
   treesView.start();
   fade(treesEl, true);
   $("leave-trees").focus();
+  return true;
+}
+
+function openMineralsView(): boolean {
+  mineralsEl.hidden = false;
+  mineralsView ??= initMinerals(mineralsEl, {
+    reduceMotion,
+    openAtlas: (id) => fromMinerals(() => { go("atlas"); if (id) atlasView?.select(id); else atlasView?.showCategory("kristall"); }),
+    openFx: () => fromMinerals(() => { fxMode = "kymatik"; go("fx"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+  });
+  mineralsView.start();
+  fade(mineralsEl, true);
+  $("leave-minerals").focus();
   return true;
 }
 
@@ -492,6 +512,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   plant: { el: plantEl, stop: () => plantView?.stop() },
   produce: { el: produceEl, stop: () => produceView?.stop() },
   trees: { el: treesEl, stop: () => treesView?.stop() },
+  minerals: { el: mineralsEl, stop: () => mineralsView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -511,6 +532,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "plants" && !openPlantsView()) return false;
   if (next === "produce" && !openProduceView()) return false;
   if (next === "trees" && !openTreesView()) return false;
+  if (next === "minerals" && !openMineralsView()) return false;
   if (next === "plant" && !openPlantView(pendingPlant, pendingPlantFrom)) return false;
   pendingEnergy = undefined;
   pendingPlant = undefined;
@@ -559,6 +581,7 @@ const home = initHome($("home"), {
   openPlants() { go("plants"); },
   openProduce() { go("produce"); },
   openTrees() { go("trees"); },
+  openMinerals() { go("minerals"); },
   openLab(station?: StationId) { if (view === "lab") labView?.start(station); else { pendingLab = station; go("lab"); } },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
@@ -591,6 +614,7 @@ $("leave-plants").addEventListener("click", () => go("hero"));
 $("leave-plant").addEventListener("click", () => go("hero"));
 $("leave-produce").addEventListener("click", () => go("hero"));
 $("leave-trees").addEventListener("click", () => go("hero"));
+$("leave-minerals").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

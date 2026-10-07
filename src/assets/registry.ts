@@ -24,6 +24,7 @@ const CULT = "Alte Kulturen";
 const ENERGY = "Freie Energie";
 const PLANTS = "Pflanzenatlas";
 const PROFILE = "Pflanzenprofil";
+const MINERALS = "Mineralatlas";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -261,6 +262,62 @@ export const SLOTS = {
   "baum-holz": d(PLANTS, 8, "scene", 800, 450, "a stack of cut logs and timber boards in warm light, dark background"),
   "baum-kultur": d(PLANTS, 8, "scene", 800, 450, "stone temples and statues among ancient trees, a figure meditating, mystical light"),
   "baum-forschung": d(PLANTS, 8, "scene", 800, 450, "a green seedling growing in front of a research laboratory with glassware, warm light"),
+
+  // ---- Mineralatlas (priority 8)
+  "mineral-hero": d(MINERALS, 8, "scene", 2800, 1300, "the Earth as a glowing planet in the centre right surrounded by floating raw crystals and mineral rocks in purple, gold, blue and white, a mountain waterfall landscape at the lower right, a dark calm area on the left for text, soft golden light and sparkles, no text, no letters, no symbols"),
+  "element-h": d(MINERALS, 8, "scene", 600, 720, "a clear crystal with a tiny bubble of hydrogen gas, icy blue glow, centred on a dark background, glowing, no text"),
+  "element-c": d(MINERALS, 8, "scene", 600, 720, "a diamond and a lump of graphite side by side, white and black, centred on a dark background, glowing, no text"),
+  "element-o": d(MINERALS, 8, "scene", 600, 720, "a deep blue faceted crystal with an oxygen bubble glow, centred on a dark background, glowing, no text"),
+  "element-na": d(MINERALS, 8, "scene", 600, 720, "white cubic rock salt crystals, centred on a dark background, glowing, no text"),
+  "element-mg": d(MINERALS, 8, "scene", 600, 720, "green faceted magnesium-rich crystals such as olivine, centred on a dark background, glowing, no text"),
+  "element-si": d(MINERALS, 8, "scene", 600, 720, "clear and smoky quartz crystals, centred on a dark background, glowing, no text"),
+  "element-ca": d(MINERALS, 8, "scene", 600, 720, "white and pale blue calcite crystals, centred on a dark background, glowing, no text"),
+  "element-fe": d(MINERALS, 8, "scene", 600, 720, "rusty red iron ore with metallic hematite shine, centred on a dark background, glowing, no text"),
+  "element-cu": d(MINERALS, 8, "scene", 600, 720, "a lump of native copper with green and orange tones, centred on a dark background, glowing, no text"),
+  "element-zn": d(MINERALS, 8, "scene", 600, 720, "grey-blue zinc ore crystals, sphalerite, centred on a dark background, glowing, no text"),
+  "element-ag": d(MINERALS, 8, "scene", 600, 720, "a branching lump of native silver, bright white metallic, centred on a dark background, glowing, no text"),
+  "element-au": d(MINERALS, 8, "scene", 600, 720, "a raw gold nugget, warm golden glow, centred on a dark background, glowing, no text"),
+  "element-i": d(MINERALS, 8, "scene", 600, 720, "dark violet iodine crystals with a purple vapour glow, centred on a dark background, glowing, no text"),
+  "mineral-reise-atom": d(MINERALS, 8, "black", 600, 600, "a glowing atom with orbiting electrons, glowing, on a pure black background, no text"),
+  "mineral-reise-molekuel": d(MINERALS, 8, "black", 600, 600, "a ball-and-stick molecule of silicon and oxygen, glowing, on a pure black background, no text"),
+  "mineral-reise-gitter": d(MINERALS, 8, "black", 600, 600, "a regular crystal lattice of connected spheres, glowing, on a pure black background, no text"),
+  "mineral-reise-kristall": d(MINERALS, 8, "black", 600, 600, "a single violet crystal point, glowing, on a pure black background, no text"),
+  "mineral-reise-mineral": d(MINERALS, 8, "black", 600, 600, "a polished raw mineral specimen, glowing, on a pure black background, no text"),
+  "mineral-reise-gestein": d(MINERALS, 8, "black", 600, 600, "a rough dark rock with mineral veins, glowing, on a pure black background, no text"),
+  "mineral-reise-gebirge": d(MINERALS, 8, "black", 600, 600, "a snowy mountain range, glowing, on a pure black background, no text"),
+  "mineral-reise-planet": d(MINERALS, 8, "black", 600, 600, "the Earth seen from space, glowing, on a pure black background, no text"),
+  "mineral-quarz-1": d(MINERALS, 8, "black", 1600, 1300, "a large cluster of clear quartz crystals on dark rock, glowing, on a pure black background"),
+  "mineral-quarz-2": d(MINERALS, 8, "black", 1600, 1300, "a single tall clear quartz point crystal with sharp facets, on a pure black background"),
+  "mineral-quarz-3": d(MINERALS, 8, "black", 1600, 1300, "a quartz crystal with a fine rainbow inside, side view, on a pure black background"),
+  "mineral-quarz-4": d(MINERALS, 8, "black", 1600, 1300, "small quartz crystals growing in a geode, on a pure black background"),
+  "mineral-bild-magma": d(MINERALS, 8, "scene", 800, 600, "a glowing lava flow and a volcano at dusk, cinematic, no people"),
+  "mineral-bild-meta": d(MINERALS, 8, "scene", 800, 600, "folded banded gneiss rock in a mountain cliff, cinematic, no people"),
+  "mineral-bild-sedi": d(MINERALS, 8, "scene", 800, 600, "layered sandstone cliffs in warm desert light, cinematic, no people"),
+  "mineral-bild-hydro": d(MINERALS, 8, "scene", 800, 600, "a cave wall with blue glowing crystal veins and clusters, cinematic, no people"),
+  "mineral-map": d(MINERALS, 8, "scene", 2400, 1100, "a dark stylised world map in deep blue and gold with fine glowing contour lines, calm and dark, no text"),
+  "mineral-ort-brasilien": d(MINERALS, 8, "scene", 600, 400, "amethyst and quartz geodes in a Brazilian mine landscape, dramatic light, no people"),
+  "mineral-ort-madagaskar": d(MINERALS, 8, "scene", 600, 400, "large crystal formations in red earth, Madagascar, dramatic light, no people"),
+  "mineral-ort-schweiz": d(MINERALS, 8, "scene", 600, 400, "alpine rock face with a crystal cleft in the Swiss Alps, dramatic light, no people"),
+  "mineral-ort-usa": d(MINERALS, 8, "scene", 600, 400, "small double-terminated clear quartz crystals in dark rock, New York, dramatic light, no people"),
+  "mineral-ort-uruguay": d(MINERALS, 8, "scene", 600, 400, "a large amethyst geode cut open, warm light, dramatic light, no people"),
+  "mineral-ort-sambia": d(MINERALS, 8, "scene", 600, 400, "deep violet amethyst crystals in a rocky landscape, dramatic light, no people"),
+  "mineral-ort-indien": d(MINERALS, 8, "scene", 600, 400, "pink rose quartz masses in a rocky hillside, dramatic light, no people"),
+  "mineral-ort-schottland": d(MINERALS, 8, "scene", 600, 400, "smoky quartz crystals in granite in the Scottish highlands, dramatic light, no people"),
+  "mineral-ort-deutschland": d(MINERALS, 8, "scene", 600, 400, "polished banded agate slices in a workshop, warm light, dramatic light, no people"),
+  "mineral-ort-spanien": d(MINERALS, 8, "scene", 600, 400, "golden citrine crystals in a rocky terrain, dramatic light, no people"),
+  "mineral-anw-schmuck": d(MINERALS, 8, "scene", 600, 600, "a faceted gemstone ring on dark velvet, dark background, no text"),
+  "mineral-anw-technik": d(MINERALS, 8, "scene", 600, 600, "a mechanical wristwatch movement with a small quartz oscillator, dark background, no text"),
+  "mineral-anw-optik": d(MINERALS, 8, "scene", 600, 600, "glass lenses and a laser beam in a laboratory, dark background, no text"),
+  "mineral-anw-bau": d(MINERALS, 8, "scene", 600, 600, "an ancient stone temple wall of granite blocks, dark background, no text"),
+  "mineral-anw-heil": d(MINERALS, 8, "scene", 600, 600, "a gathering of violet and pink crystals on a cloth, soft candle light, dark background, no text"),
+  "mineral-anw-forschung": d(MINERALS, 8, "scene", 600, 600, "a crystal under a polarising microscope with colourful patterns, dark background, no text"),
+  "mineral-anw-elektronik": d(MINERALS, 8, "scene", 600, 600, "a circuit board with a small metal crystal oscillator, dark background, no text"),
+  "mineral-anw-alltag": d(MINERALS, 8, "scene", 600, 600, "glass bottles and a flint stone tool on a wooden table, dark background, no text"),
+  "mineral-hist-stein": d(MINERALS, 8, "scene", 600, 500, "stone age flint blades and tools on rock, painterly, warm light, no text"),
+  "mineral-hist-aegypten": d(MINERALS, 8, "scene", 600, 500, "an ancient Egyptian amulet and jewellery with amethyst beads, painterly, warm light, no text"),
+  "mineral-hist-antike": d(MINERALS, 8, "scene", 600, 500, "a Greek marble statue holding a crystal sphere, painterly, warm light, no text"),
+  "mineral-hist-mittelalter": d(MINERALS, 8, "scene", 600, 500, "a medieval scholar studying gemstones in a candle-lit study, painterly, warm light, no text"),
+  "mineral-hist-moderne": d(MINERALS, 8, "scene", 600, 500, "a modern laboratory with crystals and measuring instruments, painterly, warm light, no text"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

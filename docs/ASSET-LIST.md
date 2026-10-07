@@ -271,6 +271,60 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `baum-holz` | 800×450 | Szene | a stack of cut logs and timber boards in warm light, dark background |
 | `baum-kultur` | 800×450 | Szene | stone temples and statues among ancient trees, a figure meditating, mystical light |
 | `baum-forschung` | 800×450 | Szene | a green seedling growing in front of a research laboratory with glassware, warm light |
+| `mineral-hero` | 2800×1300 | Szene | the Earth as a glowing planet in the centre right surrounded by floating raw crystals and mineral rocks in purple, gold, blue and white, a mountain waterfall landscape at the lower right, a dark calm area on the left for text, soft golden light and sparkles, no text, no letters, no symbols |
+| `element-h` | 600×720 | Szene | a clear crystal with a tiny bubble of hydrogen gas, icy blue glow, centred on a dark background, glowing, no text |
+| `element-c` | 600×720 | Szene | a diamond and a lump of graphite side by side, white and black, centred on a dark background, glowing, no text |
+| `element-o` | 600×720 | Szene | a deep blue faceted crystal with an oxygen bubble glow, centred on a dark background, glowing, no text |
+| `element-na` | 600×720 | Szene | white cubic rock salt crystals, centred on a dark background, glowing, no text |
+| `element-mg` | 600×720 | Szene | green faceted magnesium-rich crystals such as olivine, centred on a dark background, glowing, no text |
+| `element-si` | 600×720 | Szene | clear and smoky quartz crystals, centred on a dark background, glowing, no text |
+| `element-ca` | 600×720 | Szene | white and pale blue calcite crystals, centred on a dark background, glowing, no text |
+| `element-fe` | 600×720 | Szene | rusty red iron ore with metallic hematite shine, centred on a dark background, glowing, no text |
+| `element-cu` | 600×720 | Szene | a lump of native copper with green and orange tones, centred on a dark background, glowing, no text |
+| `element-zn` | 600×720 | Szene | grey-blue zinc ore crystals, sphalerite, centred on a dark background, glowing, no text |
+| `element-ag` | 600×720 | Szene | a branching lump of native silver, bright white metallic, centred on a dark background, glowing, no text |
+| `element-au` | 600×720 | Szene | a raw gold nugget, warm golden glow, centred on a dark background, glowing, no text |
+| `element-i` | 600×720 | Szene | dark violet iodine crystals with a purple vapour glow, centred on a dark background, glowing, no text |
+| `mineral-reise-atom` | 600×600 | Schwarz | a glowing atom with orbiting electrons, glowing, on a pure black background, no text |
+| `mineral-reise-molekuel` | 600×600 | Schwarz | a ball-and-stick molecule of silicon and oxygen, glowing, on a pure black background, no text |
+| `mineral-reise-gitter` | 600×600 | Schwarz | a regular crystal lattice of connected spheres, glowing, on a pure black background, no text |
+| `mineral-reise-kristall` | 600×600 | Schwarz | a single violet crystal point, glowing, on a pure black background, no text |
+| `mineral-reise-mineral` | 600×600 | Schwarz | a polished raw mineral specimen, glowing, on a pure black background, no text |
+| `mineral-reise-gestein` | 600×600 | Schwarz | a rough dark rock with mineral veins, glowing, on a pure black background, no text |
+| `mineral-reise-gebirge` | 600×600 | Schwarz | a snowy mountain range, glowing, on a pure black background, no text |
+| `mineral-reise-planet` | 600×600 | Schwarz | the Earth seen from space, glowing, on a pure black background, no text |
+| `mineral-quarz-1` | 1600×1300 | Schwarz | a large cluster of clear quartz crystals on dark rock, glowing, on a pure black background |
+| `mineral-quarz-2` | 1600×1300 | Schwarz | a single tall clear quartz point crystal with sharp facets, on a pure black background |
+| `mineral-quarz-3` | 1600×1300 | Schwarz | a quartz crystal with a fine rainbow inside, side view, on a pure black background |
+| `mineral-quarz-4` | 1600×1300 | Schwarz | small quartz crystals growing in a geode, on a pure black background |
+| `mineral-bild-magma` | 800×600 | Szene | a glowing lava flow and a volcano at dusk, cinematic, no people |
+| `mineral-bild-meta` | 800×600 | Szene | folded banded gneiss rock in a mountain cliff, cinematic, no people |
+| `mineral-bild-sedi` | 800×600 | Szene | layered sandstone cliffs in warm desert light, cinematic, no people |
+| `mineral-bild-hydro` | 800×600 | Szene | a cave wall with blue glowing crystal veins and clusters, cinematic, no people |
+| `mineral-map` | 2400×1100 | Szene | a dark stylised world map in deep blue and gold with fine glowing contour lines, calm and dark, no text |
+| `mineral-ort-brasilien` | 600×400 | Szene | amethyst and quartz geodes in a Brazilian mine landscape, dramatic light, no people |
+| `mineral-ort-madagaskar` | 600×400 | Szene | large crystal formations in red earth, Madagascar, dramatic light, no people |
+| `mineral-ort-schweiz` | 600×400 | Szene | alpine rock face with a crystal cleft in the Swiss Alps, dramatic light, no people |
+| `mineral-ort-usa` | 600×400 | Szene | small double-terminated clear quartz crystals in dark rock, New York, dramatic light, no people |
+| `mineral-ort-uruguay` | 600×400 | Szene | a large amethyst geode cut open, warm light, dramatic light, no people |
+| `mineral-ort-sambia` | 600×400 | Szene | deep violet amethyst crystals in a rocky landscape, dramatic light, no people |
+| `mineral-ort-indien` | 600×400 | Szene | pink rose quartz masses in a rocky hillside, dramatic light, no people |
+| `mineral-ort-schottland` | 600×400 | Szene | smoky quartz crystals in granite in the Scottish highlands, dramatic light, no people |
+| `mineral-ort-deutschland` | 600×400 | Szene | polished banded agate slices in a workshop, warm light, dramatic light, no people |
+| `mineral-ort-spanien` | 600×400 | Szene | golden citrine crystals in a rocky terrain, dramatic light, no people |
+| `mineral-anw-schmuck` | 600×600 | Szene | a faceted gemstone ring on dark velvet, dark background, no text |
+| `mineral-anw-technik` | 600×600 | Szene | a mechanical wristwatch movement with a small quartz oscillator, dark background, no text |
+| `mineral-anw-optik` | 600×600 | Szene | glass lenses and a laser beam in a laboratory, dark background, no text |
+| `mineral-anw-bau` | 600×600 | Szene | an ancient stone temple wall of granite blocks, dark background, no text |
+| `mineral-anw-heil` | 600×600 | Szene | a gathering of violet and pink crystals on a cloth, soft candle light, dark background, no text |
+| `mineral-anw-forschung` | 600×600 | Szene | a crystal under a polarising microscope with colourful patterns, dark background, no text |
+| `mineral-anw-elektronik` | 600×600 | Szene | a circuit board with a small metal crystal oscillator, dark background, no text |
+| `mineral-anw-alltag` | 600×600 | Szene | glass bottles and a flint stone tool on a wooden table, dark background, no text |
+| `mineral-hist-stein` | 600×500 | Szene | stone age flint blades and tools on rock, painterly, warm light, no text |
+| `mineral-hist-aegypten` | 600×500 | Szene | an ancient Egyptian amulet and jewellery with amethyst beads, painterly, warm light, no text |
+| `mineral-hist-antike` | 600×500 | Szene | a Greek marble statue holding a crystal sphere, painterly, warm light, no text |
+| `mineral-hist-mittelalter` | 600×500 | Szene | a medieval scholar studying gemstones in a candle-lit study, painterly, warm light, no text |
+| `mineral-hist-moderne` | 600×500 | Szene | a modern laboratory with crystals and measuring instruments, painterly, warm light, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -278,6 +332,7 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 
 | Datei | Motiv |
 |---|---|
+| `atlas-achat` | Achat (Chalcedon (gebänderte Quarz-Varietät)) |
 | `atlas-ahorn` | Bergahorn (Acer pseudoplatanus) |
 | `atlas-aloe-vera` | Aloe vera (Aloe vera (Aloe barbadensis)) |
 | `atlas-amethyst` | Amethyst (Quarz (violette Varietät)) |
@@ -319,8 +374,10 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-pfefferminze` | Pfefferminze (Mentha × piperita) |
 | `atlas-pyrit` | Pyrit (Pyrit) |
 | `atlas-quarz` | Bergkristall (Quarz) (Quarz) |
+| `atlas-rauchquarz` | Rauchquarz (Quarz (graubraune Varietät)) |
 | `atlas-reishi` | Reishi (Glänzender Lackporling) (Ganoderma lucidum) |
 | `atlas-ringelblume` | Ringelblume (Calendula officinalis) |
+| `atlas-rosenquarz` | Rosenquarz (Quarz (rosa Varietät)) |
 | `atlas-rosmarin` | Rosmarin (Salvia rosmarinus (Rosmarinus officinalis)) |
 | `atlas-salbei` | Echter Salbei (Salvia officinalis) |
 | `atlas-shiitake` | Shiitake (Lentinula edodes) |
@@ -334,4 +391,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 273 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 330 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

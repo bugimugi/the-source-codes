@@ -1,0 +1,55 @@
+{
+  "id": "achat",
+  "status": "published",
+  "category": "kristall",
+  "name": "Achat",
+  "latin": "Chalcedon (gebänderte Quarz-Varietät)",
+  "model": {
+    "kind": "quartz",
+    "color": "#d98a4a"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "SiO₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "6,5 – 7"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "trigonal, kryptokristallin (Fasern nur unter dem Mikroskop sichtbar)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "bildet Bänder in Hohlräumen vulkanischer Gesteine; wird seit der Antike zu Schmuck und Gefäßen geschliffen"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Achat ist seit der Antike als Schmuck- und Gravurstein bekannt; die Stadt Idar-Oberstein im Hunsrück war über Jahrhunderte ein Zentrum der Achatschleiferei (Source pending verification).",
+  "associations": [],
+  "combinations": [],
+  "claims": [
+    "crystal-healing-general"
+  ]
+}

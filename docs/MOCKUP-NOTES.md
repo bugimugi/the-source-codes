@@ -136,6 +136,21 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     mindestens 2.000); „Reinigt die Luft“ bekommt einen Hinweis; die Wissensebenen zeigen die typische Belegstufe jeder Ebene. Umsetzung: `src/ui/trees.ts`, `src/data/trees.ts`, `src/trees.css`,
     `src/ui/plantArt.ts` (gezeichnetes Schaubild und Torus). 9 neue Baum-Einträge im Atlas (Eiche, Ahorn, Olivenbaum, Buche, Zeder, Mammutbaum, Baobab, Ginkgo, Kiefer); jeder Baum öffnet sein Kurzprofil, „Zurück“ führt hierher.
     Bildplätze `baum-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-baeume`.
+22. **Mineral Atlas** (Referenzbild lokal in `design/mockups/22-mineral-atlas.png`, nicht committet) – Landingpage hinter der Kachel „Mineralien“ (die Kachel „Kristalle & Heilsteine“ führt weiter zum 3D-Atlas).
+    Hero „MINERAL ATLAS – Die Bausteine der Erde“ (Einleitung, Buttons „Atlas erkunden“ / „Periodensystem öffnen“, 4 Kennzahlen, Erde mit Kristallen und sechs Element-Blasen Si, Cu, Fe, Mg, Au, O,
+    senkrechte Sprungleiste mit 8 Punkten); „Das Periodensystem“ (Filterchips Alle, Metalle, Nichtmetalle, Halogene, Edelgase, Seltene Erden, Spurenelemente, Suchfeld, „3D-Ansicht“, 13 Elementkarten H, C, O, Na, Mg, Si, Ca,
+    Fe, Cu, Zn, Ag, Au, I); „Von Atom bis Kristall“ (8 Stationen); Spotlight „Quarz SiO₂“ (Schlagwörter, 2 Buttons, 4 Vorschaubilder mit Pfeilen, „Wichtige Eigenschaften“ mit 10 Zeilen, „Kristallgeometrie“ mit 3 Formen);
+    „Entstehung & Vorkommen“ (4 Karten: Magmatisch, Metamorph, Sedimentär, Hydrothermal); „Vorkommen weltweit“ (Weltkarte mit Legende und 4 Fundort-Karten Brasilien, Madagaskar, Schweiz, USA); „Quarz im menschlichen Körper?“
+    (Figur mit 5 Stellen); „Frequenzen & Schwingung“ (Wellenform, 432 Hz, „Frequenz demonstrieren“, 3 Symbole); „Anwendungen“ (8 Karten); „Geschichte & Kultur“ (5 Epochen auf einer Zeitleiste); „Verwandte Mineralien“ (Karussell
+    Amethyst, Rosenquarz, Citrin, Bergkristall, Rauchquarz, Achat). **Anders umgesetzt (Schutzlinien):** „2.400+ Mineralien“ ist ein Platzhalter und wird zu „6.000+ Mineralarten“ (anerkannte Arten der IMA-Liste, Link; genaue Zahl
+    ändert sich jährlich und steht deshalb nicht da); „92 natürlich vorkommend“ wird zu 94 (inklusive Spuren von Neptunium und Plutonium; manche Quellen nennen 92); 118 Elemente werden aus den Daten gezählt. Die Legende der Karte
+    „Hauptvorkommen / Weitere Vorkommen / Besondere Qualität“ ist eine Wertung ohne Beleg und entfällt: es steht „Fundort (Auswahl, nicht vollständig)“. Die Körper-Seite sagt ausdrücklich: Gelöstes Silizium kommt im Körper vor,
+    Quarzkristalle werden nicht aufgenommen (Aussage `mineral-silizium`, Hypothese, EFSA hat Haut/Haare/Nägel-Aussagen als nicht ausreichend belegt eingestuft); „432 Hz – Harmonische Resonanz, entspricht natürlicher Ordnung“
+    steht als Behauptung `mineral-quarz-frequenz` (ungeprüft), der Ton ist ein reiner Sinuston ohne Messung am Quarz, daneben der belegte Piezoeffekt (Curie 1880, `mineral-piezo`) und Schwingquarze (32.768 Hz in Uhren);
+    „Heilsteine“ verweist auf `crystal-healing-general` (nicht belegt). Der Spotlight wechselt über „Verwandte Mineralien“ zu den anderen Quarz-Varietäten (Eigenschaften, Entstehung, Fundorte ändern sich mit); 3 neue
+    Atlas-Einträge (Rosenquarz, Rauchquarz, Achat). Das Periodensystem ist vollständig (118 Elemente, Lehrbuchwerte, „Source pending verification“); die 13 Karten haben einen Kurztext zur Rolle in Mineralen.
+    Umsetzung: `src/ui/minerals.ts`, `src/data/minerals.ts`, `src/data/elements.ts`, `src/minerals.css`, `src/ui/plantArt.ts` (gezeichneter Kristall, Reise-Symbole, Geometrie-Linien). Bildplätze `mineral-*` und `element-*`
+    (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-mineralien` mit Element-Blasen als Text, die Körper-Figur nutzt das vorhandene `body-front`.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

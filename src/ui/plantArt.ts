@@ -307,3 +307,94 @@ export function torusSvg(uid: string): string {
     <path d="M300 300 L300 205" stroke="#a07a45" stroke-width="7" stroke-linecap="round"/><circle cx="300" cy="170" r="40" fill="#5fa84a" opacity=".9"/><circle cx="270" cy="188" r="26" fill="#4a9040" opacity=".9"/><circle cx="332" cy="188" r="26" fill="#4a9040" opacity=".9"/>
     <path d="M300 300 C280 322 250 330 226 346 M300 300 C320 322 350 330 374 346 M300 300 L300 346" stroke="#c9a66b" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`;
 }
+
+// ---------------------------------------------------------------- Mineral Atlas drawings (src/ui/minerals.ts); placeholders until the pictures exist
+
+/** one quartz point: a hexagonal prism seen from the front with a pointed tip; the three faces get three shades of the same colour */
+function quartzPoint(x: number, base: number, w: number, h: number, tip: number, rot: number, color: string): string {
+  const x1 = x + w * 0.28, x2 = x + w * 0.72, x3 = x + w, top = base - h, ax = x + w * 0.5, ay = top - tip;
+  const f = (pts: string, fill: string, o: number) => `<polygon points="${pts}" fill="${fill}" fill-opacity="${o}" stroke="#fff" stroke-opacity=".5" stroke-width=".9" stroke-linejoin="round"/>`;
+  return `<g transform="rotate(${rot} ${ax} ${base})">
+    <polygon points="${x},${base} ${x3},${base} ${x3},${top} ${ax},${ay} ${x},${top}" fill="${color}" fill-opacity=".38"/>
+    ${f(`${x},${base} ${x1},${base + 3} ${x1},${top} ${x},${top}`, "#fff", 0.14)}${f(`${x1},${base + 3} ${x2},${base + 3} ${x2},${top} ${x1},${top}`, "#fff", 0.3)}${f(`${x2},${base + 3} ${x3},${base} ${x3},${top} ${x2},${top}`, "#000", 0.28)}
+    ${f(`${x},${top} ${x1},${top} ${ax},${ay}`, "#fff", 0.2)}${f(`${x1},${top} ${x2},${top} ${ax},${ay}`, "#fff", 0.42)}${f(`${x2},${top} ${x3},${top} ${ax},${ay}`, "#000", 0.2)}</g>`;
+}
+
+/** a cluster of crystal points on dark rock: the stand-in for the big quartz picture (400 x 320); `variant` 0-3 rearranges it */
+export function quartzSvg(uid: string, color = "#dfefff", variant = 0): string {
+  const sets: [number, number, number, number, number, number][][] = [
+    [[70, 250, 46, 120, 46, -22], [270, 252, 44, 110, 44, 20], [112, 262, 66, 170, 62, -8], [214, 262, 62, 150, 58, 10], [168, 268, 70, 205, 70, 0]],
+    [[120, 262, 70, 190, 66, -4], [210, 262, 60, 150, 56, 12], [60, 258, 46, 100, 40, -26]],
+    [[150, 270, 86, 220, 80, 0]],
+    [[80, 262, 54, 110, 50, -16], [150, 266, 54, 150, 52, -4], [220, 266, 54, 130, 50, 8], [290, 260, 48, 100, 44, 18]],
+  ];
+  const pts = sets[variant % sets.length].map(([x, b, w, h, t, r]) => quartzPoint(x, b, w, h, t, r, color)).join("");
+  return `<svg class="mn-quartz" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gezeichneter Kristall (Platzhalter bis das Bild vorliegt)" preserveAspectRatio="xMidYMax meet">
+    <defs><radialGradient id="${uid}-g" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="${color}" stop-opacity=".5"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></radialGradient>
+    <linearGradient id="${uid}-r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3430"/><stop offset="1" stop-color="#0e0c0b"/></linearGradient></defs>
+    <ellipse cx="200" cy="190" rx="190" ry="150" fill="url(#${uid}-g)"/>
+    <path d="M18 304 L44 276 L70 280 L96 262 L150 270 L200 258 L262 270 L304 258 L340 276 L382 304 Z" fill="url(#${uid}-r)"/><path d="M96 262 L150 270 L128 290 Z M262 270 L304 258 L292 284 Z" fill="#fff" fill-opacity=".07"/>${pts}</svg>`;
+}
+
+/** a small faceted gem in the colour of an element's group: picture stand-in on the element cards (80 x 80) */
+export function gemSvg(color: string): string {
+  return `<svg class="mn-gem" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><radialGradient id="gg${color.slice(1)}" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="${color}" stop-opacity=".5"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="40" cy="42" r="36" fill="url(#gg${color.slice(1)})"/>
+    <polygon points="40,10 62,28 52,66 28,66 18,28" fill="${color}" fill-opacity=".42" stroke="#fff" stroke-opacity=".6" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="40,10 62,28 40,34" fill="#fff" fill-opacity=".34"/><polygon points="40,10 18,28 40,34" fill="#fff" fill-opacity=".16"/><polygon points="18,28 40,34 28,66" fill="#000" fill-opacity=".1"/><polygon points="62,28 40,34 52,66" fill="#000" fill-opacity=".25"/><polygon points="40,34 52,66 28,66" fill="#fff" fill-opacity=".1"/></svg>`;
+}
+
+/** the line drawings for "Kristallgeometrie": a pointed prism, a double-ended crystal and the rhombohedron (100 x 140) */
+export function crystalGeomSvg(kind: "prisma" | "doppel" | "rhomboeder", uid = "cg"): string {
+  const L = (d: string) => `<path d="${d}" fill="none" stroke="#F0D18B" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>`;
+  const glow = `<radialGradient id="${uid}-${kind}" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F0D18B" stop-opacity=".22"/><stop offset="1" stop-color="#F0D18B" stop-opacity="0"/></radialGradient>`;
+  let body = "";
+  if (kind === "prisma") body = L("M22 124 L22 56 L50 12 L78 56 L78 124 Q50 134 22 124 Z M38 128 L38 52 L50 12 M62 128 L62 52 L50 12 M22 56 Q50 64 78 56");
+  else if (kind === "doppel") body = L("M22 96 L22 44 L50 6 L78 44 L78 96 L50 134 Z M38 100 L38 40 L50 6 M62 100 L62 40 L50 6 M38 100 L50 134 M62 100 L50 134 M22 44 Q50 52 78 44 M22 96 Q50 88 78 96");
+  else body = L("M50 8 L84 34 L84 100 L50 130 L16 100 L16 34 Z M50 70 L84 34 M50 70 L16 34 M50 70 L50 130");
+  return `<svg class="mn-geo-svg" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>${glow}</defs><ellipse cx="50" cy="70" rx="46" ry="62" fill="url(#${uid}-${kind})"/>${body}</svg>`;
+}
+
+/** the eight steps of "Von Atom bis Kristall" as small drawn symbols (100 x 100) */
+export function journeySvg(id: string, uid: string): string {
+  const defs = `<defs><radialGradient id="${uid}-b" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#9fd8ff"/><stop offset=".55" stop-color="#2a6fb0"/><stop offset="1" stop-color="#0b2748"/></radialGradient>
+    <radialGradient id="${uid}-o" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffb0a0"/><stop offset="1" stop-color="#b3261e"/></radialGradient>
+    <radialGradient id="${uid}-s" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e6ecf4"/><stop offset="1" stop-color="#6c7a8c"/></radialGradient></defs>`;
+  let g = "";
+  switch (id) {
+    case "atom":
+      g = `<g fill="none" stroke="#b9a8ff" stroke-width="1.4">${[0, 60, 120].map((r) => `<ellipse cx="50" cy="50" rx="40" ry="14" transform="rotate(${r} 50 50)"/>`).join("")}</g><circle cx="50" cy="50" r="9" fill="url(#${uid}-b)"/><g fill="#d9ccff">${[[88, 46], [24, 30], [30, 76]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.4"/>`).join("")}</g>`;
+      break;
+    case "molekuel":
+      g = `<path d="M24 36 L50 62 L76 36" stroke="#c8d2de" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="50" cy="62" r="17" fill="url(#${uid}-s)"/><circle cx="24" cy="34" r="11" fill="url(#${uid}-o)"/><circle cx="76" cy="34" r="11" fill="url(#${uid}-o)"/>`;
+      break;
+    case "gitter": {
+      const a: [number, number][] = [[24, 38], [60, 38], [24, 74], [60, 74]], b = a.map(([x, y]) => [x + 18, y - 16] as [number, number]);
+      const edges = [[0, 1], [1, 3], [3, 2], [2, 0]].map(([i, j]) => `M${a[i]} L${a[j]} M${b[i]} L${b[j]} M${a[i]} L${b[i]}`).join(" ");
+      g = `<path d="${edges}" stroke="#d9dee6" stroke-width="1.6" fill="none"/>${[...a, ...b].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="url(#${uid}-s)"/>`).join("")}`;
+      break;
+    }
+    case "kristall":
+      g = `<g transform="translate(-12 -8) scale(1.1)">${quartzPoint(34, 90, 30, 52, 24, -6, "#b07cff")}${quartzPoint(58, 92, 24, 40, 20, 14, "#9a5cf0")}${quartzPoint(20, 92, 20, 30, 16, -24, "#c59aff")}</g>`;
+      break;
+    case "mineral":
+      g = `<polygon points="50,12 82,34 74,76 36,88 16,52" fill="#8e97a6" stroke="#fff" stroke-opacity=".5" stroke-width="1" stroke-linejoin="round"/><polygon points="50,12 82,34 52,46" fill="#fff" fill-opacity=".38"/><polygon points="50,12 16,52 52,46" fill="#fff" fill-opacity=".16"/><polygon points="52,46 82,34 74,76" fill="#000" fill-opacity=".2"/><polygon points="16,52 52,46 36,88" fill="#000" fill-opacity=".1"/>`;
+      break;
+    case "gestein":
+      g = `<polygon points="10,80 22,46 44,38 62,30 86,52 92,80" fill="#4b4540" stroke="#bdb2a4" stroke-opacity=".6" stroke-width="1.2" stroke-linejoin="round"/><polygon points="44,38 62,30 66,56 40,60" fill="#fff" fill-opacity=".12"/><path d="M22 46 L40 60 L36 80 M66 56 L86 52 M40 60 L66 56 L70 80" fill="none" stroke="#bdb2a4" stroke-opacity=".5" stroke-width="1"/>`;
+      break;
+    case "gebirge":
+      g = `<polygon points="4,84 34,30 52,56 66,40 96,84" fill="#6a6f78" stroke="#dfe6f0" stroke-opacity=".5" stroke-width="1" stroke-linejoin="round"/><polygon points="34,30 44,48 38,44 30,50 26,42" fill="#fff" fill-opacity=".9"/><polygon points="66,40 74,52 68,50 62,54 60,48" fill="#fff" fill-opacity=".85"/><polygon points="34,30 52,56 40,84 4,84" fill="#000" fill-opacity=".18"/>`;
+      break;
+    default: // planet
+      g = `<circle cx="50" cy="50" r="38" fill="url(#${uid}-b)"/><path d="M28 36c8-8 18-4 22 4s-6 12-4 20-14 10-18 0 -8-16 0-24zM58 54c8-6 16 0 14 8s-12 10-14 2z" fill="#4fa46a" opacity=".85"/><circle cx="50" cy="50" r="38" fill="none" stroke="#8fd0ff" stroke-opacity=".6" stroke-width="1.5"/>`;
+  }
+  return `<svg class="mn-step-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${defs}${g}</svg>`;
+}
+
+/** the purple wave of the frequency panel (400 x 80): two periods of a sine with a fading envelope */
+export function waveSvg(): string {
+  const pts = Array.from({ length: 161 }, (_, i) => { const x = i * 2.5, t = i / 160, env = Math.sin(Math.PI * t) ** 1.2; return `${x.toFixed(1)},${(40 - Math.sin(t * Math.PI * 14) * 34 * env).toFixed(1)}`; }).join(" ");
+  return `<svg class="mn-wave-svg" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="#c07bff" stroke-width="1.8" stroke-linejoin="round"/><polyline points="${pts}" fill="none" stroke="#c07bff" stroke-width="5" opacity=".25" stroke-linejoin="round"/></svg>`;
+}

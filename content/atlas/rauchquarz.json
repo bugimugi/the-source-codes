@@ -1,0 +1,62 @@
+{
+  "id": "rauchquarz",
+  "status": "published",
+  "category": "kristall",
+  "name": "Rauchquarz",
+  "latin": "Quarz (graubraune Varietät)",
+  "model": {
+    "kind": "quartz",
+    "color": "#8a7560"
+  },
+  "facts": [
+    {
+      "label": "Formel",
+      "value": "SiO₂"
+    },
+    {
+      "label": "Härte (Mohs)",
+      "value": "7"
+    },
+    {
+      "label": "Kristallsystem",
+      "value": "trigonal"
+    },
+    {
+      "label": "Farbe",
+      "value": "grau bis braunschwarz durch natürliche Strahlung an Aluminium-Störstellen"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mindat",
+      "kind": "primary-text",
+      "title": "Mindat.org – Mineraldatenbank",
+      "author": "Hudson Institute of Mineralogy",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mindat.org",
+      "verified": false
+    },
+    {
+      "id": "mineralienatlas",
+      "kind": "primary-text",
+      "title": "Mineralienatlas",
+      "author": "Mineralienatlas e. V.",
+      "citation": "Eintrag zum Mineral dort nachschlagen",
+      "url": "https://www.mineralienatlas.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Rauchquarz wird in der modernen Steinkunde dem Wurzelchakra zugeordnet; der Name Cairngorm stammt vom schottischen Gebirge, wo er gefunden wird (Quelle zu prüfen).",
+  "associations": [
+    {
+      "system": "Chakra-Lehre",
+      "target": "Wurzelchakra",
+      "origin": "modern",
+      "note": "Zuordnungen von Heilsteinen zu Chakren schwanken je nach Autor und sind überwiegend modern (20. Jh.); eine historische Quelle ist nicht bekannt – zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "crystal-healing-general"
+  ]
+}

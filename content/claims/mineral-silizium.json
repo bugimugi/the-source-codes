@@ -1,0 +1,25 @@
+{
+  "id": "mineral-silizium",
+  "short": "Silizium im Körper",
+  "area": "kristalle-mineralien",
+  "status": "published",
+  "statement": "Silizium aus der Nahrung (gelöste Orthokieselsäure) trägt zu Bindegewebe, Knochen, Haut, Haaren und Nägeln bei.",
+  "level": "hypothesis",
+  "rationale": "Silizium kommt im Körper vor, auch im Bindegewebe, in Knochen, Haut, Haaren und Nägeln. Eine notwendige Rolle beim Menschen ist nicht gesichert. Beobachtungsstudien sehen einen Zusammenhang mit der Knochendichte; die europäische Lebensmittelbehörde EFSA stufte Werbeaussagen zu Haaren, Nägeln, Haut und Bindegewebe als nicht ausreichend belegt ein. Kristalliner Quarz ist wasserunlöslich und wird nicht aufgenommen. Angaben aus Suchauszügen, Originale nicht geprüft. Source pending verification.",
+  "sources": [
+    {
+      "id": "efsa-silicon",
+      "kind": "historical-document",
+      "title": "EFSA-Bewertungen zu Silizium-Health-Claims (Titel zu ergänzen)",
+      "author": "European Food Safety Authority (EFSA)",
+      "citation": "Seite/Opinion dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://www.efsa.europa.eu/",
+      "verified": false,
+      "note": "Aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "mineral-piezo",
+  "short": "Quarz – Piezoeffekt",
+  "area": "kristalle-mineralien",
+  "status": "published",
+  "statement": "Quarz erzeugt bei mechanischem Druck eine elektrische Spannung (piezoelektrischer Effekt, 1880 von Pierre und Jacques Curie entdeckt) und dient deshalb als Taktgeber in Uhren und Elektronik.",
+  "level": "claimed",
+  "rationale": "Lehrbuchwissen: Die Brüder Curie beschrieben den Effekt 1880 an Kristallen, darunter Quarz; Schwingquarze steuern Quarzuhren (typisch 32.768 Hz). Im Pilot als Behauptung geführt, bis Fachleute die Originalquelle geprüft haben (noch niemand hat sie bewertet). Source pending verification.",
+  "sources": [
+    {
+      "id": "curie-1880",
+      "kind": "historical-document",
+      "title": "Développement, par pression, de l'électricité polaire dans les cristaux hémièdres à faces inclinées (Titel zu prüfen)",
+      "author": "J. und P. Curie",
+      "year": 1880,
+      "citation": "Comptes rendus de l'Académie des sciences, 1880 – aus dem Gedächtnis/Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

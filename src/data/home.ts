@@ -6,6 +6,7 @@ export type TileAction =
   | { type: "scroll"; target: string }
   | { type: "fx"; mode: "kymatik" | "geometrie" }
   | { type: "body" }
+  | { type: "chakra" }
   | { type: "soon" };
 
 export interface Tile { title: string; sub: string; slot: SlotName; action: TileAction }
@@ -24,7 +25,7 @@ export const TILES: Tile[] = [
   { title: "Atem & Meditation", sub: "Atemtechniken & Nervensystem", slot: "tile-atem", action: { type: "soon" } },
   { title: "Frequenzen & Vibrationen", sub: "Klang, Frequenz & Resonanz", slot: "tile-frequenzen", action: { type: "fx", mode: "kymatik" } },
   { title: "Geometrie", sub: "Heilige Geometrie & Mathematik", slot: "tile-geometrie", action: { type: "fx", mode: "geometrie" } },
-  { title: "Chakren", sub: "Energiezentren & Bewusstsein", slot: "tile-chakren", action: { type: "soon" } },
+  { title: "Chakren", sub: "Energiezentren & Bewusstsein", slot: "tile-chakren", action: { type: "chakra" } },
   { title: "Alte Kulturen", sub: "Wissen der Zivilisationen", slot: "tile-kulturen", action: { type: "scroll", target: "kulturen" } },
   { title: "Heilige Orte", sub: "Orte besonderer Bedeutung", slot: "tile-orte", action: { type: "scroll", target: "orte" } },
   { title: "Lab & Experimente", sub: "Selbst ausprobieren", slot: "tile-lab", action: { type: "scroll", target: "labor" } },

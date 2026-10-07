@@ -86,6 +86,7 @@
           <button class="tab" data-goto="atlas">Atlas</button>
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
+          <button class="tab" data-goto="chakra">Chakren</button>
         </nav>
         <input id="search" class="search" type="search" placeholder="Suchen …" aria-label="Aussagen durchsuchen" />
         <button class="chip" id="universe-home">Überblick</button>
@@ -109,6 +110,7 @@
           <button class="tab" aria-current="true">Atlas</button>
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
+          <button class="tab" data-goto="chakra">Chakren</button>
         </nav>
         <input class="search atlas-search" type="search" placeholder="Pflanze oder Stein suchen …" aria-label="Atlas durchsuchen" />
         <select class="atlas-target" aria-label="Nach Zuordnung filtern"></select>
@@ -122,7 +124,7 @@
     </section>
 
     <section id="fx" class="fx" hidden aria-label="Frequenz und Geometrie">
-      <canvas id="fx-gl"></canvas>
+      <canvas id="fx-gl" class="fx-canvas"></canvas>
       <header class="matrix-bar fx-bar">
         <button class="back" id="leave-fx">← Start</button>
         <nav class="tabs" aria-label="View">
@@ -130,6 +132,7 @@
           <button class="tab" data-goto="atlas">Atlas</button>
           <button class="tab" aria-current="true">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
+          <button class="tab" data-goto="chakra">Chakren</button>
         </nav>
         <div class="tabs" role="group" aria-label="Darstellung">
           <button class="tab" data-fx-mode="kymatik" aria-current="true">Kymatik</button>
@@ -147,6 +150,7 @@
           <button class="tab" data-goto="atlas">Atlas</button>
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" aria-current="true">Körper</button>
+          <button class="tab" data-goto="chakra">Chakren</button>
         </nav>
       </header>
       <div class="bv-scroll">
@@ -174,6 +178,21 @@
         </section>
         <p class="bv-notice bv-foot"></p>
       </div>
+    </section>
+
+    <section id="chakra" class="fx" hidden aria-label="Chakren">
+      <canvas id="chakra-gl" class="fx-canvas"></canvas>
+      <header class="matrix-bar fx-bar">
+        <button class="back" id="leave-chakra">← Start</button>
+        <nav class="tabs" aria-label="View">
+          <button class="tab" data-goto="universe">Universum</button>
+          <button class="tab" data-goto="atlas">Atlas</button>
+          <button class="tab" data-goto="fx">Frequenz</button>
+          <button class="tab" data-goto="body">Körper</button>
+          <button class="tab" aria-current="true">Chakren</button>
+        </nav>
+      </header>
+      <aside class="fx-panel" aria-live="polite"></aside>
     </section>
 
     <aside id="overlay" class="proof" hidden role="dialog" aria-labelledby="proof-title" tabindex="-1">

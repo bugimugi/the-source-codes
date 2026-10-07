@@ -19,6 +19,7 @@ import { initSearch } from "./ui/search";
 import { initHome } from "./ui/home";
 import { initFx } from "./ui/fx";
 import { initBody } from "./ui/body";
+import { initChakra } from "./ui/chakra";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
@@ -112,17 +113,20 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
 let fxView: ReturnType<typeof initFx> | null = null;
 let fxMode: FxMode = "kymatik";
 let bodyView: ReturnType<typeof initBody> | null = null;
+let chakraView: ReturnType<typeof initChakra> | null = null;
+let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
 const fxEl = $("fx");
 const bodyEl = $("body");
+const chakraEl = $("chakra");
 const stageEl = $("stage");
 const nav = $("nav");
 const pinsEl = $("pins");
@@ -232,6 +236,26 @@ function openFxView(): boolean {
   return true;
 }
 
+function openChakraView(id?: string): boolean {
+  chakraEl.hidden = false;
+  try {
+    chakraView ??= initChakra(chakraEl, {
+      openClaim: (cid, from) => overlay.open(cid, from),
+      openAtlas: (aid) => { chakraEl.hidden = true; chakraView?.stop(); view = "hero"; go("atlas"); atlasView?.select(aid); },
+      reduceMotion,
+    });
+    chakraView.start(id);
+  } catch (err) {
+    chakraEl.hidden = true;
+    console.warn("WebGL not available – chakra page cannot be shown.", err);
+    alert("The 3D chakra page needs WebGL. Please enable hardware acceleration in your browser or use another browser.");
+    return false;
+  }
+  fade(chakraEl, true);
+  $("leave-chakra").focus();
+  return true;
+}
+
 let pendingOrgan: string | undefined;
 function openBodyView(organ?: string): boolean {
   bodyEl.hidden = false;
@@ -253,13 +277,16 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "atlas" && !openAtlas()) return false;
   if (next === "fx" && !openFxView()) return false;
   if (next === "body" && !openBodyView(pendingOrgan)) return false;
+  if (next === "chakra" && !openChakraView(pendingChakra)) return false;
   pendingOrgan = undefined;
+  pendingChakra = undefined;
   view = next;
   if (next !== "hero") home?.stopAudio();
   if (prev === "universe") fade(matrixEl, false, () => universe?.stop());
   if (prev === "atlas") fade(atlasEl, false, () => atlasView?.stop());
   if (prev === "fx") fade(fxEl, false, () => fxView?.stop());
   if (prev === "body") fade(bodyEl, false);
+  if (prev === "chakra") fade(chakraEl, false, () => chakraView?.stop());
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
   else setChrome(false);
   syncHero();
@@ -289,6 +316,7 @@ const home = initHome($("home"), {
   },
   openUniverse() { void enterLibrary(); },
   openBody(organ?: string) { if (view === "body") { if (organ) bodyView?.show(organ); } else { pendingOrgan = organ; go("body"); } },
+  openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
   openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
   openClaim: (id, from) => overlay.open(id, from),
 }, reduceMotion);
@@ -307,6 +335,7 @@ $("leave-matrix").addEventListener("click", () => go("hero"));
 $("leave-atlas").addEventListener("click", () => go("hero"));
 $("leave-fx").addEventListener("click", () => go("hero"));
 $("leave-body").addEventListener("click", () => go("hero"));
+$("leave-chakra").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;
@@ -317,6 +346,7 @@ document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
     if (from === "universe") { matrixEl.hidden = true; universe?.stop(); }
     else if (from === "atlas") { atlasEl.hidden = true; atlasView?.stop(); }
     else if (from === "fx") { fxEl.hidden = true; fxView?.stop(); }
+    else if (from === "chakra") { chakraEl.hidden = true; chakraView?.stop(); }
     else bodyEl.hidden = true;
     go(target);
   }),

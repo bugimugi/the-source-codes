@@ -16,6 +16,7 @@ export interface HomeApi {
   openUniverse(): void;
   openFx(mode: "kymatik" | "geometrie"): void;
   openBody(organ?: string): void;
+  openChakra(id?: string): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -131,6 +132,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "scroll") scrollTo(a.target);
       else if (a.type === "fx") api.openFx(a.mode);
       else if (a.type === "body") api.openBody();
+      else if (a.type === "chakra") api.openChakra();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

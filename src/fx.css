@@ -1,7 +1,7 @@
 /* Frequency page: 3D cymatics + geometry. Loaded after home.css. */
 .fx { position: fixed; inset: 0; z-index: 5; background: radial-gradient(ellipse at 38% 40%, #08202b, #02070B 70%); }
 .fx[hidden] { display: none; }
-.fx canvas#fx-gl { position: absolute; left: 0; top: 0; width: calc(100% - min(440px, 38vw)); height: 100%; display: block; cursor: grab; touch-action: none; }
+.fx canvas.fx-canvas { position: absolute; left: 0; top: 0; width: calc(100% - min(440px, 38vw)); height: 100%; display: block; cursor: grab; touch-action: none; }
 .fx-bar { background: linear-gradient(#02070Bee, #02070B99); }
 .fx-panel { position: absolute; z-index: 2; top: 84px; right: 16px; bottom: 16px; width: min(420px, calc(38vw - 8px)); overflow: auto; padding: clamp(16px, 2vw, 26px); border: 1px solid var(--gold-line); border-radius: 18px; background: rgba(5, 18, 25, 0.82); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); }
 .fx-eyebrow { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
@@ -36,7 +36,29 @@
 .fx-facts dd { font-family: var(--serif-text); font-size: 1.6rem; color: var(--gold-hi); margin: 0; }
 
 @media (max-width: 800px) {
-  .fx canvas#fx-gl { width: 100%; height: 44vh; }
+  .fx canvas.fx-canvas { width: 100%; height: 44vh; }
   .fx-panel { top: calc(44vh + 8px); left: 12px; right: 12px; bottom: 12px; width: auto; }
   .fx-bar .tabs:first-of-type { display: none; }
 }
+
+/* Chakra page (src/ui/chakra.ts) reuses the frequency page layout */
+.ck-list { display: grid; gap: 6px; margin: 0.4rem 0 1rem; }
+.ck-chip { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: 0.7rem; padding: 0.5rem 0.8rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 10px; background: rgba(2, 7, 11, 0.45); transition: border-color 0.2s, background 0.2s; }
+.ck-chip i { flex: none; width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px var(--c); }
+.ck-chip span { display: grid; } .ck-chip strong { font-size: 0.86rem; font-weight: 500; } .ck-chip small { font-size: 0.66rem; color: var(--muted); }
+.ck-chip:hover, .ck-chip[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
+.ck-chip:focus-visible, .ck-back:focus-visible { outline: 2px solid var(--ivory); outline-offset: 2px; }
+.ck-back { all: unset; cursor: pointer; font-size: 0.74rem; color: var(--gold-hi); margin-bottom: 0.7rem; display: inline-block; }
+.ck-badge { display: inline-block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 99px; border: 1px solid var(--gold); color: var(--gold-hi); margin-bottom: 0.6rem; }
+.ck-badge.modern { border-color: var(--cyan); color: var(--cyan); }
+.ck-dl { display: grid; gap: 0; margin: 0 0 1rem; }
+.ck-dl div { display: grid; grid-template-columns: 7rem 1fr; gap: 0.6rem; padding: 0.4rem 0; border-top: 1px solid var(--gold-line, rgba(203,170,103,.28)); font-size: 0.84rem; }
+.ck-dl dt { color: var(--muted); } .ck-dl dd { margin: 0; }
+.ck-modern { padding: 0.8rem; border: 1px solid rgba(88, 214, 232, 0.25); border-radius: 12px; background: rgba(88, 214, 232, 0.04); margin-bottom: 0.4rem; }
+.ck-hz { display: flex; align-items: center; gap: 0.8rem; margin: 0.2rem 0 0.4rem; }
+.ck-hz strong { font-family: var(--serif-text); font-size: 1.6rem; font-weight: 500; color: var(--gold-hi); display: block; line-height: 1.1; }
+.ck-hz small { font-size: 0.68rem; color: var(--muted); }
+.bv-rel { list-style: none; padding: 0; display: grid; gap: 6px; }
+.bv-rel button { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; padding: 0.5rem 0.7rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 10px; background: rgba(2, 7, 11, 0.5); display: grid; gap: 0.1rem; }
+.bv-rel button:hover { border-color: var(--gold); }
+.bv-rel strong { font-size: 0.84rem; font-weight: 500; } .bv-rel small { font-size: 0.66rem; color: var(--muted); }

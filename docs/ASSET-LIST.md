@@ -45,7 +45,7 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `tile-chakren` | 1000×1200 | Szene | meditating figure with seven glowing colourful energy centres along the spine, dark background |
 | `tile-kulturen` | 1000×1200 | Szene | ancient Egyptian pyramids and temple at golden hour, dramatic sky |
 | `tile-orte` | 1000×1200 | Szene | ancient standing stones at dusk, dramatic sky, mystic atmosphere |
-| `tile-energie` | 1000×1200 | Szene | dramatic earth energy collage: a bright sun above a lightning storm, a waterfall and wind turbines, dark background |
+| `tile-lab` | 1000×1200 | Szene | dramatic collage of the earth's natural energy: a bright sun above a lightning storm, a waterfall and wind turbines, dark background |
 
 ## Priorität 3 – Startseiten-Abschnitte
 
@@ -65,6 +65,10 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `band-geometrie` | 1800×600 | Szene | golden flower of life geometry glowing on a dark background, space on the left for text |
 | `band-kulturen` | 1800×600 | Szene | ancient pyramids and temple ruins at golden hour, space on the left for text |
 | `band-orte` | 1800×600 | Szene | sacred mountain site with ancient terraces in mist, space on the left for text |
+| `diy-extrakte` | 800×1000 | Szene | glass bottles with plant extracts and herbs on a dark wooden table |
+| `diy-wasser` | 800×1000 | Szene | glowing structured water in a glass with a swirling vortex, dark background |
+| `diy-raeuchern` | 800×1000 | Szene | smoking incense bowl with herbs, atmospheric, dark background |
+| `diy-mikroskop` | 800×1000 | Szene | antique microscope with warm light, dark background |
 | `library-bg` | 1800×900 | Szene | old library with tall shelves and an open ancient book in warm light, space on the left for text |
 | `connected-earth` | 1800×900 | Szene | Earth from space with a glowing network of connections across continents, dark space |
 
@@ -181,4 +185,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 125 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 129 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

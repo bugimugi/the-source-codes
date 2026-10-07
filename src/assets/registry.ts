@@ -49,7 +49,7 @@ export const SLOTS = {
   "tile-chakren": d(HOME, 2, "scene", 1000, 1200, "meditating figure with seven glowing colourful energy centres along the spine, dark background"),
   "tile-kulturen": d(HOME, 2, "scene", 1000, 1200, "ancient Egyptian pyramids and temple at golden hour, dramatic sky"),
   "tile-orte": d(HOME, 2, "scene", 1000, 1200, "ancient standing stones at dusk, dramatic sky, mystic atmosphere"),
-  "tile-energie": d(HOME, 2, "scene", 1000, 1200, "dramatic earth energy collage: a bright sun above a lightning storm, a waterfall and wind turbines, dark background"),
+  "tile-lab": d(HOME, 2, "scene", 1000, 1200, "dramatic collage of the earth's natural energy: a bright sun above a lightning storm, a waterfall and wind turbines, dark background"),
 
   // ---- Startseite: body atlas, plant atlas, sections (priority 3)
   "body-front": d(HOME, 3, "black", 2400, 3600, "translucent human body, front view, anatomical, glowing blue with organs visible in red and orange, on a pure black background"),
@@ -66,6 +66,10 @@ export const SLOTS = {
   "band-geometrie": d(HOME, 3, "scene", 1800, 600, "golden flower of life geometry glowing on a dark background, space on the left for text"),
   "band-kulturen": d(HOME, 3, "scene", 1800, 600, "ancient pyramids and temple ruins at golden hour, space on the left for text"),
   "band-orte": d(HOME, 3, "scene", 1800, 600, "sacred mountain site with ancient terraces in mist, space on the left for text"),
+  "diy-extrakte": d(HOME, 3, "scene", 800, 1000, "glass bottles with plant extracts and herbs on a dark wooden table"),
+  "diy-wasser": d(HOME, 3, "scene", 800, 1000, "glowing structured water in a glass with a swirling vortex, dark background"),
+  "diy-raeuchern": d(HOME, 3, "scene", 800, 1000, "smoking incense bowl with herbs, atmospheric, dark background"),
+  "diy-mikroskop": d(HOME, 3, "scene", 800, 1000, "antique microscope with warm light, dark background"),
   "library-bg": d(HOME, 3, "scene", 1800, 900, "old library with tall shelves and an open ancient book in warm light, space on the left for text"),
   "connected-earth": d(HOME, 3, "scene", 1800, 900, "Earth from space with a glowing network of connections across continents, dark space"),
 

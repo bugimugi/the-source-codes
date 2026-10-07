@@ -24,7 +24,7 @@
     },
     {
       "label": "Hinweis",
-      "value": "Wechselwirkungen (u. a. mit Schilddrüsen- und Beruhigungsmitteln) und seltene Leberschäden sind beschrieben; bei Medikamenten, Schwangerschaft und Vorerkrankungen vorher ärztlich klären (aus dem Gedächtnis, Source pending verification)"
+      "value": "Wechselwirkungen (u. a. mit Schilddrüsen- und Beruhigungsmitteln) und seltene Leberschäden sind beschrieben; in Schwangerschaft und Stillzeit wird abgeraten. Bei Medikamenten oder Vorerkrankungen vorher ärztlich klären (NCCIH, Suchauszug, Source pending verification)"
     }
   ],
   "sources": [
@@ -36,6 +36,15 @@
       "citation": "Eintrag zur Art dort nachschlagen",
       "url": "https://powo.science.kew.org",
       "verified": false
+    },
+    {
+      "id": "nccih",
+      "kind": "historical-document",
+      "title": "Ashwagandha (NCCIH)",
+      "author": "National Center for Complementary and Integrative Health, USA",
+      "citation": "Seite dort nachschlagen",
+      "url": "https://nccih.nih.gov/health/ashwagandha",
+      "verified": false
     }
   ],
   "tradition": "Im Ayurveda zählt die Wurzel seit alters zu den Stärkungsmitteln (Tonika). Der Name bedeutet im Sanskrit etwa „Geruch des Pferdes“.",
@@ -44,10 +53,46 @@
       "system": "Ayurveda",
       "target": "Tonikum (Stärkungsmittel)",
       "origin": "traditional"
+    },
+    {
+      "system": "Ayurveda",
+      "target": "Nervensystem",
+      "origin": "traditional",
+      "note": "Zuordnung laut Vorlage des Betreibers (ungeprüft)."
+    },
+    {
+      "system": "Ayurveda",
+      "target": "Immunsystem",
+      "origin": "unknown",
+      "note": "Zuordnung laut Vorlage des Betreibers (ungeprüft)."
     }
   ],
-  "combinations": [],
+  "combinations": [
+    {
+      "with": "ingwer",
+      "note": "Kombination laut Vorlage des Betreibers (ungeprüft); in der Vorlage mit Honig und dem Thema Immunsystem und Hals verbunden.",
+      "origin": "unknown"
+    },
+    {
+      "with": "kurkuma",
+      "note": "Kombination laut Vorlage des Betreibers (ungeprüft).",
+      "origin": "unknown"
+    },
+    {
+      "with": "rosmarin",
+      "note": "Kombination laut Vorlage des Betreibers (ungeprüft); in der Vorlage mit dem Thema Konzentration verbunden.",
+      "origin": "unknown"
+    }
+  ],
   "claims": [
-    "ashwagandha-traditional-use"
+    "ashwagandha-traditional-use",
+    "ashwagandha-stress",
+    "ashwagandha-sleep",
+    "ashwagandha-nervensystem",
+    "ashwagandha-immun",
+    "ashwagandha-muskeln",
+    "ashwagandha-hormone",
+    "ashwagandha-safety",
+    "ashwagandha-frequency"
   ]
 }

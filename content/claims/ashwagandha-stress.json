@@ -1,0 +1,37 @@
+{
+  "id": "ashwagandha-stress",
+  "short": "Ashwagandha – Stress und Cortisol",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "In kleinen klinischen Studien und einer Übersichtsarbeit schnitt Ashwagandha-Wurzelextrakt bei Stress- und Angstskalen besser ab als Placebo; die Studien sind klein, uneinheitlich und teils von möglichen Verzerrungen betroffen.",
+  "level": "hypothesis",
+  "rationale": "Hypothese: Es gibt randomisierte, Placebo-kontrollierte Studien (z. B. 64 Erwachsene mit chronischem Stress, 60 Tage; dort wurde auch Cortisol im Blut gemessen) und eine systematische Übersichtsarbeit mit fünf Studien, die alle zugunsten von Ashwagandha ausfielen. Wegen kleiner Fallzahlen, verschiedener Extrakte und möglicher Verzerrung ist das keine gesicherte Wirkung. Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "chandrasekhar-2012",
+      "kind": "peer-reviewed",
+      "title": "Ashwagandha-Wurzelextrakt bei chronischem Stress: randomisierte, Placebo-kontrollierte Doppelblindstudie (64 Erwachsene, 60 Tage)",
+      "author": "Chandrasekhar K, Kapoor J, Anishetty S",
+      "year": 2012,
+      "citation": "Indian Journal of Psychological Medicine, 2012 (PMC3573577). Einzelangaben: Source pending verification",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3573577",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    },
+    {
+      "id": "pratte-2014",
+      "kind": "systematic-review",
+      "title": "Systematische Übersichtsarbeit zu Ashwagandha bei Angst (5 Studien am Menschen)",
+      "author": "Pratte MA, Nanavati KB, Young V, Morley CP",
+      "year": 2014,
+      "citation": "J Altern Complement Med 2014;20(12):901–908 (PMC4270108, PMID 25405876). Einzelangaben: Source pending verification",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4270108",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Die Autoren nennen uneinheitliche Studien und mögliche Verzerrung."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ashwagandha-immun",
+  "short": "Ashwagandha – Immunsystem",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Ashwagandha wird in Überlieferung und Herstellerangaben dem Immunsystem zugeordnet.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Belege am Menschen sind begrenzt; zugleich warnt die NCCIH-Seite vor Wechselwirkungen mit Mitteln, die das Immunsystem dämpfen (Immunsuppressiva). Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    },
+    {
+      "id": "nccih",
+      "kind": "historical-document",
+      "title": "Ashwagandha: Informationsseite des National Center for Complementary and Integrative Health (NCCIH)",
+      "author": "NCCIH, National Institutes of Health (USA)",
+      "citation": "Seite dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://nccih.nih.gov/health/ashwagandha",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

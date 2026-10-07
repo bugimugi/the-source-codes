@@ -1,0 +1,33 @@
+{
+  "id": "ashwagandha-hormone",
+  "short": "Ashwagandha – Hormone",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Ashwagandha wird in der Überlieferung mit hormonellem Gleichgewicht (u. a. Stresshormone, Schilddrüse) in Verbindung gebracht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Wichtig: Wechselwirkungen mit Schilddrüsenmedikamenten und bei Schilddrüsenerkrankungen sind beschrieben (NCCIH); wer solche Mittel nimmt, klärt das vorher ärztlich. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    },
+    {
+      "id": "nccih",
+      "kind": "historical-document",
+      "title": "Ashwagandha: Informationsseite des National Center for Complementary and Integrative Health (NCCIH)",
+      "author": "NCCIH, National Institutes of Health (USA)",
+      "citation": "Seite dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://nccih.nih.gov/health/ashwagandha",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

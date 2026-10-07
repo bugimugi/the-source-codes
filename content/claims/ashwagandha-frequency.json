@@ -1,0 +1,23 @@
+{
+  "id": "ashwagandha-frequency",
+  "short": "Ashwagandha – Frequenz und Geometrie",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Ashwagandha besitzt eine natürliche Resonanzfrequenz von 432 Hz; ihre geometrische Signatur ist die Blume des Lebens (Themen: Erdung, Balance, Regeneration, Schutz).",
+  "level": "claimed",
+  "rationale": "Behauptung des Betreibers, ungeprüft. Eine messbare, pflanzenspezifische Eigenfrequenz ist nicht bekannt; 432 Hz ist hier ein Zuordnungswert aus der Energiemedizin-Überlieferung und keine Messung an der Pflanze. Die Geometrie ist eine Symbolzuordnung. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

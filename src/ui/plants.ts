@@ -11,6 +11,8 @@ import { esc } from "./dossierParts";
 export interface PlantsApi {
   reduceMotion: boolean;
   openAtlas(category: AtlasCategory | null, id?: string): void;
+  /** the profile page of one plant */
+  openPlant(id: string): void;
   openBody(organ?: string): void;
   openCultures(): void;
   openLab(): void;
@@ -181,7 +183,7 @@ export function initPlants(root: HTMLElement, api: PlantsApi) {
   let shown: ReturnType<typeof searchItems> = [];
   function pick(it: { kind: "claim" | "atlas"; id: string }) {
     sugg.hidden = true; input.value = "";
-    if (it.kind === "atlas") api.openAtlas(null, it.id); else api.openClaim(it.id, input);
+    if (it.kind === "atlas") api.openPlant(it.id); else api.openClaim(it.id, input);
   }
   function renderSugg() {
     // plants first: the page is about the atlas, claims follow
@@ -207,7 +209,7 @@ export function initPlants(root: HTMLElement, api: PlantsApi) {
     const reg = t.closest<HTMLElement>("[data-region]");
     if (reg) { const f = `region:${reg.dataset.region}`; filter = filter === f ? "alle" : f; renderRow(); if (reg.closest(".pl-regions, .pl-map")) smooth(q$(".pl-popular")); return; }
     const pl = t.closest<HTMLElement>("[data-plant]");
-    if (pl) { api.openAtlas(null, pl.dataset.plant!); return; }
+    if (pl) { api.openPlant(pl.dataset.plant!); return; }
     if (t.closest(".pl-reset")) { filter = "alle"; renderRow(); return; }
     if (t.closest("[data-all]")) { api.openAtlas(null); return; }
     if (t.closest(".pl-next")) { row.scrollBy({ left: row.clientWidth * 0.8, behavior: api.reduceMotion ? "auto" : "smooth" }); return; }

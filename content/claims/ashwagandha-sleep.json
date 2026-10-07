@@ -1,0 +1,26 @@
+{
+  "id": "ashwagandha-sleep",
+  "short": "Ashwagandha – Schlaf",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Eine kleine Placebo-kontrollierte Studie (60 Personen, 10 Wochen) berichtete bei Menschen mit Schlafstörungen und Angst über bessere Schlaf- und Angstwerte unter Ashwagandha-Wurzelextrakt.",
+  "level": "hypothesis",
+  "rationale": "Hypothese: Eine einzelne kleine Studie ist keine gesicherte Wirkung; Wiederholungen mit größeren Gruppen stehen aus. Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "langade-2019",
+      "kind": "peer-reviewed",
+      "title": "Ashwagandha-Wurzelextrakt bei Schlafstörungen und Angst: randomisierte, Placebo-kontrollierte Doppelblindstudie (60 Personen, 10 Wochen)",
+      "author": "Langade D, Kanchi S, Salve J, Debnath K, Ambegaokar D",
+      "year": 2019,
+      "citation": "Cureus 2019;11(9):e5797 (PMC6979308, PMID 31728244). Einzelangaben: Source pending verification",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6979308",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Kleine Stichprobe."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

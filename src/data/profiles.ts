@@ -1,0 +1,197 @@
+import type { SlotName } from "../assets/registry";
+
+/**
+ * Content of the plant profile pages (src/ui/plantProfile.ts). Ashwagandha is the complete template, built after the user's
+ * reference picture; every other plant gets a shorter profile generated from its atlas entry.
+ *
+ * Pilot rules: statements about effects are NOT written here but live as graded claims in content/claims/ (shown with their level);
+ * no amounts or dosages anywhere; everything marked "Vorlage" comes from the operator's reference picture and is unchecked
+ * (Source pending verification). Positions of the callouts are percentages of the plant picture: adjust them when the final
+ * picture `plant-<id>-parts` exists.
+ */
+export type PartId = "gesamt" | "wurzel" | "blaetter" | "blueten" | "fruechte" | "samen" | "staengel";
+
+export interface PartDef {
+  id: PartId;
+  label: string;
+  icon: string;
+  title: string;
+  text: string;
+  /** callout text position and the point it links to, in percent of the picture */
+  callout?: { at: [number, number]; to: [number, number]; side: "l" | "r"; short: string };
+}
+
+export interface Box { lat0: number; lon0: number; lat1: number; lon1: number }
+
+export interface ProfileCompound { tab: string; title: string; formula?: string; mass?: string; text: string; bullets: string[]; bulletsNote?: string }
+
+export interface PlantProfile {
+  id: string;
+  crumbs: string[];
+  tags: string[];
+  lead: string;
+  /** "Themen in der Überlieferung" under the lead (neutral: no benefit statements) */
+  bubbles: { label: string; icon: string }[];
+  glance: { icon: string; label: string; value: string }[];
+  parts: PartDef[];
+  traits: { icon: string; label: string; value: string }[];
+  traitsNote: string;
+  origin: { place: { title: string; text: string }; home: Box[]; spread: Box[]; note: string };
+  sensory: { icon: string; label: string; value: string }[];
+  stages: { label: string; time: string }[];
+  compounds: ProfileCompound[];
+  effects: { label: string; icon: string; claim: string }[];
+  frequency: { hz: number; geometry: string; geometryNote: string; themes: string[]; claim: string };
+  forms: { name: string; text: string; slot: SlotName; icon: string }[];
+  combos: { tab: string; intro?: string; items: { title: string; sub: string; ids: string[]; slot?: SlotName }[] }[];
+  history: { title: string; sub: string; text: string; slot: SlotName; icon: string }[];
+  historyNote: string;
+  research: { title: string; year: number; url: string; claim: string; more?: boolean }[];
+  network: { label: string; kind: "plant" | "organ" | "culture" | "claim" | "breath" | "info"; ref?: string; hint?: string }[];
+  safety: string;
+}
+
+export const ASHWAGANDHA: PlantProfile = {
+  id: "ashwagandha",
+  crumbs: ["Pflanzenatlas", "Heilpflanzen"],
+  tags: ["Heilpflanze", "Adaptogen", "Nachtschattengewächs", "Ayurveda"],
+  lead: "Eine der bedeutendsten Pflanzen der ayurvedischen Überlieferung. Ihre Wurzel wird dort seit sehr langer Zeit zur Unterstützung von Körper, Geist und Nervensystem genannt. Das ist Überlieferung, kein Wirkungsnachweis.",
+  bubbles: [
+    { label: "Stress", icon: "stress" },
+    { label: "Schlaf", icon: "moon" },
+    { label: "Nerven-\nsystem", icon: "brain" },
+    { label: "Immun-\nsystem", icon: "shield" },
+    { label: "Energie\n& Fokus", icon: "bolt" },
+  ],
+  glance: [
+    { icon: "dna", label: "Wissenschaftlicher Name", value: "Withania somnifera" },
+    { icon: "family", label: "Familie", value: "Solanaceae" },
+    { icon: "root", label: "Verwendete Teile", value: "Wurzel (v. a.), Blätter, Früchte" },
+    { icon: "globe", label: "Herkunft", value: "Indien, Südasien" },
+    { icon: "tongue", label: "Geschmack", value: "Bitter, erdig" },
+    { icon: "nose", label: "Duft", value: "Erdig, herb" },
+    { icon: "shrub", label: "Lebensform", value: "Mehrjähriger Strauch" },
+  ],
+  parts: [
+    { id: "gesamt", label: "Gesamtansicht", icon: "shrub", title: "Gesamtansicht", text: "Ein mehrjähriger Strauch mit filzig behaarten Trieben, eiförmigen Blättern, unscheinbaren hellgelben Blüten und roten Beeren in einer papierartigen Hülle." },
+    { id: "wurzel", label: "Wurzel", icon: "root", title: "Wurzel", text: "Der hauptsächlich verwendete Teil. Reich an Withanoliden (Vorlage, Source pending verification).", callout: { at: [4, 78], to: [44, 84], side: "l", short: "Hauptsächlich verwendeter Teil\nReich an Withanoliden" } },
+    { id: "blaetter", label: "Blätter", icon: "leaf", title: "Blätter", text: "Traditionell verwendet. Reich an sekundären Pflanzenstoffen (Vorlage, Source pending verification).", callout: { at: [6, 30], to: [32, 40], side: "l", short: "Traditionell verwendet\nReich an sekundären\nPflanzenstoffen" } },
+    { id: "blueten", label: "Blüten", icon: "flower", title: "Blüten", text: "Selten verwendet. Die Blüten sind klein, glockig und hellgelb bis gelbgrün.", callout: { at: [72, 7], to: [64, 29], side: "r", short: "Selten verwendet" } },
+    { id: "fruechte", label: "Früchte", icon: "berry", title: "Früchte", text: "Enthalten Alkaloide (Vorlage, Source pending verification). Die Beere ist rot und von einer papierartigen Kelchhülle umgeben.", callout: { at: [78, 36], to: [71, 53], side: "r", short: "Enthalten Alkaloide" } },
+    { id: "samen", label: "Samen", icon: "seed", title: "Samen", text: "Traditionelle Verwendung in manchen Regionen (Vorlage, Source pending verification).", callout: { at: [72, 82], to: [82, 74], side: "r", short: "Traditionelle Verwendung\nin manchen Regionen" } },
+    { id: "staengel", label: "Stängel", icon: "stem", title: "Stängel", text: "Verzweigte, fein behaarte Triebe, im unteren Teil verholzend." },
+  ],
+  traits: [
+    { icon: "ruler", label: "Höhe", value: "30 – 150 cm" },
+    { icon: "flower", label: "Blütezeit", value: "Juni – September" },
+    { icon: "berry", label: "Fruchtzeit", value: "August – Oktober" },
+    { icon: "root", label: "Erntezeit (Wurzel)", value: "Oktober – Februar" },
+    { icon: "sun", label: "Standort", value: "Tropisch & subtropisch" },
+    { icon: "soil", label: "Boden", value: "Gut durchlässig, sandig" },
+    { icon: "thermo", label: "Klima", value: "Warm, trocken" },
+    { icon: "seed", label: "Vermehrung", value: "Samen, Stecklinge" },
+    { icon: "clock", label: "Lebensdauer", value: "Mehrjährig" },
+  ],
+  traitsNote: "Angaben laut Vorlage, nicht geprüft (Source pending verification). Blüte- und Fruchtzeit hängen von der Region ab: im südlichen Afrika werden z. B. Oktober bis Juni genannt (SANBI, Suchauszug).",
+  origin: {
+    place: { title: "Indien", text: "Traditionelle Verwendung in der ayurvedischen Medizin seit über 3.000 Jahren (Angabe der Vorlage, ungeprüft)." },
+    home: [{ lat0: 8, lon0: 68, lat1: 32, lon1: 90 }],
+    spread: [{ lat0: 12, lon0: -17, lat1: 38, lon1: 60 }, { lat0: -34, lon0: 16, lat1: 6, lon1: 40 }],
+    note: "Grobe Darstellung nach Lehrbuchwissen und Vorlage (Source pending verification): trockene Gebiete Indiens, des Nahen Ostens und Nordafrikas.",
+  },
+  sensory: [
+    { icon: "nose", label: "Duft", value: "Erdig, herb, leicht würzig" },
+    { icon: "tongue", label: "Geschmack", value: "Bitter, erdig" },
+    { icon: "texture", label: "Textur", value: "Faserig, holzig (als getrocknete Wurzel)" },
+  ],
+  stages: [
+    { label: "Keimung", time: "1 – 2 Wochen" },
+    { label: "Wachstum", time: "2 – 4 Monate" },
+    { label: "Blüte", time: "Juni – Sept." },
+    { label: "Frucht", time: "Aug. – Okt." },
+    { label: "Ernte (Wurzel)", time: "Okt. – Feb." },
+  ],
+  compounds: [
+    { tab: "Withanolide", title: "Withaferin A", formula: "C28H38O6", mass: "ca. 470,6 g/mol", text: "Withanolide sind Steroidlactone, die für die Gattung Withania kennzeichnend sind. Withaferin A ist der bekannteste Vertreter.", bullets: ["Entzündungshemmend (untersucht)", "Zellschutz", "Stressregulation (Forschung)"], bulletsNote: "Angaben der Vorlage. Das sind Themen der Laborforschung, kein Wirkungsnachweis am Menschen (Source pending verification)." },
+    { tab: "Alkaloide", title: "Alkaloide", text: "Alkaloide sind für Nachtschattengewächse typisch. In der Literatur zu Withania werden u. a. Somniferin und Withanin genannt (aus dem Gedächtnis, Source pending verification).", bullets: ["Laut Vorlage in den Früchten enthalten"], bulletsNote: "Einzelstoffe und Mengen werden im Fachreview ergänzt." },
+    { tab: "Sitoindoside", title: "Sitoindoside", text: "Sitoindoside VII–X werden in der Ayurveda-Literatur als Withanolid-Glykoside beschrieben (aus dem Gedächtnis, Source pending verification).", bullets: ["Gegenstand von Laborforschung"], bulletsNote: "Einzelheiten werden im Fachreview ergänzt." },
+    { tab: "Flavonoide", title: "Flavonoide", text: "Flavonoide gehören zu den sekundären Pflanzenstoffen und kommen auch in den Blättern vor (Lehrbuchwissen, Source pending verification).", bullets: ["In geringer Menge beschrieben"], bulletsNote: "Einzelstoffe werden im Fachreview ergänzt." },
+    { tab: "Weitere", title: "Weitere Stoffgruppen", text: "Neben den genannten Gruppen enthält die Wurzel weitere Pflanzenstoffe. Eine geprüfte Liste fehlt noch (Source pending verification).", bullets: ["Liste folgt nach der Fachprüfung"] },
+  ],
+  effects: [
+    { label: "Stress & Cortisol", icon: "stress", claim: "ashwagandha-stress" },
+    { label: "Schlaf & Erholung", icon: "moon", claim: "ashwagandha-sleep" },
+    { label: "Nervensystem & Fokus", icon: "brain", claim: "ashwagandha-nervensystem" },
+    { label: "Immunsystem", icon: "shield", claim: "ashwagandha-immun" },
+    { label: "Muskeln & Regeneration", icon: "muscle", claim: "ashwagandha-muskeln" },
+    { label: "Hormonelle Balance", icon: "balance", claim: "ashwagandha-hormone" },
+  ],
+  frequency: {
+    hz: 432,
+    geometry: "Blume des Lebens",
+    geometryNote: "Harmonie · Regeneration",
+    themes: ["Erdung", "Balance", "Regeneration", "Schutz"],
+    claim: "ashwagandha-frequency",
+  },
+  forms: [
+    { name: "Tee", text: "Aufguss oder Abkochung der Wurzel", slot: "form-tee", icon: "cup" },
+    { name: "Pulver", text: "Getrocknete, gemahlene Wurzel", slot: "form-pulver", icon: "bowl" },
+    { name: "Extrakt", text: "Standardisierter Auszug", slot: "form-extrakt", icon: "extract" },
+    { name: "Kapseln", text: "Fertigpräparat (Pulver oder Extrakt)", slot: "form-kapseln", icon: "capsule" },
+    { name: "Tinktur", text: "Alkoholischer Auszug", slot: "form-tinktur", icon: "dropper" },
+    { name: "Kochen", text: "In Speisen (geringer Anteil)", slot: "form-kochen", icon: "pot" },
+  ],
+  combos: [
+    {
+      tab: "Traditionelle Mischungen",
+      items: [
+        { title: "Ashwagandha + Ingwer", sub: "Überlieferte Zuordnung: Immunsystem & Hals (Vorlage, mit Honig)", ids: ["ashwagandha", "ingwer"], slot: "plant-ashwagandha-combo-1" },
+        { title: "Ashwagandha + Kurkuma", sub: "Überlieferte Zuordnung: Entzündungsgeschehen (Vorlage)", ids: ["ashwagandha", "kurkuma"], slot: "plant-ashwagandha-combo-2" },
+        { title: "Ashwagandha + Rosmarin", sub: "Überlieferte Zuordnung: Konzentration (Vorlage)", ids: ["ashwagandha", "rosmarin"], slot: "plant-ashwagandha-combo-3" },
+      ],
+    },
+    {
+      tab: "Für spezielle Beschwerden",
+      intro: "Mischungen „gegen“ bestimmte Beschwerden zeigt diese Seite bewusst nicht: Dafür fehlen geprüfte Belege, und Heilversprechen sind im Pilot ausgeschlossen. Im Pflanzenatlas findest du unter „Nach Thema suchen“ nur überlieferte Zuordnungen mit Belegstufe.",
+      items: [],
+    },
+    {
+      tab: "Kulinarische Kombinationen",
+      intro: "Überlieferung, Source pending verification: In der ayurvedischen Küche wird Wurzelpulver traditionell mit warmer Milch oder Ghee zubereitet. Mengen nennt diese Seite nicht.",
+      items: [
+        { title: "Ashwagandha + warme Milch", sub: "Überlieferte Zubereitung (ungeprüft)", ids: ["ashwagandha"] },
+        { title: "Ashwagandha + Ingwer", sub: "Würzige Kombination (Vorlage)", ids: ["ashwagandha", "ingwer"] },
+        { title: "Ashwagandha + Kurkuma", sub: "„Goldene“ Mischungen (Vorlage)", ids: ["ashwagandha", "kurkuma"] },
+      ],
+    },
+  ],
+  history: [
+    { title: "Antikes Indien", sub: "> 3.000 Jahre (Vorlage)", text: "Ayurvedische Texte wie die Charaka Samhita", slot: "plant-ashwagandha-history-1", icon: "scroll" },
+    { title: "Mittelalter", sub: "Traditionelle Kräuterkunde", text: "in Asien und Arabien", slot: "plant-ashwagandha-history-2", icon: "book" },
+    { title: "18. – 19. Jahrhundert", sub: "Verbreitung in Europa", text: "durch Naturforscher", slot: "plant-ashwagandha-history-3", icon: "globe" },
+    { title: "Moderne Zeit", sub: "Wissenschaftliche Untersuchung", text: "und globale Nutzung", slot: "plant-ashwagandha-history-4", icon: "flask" },
+  ],
+  historyNote: "Datierungshinweis: Die Charaka Samhita wird meist auf die Zeit zwischen dem 4. Jh. v. Chr. und dem 2. Jh. n. Chr. datiert, die heutige Fassung auf das 6. Jh. n. Chr. (Suchauszug, Source pending verification). „Über 3.000 Jahre“ ist die Angabe der Vorlage und ungeprüft.",
+  research: [
+    { title: "Wurzelextrakt bei chronischem Stress: Placebo-kontrollierte Studie", year: 2012, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3573577", claim: "ashwagandha-stress" },
+    { title: "Wurzelextrakt bei Schlafstörungen und Angst: kleine Studie", year: 2019, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6979308", claim: "ashwagandha-sleep" },
+    { title: "Ashwagandha bei Angst: Übersichtsarbeit über 5 Studien", year: 2014, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4270108", claim: "ashwagandha-stress" },
+    { title: "Leberschäden durch Ashwagandha-Präparate: Fallserie", year: 2020, url: "https://pubmed.ncbi.nlm.nih.gov/31991029/", claim: "ashwagandha-safety", more: true },
+    { title: "Informationsseite der US-Gesundheitsbehörde NCCIH", year: 0, url: "https://nccih.nih.gov/health/ashwagandha", claim: "ashwagandha-safety", more: true },
+    { title: "Einschätzung des Bundesinstituts für Risikobewertung (BfR)", year: 0, url: "https://mobil.bfr.bund.de/cm/349/ashwagandha-food-supplements-with-potential-health-risks.pdf", claim: "ashwagandha-safety", more: true },
+  ],
+  network: [
+    { label: "Kurkuma", kind: "plant", ref: "kurkuma" },
+    { label: "Rosmarin", kind: "plant", ref: "rosmarin" },
+    { label: "Ingwer", kind: "plant", ref: "ingwer" },
+    { label: "Stress", kind: "claim", ref: "ashwagandha-stress" },
+    { label: "Schlaf", kind: "claim", ref: "ashwagandha-sleep" },
+    { label: "Immunsystem", kind: "organ", ref: "immunsystem" },
+    { label: "Ayurveda", kind: "culture" },
+    { label: "Adaptogene", kind: "info", hint: "Adaptogene: Begriff der modernen Kräuterkunde für Pflanzen, denen eine unspezifische Stärkung bei Belastung zugeschrieben wird. Ein Konzept, kein belegter Wirkmechanismus." },
+    { label: "Meditation", kind: "breath" },
+  ],
+  safety: "Information, keine medizinische Beratung. Für Ashwagandha-Präparate sind Wechselwirkungen und seltene Leberschäden beschrieben; in Schwangerschaft und Stillzeit wird abgeraten. Mengen und Dauer nennt diese Seite bewusst nicht: Bei Medikamenten, Schilddrüsenerkrankungen oder anderen Vorerkrankungen bitte vorher ärztlich oder in der Apotheke klären.",
+};
+
+export const PROFILES: Record<string, PlantProfile> = { ashwagandha: ASHWAGANDHA };

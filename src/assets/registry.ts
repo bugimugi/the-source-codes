@@ -23,6 +23,7 @@ const HOME = "Startseite";
 const CULT = "Alte Kulturen";
 const ENERGY = "Freie Energie";
 const PLANTS = "Pflanzenatlas";
+const PROFILE = "Pflanzenprofil";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -145,6 +146,37 @@ export const SLOTS = {
   "plants-cat-gemuese": d(PLANTS, 8, "scene", 1000, 1200, "fresh leafy green vegetables and bok choy, dew drops, dark background"),
   "plants-cat-algen": d(PLANTS, 8, "scene", 1000, 1200, "underwater seaweed and kelp with teal light rays, dark background"),
   "plants-map": d(PLANTS, 8, "scene", 2400, 1100, "old parchment world map in dark teal and sepia with illustrated plants on each continent, mountains and ocean, vintage cartography, calm and dark"),
+  // ---- Pflanzenprofil: Ashwagandha ist die vollständige Vorlage (priority 8). Weitere Pflanzen bekommen später dieselben Namen `plant-<id>-…`.
+  "plant-ashwagandha-hero": d(PROFILE, 8, "scene", 2800, 1100, "ashwagandha plant with green leaves, small white-yellow flowers, red berries inside papery husks and a thick pale-brown root system rising from dark soil, dark lush jungle background with soft golden light, subject on the right half, calm dark area on the left for text"),
+  "plant-ashwagandha-sketch": d(PROFILE, 8, "scene", 700, 1000, "antique botanical pen-and-ink illustration of the whole ashwagandha plant with leaves, flower, berries and root on aged cream parchment, fine hatching, portrait, no text"),
+  "plant-ashwagandha-parts": d(PROFILE, 8, "scene", 1600, 1000, "whole ashwagandha plant showing leaves, small flowers, red berries in husks and the complete root system in the soil, dark moody forest floor, plenty of empty dark space left and right for labels"),
+  "plant-ashwagandha-photo": d(PROFILE, 8, "scene", 1200, 900, "macro close-up of an ashwagandha flower with pale yellow-white petals, green berries and leaves, soft natural light, shallow depth of field"),
+  "plant-ashwagandha-thumb-wurzel": d(PROFILE, 8, "scene", 400, 500, "fresh ashwagandha taproot with fine side roots, soil-dusted, dark background"),
+  "plant-ashwagandha-thumb-blatt": d(PROFILE, 8, "scene", 400, 500, "green ashwagandha leaves, slightly hairy, close-up, dark background"),
+  "plant-ashwagandha-thumb-bluete": d(PROFILE, 8, "scene", 400, 500, "small pale yellow ashwagandha flower, close-up, dark background"),
+  "plant-ashwagandha-thumb-frucht": d(PROFILE, 8, "scene", 400, 500, "ripe red ashwagandha berries in papery husks, close-up, dark background"),
+  "plant-ashwagandha-stage-1": d(PROFILE, 8, "scene", 400, 500, "tiny ashwagandha seedling with two leaves in dark soil, dark background"),
+  "plant-ashwagandha-stage-2": d(PROFILE, 8, "scene", 400, 500, "young leafy ashwagandha plant in growth, dark background"),
+  "plant-ashwagandha-stage-3": d(PROFILE, 8, "scene", 400, 500, "ashwagandha plant in bloom with small pale flowers, dark background"),
+  "plant-ashwagandha-stage-4": d(PROFILE, 8, "scene", 400, 500, "ashwagandha branch with ripe red berries in papery husks, dark background"),
+  "plant-ashwagandha-stage-5": d(PROFILE, 8, "scene", 400, 500, "freshly harvested ashwagandha roots with soil, dark background"),
+  "plant-ashwagandha-origin": d(PROFILE, 8, "scene", 800, 520, "ancient Indian temple ruins in a dry landscape, warm hazy light, illustration"),
+  "plant-ashwagandha-powder": d(PROFILE, 8, "scene", 900, 700, "rustic wooden bowl of fine beige ashwagandha root powder with dried root pieces beside it, dark wood, warm light"),
+  "compound-withaferin-a": d(PROFILE, 8, "scene", 900, 520, "hand-drawn chemical structural formula on aged parchment, steroid ring skeleton with a lactone ring, ink drawing; check the real structure of withaferin A before use (C28H38O6)"),
+  "plant-ashwagandha-history-1": d(PROFILE, 8, "scene", 600, 450, "ancient Indian scholars and healers with palm-leaf manuscripts and herbs, sepia illustration"),
+  "plant-ashwagandha-history-2": d(PROFILE, 8, "scene", 600, 450, "medieval herbalist at work with plants and manuscripts in Asia and Arabia, sepia illustration"),
+  "plant-ashwagandha-history-3": d(PROFILE, 8, "scene", 600, 450, "18th and 19th century European naturalists studying plants, sepia engraving look"),
+  "plant-ashwagandha-history-4": d(PROFILE, 8, "scene", 600, 450, "modern laboratory with plant extracts and glassware, warm light"),
+  "plant-ashwagandha-combo-1": d(PROFILE, 8, "scene", 700, 420, "ashwagandha root next to fresh ginger root and a small jar of honey on dark wood"),
+  "plant-ashwagandha-combo-2": d(PROFILE, 8, "scene", 700, 420, "ashwagandha root next to turmeric root and black peppercorns on dark wood"),
+  "plant-ashwagandha-combo-3": d(PROFILE, 8, "scene", 700, 420, "ashwagandha root next to fresh rosemary sprigs and red berries on dark wood"),
+  // shared pictures of the "Anwendungsformen" cards (all plant profiles)
+  "form-tee": d(PROFILE, 8, "scene", 500, 600, "a steaming cup of herbal tea on a saucer with loose dried herbs, dark background"),
+  "form-pulver": d(PROFILE, 8, "scene", 500, 600, "a mound of fine herbal root powder with dried root pieces, dark background"),
+  "form-extrakt": d(PROFILE, 8, "scene", 500, 600, "amber glass jar of herbal extract with a label-free lid, dark background"),
+  "form-kapseln": d(PROFILE, 8, "scene", 500, 600, "small amber glass bottle with a dropper next to a few plain capsules, dark background"),
+  "form-tinktur": d(PROFILE, 8, "scene", 500, 600, "tall amber dropper bottle of herbal tincture with a few leaves, dark background"),
+  "form-kochen": d(PROFILE, 8, "scene", 500, 600, "a small glass jar of ground herbal powder with a wooden spoon, kitchen look, dark background"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

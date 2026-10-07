@@ -79,6 +79,24 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     „Nach Wirkung suchen / Was möchtest du unterstützen?“ heißt „Nach Thema suchen / Was interessiert dich?“ und zeigt nur Pflanzen mit
     überlieferter Zuordnung (kein Wirkungsversprechen); die Entdeckungen verweisen auf Vorhandenes (Gewürze, Pilze, Rezepte, Kulturen);
     „Zum Magazin“ → „Zur Bibliothek“. Umsetzung: `src/ui/plants.ts`, `src/data/plants.ts`, `src/plants.css`.
+18. **Pflanzenprofil (Ashwagandha)** (Referenzbild lokal in `design/mockups/18-pflanzenprofil-ashwagandha.png`, nicht committet) – Landingpage,
+    die sich beim Klick auf eine Pflanze im Pflanzenatlas öffnet. Aufbau von oben nach unten: Hero (Brotkrumen „Pflanzenatlas › Heilpflanzen ›
+    Ashwagandha“, Name, lateinischer Name, 4 Etiketten, Einleitung, 5 runde Themensymbole, Pflanzenbild, Pergamentkarte „Auf einen Blick“ mit
+    7 Zeilen und Zeichnung); Abschnittsleiste (Übersicht, Eigenschaften, Inhaltsstoffe, Wirkung, Anwendung, Kombinationen, Rezepte, Frequenzen &
+    Geometrie, Geschichte, Anbau & Ernte, Forschung); Zeile 1: „Die Pflanze“ (7 Teile-Knöpfe, Pflanzenbild mit Beschriftungen) + „Botanische
+    Merkmale“ (9 Zeilen, Foto mit 4 Vorschaubildern); Zeile 2: „Ursprung & Verbreitung“ (Weltkarte, Karte Indien), „Geschmack, Duft & Textur“
+    (Pulverschale), „Wachstumszyklus“ (5 Stufen); Zeile 3: „Inhaltsstoffe“ (5 Reiter, Pergamentkarte Withaferin A), „Wirkung & Anwendungsbereiche“
+    (6 Zeilen mit Belegfeld, leuchtender Körper), „Frequenzen & Geometrie“ (432 Hz, Blume des Lebens, Themen); Zeile 4: „Anwendungsformen“
+    (6 Karten), „Kombinationen & Synergien“ (3 Reiter, Kartenreihe); Zeile 5: „Geschichte & Kultur“ (4 Zeitkarten), „Forschung“ (3 Studien),
+    „Wissensnetz“ (Kreis um Ashwagandha). **Anders umgesetzt (Schutzlinien):** die Dosierungen der Vorlage („5–10 g / 250 ml“, „1–5 g“) fehlen,
+    Anwendungsformen nennen keine Mengen; die fünf Themenkreise heißen „Themen der Überlieferung“; die Belegfelder der Wirkungszeilen kommen aus
+    den echten Belegstufen der Aussagen (Hypothese/Behauptung statt „Gut untersucht“); die Studien sind echte Quellen als „Suchauszug, Source pending
+    verification“ statt der Platzhalter-Titel; Tippfehler der Vorlage („Flüten“, „Blüteeit“) berichtigt; „Über 3.000 Jahre“ und die Pflanzenmerkmale
+    stehen als Angabe der Vorlage (ungeprüft) mit Datierungshinweis; Frequenzkarte als Behauptung mit Schwärzungsfeld; „Mehr über Withanolide“ klappt
+    den Text auf; „Gut untersucht/Moderate Evidenz“ entfallen. Andere Pflanzen bekommen ein Kurzprofil aus ihrem Atlas-Eintrag.
+    Umsetzung: `src/ui/plantProfile.ts`, `src/data/profiles.ts`, `src/ui/plantArt.ts` (gezeichnete Platzhalter), `src/ui/icons.ts`, `src/plantProfile.css`.
+    Bildplätze `plant-ashwagandha-*`, `form-*`, `compound-withaferin-a` (Priorität 8). Die Positionen der Beschriftungen im Pflanzenbild stehen in
+    `profiles.ts` (`callout`, in Prozent) und werden angepasst, sobald `plant-ashwagandha-parts` da ist.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

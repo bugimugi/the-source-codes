@@ -12,6 +12,7 @@ import "./cultures.css";
 import "./energy.css";
 import "./lab.css";
 import "./plants.css";
+import "./plantProfile.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -32,6 +33,7 @@ import { initNutrients } from "./ui/nutrients";
 import { initEnergy } from "./ui/energy";
 import { initLab } from "./ui/lab";
 import { initPlants } from "./ui/plants";
+import { initPlantProfile } from "./ui/plantProfile";
 import type { StationId } from "./data/lab";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
@@ -126,7 +128,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "plant";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -143,6 +145,8 @@ let energyView: ReturnType<typeof initEnergy> | null = null;
 let pendingEnergy: string | undefined;
 let labView: ReturnType<typeof initLab> | null = null;
 let plantsView: ReturnType<typeof initPlants> | null = null;
+let plantView: ReturnType<typeof initPlantProfile> | null = null;
+let pendingPlant: string | undefined;
 let pendingLab: StationId | undefined;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
@@ -157,6 +161,7 @@ const nutrientsEl = $("nutrients");
 const energyEl = $("energy");
 const labEl = $("lab");
 const plantsEl = $("plants");
+const plantEl = $("plant");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
@@ -165,7 +170,8 @@ const VIEW_TABS: { id: View; label: string }[] = [
   { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
 ];
 document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
-  nav.innerHTML = VIEW_TABS.map((t) => (t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
+  // a plant profile belongs to the "Pflanzen" tab: it is marked as current but still leads back to the overview
+  nav.innerHTML = VIEW_TABS.map((t) => (nav.dataset.tabs === "plant" && t.id === "plants" ? `<button class="tab" aria-current="true" data-goto="plants">${t.label}</button>` : t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
 });
 const stageEl = $("stage");
 const nav = $("nav");
@@ -302,6 +308,7 @@ function openPlantsView(): boolean {
   plantsView ??= initPlants(plantsEl, {
     reduceMotion,
     openAtlas: (category, id) => fromPlants(() => { go("atlas"); if (id) atlasView?.select(id); else atlasView?.showCategory(category); }),
+    openPlant: (id) => fromPlants(() => { pendingPlant = id; go("plant"); }),
     openBody: (organ) => fromPlants(() => { pendingOrgan = organ; go("body"); }),
     openCultures: () => fromPlants(() => { go("cultures"); }),
     openLab: () => fromPlants(() => { go("lab"); }),
@@ -311,6 +318,30 @@ function openPlantsView(): boolean {
   plantsView.start();
   fade(plantsEl, true);
   $("leave-plants").focus();
+  return true;
+}
+
+/** leaves a plant profile for another view */
+function fromPlant(next: () => void) { plantEl.hidden = true; plantView?.stop(); view = "hero"; next(); }
+
+function openPlantView(id?: string): boolean {
+  if (!id) return false;
+  plantEl.hidden = false;
+  plantView ??= initPlantProfile(plantEl, {
+    reduceMotion,
+    openPlant: (pid) => plantView?.show(pid),
+    openAtlas: (pid) => fromPlant(() => { go("atlas"); atlasView?.select(pid); }),
+    openBody: (organ) => fromPlant(() => { pendingOrgan = organ; go("body"); }),
+    openCultures: () => fromPlant(() => { go("cultures"); }),
+    openBreath: () => fromPlant(() => { go("breath"); }),
+    openFxGeometry: () => fromPlant(() => { fxMode = "geometrie"; go("fx"); }),
+    openLab: () => fromPlant(() => { go("lab"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+    back: () => fromPlant(() => { go("plants"); }),
+  });
+  plantView.show(id);
+  fade(plantEl, true);
+  $("leave-plant").focus();
   return true;
 }
 
@@ -407,6 +438,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   energy: { el: energyEl, stop: () => energyView?.stop() },
   lab: { el: labEl, stop: () => labView?.stop() },
   plants: { el: plantsEl, stop: () => plantsView?.stop() },
+  plant: { el: plantEl, stop: () => plantView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -424,7 +456,9 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "energy" && !openEnergyView(pendingEnergy)) return false;
   if (next === "lab" && !openLabView(pendingLab)) return false;
   if (next === "plants" && !openPlantsView()) return false;
+  if (next === "plant" && !openPlantView(pendingPlant)) return false;
   pendingEnergy = undefined;
+  pendingPlant = undefined;
   pendingLab = undefined;
   pendingOrgan = undefined;
   pendingChakra = undefined;
@@ -497,6 +531,7 @@ $("leave-nutrients").addEventListener("click", () => go("hero"));
 $("leave-energy").addEventListener("click", () => go("hero"));
 $("leave-lab").addEventListener("click", () => go("hero"));
 $("leave-plants").addEventListener("click", () => go("hero"));
+$("leave-plant").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

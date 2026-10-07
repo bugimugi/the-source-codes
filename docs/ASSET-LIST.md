@@ -149,7 +149,7 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `energy-topic-schmuck` | 1200×700 | Szene | gold, silver and copper bracelets and gemstone rings on dark cloth, warm light, no hands |
 | `energy-topic-tesla` | 1200×700 | Szene | tall early-1900s transmission tower with a large dome and blue electric discharge at dusk, no people |
 
-## Priorität 8
+## Priorität 8 – Pflanzenatlas und Pflanzenprofil (Ashwagandha ist die vollständige Vorlage)
 
 | Datei | Größe | Typ | Prompt-Kern |
 |---|---|---|---|
@@ -161,6 +161,35 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `plants-cat-gemuese` | 1000×1200 | Szene | fresh leafy green vegetables and bok choy, dew drops, dark background |
 | `plants-cat-algen` | 1000×1200 | Szene | underwater seaweed and kelp with teal light rays, dark background |
 | `plants-map` | 2400×1100 | Szene | old parchment world map in dark teal and sepia with illustrated plants on each continent, mountains and ocean, vintage cartography, calm and dark |
+| `plant-ashwagandha-hero` | 2800×1100 | Szene | ashwagandha plant with green leaves, small white-yellow flowers, red berries inside papery husks and a thick pale-brown root system rising from dark soil, dark lush jungle background with soft golden light, subject on the right half, calm dark area on the left for text |
+| `plant-ashwagandha-sketch` | 700×1000 | Szene | antique botanical pen-and-ink illustration of the whole ashwagandha plant with leaves, flower, berries and root on aged cream parchment, fine hatching, portrait, no text |
+| `plant-ashwagandha-parts` | 1600×1000 | Szene | whole ashwagandha plant showing leaves, small flowers, red berries in husks and the complete root system in the soil, dark moody forest floor, plenty of empty dark space left and right for labels |
+| `plant-ashwagandha-photo` | 1200×900 | Szene | macro close-up of an ashwagandha flower with pale yellow-white petals, green berries and leaves, soft natural light, shallow depth of field |
+| `plant-ashwagandha-thumb-wurzel` | 400×500 | Szene | fresh ashwagandha taproot with fine side roots, soil-dusted, dark background |
+| `plant-ashwagandha-thumb-blatt` | 400×500 | Szene | green ashwagandha leaves, slightly hairy, close-up, dark background |
+| `plant-ashwagandha-thumb-bluete` | 400×500 | Szene | small pale yellow ashwagandha flower, close-up, dark background |
+| `plant-ashwagandha-thumb-frucht` | 400×500 | Szene | ripe red ashwagandha berries in papery husks, close-up, dark background |
+| `plant-ashwagandha-stage-1` | 400×500 | Szene | tiny ashwagandha seedling with two leaves in dark soil, dark background |
+| `plant-ashwagandha-stage-2` | 400×500 | Szene | young leafy ashwagandha plant in growth, dark background |
+| `plant-ashwagandha-stage-3` | 400×500 | Szene | ashwagandha plant in bloom with small pale flowers, dark background |
+| `plant-ashwagandha-stage-4` | 400×500 | Szene | ashwagandha branch with ripe red berries in papery husks, dark background |
+| `plant-ashwagandha-stage-5` | 400×500 | Szene | freshly harvested ashwagandha roots with soil, dark background |
+| `plant-ashwagandha-origin` | 800×520 | Szene | ancient Indian temple ruins in a dry landscape, warm hazy light, illustration |
+| `plant-ashwagandha-powder` | 900×700 | Szene | rustic wooden bowl of fine beige ashwagandha root powder with dried root pieces beside it, dark wood, warm light |
+| `compound-withaferin-a` | 900×520 | Szene | hand-drawn chemical structural formula on aged parchment, steroid ring skeleton with a lactone ring, ink drawing; check the real structure of withaferin A before use (C28H38O6) |
+| `plant-ashwagandha-history-1` | 600×450 | Szene | ancient Indian scholars and healers with palm-leaf manuscripts and herbs, sepia illustration |
+| `plant-ashwagandha-history-2` | 600×450 | Szene | medieval herbalist at work with plants and manuscripts in Asia and Arabia, sepia illustration |
+| `plant-ashwagandha-history-3` | 600×450 | Szene | 18th and 19th century European naturalists studying plants, sepia engraving look |
+| `plant-ashwagandha-history-4` | 600×450 | Szene | modern laboratory with plant extracts and glassware, warm light |
+| `plant-ashwagandha-combo-1` | 700×420 | Szene | ashwagandha root next to fresh ginger root and a small jar of honey on dark wood |
+| `plant-ashwagandha-combo-2` | 700×420 | Szene | ashwagandha root next to turmeric root and black peppercorns on dark wood |
+| `plant-ashwagandha-combo-3` | 700×420 | Szene | ashwagandha root next to fresh rosemary sprigs and red berries on dark wood |
+| `form-tee` | 500×600 | Szene | a steaming cup of herbal tea on a saucer with loose dried herbs, dark background |
+| `form-pulver` | 500×600 | Szene | a mound of fine herbal root powder with dried root pieces, dark background |
+| `form-extrakt` | 500×600 | Szene | amber glass jar of herbal extract with a label-free lid, dark background |
+| `form-kapseln` | 500×600 | Szene | small amber glass bottle with a dropper next to a few plain capsules, dark background |
+| `form-tinktur` | 500×600 | Szene | tall amber dropper bottle of herbal tincture with a few leaves, dark background |
+| `form-kochen` | 500×600 | Szene | a small glass jar of ground herbal powder with a wooden spoon, kitchen look, dark background |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -205,4 +234,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 144 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 173 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

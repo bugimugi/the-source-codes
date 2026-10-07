@@ -1,0 +1,46 @@
+{
+  "id": "ashwagandha-safety",
+  "short": "Ashwagandha – Sicherheit",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Für Ashwagandha-Präparate sind seltene Leberschäden und mögliche Wechselwirkungen (u. a. mit Schilddrüsen-, Beruhigungs-, Diabetes- und Blutdruckmitteln sowie Immunsuppressiva) beschrieben; in Schwangerschaft und Stillzeit wird von der Anwendung abgeraten.",
+  "level": "supported",
+  "rationale": "Belegt, Deutung offen: Eine Fallserie (5 Fälle) beschreibt Leberschäden, die meist nach dem Absetzen abklangen; die NCCIH-Informationsseite nennt Wechselwirkungen und rät in Schwangerschaft und Stillzeit ab; das BfR weist auf mögliche gesundheitliche Risiken von Nahrungsergänzungsmitteln hin. In Dänemark ist Ashwagandha in Nahrungsergänzungsmitteln seit 2023 nicht mehr zugelassen (Suchauszug, Source pending verification). Eine sichere Mengenobergrenze konnte dort nicht festgelegt werden; unklar ist, wie stark sich Wurzel und Blätter unterscheiden. Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Wer Medikamente nimmt, schwanger ist oder Vorerkrankungen hat, klärt eine Anwendung vorher ärztlich.",
+  "sources": [
+    {
+      "id": "bjornsson-2020",
+      "kind": "peer-reviewed",
+      "title": "Ashwagandha-bedingte Leberschäden: Fallserie aus Island und dem US-Netzwerk DILIN (5 Fälle)",
+      "author": "Björnsson HK et al.",
+      "year": 2020,
+      "citation": "Liver International 2020 (PMID 31991029). Einzelangaben: Source pending verification",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31991029/",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Die Fälle klangen meist innerhalb von 1–5 Monaten ab."
+    },
+    {
+      "id": "nccih",
+      "kind": "historical-document",
+      "title": "Ashwagandha: Informationsseite des National Center for Complementary and Integrative Health (NCCIH)",
+      "author": "NCCIH, National Institutes of Health (USA)",
+      "citation": "Seite dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://nccih.nih.gov/health/ashwagandha",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    },
+    {
+      "id": "bfr",
+      "kind": "historical-document",
+      "title": "Ashwagandha in Nahrungsergänzungsmitteln: möglicherweise gesundheitliche Risiken",
+      "author": "Bundesinstitut für Risikobewertung (BfR)",
+      "citation": "Dokument dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://mobil.bfr.bund.de/cm/349/ashwagandha-food-supplements-with-potential-health-risks.pdf",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

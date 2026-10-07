@@ -1,0 +1,23 @@
+{
+  "id": "ashwagandha-muskeln",
+  "short": "Ashwagandha – Muskeln und Regeneration",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Ashwagandha wird mit Muskelkraft und Erholung nach Belastung in Verbindung gebracht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Einzelne kleine Studien an Sportlern werden genannt (aus dem Gedächtnis, nicht geprüft); eine Bewertung steht aus. Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "ashwagandha-nervensystem",
+  "short": "Ashwagandha – Nervensystem und Fokus",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Ashwagandha wird in der ayurvedischen Überlieferung dem Nervensystem zugeordnet und mit Konzentration (Fokus) in Verbindung gebracht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Die klinischen Daten zu Gedächtnis und Konzentration sind dünn; eine Bewertung steht aus. Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

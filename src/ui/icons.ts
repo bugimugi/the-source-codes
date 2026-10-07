@@ -1,0 +1,57 @@
+/**
+ * Small stroke icons (24 x 24) used by the plant profile pages. Paths only: colour and width come from CSS (`.ic`).
+ * Hand-drawn for this project, no external icon set.
+ */
+export const ICON: Record<string, string> = {
+  stress: "M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM5 20c0-4 3-6 7-6s7 2 7 6M4 8l2 1M20 8l-2 1",
+  moon: "M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z",
+  brain: "M9.5 4A3 3 0 0 0 6.6 6.3 3 3 0 0 0 4.5 9.2a3 3 0 0 0 1.2 2.4A3 3 0 0 0 7 16.6 3 3 0 0 0 12 18V6a2.5 2.5 0 0 0-2.5-2zM14.5 4a3 3 0 0 1 2.9 2.3 3 3 0 0 1 2.1 2.9 3 3 0 0 1-1.2 2.4 3 3 0 0 1-1.3 5A3 3 0 0 1 12 18M8 9h2M14 9h2M8.5 13H10M14 13h1.5",
+  shield: "M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4",
+  bolt: "M13 2L5 14h6l-1 8 8-12h-6z",
+  dna: "M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9M9 7h6M9 17h6",
+  family: "M12 21V4M12 9L8 6M12 13l5-4M12 17l-5-3M12 6l3-2",
+  root: "M12 3v5M12 8c-3 2-5 5-5 9M12 8c0 4 1 9 1 13M12 8c3 2 5 5 5 8M10 14l-3 1M14 15l3 1",
+  globe: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18",
+  tongue: "M7 5c0 7 1 14 5 14s5-7 5-14M7 5h10M12 5v8",
+  nose: "M12 4c-1 5-3 9-5 12 1 2 3 3 5 3s4-1 5-3c-2-3-4-7-5-12zM9.5 16.5h5",
+  shrub: "M12 21v-7M12 14c-4 0-6-3-6-6 4 0 6 2 6 6M12 14c4 0 6-3 6-6-4 0-6 2-6 6M12 10c-2-2-2-5 0-7 2 2 2 5 0 7z",
+  leaf: "M5 19C5 9 11 4 20 4c0 9-5 15-15 15zM5 19c3-5 6-8 10-10",
+  flower: "M12 12m-2 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0M12 10C10 6 11 3 12 3s2 3 0 7M12 14c2 4 1 7 0 7s-2-3 0-7M10 12C6 10 3 11 3 12s3 2 7 0M14 12c4 2 7 1 7 0s-3-2-7 0",
+  berry: "M12 20a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 8V4M12 5c2-2 4-2 5-1",
+  seed: "M12 3c4 4 6 8 6 11a6 6 0 0 1-12 0c0-3 2-7 6-11zM12 9v8",
+  stem: "M12 21V9M12 13c-3 0-5-2-5-5M12 17c3 0 5-2 5-5",
+  ruler: "M4 17L17 4l3 3L7 20zM8 13l2 2M11 10l2 2M14 7l2 2",
+  sun: "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2",
+  soil: "M3 14h18M5 18h14M8 10c1-3 3-3 4-6 1 3 3 3 4 6",
+  thermo: "M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0zM12 9v7",
+  clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2",
+  texture: "M4 8h16M4 12h16M4 16h16M8 4v16M13 4v16",
+  muscle: "M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12",
+  balance: "M12 3v18M5 21h14M5 8h14M5 8l-2 6a3 3 0 0 0 4 0zM19 8l-2 6a3 3 0 0 0 4 0z",
+  check: "M5 12l5 5 9-10",
+  arrow: "M5 12h14M13 6l6 6-6 6",
+  expand: "M4 14v6h6M20 10V4h-6M4 20l7-7M20 4l-7 7",
+  pin: "M12 21s-6-6-6-11a6 6 0 0 1 12 0c0 5-6 11-6 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z",
+  book: "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M9 7h6",
+  overview: "M4 6h16M4 12h16M4 18h10",
+  flask: "M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3M8 15h8",
+  cup: "M5 8h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5zM17 9h2a2 2 0 0 1 0 5h-2M4 21h14",
+  link: "M10 14a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-1 1M14 10a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l1-1",
+  hex: "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 3v18M4 7.5l16 9M20 7.5l-16 9",
+  scroll: "M7 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8M7 4a2 2 0 0 0-2 2v2h4M10 10h7M10 14h7",
+  sprout: "M12 21v-9M12 12c0-4-3-6-7-6 0 4 3 6 7 6zM12 14c0-3 2-5 6-5 0 3-2 5-6 5z",
+  microscope: "M9 4l5 2-3 7-5-2zM13 12a5 5 0 0 1 6 4M5 21h14M9 18h4",
+  target: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01",
+  sound: "M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11",
+  bowl: "M3 11h18a9 9 0 0 1-18 0zM8 21h8M7 7c1-2 3-2 4-4M13 7c1-2 3-2 4-4",
+  jar: "M7 4h10v3H7zM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zM9 12h6M9 16h6",
+  capsule: "M9 3a5 5 0 0 1 7 7l-6 6a5 5 0 0 1-7-7zM8 8l6 6",
+  dropper: "M14 3l7 7-3 1-5-5zM12 7l-8 8v5h5l8-8M5 17h4",
+  pot: "M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM8 4c0 2 2 2 2 4M14 4c0 2 2 2 2 4M3 10h18",
+  extract: "M8 3h8v3H8zM7 6h10l1 15H6zM9 11h6M9 15h6",
+  external: "M14 4h6v6M20 4l-9 9M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6",
+};
+
+/** inline svg element for an icon name (unknown names give an empty circle) */
+export const ico = (name: string, cls = ""): string =>
+  `<svg class="ic${cls ? ` ${cls}` : ""}" viewBox="0 0 24 24" aria-hidden="true"><path d="${ICON[name] ?? "M12 12m-3 0a3 3 0 1 0 6 0 3 3 0 1 0-6 0"}"/></svg>`;

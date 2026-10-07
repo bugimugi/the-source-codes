@@ -1,0 +1,35 @@
+{
+  "id": "rosmarin-duft-kognition",
+  "short": "Rosmarin-Duft und Aufmerksamkeit",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Duft von Rosmarin-Öl hing in kleinen Studien mit Aufmerksamkeit, Gedächtnisleistung und Stimmung zusammen.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion untersuchten Moss und Kollegen (2003 und 2012) den Duft von Rosmarin-Öl an kleinen Gruppen gesunder Erwachsener. Die Ergebnisse sind uneinheitlich, ein Nutzen im Alltag oder bei Erkrankungen ist nicht gezeigt. Die Quellen stammen aus dem Suchauszug und sind nicht geprüft. Keine Behandlungsempfehlung. Source pending verification.",
+  "sources": [
+    {
+      "id": "moss-2003",
+      "kind": "peer-reviewed",
+      "title": "Aromas of rosemary and lavender essential oils differentially affect cognition and mood in healthy adults",
+      "author": "Moss M. et al.",
+      "year": 2003,
+      "citation": "Int J Neurosci 113: 15–38 – Suchauszug, Source pending verification",
+      "verified": false
+    },
+    {
+      "id": "moss-oliver-2012",
+      "kind": "peer-reviewed",
+      "title": "Plasma 1,8-cineole correlates with cognitive performance following exposure to rosemary essential oil aroma",
+      "author": "Moss M., Oliver L.",
+      "year": 2012,
+      "citation": "Therapeutic Advances in Psychopharmacology 2(3): 103–113 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "rosmarin-traditional-use"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

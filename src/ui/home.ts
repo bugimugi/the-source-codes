@@ -29,6 +29,7 @@ export interface HomeApi {
   openMinerals(): void;
   openCrystals(): void;
   openAnatomy(): void;
+  openFreq(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -157,6 +158,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "minerals") api.openMinerals();
       else if (a.type === "crystals") api.openCrystals();
       else if (a.type === "anatomy") api.openAnatomy();
+      else if (a.type === "freq") api.openFreq();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

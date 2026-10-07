@@ -1,0 +1,26 @@
+{
+  "id": "freq-solfeggio",
+  "short": "Die neun „Solfeggio-Frequenzen“ und ihre Wirkung",
+  "area": "akustik-architektur",
+  "status": "published",
+  "statement": "Die neun „Solfeggio-Frequenzen“ (174, 285, 396, 417, 432, 528, 639, 741, 852 Hz) haben die ihnen zugeschriebenen Wirkungen, etwa 528 Hz als „Transformation“.",
+  "level": "unsupported",
+  "rationale": "Keine Quelle gefunden. Das mittelalterliche „Solfeggio“ (Ut-Re-Mi …) ist eine Silbenfolge zum Singen und enthält keine Hertz-Werte. Die Zahlenreihe mit Wirkungen stammt nach gängiger Darstellung aus der Klangheilkunde der 1990er Jahre. Mir ist keine kontrollierte Studie bekannt, die diese Zuschreibungen zeigt; gemessen sind nur die Tonhöhen selbst. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial-input",
+      "kind": "editorial-input",
+      "title": "Angabe des Betreibers, ungeprüft",
+      "author": "Betreiber der Seite",
+      "citation": "Entwurf der Frequenz-Seite (Pilot)",
+      "verified": false
+    }
+  ],
+  "related": [
+    "kristall-solfeggio",
+    "mineral-quarz-frequenz"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

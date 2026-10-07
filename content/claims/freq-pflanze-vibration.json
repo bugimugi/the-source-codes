@@ -1,0 +1,24 @@
+{
+  "id": "freq-pflanze-vibration",
+  "short": "Pflanzen reagieren auf Vibrationen",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Pflanzen können auf Schwingungen reagieren: Die Vibrationen von fressenden Raupen lösten bei Ackerschmalwand (Arabidopsis) verstärkt Abwehrstoffe aus.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion beschrieben Appel und Cocroft (2014, Zeitschrift Oecologia) diesen Befund an einer Modellpflanze im Labor. Er zeigt, dass Pflanzen mechanische Schwingungen wahrnehmen können, und sagt nichts über Musik, „Heilfrequenzen“ oder eine Wirkung auf den Menschen. Die Quelle stammt aus dem Suchauszug und ist nicht geprüft. Source pending verification.",
+  "sources": [
+    {
+      "id": "appel-cocroft-2014",
+      "kind": "peer-reviewed",
+      "title": "Plants respond to leaf vibrations caused by insect herbivore chewing",
+      "author": "Appel H.M., Cocroft R.B.",
+      "year": 2014,
+      "citation": "Oecologia 175: 1257–1266 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "freq-hifu",
+  "short": "Fokussierter Ultraschall in der Medizin",
+  "area": "akustik-architektur",
+  "status": "published",
+  "statement": "Fokussierter Ultraschall wird in der Medizin eingesetzt, um Gewebe in einem kleinen Brennpunkt gezielt zu erhitzen, zum Beispiel bei der Behandlung des essentiellen Tremors; weitere Anwendungen werden erforscht.",
+  "level": "supported",
+  "rationale": "Ärztliches Verfahren, keine Selbstanwendung. Eine randomisierte Studie (Elias et al., 2016, New England Journal of Medicine) untersuchte die Ultraschall-Thalamotomie beim essentiellen Tremor. Weitere Einsatzgebiete (z. B. Gebärmuttermyome, Prostata) werden in Übersichtsarbeiten beschrieben, die hier noch nicht geprüft sind. Das Verfahren ist nicht mit „Heilfrequenzen“ aus der Klangheilkunde vergleichbar. Source pending verification.",
+  "sources": [
+    {
+      "id": "elias-2016",
+      "kind": "peer-reviewed",
+      "title": "A Randomized Trial of Focused Ultrasound Thalamotomy for Essential Tremor",
+      "author": "Elias W.J. et al.",
+      "year": 2016,
+      "citation": "N Engl J Med 375: 730–739",
+      "url": "https://doi.org/10.1056/NEJMoa1600159",
+      "verified": false
+    }
+  ],
+  "related": [
+    "rife",
+    "acoustic-levitation-small"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

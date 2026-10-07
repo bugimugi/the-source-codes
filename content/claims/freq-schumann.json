@@ -1,0 +1,24 @@
+{
+  "id": "freq-schumann",
+  "short": "Schumann-Resonanzen der Erde",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Der Hohlraum zwischen Erdoberfläche und Ionosphäre schwingt in Eigenfrequenzen (Schumann-Resonanzen), die vom Blitzgeschehen angeregt werden; der Grundton liegt bei etwa 7,8 Hz.",
+  "level": "supported",
+  "rationale": "Physikalisch beschrieben und gemessen; Winfried Otto Schumann sagte die Resonanzen 1952 voraus. Die Quelle ist hier aus dem Gedächtnis angegeben und noch nicht geprüft. Dass diese Frequenzen das Befinden oder die Gehirnwellen des Menschen steuern, ist damit nicht belegt. Source pending verification.",
+  "sources": [
+    {
+      "id": "schumann-1952",
+      "kind": "peer-reviewed",
+      "title": "Über die strahlungslosen Eigenschwingungen einer leitenden Kugel, die von einer Luftschicht und einer Ionosphärenhülle umgeben ist",
+      "author": "W. O. Schumann",
+      "year": 1952,
+      "citation": "Zeitschrift für Naturforschung 7a: 149–154 – aus dem Gedächtnis, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

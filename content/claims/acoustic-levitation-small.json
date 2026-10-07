@@ -1,7 +1,7 @@
 {
   "id": "acoustic-levitation-small",
   "area": "akustik-architektur",
-  "status": "draft",
+  "status": "published",
   "statement": "Mit Ultraschall lassen sich kleine, leichte Objekte schweben lassen (akustische Levitation).",
   "level": "supported",
   "rationale": "Laborprinzip für Kleinstobjekte. Quellen sind noch Suchhinweise aus dem Gedächtnis und müssen gefunden und geprüft werden.",
@@ -27,5 +27,8 @@
   ],
   "related": [
     "acoustic-levitation"
-  ]
+  ],
+  "review": {
+    "state": "pending"
+  }
 }

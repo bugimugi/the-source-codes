@@ -1,0 +1,27 @@
+{
+  "id": "freq-432-440-pilot",
+  "short": "432 Hz gegenüber 440 Hz – Pilotstudie",
+  "area": "akustik-architektur",
+  "status": "published",
+  "statement": "In einer kleinen, doppelblinden Pilotstudie unterschieden sich Herzfrequenz und Wohlbefinden beim Hören von Musik in 432-Hz-Stimmung und in 440-Hz-Stimmung.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion gibt es eine kleine Pilotstudie (Calamassi und Pomponi, 2019, Zeitschrift Explore) mit wenigen Teilnehmenden; nur einzelne Messwerte zeigten Unterschiede, Bestätigungen durch größere Studien sind nicht bekannt. Die Quelle ist hier aus dem Suchauszug übernommen und noch nicht geprüft. Die Behauptung, 432 Hz sei „die natürliche Stimmung“ oder heile, ist damit nicht belegt. Source pending verification.",
+  "sources": [
+    {
+      "id": "calamassi-2019",
+      "kind": "peer-reviewed",
+      "title": "Music Tuned to 440 Hz Versus 432 Hz and the Health Effects: A Double-blind Cross-over Pilot Study",
+      "author": "Calamassi D., Pomponi G.P.",
+      "year": 2019,
+      "citation": "Explore 15(4): 283–290 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "hz432-theta",
+    "freq-solfeggio"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

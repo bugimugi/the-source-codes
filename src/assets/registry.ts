@@ -28,6 +28,7 @@ const MINERALS = "Mineralatlas";
 const ELEMENT = "Elementprofil Wasserstoff";
 const KRISTALL = "Kristall-Atlas";
 const KOERPER = "Der menschliche Körper";
+const FREQ = "Frequenz-Seite";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -431,6 +432,24 @@ export const SLOTS = {
   "koerper-funktion-entgiftung": d(KOERPER, 8, "scene", 500, 500, "a glowing liver and kidneys with clean water drops, dark background, no text"),
   "koerper-funktion-sinne": d(KOERPER, 8, "scene", 500, 500, "an eye, an ear and a nose glowing as signals, dark background, no text"),
   "koerper-funktion-homoeostase": d(KOERPER, 8, "scene", 500, 500, "balanced glowing scales over a body outline, dark background, no text"),
+  "freq-hero": d(FREQ, 8, "scene", 2800, 1300, "a serene translucent human figure in the centre right with glowing energy lines and seven soft chakra lights, concentric sound waves around it, in a night landscape with a lake, mountains, a starry sky and a distant galaxy, warm sunset glow at the horizon, a dark calm area on the left for text, no text, no letters, no circles with icons"),
+  "freq-kugel-worte": d(FREQ, 8, "scene", 600, 600, "a glowing sphere showing a human head profile with a sound wave, cyan, dark background, no text"),
+  "freq-kugel-licht": d(FREQ, 8, "scene", 600, 600, "a glowing sphere with a bright sun and rays, orange, dark background, no text"),
+  "freq-kugel-nahrung": d(FREQ, 8, "scene", 600, 600, "a glowing sphere with a green plant sprout, green, dark background, no text"),
+  "freq-kugel-klaenge": d(FREQ, 8, "scene", 600, 600, "a glowing sphere with a purple sound wave pattern, violet, dark background, no text"),
+  "freq-kugel-materialien": d(FREQ, 8, "scene", 600, 600, "a glowing sphere with a faceted violet crystal, purple, dark background, no text"),
+  "freq-kugel-umgebung": d(FREQ, 8, "scene", 600, 600, "a glowing sphere with a mountain lake landscape at dusk, blue, dark background, no text"),
+  "freq-kraft-radio": d(FREQ, 8, "scene", 700, 420, "a glowing vintage radio with a dial and a blue sound wave, dark background, no text"),
+  "freq-kraft-resonanz": d(FREQ, 8, "scene", 700, 420, "a Newton's cradle with golden glowing spheres and light waves, dark background, no text"),
+  "freq-kraft-levitation": d(FREQ, 8, "scene", 700, 420, "a stone floating above a glowing field of sound waves, dark background, no text"),
+  "freq-kraft-medizin": d(FREQ, 8, "scene", 700, 420, "focused blue and red energy waves meeting at a cell, dark background, no text"),
+  "freq-welt-natur": d(FREQ, 8, "scene", 600, 400, "a waterfall in a green valley with mist, dark background, no text"),
+  "freq-welt-koerper": d(FREQ, 8, "scene", 600, 400, "a glowing brain and a human head profile with a sound wave, dark background, no text"),
+  "freq-welt-materialien": d(FREQ, 8, "scene", 600, 400, "glowing crystals and metal forms, dark background, no text"),
+  "freq-welt-technologie": d(FREQ, 8, "scene", 600, 400, "a tall tower with lightning and glowing energy, dark background, no text"),
+  "freq-welt-kulturen": d(FREQ, 8, "scene", 600, 400, "Egyptian pyramids and a stone temple at sunset, dark background, no text"),
+  "freq-welt-kosmos": d(FREQ, 8, "scene", 600, 400, "a spiral galaxy with planets, dark background, no text"),
+  "freq-schluss": d(FREQ, 8, "scene", 2800, 500, "a person sitting in meditation seen from behind on a rock at a lake at sunset, mountains, a dark calm area on the left for text, no text, no letters"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

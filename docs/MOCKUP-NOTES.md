@@ -201,6 +201,24 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     López-Otín 2013); die Platzhalter-Studientitel der Vorlage entfallen. Lebensabschnitte, Zelle und Herz sind bis zu den Bildern im Code gezeichnet (`src/ui/anatomyArt.ts`). Umsetzung: `src/ui/anatomy.ts`, `src/data/anatomy.ts`,
     `src/gl/bodyscene.ts`, `src/data/bodyparts.ts`, `src/anatomy.css`, Prüfung in `src/data/validateAnatomy.ts`. Bildplätze `koerper-*` (52, Priorität 8); bis dahin zeigt der Hero das vorhandene `body-front`.
 
+26. **Frequenz – Hauptseite „Alles schwingt.“** (Referenzbild lokal in `design/mockups/26-frequenz.png`, nicht committet) – Landingpage hinter der Kachel „Frequenzen & Vibrationen“ (View `freq`, Tab „Frequenz“; die berechnete
+    Kymatik- und Geometrie-Seite heißt jetzt Tab „Kymatik“ und bleibt über „Kymatik visualisieren“, „Die Frequenz-Welt betreten“, den Chip „Kymatik“ und die Kachel „Geometrie“ erreichbar). Aufbau: Hero „FREQUENZ – Alles schwingt.“
+    (Einleitung, Knopf „Frequenz erkunden“, 7 Chips Klang / Licht / Kymatik / Resonanz / Materie / Medizin / Bewusstsein, Figur mit sechs Kreisen: Worte, Licht, Nahrung, Klänge, Materialien, Umgebung); „Signal Analyzer“ (Suche,
+    7 Kategorien, Halbkreis-Anzeige, Karte mit Balken); „Die Kraft der Frequenz“ (Radio, Resonanz, Levitation, Medizin & Heilung); „Frequenz Explorer“ (Suche, neun beliebte Frequenzen, Karte „432 Hz“ mit Ton, Regler, vier Feldern und
+    Kymatik-Platte); „Frequenz in der realen Welt“ (6 Karten); Schlussband „Dein Körper empfängt ständig Informationen.“ mit „Die Frequenz-Welt betreten“.
+    **Anders umgesetzt (Schutzlinien):** Der **„Signal Index“ +68** und die Wirkwerte der Rosmarin-Karte (Stimmung +75, Konzentration +68 …) sind Platzhalter ohne Messung; eine solche Zahl wäre erfunden und ein Heilversprechen im Ton der Seite.
+    Die Halbkreis-Anzeige zeigt stattdessen die **Belegstufe** der Aussagen (Widerlegt – Nicht belegt – Behauptung – Belegt – Gesichert), die Balken der Karte sind Belegstufen der echten Aussagen, keine Wirkstärken; die Seite sagt das offen
+    (Fußnote). Für Rosmarin gibt es die Aussagen `rosmarin-traditional-use` (Behauptung) und neu `rosmarin-duft-kognition` (Hypothese, Moss 2003 und Moss & Oliver 2012, Suchauszug). Kategorien ohne veröffentlichte Aussage („Wort“,
+    „Getränk“) sagen das, statt etwas zu erfinden. Der Explorer rechnet alles Rechenbare selbst: Zyklen pro Sekunde, **nächster Ton und Abweichung in Cent** (statt „Angenehmer, weicher Ton“; 432 Hz liegt 32 Cent unter a′ = 440 Hz), das
+    **Chladni-Muster** des Plattenmodells aus `src/data/cymatics.ts` (Modell, keine Messung), der Ton nur auf Klick (leise, `src/audio/tone.ts`). „Wirkung (überliefert)“ ist die Überlieferung der Klangheilkunde und trägt die Aussage
+    `freq-solfeggio` (nicht belegt); 432 Hz zusätzlich `freq-432-440-pilot` (kleine Pilotstudie, Hypothese). Die vier Karten der „Kraft“ haben kleine echte Rechnungen (Schwingkreis f = 1/(2π√(LC)) mit Regler, Resonanzkurve eines
+    gedämpften Oszillators, Wellenlänge und Knotenabstand bei Ultraschall, Tabelle der Schallbereiche). „Medizin“ nennt nur ärztlich eingesetzten fokussierten Ultraschall (Aussage `freq-hifu`, Elias 2016 mit DOI) und grenzt ihn von
+    „Heilfrequenzen“ und Rife ab; „Tumorgewebe gezielt beeinflussen“ der Vorlage ist allgemeiner formuliert („Gewebe“), keine Behandlungsanleitung. Bei Levitation stehen die Aussagen `acoustic-levitation-small` (neu veröffentlicht, belegt
+    für kleine Teilchen) und `acoustic-levitation` (Stein-Levitation, nicht belegt) nebeneinander. Weitere neue Aussagen: `freq-pflanze-vibration` (Hypothese), `freq-schumann` (belegt, Schumann-Resonanz ≈ 7,8 Hz). Die Kopfzeile der
+    Vorlage („THE LIVING ATLAS“) wird nicht übernommen (die Seite hat ihre eigene Leiste). „Ein Meisterwerk“-artige Schlusssätze stehen als Leitgedanke und nicht als Tatsache („Dass der Körper beliebige Frequenzen empfängt …, ist nicht belegt“).
+    Umsetzung: `src/ui/frequency.ts`, `src/data/freqpage.ts`, `src/ui/freqArt.ts`, `src/frequency.css`, Prüfung in `src/data/validateFreq.ts`. Bildplätze `freq-*` (18, Priorität 8: `freq-hero`, `freq-kugel-*`, `freq-kraft-*`,
+    `freq-welt-*`, `freq-schluss`); bis dahin zeigt der Hero eine gezeichnete Nachtlandschaft mit dem vorhandenen `body-front` und Schallringen, die Karten gezeichnete Bilder (Radio, Kugelpendel, Stein im Schallfeld, Fokus).
+
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).
 - **3D (freie Modelle):** menschlicher Körper und Organe (Seiten 2, 3, 4, 5), Erde (Seiten 1, 8, 16).

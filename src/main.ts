@@ -19,6 +19,7 @@ import "./minerals.css";
 import "./elementProfile.css";
 import "./crystals.css";
 import "./anatomy.css";
+import "./frequency.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -46,6 +47,7 @@ import { initMinerals } from "./ui/minerals";
 import { initElementProfile } from "./ui/elementProfile";
 import { initCrystals } from "./ui/crystals";
 import { initAnatomy } from "./ui/anatomy";
+import { initFrequency } from "./ui/frequency";
 import type { StationId } from "./data/lab";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
@@ -140,7 +142,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "minerals" | "element" | "crystals" | "anatomy" | "plant";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "minerals" | "element" | "crystals" | "anatomy" | "freq" | "plant";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -164,6 +166,7 @@ let mineralsView: ReturnType<typeof initMinerals> | null = null;
 let elementView: ReturnType<typeof initElementProfile> | null = null;
 let crystalsView: ReturnType<typeof initCrystals> | null = null;
 let anatomyView: ReturnType<typeof initAnatomy> | null = null;
+let freqView: ReturnType<typeof initFrequency> | null = null;
 let pendingMineralsSection: "table" | "formation" | undefined;
 let pendingElement: string | undefined;
 let pendingTable: string | undefined;
@@ -191,10 +194,11 @@ const mineralsEl = $("minerals");
 const elementEl = $("element");
 const crystalsEl = $("crystals");
 const anatomyEl = $("anatomy");
+const freqEl = $("freq");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
-  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "trees", label: "Bäume" }, { id: "minerals", label: "Mineralien" }, { id: "crystals", label: "Kristalle" }, { id: "fx", label: "Frequenz" }, { id: "anatomy", label: "Körper" }, { id: "body", label: "Organe" },
+  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "trees", label: "Bäume" }, { id: "minerals", label: "Mineralien" }, { id: "crystals", label: "Kristalle" }, { id: "freq", label: "Frequenz" }, { id: "fx", label: "Kymatik" }, { id: "anatomy", label: "Körper" }, { id: "body", label: "Organe" },
   { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
   { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
 ];
@@ -364,6 +368,8 @@ function fromElement(next: () => void) { elementEl.hidden = true; elementView?.s
 function fromCrystals(next: () => void) { crystalsEl.hidden = true; crystalsView?.stop(); view = "hero"; next(); }
 /** leaves the body landing page for another view */
 function fromAnatomy(next: () => void) { anatomyEl.hidden = true; anatomyView?.stop(); view = "hero"; next(); }
+/** leaves the frequency landing page for another view */
+function fromFreq(next: () => void) { freqEl.hidden = true; freqView?.stop(); view = "hero"; next(); }
 
 function openPlantView(id?: string, from: ProfileFrom = "plants"): boolean {
   if (!id) return false;
@@ -491,6 +497,25 @@ function openAnatomyView(): boolean {
   return true;
 }
 
+function openFreqView(): boolean {
+  freqEl.hidden = false;
+  freqView ??= initFrequency(freqEl, {
+    reduceMotion,
+    openFx: (mode) => fromFreq(() => { fxMode = mode; go("fx"); }),
+    openAtlas: (id) => fromFreq(() => { go("atlas"); atlasView?.select(id); }),
+    openEnergy: () => fromFreq(() => { go("energy"); }),
+    openAnatomy: () => fromFreq(() => { go("anatomy"); }),
+    openMinerals: () => fromFreq(() => { go("minerals"); }),
+    openCultures: () => fromFreq(() => { go("cultures"); }),
+    openUniverse: () => fromFreq(() => { go("universe"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+  });
+  freqView.start();
+  fade(freqEl, true);
+  $("leave-freq").focus();
+  return true;
+}
+
 function openLabView(station?: StationId): boolean {
   labEl.hidden = false;
   labView ??= initLab(labEl, {
@@ -591,6 +616,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   element: { el: elementEl, stop: () => elementView?.stop() },
   crystals: { el: crystalsEl, stop: () => crystalsView?.stop() },
   anatomy: { el: anatomyEl, stop: () => anatomyView?.stop() },
+  freq: { el: freqEl, stop: () => freqView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -614,6 +640,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "element" && !openElementView(pendingElement)) return false;
   if (next === "crystals" && !openCrystalsView()) return false;
   if (next === "anatomy" && !openAnatomyView()) return false;
+  if (next === "freq" && !openFreqView()) return false;
   if (next === "plant" && !openPlantView(pendingPlant, pendingPlantFrom)) return false;
   pendingEnergy = undefined;
   pendingElement = undefined;
@@ -666,6 +693,7 @@ const home = initHome($("home"), {
   openMinerals() { go("minerals"); },
   openCrystals() { go("crystals"); },
   openAnatomy() { go("anatomy"); },
+  openFreq() { go("freq"); },
   openLab(station?: StationId) { if (view === "lab") labView?.start(station); else { pendingLab = station; go("lab"); } },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
@@ -702,6 +730,7 @@ $("leave-minerals").addEventListener("click", () => go("hero"));
 $("leave-element").addEventListener("click", () => go("hero"));
 $("leave-crystals").addEventListener("click", () => go("hero"));
 $("leave-anatomy").addEventListener("click", () => go("hero"));
+$("leave-freq").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

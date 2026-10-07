@@ -431,6 +431,24 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `koerper-funktion-entgiftung` | 500×500 | Szene | a glowing liver and kidneys with clean water drops, dark background, no text |
 | `koerper-funktion-sinne` | 500×500 | Szene | an eye, an ear and a nose glowing as signals, dark background, no text |
 | `koerper-funktion-homoeostase` | 500×500 | Szene | balanced glowing scales over a body outline, dark background, no text |
+| `freq-hero` | 2800×1300 | Szene | a serene translucent human figure in the centre right with glowing energy lines and seven soft chakra lights, concentric sound waves around it, in a night landscape with a lake, mountains, a starry sky and a distant galaxy, warm sunset glow at the horizon, a dark calm area on the left for text, no text, no letters, no circles with icons |
+| `freq-kugel-worte` | 600×600 | Szene | a glowing sphere showing a human head profile with a sound wave, cyan, dark background, no text |
+| `freq-kugel-licht` | 600×600 | Szene | a glowing sphere with a bright sun and rays, orange, dark background, no text |
+| `freq-kugel-nahrung` | 600×600 | Szene | a glowing sphere with a green plant sprout, green, dark background, no text |
+| `freq-kugel-klaenge` | 600×600 | Szene | a glowing sphere with a purple sound wave pattern, violet, dark background, no text |
+| `freq-kugel-materialien` | 600×600 | Szene | a glowing sphere with a faceted violet crystal, purple, dark background, no text |
+| `freq-kugel-umgebung` | 600×600 | Szene | a glowing sphere with a mountain lake landscape at dusk, blue, dark background, no text |
+| `freq-kraft-radio` | 700×420 | Szene | a glowing vintage radio with a dial and a blue sound wave, dark background, no text |
+| `freq-kraft-resonanz` | 700×420 | Szene | a Newton's cradle with golden glowing spheres and light waves, dark background, no text |
+| `freq-kraft-levitation` | 700×420 | Szene | a stone floating above a glowing field of sound waves, dark background, no text |
+| `freq-kraft-medizin` | 700×420 | Szene | focused blue and red energy waves meeting at a cell, dark background, no text |
+| `freq-welt-natur` | 600×400 | Szene | a waterfall in a green valley with mist, dark background, no text |
+| `freq-welt-koerper` | 600×400 | Szene | a glowing brain and a human head profile with a sound wave, dark background, no text |
+| `freq-welt-materialien` | 600×400 | Szene | glowing crystals and metal forms, dark background, no text |
+| `freq-welt-technologie` | 600×400 | Szene | a tall tower with lightning and glowing energy, dark background, no text |
+| `freq-welt-kulturen` | 600×400 | Szene | Egyptian pyramids and a stone temple at sunset, dark background, no text |
+| `freq-welt-kosmos` | 600×400 | Szene | a spiral galaxy with planets, dark background, no text |
+| `freq-schluss` | 2800×500 | Szene | a person sitting in meditation seen from behind on a rock at a lake at sunset, mountains, a dark calm area on the left for text, no text, no letters |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -498,4 +516,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 437 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 455 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

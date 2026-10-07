@@ -1,0 +1,44 @@
+{
+  "id": "olivenbaum",
+  "status": "published",
+  "category": "baum",
+  "name": "Olivenbaum",
+  "latin": "Olea europaea",
+  "model": {
+    "kind": "willow",
+    "color": "#8a9a6a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Ölbaumgewächse (Oleaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Früchte (Oliven), Öl, Holz, Blätter"
+    },
+    {
+      "label": "Heimat",
+      "value": "Mittelmeerraum (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Immergrün, trockenheitsresistent und sehr langlebig; einzelne Bäume werden auf über 2.000 Jahre geschätzt (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Olivenbaum ist seit Jahrtausenden Kulturbaum des Mittelmeerraums; der Ölzweig gilt in der Überlieferung als Symbol des Friedens.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

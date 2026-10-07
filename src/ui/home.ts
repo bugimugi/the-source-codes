@@ -25,6 +25,7 @@ export interface HomeApi {
   openLab(): void;
   openPlants(): void;
   openProduce(): void;
+  openTrees(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -149,6 +150,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "lab") api.openLab();
       else if (a.type === "plants") api.openPlants();
       else if (a.type === "produce") api.openProduce();
+      else if (a.type === "trees") api.openTrees();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

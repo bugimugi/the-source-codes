@@ -1,0 +1,48 @@
+{
+  "id": "ginkgo",
+  "status": "published",
+  "category": "baum",
+  "name": "Ginkgo",
+  "latin": "Ginkgo biloba",
+  "model": {
+    "kind": "willow",
+    "color": "#d9c83a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Ginkgogewächse (Ginkgoaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Blätter (Extrakte), Samen"
+    },
+    {
+      "label": "Heimat",
+      "value": "China (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Die Ginkgo-Linie ist aus Fossilien seit über 200 Millionen Jahren bekannt („lebendes Fossil“); die Blätter färben sich im Herbst leuchtend gelb (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Die Samen sind roh giftig; Blattextrakte können Medikamente beeinflussen (u. a. Gerinnungshemmer), vorher ärztlich klären (Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Ginkgo wird in China und Japan seit langem als Tempelbaum gepflanzt; Goethe widmete ihm 1815 ein Gedicht.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

@@ -124,6 +124,18 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Atlas-Einträge; 9 neue Atlas-Einträge (Avocado, Brokkoli, Spinat, Knoblauch, Heidelbeere, Zitrone, Süßkirsche, Linse, Kürbis) damit die Kategorien nicht leer sind, Sprossen bleiben „in Vorbereitung“.
     Umsetzung: `src/ui/produce.ts`, `src/data/produce.ts`, `src/produce.css` (nutzt die `.pl-*`-Teile von `src/plants.css`). Jeder Eintrag öffnet sein Profil (Granatapfel voll, die anderen als
     Kurzprofil); „Zurück“ führt hierher. Bildplätze `obst-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-gemuese-obst`, die Karten zeigen Symbole auf getönten Flächen.
+21. **Baum Atlas** (Referenzbild lokal in `design/mockups/21-baum-atlas.png`, nicht committet) – Hauptlandingpage hinter der Kachel „Bäume“. Hero „BAUM ATLAS“ (Brotkrumen Natur › Bäume,
+    Untertitel „Die lebende Architektur zwischen Erde und Himmel.“, Einleitung, Suchfeld, 5 Kennzahlen, Weltenbaum-Bild, Karte „Auf einen Blick“ mit 10 Zeilen); „Baum Kategorien“ (9 Karten: Laubbäume,
+    Nadelbäume, Obstbäume, Blütenbäume, Tropische Bäume, Heilbäume, Bergbäume, Trockengebiete, Nutzholzbäume); „Der Baum als lebendiges System“ (Schaubild mit Sonnenlicht, CO₂, O₂, Blätter, Stamm, Wurzeln,
+    Boden & Mykorrhiza); „Energiefluss & Geometrie“ (Torus-Bild + 7 Punkte); „Wissensebenen“ (Wissenschaftlich, Traditionell, Geometrisch, Spirituell); „Bäume der Welt“ (Weltkarte); „Beliebte Bäume“ (10 Karten);
+    „Die ältesten Bäume der Welt“ (5 Karten mit Alter); „Ein Baum ist ein ganzes Ökosystem“; „Was der Baum für die Erde leistet“ (8 Symbole); „Holz & Nutzung“, „Baum in Kulturen & Mythologie“, „Forschung & Zukunft“.
+    **Anders umgesetzt (Schutzlinien):** „3.000+ Baumarten“ und „120+ Familien“ sind Platzhalter: es stehen 58.497 bekannte Baumarten (Global Tree Assessment, BGCI, Suchauszug) und die gezählten Bäume im Atlas;
+    die Untertitel der beliebten Bäume („Schutz & Reinigung“, „Heilende Kraft“, „Frieden & Langlebigkeit“ …) sind sachliche Stichworte (z. B. „Hartes, langlebiges Holz“), die Symbolik steht in der Ebene „Spirituell“;
+    „heilenden Inhaltsstoffe“ in der Einleitung entfällt; Torus-Modell, Fraktale und Goldener Schnitt sind Aussagen `baum-torus`, `baum-fraktale`, `baum-goldener-schnitt` (Behauptung) und das Pilznetzwerk im Boden ist
+    `baum-mykorrhiza` (Hypothese, Simard 1997, Deutung umstritten); die Alter der ältesten Bäume sind Schätzungen mit Spanne (Methusalem ca. 4.790–4.840, Jōmon-Sugi 2.170 bis 7.000 ungesichert, Olivenbaum von Vouves
+    mindestens 2.000); „Reinigt die Luft“ bekommt einen Hinweis; die Wissensebenen zeigen die typische Belegstufe jeder Ebene. Umsetzung: `src/ui/trees.ts`, `src/data/trees.ts`, `src/trees.css`,
+    `src/ui/plantArt.ts` (gezeichnetes Schaubild und Torus). 9 neue Baum-Einträge im Atlas (Eiche, Ahorn, Olivenbaum, Buche, Zeder, Mammutbaum, Baobab, Ginkgo, Kiefer); jeder Baum öffnet sein Kurzprofil, „Zurück“ führt hierher.
+    Bildplätze `baum-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-baeume`.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

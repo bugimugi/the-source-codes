@@ -7,6 +7,7 @@ import { hasAsset, mountSlots } from "../assets/slots";
 import { searchItems } from "./search";
 import { esc } from "./dossierParts";
 import { ico } from "./icons";
+import { itemImage, ph } from "./landing";
 
 export interface ProduceApi {
   reduceMotion: boolean;
@@ -30,20 +31,6 @@ const items: AtlasEntry[] = (() => {
 const byId = (id: string) => items.find((e) => e.id === id);
 const rank = (e: AtlasEntry) => { const i = POPULAR.indexOf(e.id); return i < 0 ? 999 : i; };
 const count = (members: string[]) => groupEntries(members, all).length;
-
-/** a picture slot when the file exists, else a tinted placeholder with an icon (same box) */
-function ph(slot: string, cls: string, icon: string, tint: string): string {
-  return hasAsset(slot)
-    ? `<div class="${cls}" data-slot="${slot}" data-fit="cover" data-sizes="(max-width: 700px) 40vw, 14vw"></div>`
-    : `<div class="${cls} og-ph" style="--tint:${tint}">${ico(icon, "big")}</div>`;
-}
-
-/** the card picture: own atlas image, else the glowing nutrient motif, else the glyph placeholder */
-function itemImage(e: AtlasEntry): string {
-  const own = `atlas-${e.id}`, nut = `nutrient-${e.id}`;
-  const name = hasAsset(own) ? own : hasAsset(nut) ? nut : own;
-  return `<div class="pl-card-img${hasAsset(name) ? "" : " atlas-fallback"}" data-slot="${name}" data-fit="cover" data-sizes="(max-width: 700px) 40vw, 12vw" style="--tint:${e.model.color}" data-glyph="✿"></div>`;
-}
 
 /**
  * The "Obst & Gemüse Atlas" landing page: search, 16 categories, popular entries, world regions with a map and a season calendar,

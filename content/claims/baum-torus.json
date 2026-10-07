@@ -1,0 +1,23 @@
+{
+  "id": "baum-torus",
+  "short": "Bäume – Torus-Modell",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Baum wird in einem Torus-Modell als Verbindung von Erde und Himmel dargestellt, durch die Energie in einem Kreislauf fließt.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Der Torus ist ein symbolisches Bild aus der Energiemedizin- und Geometrie-Überlieferung. Messbar sind Licht, Wasser- und Stofftransport sowie elektrische Signale; ein torusförmiges Energiefeld des Baums ist nicht nachgewiesen. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "baum-fraktale",
+  "short": "Bäume – Fraktale Strukturen",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Äste und Wurzeln von Bäumen verzweigen sich näherungsweise selbstähnlich (fraktal).",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Verzweigungsmuster lassen sich mit mathematischen Fraktalmodellen gut beschreiben; echte Bäume sind keine exakten Fraktale, sondern zeigen die Selbstähnlichkeit nur über einen begrenzten Größenbereich. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

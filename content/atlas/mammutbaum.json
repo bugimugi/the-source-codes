@@ -1,0 +1,44 @@
+{
+  "id": "mammutbaum",
+  "status": "published",
+  "category": "baum",
+  "name": "Riesenmammutbaum",
+  "latin": "Sequoiadendron giganteum",
+  "model": {
+    "kind": "willow",
+    "color": "#7a4a2a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Zypressengewächse (Cupressaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Holz (heute überwiegend geschützt)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Sierra Nevada, Kalifornien (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Der Riesenmammutbaum stellt die massereichsten Einzelbäume; die höchsten Bäume der Erde sind die verwandten Küstenmammutbäume (über 110 m) (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Die Riesenmammutbäume der Sierra Nevada wurden im 19. Jahrhundert weithin bekannt und stehen heute größtenteils in Nationalparks.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

@@ -22,6 +22,7 @@ export const ORIGIN: Record<string, Region[]> = {
   ashwagandha: ["asien"], rosmarin: ["europa"], kamille: ["europa"], kurkuma: ["asien"], ingwer: ["asien"], lavendel: ["europa"],
   pfefferminze: ["europa"], salbei: ["europa"], echinacea: ["nordamerika"], "aloe-vera": ["afrika"], teebaum: ["ozeanien"],
   brennnessel: ["europa"], ringelblume: ["europa"], weide: ["europa"], apfel: ["asien"], granatapfel: ["asien"], karotte: ["asien"], tomate: ["suedamerika"], walnuss: ["asien"],
+  eiche: ["europa"], ahorn: ["europa"], olivenbaum: ["europa", "afrika", "asien"], buche: ["europa"], zeder: ["asien"], mammutbaum: ["nordamerika"], baobab: ["afrika"], ginkgo: ["asien"], kiefer: ["europa", "asien"],
   avocado: ["nordamerika"], brokkoli: ["europa"], spinat: ["asien"], knoblauch: ["asien"], heidelbeere: ["europa"], zitrone: ["asien"], kirsche: ["europa"], linsen: ["asien"], kuerbis: ["nordamerika"],
 };
 
@@ -41,7 +42,7 @@ export const GROUPS: PlantGroup[] = [
   { id: "alle", title: "Alle Pflanzen", sub: "Entdecken", slot: "tile-pflanzen", members: ["category:kraut", "category:blume", "category:baum", "category:obst", "category:gemuese", "category:pilz"] },
   { id: "kraeuter", title: "Kräuter", sub: "Heilpflanzen", slot: "plants-cat-kraeuter", fallbackSlot: "tile-pflanzen", members: ["brennnessel", "pfefferminze", "kamille", "lavendel", "rosmarin", "salbei", "ashwagandha", "aloe-vera"] },
   { id: "blueten", title: "Blüten", sub: "Duftpflanzen", slot: "plants-cat-blueten", fallbackSlot: "tile-pflanzen", members: ["kamille", "lavendel", "ringelblume", "echinacea"] },
-  { id: "baeume", title: "Bäume", sub: "Wälder & Rinde", slot: "tile-baeume", members: ["weide", "teebaum", "walnuss", "apfel"] },
+  { id: "baeume", title: "Bäume", sub: "Wälder & Rinde", slot: "tile-baeume", members: ["eiche", "ahorn", "olivenbaum", "buche", "zeder", "mammutbaum", "baobab", "ginkgo", "kiefer", "weide", "teebaum", "walnuss", "apfel"] },
   { id: "pilze", title: "Pilze", sub: "Medizinalpilze", slot: "tile-pilze", members: ["category:pilz"] },
   { id: "gewuerze", title: "Gewürze", sub: "Küche & Tradition", slot: "plants-cat-gewuerze", fallbackSlot: "tile-pflanzen", members: ["ingwer", "kurkuma", "rosmarin"] },
   { id: "fruechte", title: "Früchte", sub: "Nährstoffe", slot: "plants-cat-fruechte", fallbackSlot: "tile-gemuese-obst", members: ["granatapfel", "apfel", "avocado", "heidelbeere", "zitrone", "kirsche", "tomate", "walnuss"] },

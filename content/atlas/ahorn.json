@@ -1,0 +1,44 @@
+{
+  "id": "ahorn",
+  "status": "published",
+  "category": "baum",
+  "name": "Bergahorn",
+  "latin": "Acer pseudoplatanus",
+  "model": {
+    "kind": "willow",
+    "color": "#c8602a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Seifenbaumgewächse (Sapindaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Holz, Saft"
+    },
+    {
+      "label": "Heimat",
+      "value": "Mittel- und Südeuropa bis Kaukasus (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Geflügelte Früchte („Nasen“) und auffällige Herbstfärbung; der Ahornsirup stammt vom nordamerikanischen Zuckerahorn (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Das Ahornblatt ist das Nationalsymbol Kanadas; in Mitteleuropa ist der Bergahorn ein verbreiteter Park- und Waldbaum.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

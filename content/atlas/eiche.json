@@ -1,0 +1,48 @@
+{
+  "id": "eiche",
+  "status": "published",
+  "category": "baum",
+  "name": "Stieleiche",
+  "latin": "Quercus robur",
+  "model": {
+    "kind": "willow",
+    "color": "#6b8a3a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Buchengewächse (Fagaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Holz, Rinde, Früchte (Eicheln)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Europa (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Sehr hartes, dauerhaftes Holz; Eicheln und Rinde enthalten viel Gerbstoff (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Eicheln sind roh bitter und für Menschen nicht zum Verzehr gedacht (Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "In der griechischen Antike war die Eiche dem Göttervater Zeus geweiht; auch in der keltischen und germanischen Überlieferung gilt sie als heiliger Baum (Source pending verification).",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

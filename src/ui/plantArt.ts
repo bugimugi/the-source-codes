@@ -253,3 +253,57 @@ export function seedPatternSvg(uid: string): string {
   for (let q = -3; q <= 3; q++) for (let s = -3; s <= 3; s++) if (Math.max(Math.abs(q), Math.abs(s), Math.abs(q + s)) <= 3) pts.push([d * (q + s / 2), d * (Math.sqrt(3) / 2) * s]);
   return `<svg class="pa-fol" viewBox="-56 -56 112 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="${uid}" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#f4707a"/><stop offset="1" stop-color="#7b1020"/></radialGradient></defs><circle r="52" fill="none" stroke="#F0D18B" stroke-width="1.4"/><g fill="url(#${uid})" stroke="#F0D18B" stroke-width=".7">${pts.map(([x, y]) => `<circle cx="${f(x)}" cy="${f(y)}" r="5.6"/>`).join("")}</g></svg>`;
 }
+
+/**
+ * The tree as a living system (800 x 520): sun, crown, trunk, roots and the fungal network in the soil next to a second tree.
+ * Every part sits in a group with `data-flow` so that the page can light up the one that is selected.
+ */
+export function treeSystemSvg(uid: string): string {
+  const stars = Array.from({ length: 36 }, (_, i) => `<circle cx="${(i * 197) % 800}" cy="${(i * 61) % 230}" r="${0.6 + (i % 3) * 0.4}" fill="#fff" opacity="${0.25 + (i % 4) * 0.12}"/>`).join("");
+  const blobs: [number, number, number][] = [[400, 118, 70], [330, 142, 62], [470, 142, 62], [290, 178, 52], [510, 178, 52], [360, 176, 60], [440, 176, 60], [400, 70, 50], [340, 96, 48], [462, 96, 48], [400, 160, 58]];
+  const crown = blobs.map(([x, y, r], i) => `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#${uid}-c${i % 2})" opacity=".96"/>`).join("");
+  const roots = [
+    "M400 336 C380 360 340 380 292 410 C262 430 236 470 220 506",
+    "M400 336 C392 372 372 408 350 440 C340 462 336 490 334 512",
+    "M400 336 C404 376 402 416 398 452 C396 478 398 498 400 514",
+    "M400 336 C420 366 462 384 506 410 C540 432 556 470 570 506",
+    "M400 336 C414 370 430 402 452 430 C466 452 470 484 468 512",
+    "M340 380 C312 386 284 404 270 430", "M452 396 C482 406 508 424 524 452", "M292 410 C266 408 242 418 226 440", "M506 410 C532 404 556 412 572 432",
+  ];
+  const rootPaths = roots.map((d, i) => `<path d="${d}" fill="none" stroke="#a07a45" stroke-width="${i < 5 ? 6 - i * 0.6 : 2.4}" stroke-linecap="round"/>`).join("");
+  const hair = Array.from({ length: 18 }, (_, i) => { const x = 230 + i * 19, y = 440 + ((i * 29) % 60); return `<path d="M${x} ${y}c6 8 10 16 8 26" fill="none" stroke="#c9a66b" stroke-width="1" opacity=".6"/>`; }).join("");
+  const net = `<path d="M292 410 C340 470 430 482 560 420 M350 440 C420 500 520 494 640 410 M452 430 C520 470 590 458 664 392" fill="none" stroke="#d9b8ff" stroke-width="1.4" stroke-dasharray="3 5" class="bm-dash"/>${[[340, 470], [430, 484], [520, 490], [600, 452]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.4" fill="#f0e0ff"/>`).join("")}`;
+  const neighbour = `<path d="M676 336 C672 300 672 262 676 226 L694 226 C698 262 698 300 696 336Z" fill="#5b3f26"/><circle cx="686" cy="196" r="46" fill="url(#${uid}-c0)"/><circle cx="656" cy="226" r="32" fill="url(#${uid}-c1)"/><circle cx="716" cy="226" r="32" fill="url(#${uid}-c1)"/><path d="M686 336 C680 380 660 420 640 450 M686 336 C700 380 716 410 740 440" fill="none" stroke="#a07a45" stroke-width="4" stroke-linecap="round"/>`;
+  const shrooms = [[246, 340], [560, 344], [622, 344]].map(([x, y]) => `<path d="M${x - 9} ${y}c0-12 18-12 18 0z" fill="#d9a47a"/><rect x="${x - 2}" y="${y}" width="4" height="9" fill="#efe2cc"/>`).join("");
+  return `<svg class="bm-svg" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gezeichnetes Schaubild: Baum mit Sonne, Krone, Stamm, Wurzeln und Pilzgeflecht im Boden (Platzhalter bis das Bild vorliegt)" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="${uid}-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1230"/><stop offset=".7" stop-color="#1b3a4a"/><stop offset="1" stop-color="#2f5a48"/></linearGradient>
+      <linearGradient id="${uid}-gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2a18"/><stop offset="1" stop-color="#120c07"/></linearGradient>
+      <radialGradient id="${uid}-c0" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#8fcf5a"/><stop offset="1" stop-color="#2f6a2a"/></radialGradient>
+      <radialGradient id="${uid}-c1" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#6fb04a"/><stop offset="1" stop-color="#24562a"/></radialGradient>
+      <radialGradient id="${uid}-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2b0"/><stop offset=".4" stop-color="#ffd24a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd24a" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="800" height="336" fill="url(#${uid}-sky)"/>${stars}
+    <rect y="336" width="800" height="184" fill="url(#${uid}-gr)"/><path d="M0 336 C200 328 600 328 800 336" stroke="#4a6a2a" stroke-width="3" fill="none"/>
+    ${neighbour}
+    <g data-flow="roots">${rootPaths}${hair}</g>
+    <g data-flow="soil">${net}${shrooms}</g>
+    <g data-flow="trunk"><path d="M370 342 C380 300 386 250 384 196 L418 196 C416 250 422 300 432 342 Z" fill="#6b4a2c" stroke="#3f2a16" stroke-width="2"/><path d="M394 330 L394 206 M408 330 L408 206" stroke="#3f2a16" stroke-opacity=".5" fill="none"/><path d="M401 336 L401 200" stroke="#58D6E8" stroke-width="3" stroke-linecap="round" fill="none" class="bm-dash" stroke-dasharray="6 8"/></g>
+    <g data-flow="leaves">${crown}</g>
+    <g data-flow="sun"><circle cx="120" cy="84" r="74" fill="url(#${uid}-sun)"/><circle cx="120" cy="84" r="26" fill="#ffe27a"/><path d="M158 112 L300 160 M170 90 L318 124 M150 130 L280 190" stroke="#ffe27a" stroke-width="2.4" stroke-linecap="round" fill="none" class="bm-dash" stroke-dasharray="4 8"/></g>
+    <g data-flow="co2"><path d="M40 250 C120 244 200 220 290 176" stroke="#9be7ff" stroke-width="2.4" fill="none" stroke-linecap="round" class="bm-dash" stroke-dasharray="5 7"/>${[[70, 248], [130, 240], [200, 224]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="#9be7ff" opacity=".9"/>`).join("")}</g>
+    <g data-flow="o2"><path d="M300 150 C250 120 200 100 150 70" stroke="#b6ffb0" stroke-width="2.4" fill="none" stroke-linecap="round" class="bm-dash" stroke-dasharray="5 7"/>${[[236, 112], [196, 92], [166, 78]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="none" stroke="#b6ffb0" stroke-width="1.6"/>`).join("")}</g>
+  </svg>`;
+}
+
+/** a torus seen from the side: nested field loops around a small tree (the symbolic "energy flow" picture, 600 x 380) */
+export function torusSvg(uid: string): string {
+  const loops = Array.from({ length: 7 }, (_, i) => `<ellipse cx="300" cy="190" rx="${250 - i * 30}" ry="${160 - i * 19}" fill="none" stroke="url(#${uid}-g)" stroke-width="${1.6 - i * 0.12}" opacity="${0.9 - i * 0.08}"/>`).join("");
+  const arcs = Array.from({ length: 5 }, (_, i) => { const k = 40 + i * 42; return `<path d="M300 24 C${300 + k * 1.7} 70 ${300 + k * 1.7} 310 300 356 C${300 - k * 1.7} 310 ${300 - k * 1.7} 70 300 24" fill="none" stroke="#58D6E8" stroke-width="1" opacity=".5"/>`; }).join("");
+  return `<svg class="bm-torus" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><linearGradient id="${uid}-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#58D6E8"/><stop offset=".5" stop-color="#F0D18B"/><stop offset="1" stop-color="#58D6E8"/></linearGradient>
+    <radialGradient id="${uid}-b" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F0D18B" stop-opacity=".35"/><stop offset="1" stop-color="#58D6E8" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="300" cy="190" rx="260" ry="170" fill="url(#${uid}-b)"/>${loops}${arcs}
+    <path d="M300 300 L300 205" stroke="#a07a45" stroke-width="7" stroke-linecap="round"/><circle cx="300" cy="170" r="40" fill="#5fa84a" opacity=".9"/><circle cx="270" cy="188" r="26" fill="#4a9040" opacity=".9"/><circle cx="332" cy="188" r="26" fill="#4a9040" opacity=".9"/>
+    <path d="M300 300 C280 322 250 330 226 346 M300 300 C320 322 350 330 374 346 M300 300 L300 346" stroke="#c9a66b" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`;
+}

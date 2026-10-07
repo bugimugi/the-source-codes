@@ -1,0 +1,25 @@
+{
+  "id": "baum-gefaehrdung",
+  "short": "Bäume – Gefährdung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Rund 30 Prozent der bekannten Baumarten gelten als vom Aussterben bedroht; weltweit sind etwa 58.500 Baumarten bekannt.",
+  "level": "claimed",
+  "rationale": "Angabe der Global Tree Assessment (Botanic Gardens Conservation International, BGCI): 58.497 bekannte Baumarten, rund 30 % bedroht. Aus Suchauszügen, Originalbericht nicht geprüft; die Zahl der bekannten Arten ändert sich mit neuen Beschreibungen. Source pending verification.",
+  "sources": [
+    {
+      "id": "bgci-gta",
+      "kind": "historical-document",
+      "title": "Global Tree Assessment (Informationsseite)",
+      "author": "Botanic Gardens Conservation International (BGCI)",
+      "citation": "Seite dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://www.bgci.org/our-work/projects-and-case-studies/global-tree-assessment/",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

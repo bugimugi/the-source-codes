@@ -1,0 +1,25 @@
+{
+  "id": "baum-mykorrhiza",
+  "short": "Bäume – Mykorrhiza-Netzwerk",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Bäume sind über Pilzgeflechte (Mykorrhiza) im Boden verbunden; zwischen Bäumen wurde eine Übertragung von Kohlenstoff nachgewiesen, ihr Ausmaß und ihre Bedeutung sind umstritten.",
+  "level": "hypothesis",
+  "rationale": "Hypothese: Die Zusammenarbeit von Bäumen und Mykorrhiza-Pilzen (Pilze erhalten Zucker, liefern Wasser und Mineralstoffe) ist gesichertes Lehrbuchwissen. Eine Studie von Simard u. a. (Nature, 1997) beschrieb den Kohlenstoffaustausch zwischen Bäumen über Pilzgeflechte im Freiland, und Folgearbeiten fanden Übertragungen. Strittig ist, wie stark das Netzwerk das Verhalten ganzer Wälder bestimmt: Deutungen wie „Bäume kommunizieren und helfen einander“ gehen über die Messungen hinaus. Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification).",
+  "sources": [
+    {
+      "id": "simard-1997",
+      "kind": "peer-reviewed",
+      "title": "Kohlenstoffübertragung zwischen Baumarten über Mykorrhiza im Freiland",
+      "author": "Simard SW u. a.",
+      "year": 1997,
+      "citation": "Nature 1997. Einzelangaben: Source pending verification",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

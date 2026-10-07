@@ -12,8 +12,8 @@ import { ico } from "./icons";
 import { bowlSvg, figureSvg, flowerOfLifeSvg, fruitSvg, fruitStageSvg, plantSvg, seedPatternSvg, stageSvg } from "./plantArt";
 
 /** the landing page a profile was opened from: the plant atlas or the fruit and vegetable atlas */
-export type ProfileFrom = "plants" | "produce";
-const FROM_LABEL: Record<ProfileFrom, string> = { plants: "Pflanzenatlas", produce: "Obst & Gemüse Atlas" };
+export type ProfileFrom = "plants" | "produce" | "trees";
+const FROM_LABEL: Record<ProfileFrom, string> = { plants: "Pflanzenatlas", produce: "Obst & Gemüse Atlas", trees: "Baum Atlas" };
 
 export interface PlantProfileApi {
   reduceMotion: boolean;

@@ -1,0 +1,44 @@
+{
+  "id": "zeder",
+  "status": "published",
+  "category": "baum",
+  "name": "Libanonzeder",
+  "latin": "Cedrus libani",
+  "model": {
+    "kind": "willow",
+    "color": "#3f6a45"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Kieferngewächse (Pinaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Holz, Harz"
+    },
+    {
+      "label": "Heimat",
+      "value": "Gebirge des östlichen Mittelmeerraums (Libanon, Türkei, Syrien) (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Nadelbaum mit aromatischem, dauerhaftem Holz (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Zedernholz ist in antiken Texten als wertvolles Bauholz überliefert, etwa im Gilgamesch-Epos und in der Bibel; die Zeder steht auf der Flagge des Libanon (Source pending verification).",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

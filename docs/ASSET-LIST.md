@@ -245,6 +245,32 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `obst-rezept-smoothies` | 600×600 | Szene | two colourful fruit smoothies in glasses with fresh fruit around them, dark background |
 | `obst-rezept-salate` | 600×600 | Szene | a fresh colourful salad bowl with leaves, tomatoes and pomegranate seeds, dark background |
 | `obst-rezept-warm` | 600×600 | Szene | a warm vegetable stew in a ceramic pot with herbs, steam rising, dark background |
+| `baum-hero` | 2800×1300 | Szene | a gigantic ancient world tree with glowing golden roots spreading through the earth and a luminous crown, a mountain valley with a waterfall and a lake behind, magical warm light and floating light particles, calm darker area on the left for text, no people |
+| `baum-system` | 1600×1040 | Szene | a large tree seen in cross-section: sunlight and glowing green energy flowing through crown, trunk and roots, mycorrhizal fungal threads in the soil connecting to a second tree, mushrooms at the ground, night sky with stars, empty space at the left and right edges for labels |
+| `baum-torus` | 1200×760 | Szene | a luminous tree inside a glowing torus-shaped field of fine blue and golden lines, symbolic energy diagram on a dark background, elegant, no text |
+| `baum-map` | 2400×1100 | Szene | a dark stylised world map in teal and gold with glowing green forest areas on every continent and fine connecting lines, calm and dark |
+| `baum-cat-laub` | 800×960 | Szene | a mighty broadleaf oak tree in summer under a blue sky, dark background |
+| `baum-cat-nadel` | 800×960 | Szene | tall dark conifer trees in a misty forest, dark background |
+| `baum-cat-obst` | 800×960 | Szene | an apple tree full of ripe red apples, dark background |
+| `baum-cat-blueten` | 800×960 | Szene | a blossoming cherry tree with pink flowers, dark background |
+| `baum-cat-tropen` | 800×960 | Szene | a lush tropical rainforest tree with hanging lianas, dark background |
+| `baum-cat-heil` | 800×960 | Szene | an ancient healing tree with a spiral trunk in warm light, dark background |
+| `baum-cat-berg` | 800×960 | Szene | a lone pine tree on a mountain ridge with snowy peaks, dark background |
+| `baum-cat-trocken` | 800×960 | Szene | an acacia tree in a golden dry savanna at sunset, dark background |
+| `baum-cat-holz` | 800×960 | Szene | giant redwood trunks in a forest with light rays, dark background |
+| `baum-ebene-wissenschaft` | 600×800 | Szene | a green leaf with glowing veins and tiny scientific symbols, microscope look, dark background |
+| `baum-ebene-traditionell` | 600×800 | Szene | an old oak with a medicine woman gathering bark and herbs, painterly, warm light |
+| `baum-ebene-geometrisch` | 600×800 | Szene | a golden spiral and fractal branching pattern, glowing lines on a dark background |
+| `baum-ebene-spirituell` | 600×800 | Szene | a meditating figure under a glowing world tree, mystical light, dark background |
+| `baum-old-methusalem` | 600×800 | Szene | an ancient gnarled bristlecone pine on a rocky mountain slope, dramatic light |
+| `baum-old-olive` | 600×800 | Szene | a huge ancient olive tree with a hollow twisted trunk in a Mediterranean grove |
+| `baum-old-jomon` | 600×800 | Szene | a massive ancient Japanese cedar in a misty moss-covered forest |
+| `baum-old-baobab` | 600×800 | Szene | a baobab tree with a thick trunk in a savanna at sunset |
+| `baum-old-eiche` | 600×800 | Szene | a very old mighty oak with a wide crown and thick branches in an English meadow |
+| `baum-oeko` | 1600×800 | Szene | the base of a huge old tree with a deer, birds, mushrooms, insects and moss around it, forest ecosystem, soft magical light, empty space on the right for text |
+| `baum-holz` | 800×450 | Szene | a stack of cut logs and timber boards in warm light, dark background |
+| `baum-kultur` | 800×450 | Szene | stone temples and statues among ancient trees, a figure meditating, mystical light |
+| `baum-forschung` | 800×450 | Szene | a green seedling growing in front of a research laboratory with glassware, warm light |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -252,19 +278,24 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 
 | Datei | Motiv |
 |---|---|
+| `atlas-ahorn` | Bergahorn (Acer pseudoplatanus) |
 | `atlas-aloe-vera` | Aloe vera (Aloe vera (Aloe barbadensis)) |
 | `atlas-amethyst` | Amethyst (Quarz (violette Varietät)) |
 | `atlas-apfel` | Apfel (Malus domestica) |
 | `atlas-ashwagandha` | Ashwagandha (Withania somnifera) |
 | `atlas-austernpilz` | Austernseitling (Pleurotus ostreatus) |
 | `atlas-avocado` | Avocado (Persea americana) |
+| `atlas-baobab` | Affenbrotbaum (Baobab) (Adansonia digitata) |
 | `atlas-brennnessel` | Große Brennnessel (Urtica dioica) |
 | `atlas-brokkoli` | Brokkoli (Brassica oleracea var. italica) |
+| `atlas-buche` | Rotbuche (Fagus sylvatica) |
 | `atlas-chaga` | Chaga (Schiefer Schillerporling) (Inonotus obliquus) |
 | `atlas-citrin` | Citrin (Quarz (gelbe Varietät)) |
 | `atlas-echinacea` | Purpur-Sonnenhut (Echinacea) (Echinacea purpurea) |
+| `atlas-eiche` | Stieleiche (Quercus robur) |
 | `atlas-fliegenpilz` | Fliegenpilz (Amanita muscaria) |
 | `atlas-fluorit` | Fluorit (Fluorit) |
+| `atlas-ginkgo` | Ginkgo (Ginkgo biloba) |
 | `atlas-granat` | Granat (Granat (Mineralgruppe)) |
 | `atlas-granatapfel` | Granatapfel (Punica granatum) |
 | `atlas-heidelbeere` | Heidelbeere (Vaccinium myrtillus) |
@@ -272,6 +303,7 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-ingwer` | Ingwer (Zingiber officinale) |
 | `atlas-kamille` | Echte Kamille (Matricaria chamomilla) |
 | `atlas-karotte` | Karotte (Daucus carota subsp. sativus) |
+| `atlas-kiefer` | Waldkiefer (Pinus sylvestris) |
 | `atlas-kirsche` | Süßkirsche (Prunus avium) |
 | `atlas-knoblauch` | Knoblauch (Allium sativum) |
 | `atlas-kordyzeps` | Chinesischer Raupenpilz (Cordyceps) (Ophiocordyceps sinensis) |
@@ -281,7 +313,9 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-lavendel` | Echter Lavendel (Lavandula angustifolia) |
 | `atlas-linsen` | Linse (Lens culinaris) |
 | `atlas-malachit` | Malachit (Malachit) |
+| `atlas-mammutbaum` | Riesenmammutbaum (Sequoiadendron giganteum) |
 | `atlas-obsidian` | Obsidian (Vulkanisches Glas) |
+| `atlas-olivenbaum` | Olivenbaum (Olea europaea) |
 | `atlas-pfefferminze` | Pfefferminze (Mentha × piperita) |
 | `atlas-pyrit` | Pyrit (Pyrit) |
 | `atlas-quarz` | Bergkristall (Quarz) (Quarz) |
@@ -297,6 +331,7 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-turmalin` | Schwarzer Turmalin (Schörl) (Turmalin-Gruppe (Schörl)) |
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
+| `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 238 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 273 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

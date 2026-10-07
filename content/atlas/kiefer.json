@@ -1,0 +1,44 @@
+{
+  "id": "kiefer",
+  "status": "published",
+  "category": "baum",
+  "name": "Waldkiefer",
+  "latin": "Pinus sylvestris",
+  "model": {
+    "kind": "willow",
+    "color": "#4a6a3a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Kieferngewächse (Pinaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Holz, Harz, Nadeln, Zapfen"
+    },
+    {
+      "label": "Heimat",
+      "value": "Europa bis Sibirien (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Das Harz liefert Terpentin und Kolophonium; die Art wächst auch auf kargen Böden (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Kiefernharz („Pech“) wurde seit der Antike zum Abdichten von Schiffen und für Fackeln verwendet.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

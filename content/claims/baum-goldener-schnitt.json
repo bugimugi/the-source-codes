@@ -1,0 +1,23 @@
+{
+  "id": "baum-goldener-schnitt",
+  "short": "Bäume – Goldener Schnitt",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "In der Natur, auch beim Baum, findet sich der Goldene Schnitt.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Näherungen an den Goldenen Winkel sind in der Blattstellung vieler Pflanzen beschrieben (Phyllotaxis); dass ganze Bäume im Goldenen Schnitt gebaut sind, ist eine verbreitete, aber nicht belegte Verallgemeinerung. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "baobab",
+  "status": "published",
+  "category": "baum",
+  "name": "Affenbrotbaum (Baobab)",
+  "latin": "Adansonia digitata",
+  "model": {
+    "kind": "willow",
+    "color": "#9a7a4a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Malvengewächse (Malvaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Früchte (Fruchtmark), Samen, Blätter"
+    },
+    {
+      "label": "Heimat",
+      "value": "Afrika, Savannen südlich der Sahara (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Der dicke Stamm speichert Wasser; in der Trockenzeit wirft der Baum seine Blätter ab (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "In vielen Regionen Afrikas ist der Baobab ein Dorfmittelpunkt und wird wegen seiner Früchte und seines Stamms genutzt (Source pending verification).",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

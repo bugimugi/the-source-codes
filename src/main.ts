@@ -14,6 +14,7 @@ import "./lab.css";
 import "./plants.css";
 import "./plantProfile.css";
 import "./produce.css";
+import "./trees.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -36,6 +37,7 @@ import { initLab } from "./ui/lab";
 import { initPlants } from "./ui/plants";
 import { initPlantProfile, type ProfileFrom } from "./ui/plantProfile";
 import { initProduce } from "./ui/produce";
+import { initTrees } from "./ui/trees";
 import type { StationId } from "./data/lab";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
@@ -130,7 +132,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "plant";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "plant";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -149,6 +151,7 @@ let labView: ReturnType<typeof initLab> | null = null;
 let plantsView: ReturnType<typeof initPlants> | null = null;
 let plantView: ReturnType<typeof initPlantProfile> | null = null;
 let produceView: ReturnType<typeof initProduce> | null = null;
+let treesView: ReturnType<typeof initTrees> | null = null;
 let pendingPlant: string | undefined;
 let pendingPlantFrom: ProfileFrom = "plants";
 let plantFrom: ProfileFrom = "plants";
@@ -168,16 +171,17 @@ const labEl = $("lab");
 const plantsEl = $("plants");
 const plantEl = $("plant");
 const produceEl = $("produce");
+const treesEl = $("trees");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
-  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
+  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "trees", label: "Bäume" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
   { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
   { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
 ];
 document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
   // a plant profile belongs to the "Pflanzen" or the "Obst & Gemüse" tab (the one it was opened from): marked as current in openPlantView, still a link back
-  nav.innerHTML = VIEW_TABS.map((t) => (nav.dataset.tabs === "plant" && (t.id === "plants" || t.id === "produce") ? `<button class="tab" data-goto="${t.id}" data-from="${t.id}">${t.label}</button>` : t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
+  nav.innerHTML = VIEW_TABS.map((t) => (nav.dataset.tabs === "plant" && (t.id === "plants" || t.id === "produce" || t.id === "trees") ? `<button class="tab" data-goto="${t.id}" data-from="${t.id}">${t.label}</button>` : t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
 });
 const stageEl = $("stage");
 const nav = $("nav");
@@ -331,6 +335,8 @@ function openPlantsView(): boolean {
 function fromPlant(next: () => void) { plantEl.hidden = true; plantView?.stop(); view = "hero"; next(); }
 /** leaves the fruit and vegetable atlas for another view */
 function fromProduce(next: () => void) { produceEl.hidden = true; produceView?.stop(); view = "hero"; next(); }
+/** leaves the tree atlas for another view */
+function fromTrees(next: () => void) { treesEl.hidden = true; treesView?.stop(); view = "hero"; next(); }
 
 function openPlantView(id?: string, from: ProfileFrom = "plants"): boolean {
   if (!id) return false;
@@ -371,6 +377,22 @@ function openProduceView(): boolean {
   produceView.start();
   fade(produceEl, true);
   $("leave-produce").focus();
+  return true;
+}
+
+function openTreesView(): boolean {
+  treesEl.hidden = false;
+  treesView ??= initTrees(treesEl, {
+    reduceMotion,
+    openPlant: (id) => fromTrees(() => { pendingPlant = id; pendingPlantFrom = "trees"; go("plant"); }),
+    openAtlas: (id) => fromTrees(() => { go("atlas"); if (id) atlasView?.select(id); else atlasView?.showCategory("baum"); }),
+    openCultures: () => fromTrees(() => { go("cultures"); }),
+    openPlants: () => fromTrees(() => { go("plants"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+  });
+  treesView.start();
+  fade(treesEl, true);
+  $("leave-trees").focus();
   return true;
 }
 
@@ -469,6 +491,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   plants: { el: plantsEl, stop: () => plantsView?.stop() },
   plant: { el: plantEl, stop: () => plantView?.stop() },
   produce: { el: produceEl, stop: () => produceView?.stop() },
+  trees: { el: treesEl, stop: () => treesView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -487,6 +510,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "lab" && !openLabView(pendingLab)) return false;
   if (next === "plants" && !openPlantsView()) return false;
   if (next === "produce" && !openProduceView()) return false;
+  if (next === "trees" && !openTreesView()) return false;
   if (next === "plant" && !openPlantView(pendingPlant, pendingPlantFrom)) return false;
   pendingEnergy = undefined;
   pendingPlant = undefined;
@@ -534,6 +558,7 @@ const home = initHome($("home"), {
   openEnergy(id?: string) { if (view === "energy") energyView?.start(id); else { pendingEnergy = id; go("energy"); } },
   openPlants() { go("plants"); },
   openProduce() { go("produce"); },
+  openTrees() { go("trees"); },
   openLab(station?: StationId) { if (view === "lab") labView?.start(station); else { pendingLab = station; go("lab"); } },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
@@ -565,6 +590,7 @@ $("leave-lab").addEventListener("click", () => go("hero"));
 $("leave-plants").addEventListener("click", () => go("hero"));
 $("leave-plant").addEventListener("click", () => go("hero"));
 $("leave-produce").addEventListener("click", () => go("hero"));
+$("leave-trees").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

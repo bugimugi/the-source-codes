@@ -1,0 +1,26 @@
+{
+  "id": "atem-angst",
+  "short": "Atemübungen bei Anspannung und Angst",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Atemübungen können Anspannung und Angst kurzfristig verringern.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion berichten Übersichtsarbeiten (u. a. Zaccaro 2018) über geringere Anspannung nach langsamer Atmung, meist in kleinen, kurzen Studien mit unterschiedlichen Methoden. Für eine Wirkung bei Angststörungen ist das kein Beleg; bei starken oder anhaltenden Ängsten gehört die Abklärung zu Ärztin oder Arzt. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "zaccaro-2018",
+      "kind": "peer-reviewed",
+      "title": "How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing",
+      "author": "Zaccaro A. et al.",
+      "year": 2018,
+      "citation": "Frontiers in Human Neuroscience 12: 353 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "atem-langsam-hrv"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

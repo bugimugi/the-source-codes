@@ -1,0 +1,26 @@
+{
+  "id": "atem-stimmung",
+  "short": "Atemübungen und Stimmung",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Kurze tägliche Atemübungen, besonders das „zyklische Seufzen“ (Einatmen, kurzes zweites Einatmen, langes Ausatmen), besserten in einer Studie die Stimmung stärker als Achtsamkeitsmeditation.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion beschreibt Balban et al. (2023, Cell Reports Medicine) einen randomisierten Vergleich über einen Monat mit etwa fünf Minuten pro Tag; die Unterschiede waren klein. Eine einzelne Studie; Bestätigungen und die Frage, ob der Effekt bei Erkrankungen trägt, sind offen. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "balban-2023",
+      "kind": "peer-reviewed",
+      "title": "Brief structured respiration practices enhance mood and reduce physiological arousal",
+      "author": "Balban M.Y. et al.",
+      "year": 2023,
+      "citation": "Cell Reports Medicine 4(1): 100895 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "atem-achtsamkeit"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

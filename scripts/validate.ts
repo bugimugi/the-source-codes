@@ -12,6 +12,7 @@ import { validateElementProfiles } from "../src/data/validateElements.ts";
 import { validateCrystalPage } from "../src/data/validateCrystals.ts";
 import { validateAnatomyPage } from "../src/data/validateAnatomy.ts";
 import { validateFreqPage } from "../src/data/validateFreq.ts";
+import { validateAtemPage } from "../src/data/validateAtem.ts";
 import type { AtlasEntry, Claim } from "../src/data/types.ts";
 import { LEVEL_LABEL } from "../src/data/types.ts";
 
@@ -40,7 +41,8 @@ const c5 = validateElementProfiles(FULL, new Set(ELEMENTS.map((e) => e.sym)), ne
 const c6 = validateCrystalPage(new Set(atlasEntries.filter((e) => e.status === "published").map((e) => e.id)), new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n));
 const c7 = validateAnatomyPage(new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n));
 const c8 = validateFreqPage(new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n), Object.keys(LEVEL_LABEL));
-const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6, ...c7, ...c8];
+const c9 = validateAtemPage(new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n));
+const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6, ...c7, ...c8, ...c9];
 const warnings = [...c1.warnings, ...c2.warnings, ...c3.warnings];
 const verbose = process.argv.includes("--report");
 if (verbose && warnings.length) console.log(`Hinweise:\n${warnings.map((w) => "  - " + w).join("\n")}\n`);

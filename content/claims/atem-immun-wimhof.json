@@ -1,0 +1,24 @@
+{
+  "id": "atem-immun-wimhof",
+  "short": "Atem- und Kältetraining und die Immunantwort",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Nach einem Training aus Atemtechnik, Kälteexposition und Meditation zeigten zwölf Männer in einer Studie eine schwächere Entzündungsreaktion auf eine Bakterien-Testsubstanz.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion beschreibt Kox et al. (2014, PNAS) eine kleine Studie mit einer trainierten und einer Kontrollgruppe. Sie zeigt, dass die Reaktion beeinflussbar scheint, nicht dass dadurch Infektionen verhindert werden; welcher Teil des Trainings (Atmung, Kälte, Meditation) wirkt, ist offen. Die starke Atmung mit Atemanhalten dieser Methode ist gefährlich im oder am Wasser, beim Fahren und im Stehen; „Immunsystem stärken“ durch Atmung ist nicht belegt. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "kox-2014",
+      "kind": "peer-reviewed",
+      "title": "Voluntary activation of the sympathetic nervous system and attenuation of the innate immune response in humans",
+      "author": "Kox M. et al.",
+      "year": 2014,
+      "citation": "Proceedings of the National Academy of Sciences 111(20): 7379–7384 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

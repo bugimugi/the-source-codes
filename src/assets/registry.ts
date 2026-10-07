@@ -29,6 +29,7 @@ const ELEMENT = "Elementprofil Wasserstoff";
 const KRISTALL = "Kristall-Atlas";
 const KOERPER = "Der menschliche Körper";
 const FREQ = "Frequenz-Seite";
+const ATEM = "Atem-Seite";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -450,6 +451,17 @@ export const SLOTS = {
   "freq-welt-kulturen": d(FREQ, 8, "scene", 600, 400, "Egyptian pyramids and a stone temple at sunset, dark background, no text"),
   "freq-welt-kosmos": d(FREQ, 8, "scene", 600, 400, "a spiral galaxy with planets, dark background, no text"),
   "freq-schluss": d(FREQ, 8, "scene", 2800, 500, "a person sitting in meditation seen from behind on a rock at a lake at sunset, mountains, a dark calm area on the left for text, no text, no letters"),
+  "atem-hero": d(ATEM, 8, "scene", 2800, 1300, "a serene man meditating in lotus position at the centre right, translucent glowing body with luminous blue lungs and bronchial tree and a warm orange glow at the diaphragm, a calm mountain lake at dusk behind him with forest on both sides and a golden sunset sky, a dark calm area on the left for text, no text, no letters, no icons"),
+  "atem-karte-techniken": d(ATEM, 8, "scene", 800, 500, "a person meditating on a rock at sunset in the mountains, dark cinematic, no text"),
+  "atem-karte-nerven": d(ATEM, 8, "scene", 800, 500, "a glowing blue nerve network with sparks and a bright neuron, dark cinematic, no text"),
+  "atem-karte-wissen": d(ATEM, 8, "scene", 800, 500, "a glowing human head profile in profile with a luminous brain and lungs, dark cinematic, no text"),
+  "atem-karte-tradition": d(ATEM, 8, "scene", 800, 500, "a monk meditating in a snowy mountain landscape, dark cinematic, no text"),
+  "atem-koerper": d(ATEM, 8, "scene", 1400, 1600, "translucent human torso with glowing blue lungs, bronchial tree, heart and diaphragm, warm orange glow below, dark background, no text, no letters"),
+  "atem-mehr-meditation": d(ATEM, 8, "scene", 800, 500, "a woman meditating at sunrise in a forest, dark cinematic, no text"),
+  "atem-mehr-tradition": d(ATEM, 8, "scene", 800, 500, "a man meditating in the snow in the mountains, dark cinematic, no text"),
+  "atem-mehr-nerven": d(ATEM, 8, "scene", 800, 500, "glowing nerve cells connected by light, blue and violet, dark cinematic, no text"),
+  "atem-mehr-schlaf": d(ATEM, 8, "scene", 800, 500, "a person sleeping peacefully in a dark blue bedroom, dark cinematic, no text"),
+  "atem-schluss": d(ATEM, 8, "scene", 2800, 500, "a person sitting in meditation seen from behind on a rock above a misty mountain valley at sunrise, golden light, a dark calm area on the left for text, no text, no letters"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

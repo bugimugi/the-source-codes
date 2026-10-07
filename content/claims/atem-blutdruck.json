@@ -1,0 +1,26 @@
+{
+  "id": "atem-blutdruck",
+  "short": "Geführte Atemübungen und Blutdruck",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Geführte, langsame Atemübungen senken in Studien den Blutdruck leicht.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion fasst eine Übersichtsarbeit (Mahtani, Nunan, Heneghan 2012) Studien mit geräteunterstützter langsamer Atmung zusammen; die Effekte sind klein, die Studien uneinheitlich. Bluthochdruck gehört in ärztliche Behandlung; Atemübungen ersetzen keine Medikamente und sollten nie ohne Rücksprache an ihre Stelle treten. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "mahtani-2012",
+      "kind": "peer-reviewed",
+      "title": "Device-guided breathing exercises in the control of human blood pressure: systematic review and meta-analysis",
+      "author": "Mahtani K.R., Nunan D., Heneghan C.J.",
+      "year": 2012,
+      "citation": "Journal of Hypertension 30(5): 852–860 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "atem-langsam-hrv"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

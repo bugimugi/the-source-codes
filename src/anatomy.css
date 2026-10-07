@@ -8,7 +8,7 @@
 .an-hero { background: radial-gradient(ellipse at 52% 44%, #0f4668 0%, #0a2638 52%, #03090e 92%); border-bottom: 1px solid rgba(203, 170, 103, 0.22); min-height: clamp(500px, 68vh, 680px); }
 .an-hero::after { background: linear-gradient(90deg, rgba(3, 9, 14, 0.95) 0%, rgba(3, 9, 14, 0.72) 32%, rgba(3, 9, 14, 0.04) 58%, rgba(3, 9, 14, 0.2) 100%), linear-gradient(0deg, rgba(3, 9, 14, 0.7), transparent 24%); }
 .an-hero .pl-hero-text { max-width: min(36rem, 52%); }
-.an-hero h1 { font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.02; } .an-hero h1 span { display: block; }
+.an-hero h1 { white-space: normal; font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.02; } .an-hero h1 span { display: block; }
 .an-hero-alt.slot { right: 17%; left: auto; width: 36%; mix-blend-mode: screen; -webkit-mask-image: none; mask-image: none; opacity: 0.95; }
 .an-hero-alt.slot img { object-fit: contain; object-position: center; }
 .an-eyebrow { font-size: 0.66rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--ivory); opacity: 0.6; }

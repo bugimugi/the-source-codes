@@ -1,0 +1,25 @@
+{
+  "id": "atem-478-schlaf",
+  "short": "4-7-8-Atmung und Schlaf",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Die 4-7-8-Atmung hilft beim Einschlafen und bei Schlafproblemen.",
+  "level": "claimed",
+  "rationale": "Der Rhythmus wurde durch Andrew Weil bekannt. Nach dem Kenntnisstand der Redaktion ist keine kontrollierte Studie bekannt, die die 4-7-8-Atmung selbst gegen eine Vergleichsgruppe prüft; die Aussage ist noch von niemandem bewertet. Allgemein hängen Entspannungsübungen mit besserem Einschlafen zusammen, bei anhaltenden Schlafproblemen gehört die Abklärung in ärztliche Hand. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial-input",
+      "kind": "editorial-input",
+      "title": "Angabe des Betreibers, ungeprüft",
+      "author": "Betreiber der Seite",
+      "citation": "Entwurf der Atem-Seite (Pilot)",
+      "verified": false
+    }
+  ],
+  "related": [
+    "atem-langsam-hrv"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "atem-achtsamkeit",
+  "short": "Achtsamkeitsmeditation und seelisches Befinden",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Achtsamkeitsmeditation, auch mit Beobachtung des Atems, kann Ängste, depressive Symptome und Schmerzen mäßig verringern.",
+  "level": "supported",
+  "rationale": "Nach dem Kenntnisstand der Redaktion fasst eine Übersichtsarbeit (Goyal et al. 2014, JAMA Internal Medicine) mäßig belastbare Hinweise für Angst, Depression und Schmerz zusammen, für andere Bereiche schwächere. Meditation ist keine Atemtechnik im engen Sinn und ersetzt keine Behandlung. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "goyal-2014",
+      "kind": "systematic-review",
+      "title": "Meditation programs for psychological stress and well-being: a systematic review and meta-analysis",
+      "author": "Goyal M. et al.",
+      "year": 2014,
+      "citation": "JAMA Internal Medicine 174(3): 357–368 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "atem-stimmung"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

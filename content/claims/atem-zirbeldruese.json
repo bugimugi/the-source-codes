@@ -1,0 +1,23 @@
+{
+  "id": "atem-zirbeldruese",
+  "short": "Atmung und Zirbeldrüse",
+  "area": "texte-tradition",
+  "status": "published",
+  "statement": "Bewusstes Atmen aktiviert die Zirbeldrüse und fördert dadurch Klarheit und Fokus.",
+  "level": "unsupported",
+  "rationale": "Die Aussage stammt aus spirituellen Überlieferungen, in denen die Zirbeldrüse (Epiphyse) als „drittes Auge“ gilt. Medizinisch bildet die Zirbeldrüse Melatonin und wird über Licht und Dunkelheit gesteuert; ein belegter Weg von der Atmung zu dieser Drüse ist nicht bekannt. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial-input",
+      "kind": "editorial-input",
+      "title": "Angabe des Betreibers, ungeprüft",
+      "author": "Betreiber der Seite",
+      "citation": "Entwurf der Atem-Seite (Pilot)",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

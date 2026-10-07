@@ -1,0 +1,45 @@
+{
+  "id": "atem-langsam-hrv",
+  "short": "Langsames Atmen und Herzratenvariabilität",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Langsames Atmen mit etwa sechs Atemzügen pro Minute erhöht in Studien die Herzratenvariabilität und stärkt die Aktivität des Parasympathikus (des „Ruhenervs“ des vegetativen Nervensystems).",
+  "level": "supported",
+  "rationale": "Nach dem Kenntnisstand der Redaktion beschreiben Übersichtsarbeiten (Zaccaro 2018, Russo 2017, Lehrer & Gevirtz 2014) diesen Zusammenhang aus vielen, meist kleinen Studien. Wie groß der Nutzen im Alltag oder bei Erkrankungen ist, ist damit nicht gezeigt. Die Quellen stammen aus dem Suchauszug und sind nicht geprüft. Keine Behandlungsempfehlung. Source pending verification.",
+  "sources": [
+    {
+      "id": "zaccaro-2018",
+      "kind": "peer-reviewed",
+      "title": "How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing",
+      "author": "Zaccaro A. et al.",
+      "year": 2018,
+      "citation": "Frontiers in Human Neuroscience 12: 353 – Suchauszug, Source pending verification",
+      "verified": false
+    },
+    {
+      "id": "russo-2017",
+      "kind": "peer-reviewed",
+      "title": "The physiology of slow breathing",
+      "author": "Russo M.A., Santarelli D.M., O'Rourke D.",
+      "year": 2017,
+      "citation": "Breathe 13(4): 298–309 – Suchauszug, Source pending verification",
+      "verified": false
+    },
+    {
+      "id": "lehrer-gevirtz-2014",
+      "kind": "peer-reviewed",
+      "title": "Heart rate variability biofeedback: how and why does it work?",
+      "author": "Lehrer P.M., Gevirtz R.",
+      "year": 2014,
+      "citation": "Frontiers in Psychology 5: 756 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "atem-angst",
+    "atem-blutdruck"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

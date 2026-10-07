@@ -219,6 +219,21 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Umsetzung: `src/ui/frequency.ts`, `src/data/freqpage.ts`, `src/ui/freqArt.ts`, `src/frequency.css`, Prüfung in `src/data/validateFreq.ts`. Bildplätze `freq-*` (18, Priorität 8: `freq-hero`, `freq-kugel-*`, `freq-kraft-*`,
     `freq-welt-*`, `freq-schluss`); bis dahin zeigt der Hero eine gezeichnete Nachtlandschaft mit dem vorhandenen `body-front` und Schallringen, die Karten gezeichnete Bilder (Radio, Kugelpendel, Stein im Schallfeld, Fokus).
 
+27. **Atem – Landingpage „Dein Atem verbindet alles.“** (Referenzbild lokal in `design/mockups/27-atem.png`, nicht committet) – Landingpage hinter der Kachel „Atem & Meditation“ (View `atem`, Tab „Atem“; die bisherige Übungsseite mit
+    Takt-Ring, Lehrbuchwissen und Überlieferungen heißt jetzt Tab „Atemübung“ und bleibt über „Die Welt des Atems betreten“, „Atembeobachtung ansehen“ und den Tab erreichbar; Verweise aus Pflanzenprofilen und der Körper-Seite führen zur neuen Seite).
+    Aufbau: Hero „ATMEN & MEDITATION – Dein Atem verbindet alles.“ (Einleitung, Knöpfe „Atemtechniken entdecken“ und „Video ansehen“, Liste mit fünf Bereichen: Gehirn, Nervensystem, Atmung, Körper, Geist); vier Einstiegskarten (Atemtechniken, Nervensystem,
+    Wirkung & Wissenschaft, Traditionelles Wissen); „Finde die passende Atemtechnik“ (8 Ziele, Technik mit „Schritt für Schritt“, Ring „Jetzt mitatmen“ mit Takt, Runden-Auswahl, rechts Reiter Wirkung / Details / Studien / Varianten);
+    „Was beim Atmen im Körper passiert“ (Lungenbild mit sechs Beschriftungen); „Weitere Bereiche entdecken“ (4 Karten); Schlussband „Dein Atem ist ein Werkzeug.“.
+    **Anders umgesetzt (Schutzlinien):** „**Positive Effekte**“ der Vorlage (beruhigt das Nervensystem, senkt den Blutdruck, fördert besseren Schlaf …) wären Wirkversprechen im Ton der Seite. Der Reiter heißt „Was dazu gesagt und untersucht wird“ und zeigt jede
+    Wirkung als Aussage mit Belegstufe und Balken (Belegstufe, keine Stärke): `atem-langsam-hrv` (belegt), `atem-angst`, `atem-stimmung`, `atem-blutdruck` (Hypothesen), `atem-478-schlaf` (Behauptung, keine Studie zu 4-7-8 bekannt), `atem-achtsamkeit` (belegt, Meditation),
+    `atem-immun-wimhof` (Hypothese, kleine Studie), `atem-zirbeldruese` (nicht belegt, die „Zirbeldrüse“ der Vorlage bleibt als Stichwort stehen und wird eingeordnet). Quellen (Zaccaro 2018, Russo 2017, Lehrer & Gevirtz 2014, Balban 2023, Mahtani 2012,
+    Goyal 2014, Kox 2014) sind Suchauszüge ohne DOI, Source pending verification. **Gefährliches ohne Anleitung:** „Immunsystem stärken“ und „Kälte & Belastung“ (Wim Hof, Tummo) haben keinen Takt und keine Schritte, sondern eine Warnung (Ohnmacht nach
+    kräftigem Atmen und Atemanhalten, nie im oder am Wasser, nie beim Fahren, nie im Stehen); die Prüfung `validateAtem.ts` verbietet dort Takt und Anleitung. Alle Takte haben nur Phasen bis 8 Sekunden Halten; vor langen Atempausen steht der Hinweis auf ärztliche
+    Abklärung (Herz, Lunge, Schwangerschaft). „Meditation“ hat keinen Takt (der Atem bleibt, wie er ist). „Video ansehen“ ist ein deaktivierter Knopf mit „folgt“. Der Schlusssatz „… beruhigen, stärken, heilen und dein Bewusstsein erweitern“ steht als Leitgedanke
+    mit dem Hinweis, dass „heilen“ und „Bewusstsein erweitern“ nicht belegt sind. Der Takt-Ring ist berechnet (Segmente nach den Phasenlängen, Figur wächst beim Einatmen) und läuft nur auf Klick, stoppt beim Wechsel der Technik oder des Tabs.
+    Umsetzung: `src/ui/atem.ts`, `src/data/atempage.ts`, `src/ui/atemArt.ts`, `src/atem.css`, Prüfung in `src/data/validateAtem.ts`. Bildplätze `atem-*` (11, Priorität 8: `atem-hero`, `atem-karte-*`, `atem-koerper`, `atem-mehr-*`, `atem-schluss`); bis dahin gezeichnete
+    Nachtlandschaft mit einer meditierenden Figur, das vorhandene Lungenbild `organ-lungs` und getönte Karten.
+
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).
 - **3D (freie Modelle):** menschlicher Körper und Organe (Seiten 2, 3, 4, 5), Erde (Seiten 1, 8, 16).

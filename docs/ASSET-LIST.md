@@ -449,6 +449,17 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `freq-welt-kulturen` | 600×400 | Szene | Egyptian pyramids and a stone temple at sunset, dark background, no text |
 | `freq-welt-kosmos` | 600×400 | Szene | a spiral galaxy with planets, dark background, no text |
 | `freq-schluss` | 2800×500 | Szene | a person sitting in meditation seen from behind on a rock at a lake at sunset, mountains, a dark calm area on the left for text, no text, no letters |
+| `atem-hero` | 2800×1300 | Szene | a serene man meditating in lotus position at the centre right, translucent glowing body with luminous blue lungs and bronchial tree and a warm orange glow at the diaphragm, a calm mountain lake at dusk behind him with forest on both sides and a golden sunset sky, a dark calm area on the left for text, no text, no letters, no icons |
+| `atem-karte-techniken` | 800×500 | Szene | a person meditating on a rock at sunset in the mountains, dark cinematic, no text |
+| `atem-karte-nerven` | 800×500 | Szene | a glowing blue nerve network with sparks and a bright neuron, dark cinematic, no text |
+| `atem-karte-wissen` | 800×500 | Szene | a glowing human head profile in profile with a luminous brain and lungs, dark cinematic, no text |
+| `atem-karte-tradition` | 800×500 | Szene | a monk meditating in a snowy mountain landscape, dark cinematic, no text |
+| `atem-koerper` | 1400×1600 | Szene | translucent human torso with glowing blue lungs, bronchial tree, heart and diaphragm, warm orange glow below, dark background, no text, no letters |
+| `atem-mehr-meditation` | 800×500 | Szene | a woman meditating at sunrise in a forest, dark cinematic, no text |
+| `atem-mehr-tradition` | 800×500 | Szene | a man meditating in the snow in the mountains, dark cinematic, no text |
+| `atem-mehr-nerven` | 800×500 | Szene | glowing nerve cells connected by light, blue and violet, dark cinematic, no text |
+| `atem-mehr-schlaf` | 800×500 | Szene | a person sleeping peacefully in a dark blue bedroom, dark cinematic, no text |
+| `atem-schluss` | 2800×500 | Szene | a person sitting in meditation seen from behind on a rock above a misty mountain valley at sunrise, golden light, a dark calm area on the left for text, no text, no letters |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -516,4 +527,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 455 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 466 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

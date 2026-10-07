@@ -13,6 +13,7 @@ import "./energy.css";
 import "./lab.css";
 import "./plants.css";
 import "./plantProfile.css";
+import "./produce.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -33,7 +34,8 @@ import { initNutrients } from "./ui/nutrients";
 import { initEnergy } from "./ui/energy";
 import { initLab } from "./ui/lab";
 import { initPlants } from "./ui/plants";
-import { initPlantProfile } from "./ui/plantProfile";
+import { initPlantProfile, type ProfileFrom } from "./ui/plantProfile";
+import { initProduce } from "./ui/produce";
 import type { StationId } from "./data/lab";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
@@ -128,7 +130,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "plant";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "plant";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -146,8 +148,10 @@ let pendingEnergy: string | undefined;
 let labView: ReturnType<typeof initLab> | null = null;
 let plantsView: ReturnType<typeof initPlants> | null = null;
 let plantView: ReturnType<typeof initPlantProfile> | null = null;
+let produceView: ReturnType<typeof initProduce> | null = null;
 let pendingPlant: string | undefined;
-let pendingPlantsGroup: string | undefined;
+let pendingPlantFrom: ProfileFrom = "plants";
+let plantFrom: ProfileFrom = "plants";
 let pendingLab: StationId | undefined;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
@@ -163,16 +167,17 @@ const energyEl = $("energy");
 const labEl = $("lab");
 const plantsEl = $("plants");
 const plantEl = $("plant");
+const produceEl = $("produce");
 
 // the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
 const VIEW_TABS: { id: View; label: string }[] = [
-  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
+  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
   { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
   { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
 ];
 document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
-  // a plant profile belongs to the "Pflanzen" tab: it is marked as current but still leads back to the overview
-  nav.innerHTML = VIEW_TABS.map((t) => (nav.dataset.tabs === "plant" && t.id === "plants" ? `<button class="tab" aria-current="true" data-goto="plants">${t.label}</button>` : t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
+  // a plant profile belongs to the "Pflanzen" or the "Obst & Gemüse" tab (the one it was opened from): marked as current in openPlantView, still a link back
+  nav.innerHTML = VIEW_TABS.map((t) => (nav.dataset.tabs === "plant" && (t.id === "plants" || t.id === "produce") ? `<button class="tab" data-goto="${t.id}" data-from="${t.id}">${t.label}</button>` : t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
 });
 const stageEl = $("stage");
 const nav = $("nav");
@@ -304,19 +309,19 @@ function openEnergyView(id?: string): boolean {
 /** leaves the plant atlas page for another view (the page hides itself, then the target opens) */
 function fromPlants(next: () => void) { plantsEl.hidden = true; plantsView?.stop(); view = "hero"; next(); }
 
-function openPlantsView(group?: string): boolean {
+function openPlantsView(): boolean {
   plantsEl.hidden = false;
   plantsView ??= initPlants(plantsEl, {
     reduceMotion,
     openAtlas: (category, id) => fromPlants(() => { go("atlas"); if (id) atlasView?.select(id); else atlasView?.showCategory(category); }),
-    openPlant: (id) => fromPlants(() => { pendingPlant = id; go("plant"); }),
+    openPlant: (id) => fromPlants(() => { pendingPlant = id; pendingPlantFrom = "plants"; go("plant"); }),
     openBody: (organ) => fromPlants(() => { pendingOrgan = organ; go("body"); }),
     openCultures: () => fromPlants(() => { go("cultures"); }),
     openLab: () => fromPlants(() => { go("lab"); }),
     openUniverse: () => fromPlants(() => { go("universe"); }),
     openClaim: (cid, from) => overlay.open(cid, from),
   });
-  plantsView.start(group);
+  plantsView.start();
   fade(plantsEl, true);
   $("leave-plants").focus();
   return true;
@@ -324,13 +329,15 @@ function openPlantsView(group?: string): boolean {
 
 /** leaves a plant profile for another view */
 function fromPlant(next: () => void) { plantEl.hidden = true; plantView?.stop(); view = "hero"; next(); }
+/** leaves the fruit and vegetable atlas for another view */
+function fromProduce(next: () => void) { produceEl.hidden = true; produceView?.stop(); view = "hero"; next(); }
 
-function openPlantView(id?: string): boolean {
+function openPlantView(id?: string, from: ProfileFrom = "plants"): boolean {
   if (!id) return false;
   plantEl.hidden = false;
   plantView ??= initPlantProfile(plantEl, {
     reduceMotion,
-    openPlant: (pid) => plantView?.show(pid),
+    openPlant: (pid) => plantView?.show(pid, plantFrom),
     openAtlas: (pid) => fromPlant(() => { go("atlas"); atlasView?.select(pid); }),
     openBody: (organ) => fromPlant(() => { pendingOrgan = organ; go("body"); }),
     openCultures: () => fromPlant(() => { go("cultures"); }),
@@ -338,11 +345,32 @@ function openPlantView(id?: string): boolean {
     openFxGeometry: () => fromPlant(() => { fxMode = "geometrie"; go("fx"); }),
     openLab: () => fromPlant(() => { go("lab"); }),
     openClaim: (cid, from) => overlay.open(cid, from),
-    back: () => fromPlant(() => { go("plants"); }),
+    back: (to) => fromPlant(() => { go(to); }),
   });
-  plantView.show(id);
+  plantFrom = from;
+  plantEl.querySelectorAll<HTMLElement>(".tabs [data-from]").forEach((b) => (b.dataset.from === from ? b.setAttribute("aria-current", "true") : b.removeAttribute("aria-current")));
+  plantView.show(id, from);
   fade(plantEl, true);
   $("leave-plant").focus();
+  return true;
+}
+
+function openProduceView(): boolean {
+  produceEl.hidden = false;
+  produceView ??= initProduce(produceEl, {
+    reduceMotion,
+    openPlant: (id) => fromProduce(() => { pendingPlant = id; pendingPlantFrom = "produce"; go("plant"); }),
+    openAtlas: (category, id) => fromProduce(() => { go("atlas"); if (id) atlasView?.select(id); else atlasView?.showCategory(category); }),
+    openBody: (organ) => fromProduce(() => { pendingOrgan = organ; go("body"); }),
+    openNutrients: () => fromProduce(() => { go("nutrients"); }),
+    openLab: () => fromProduce(() => { go("lab"); }),
+    openUniverse: () => fromProduce(() => { go("universe"); }),
+    openPlants: () => fromProduce(() => { go("plants"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+  });
+  produceView.start();
+  fade(produceEl, true);
+  $("leave-produce").focus();
   return true;
 }
 
@@ -440,6 +468,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   lab: { el: labEl, stop: () => labView?.stop() },
   plants: { el: plantsEl, stop: () => plantsView?.stop() },
   plant: { el: plantEl, stop: () => plantView?.stop() },
+  produce: { el: produceEl, stop: () => produceView?.stop() },
 };
 
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
@@ -456,11 +485,11 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "nutrients" && !openNutrientsView()) return false;
   if (next === "energy" && !openEnergyView(pendingEnergy)) return false;
   if (next === "lab" && !openLabView(pendingLab)) return false;
-  if (next === "plants" && !openPlantsView(pendingPlantsGroup)) return false;
-  if (next === "plant" && !openPlantView(pendingPlant)) return false;
+  if (next === "plants" && !openPlantsView()) return false;
+  if (next === "produce" && !openProduceView()) return false;
+  if (next === "plant" && !openPlantView(pendingPlant, pendingPlantFrom)) return false;
   pendingEnergy = undefined;
   pendingPlant = undefined;
-  pendingPlantsGroup = undefined;
   pendingLab = undefined;
   pendingOrgan = undefined;
   pendingChakra = undefined;
@@ -503,7 +532,8 @@ const home = initHome($("home"), {
   openCultures() { go("cultures"); },
   openNutrients() { go("nutrients"); },
   openEnergy(id?: string) { if (view === "energy") energyView?.start(id); else { pendingEnergy = id; go("energy"); } },
-  openPlants(group?: string) { pendingPlantsGroup = group; go("plants"); },
+  openPlants() { go("plants"); },
+  openProduce() { go("produce"); },
   openLab(station?: StationId) { if (view === "lab") labView?.start(station); else { pendingLab = station; go("lab"); } },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
@@ -534,6 +564,7 @@ $("leave-energy").addEventListener("click", () => go("hero"));
 $("leave-lab").addEventListener("click", () => go("hero"));
 $("leave-plants").addEventListener("click", () => go("hero"));
 $("leave-plant").addEventListener("click", () => go("hero"));
+$("leave-produce").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;

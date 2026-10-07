@@ -1,0 +1,54 @@
+{
+  "id": "brokkoli",
+  "status": "published",
+  "category": "gemuese",
+  "name": "Brokkoli",
+  "latin": "Brassica oleracea var. italica",
+  "model": {
+    "kind": "herb",
+    "color": "#3f7a35",
+    "color2": "#6fa14a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Kreuzblütengewächse (Brassicaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Blütenstand und Stiel"
+    },
+    {
+      "label": "Heimat",
+      "value": "Kulturform des Kohls aus dem Mittelmeerraum (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Enthält Glucosinolate, schwefelhaltige Pflanzenstoffe (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Brokkoli wurde im Mittelmeerraum, vor allem in Italien, aus dem Wildkohl gezüchtet; der Name leitet sich vom italienischen „broccolo“ (Kohlspross) ab.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

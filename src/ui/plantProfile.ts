@@ -11,6 +11,10 @@ import { claimHtml, esc, toggleRedaction } from "./dossierParts";
 import { ico } from "./icons";
 import { bowlSvg, figureSvg, flowerOfLifeSvg, fruitSvg, fruitStageSvg, plantSvg, seedPatternSvg, stageSvg } from "./plantArt";
 
+/** the landing page a profile was opened from: the plant atlas or the fruit and vegetable atlas */
+export type ProfileFrom = "plants" | "produce";
+const FROM_LABEL: Record<ProfileFrom, string> = { plants: "Pflanzenatlas", produce: "Obst & Gemüse Atlas" };
+
 export interface PlantProfileApi {
   reduceMotion: boolean;
   /** another plant's profile */
@@ -23,8 +27,8 @@ export interface PlantProfileApi {
   openFxGeometry(): void;
   openLab(): void;
   openClaim(id: string, from: HTMLElement): void;
-  /** back to the plant atlas overview */
-  back(): void;
+  /** back to the page the profile was opened from */
+  back(from: ProfileFrom): void;
 }
 
 const SHORT: Record<EvidenceLevel, string> = {
@@ -77,15 +81,15 @@ let uidN = 0;
 const panel = (id: string, cls: string, inner: string, label = "") => `<section class="pp-panel ${cls}" id="${id}"${label ? ` aria-label="${esc(label)}"` : ""}>${inner}</section>`;
 const head = (title: string, subText?: string) => `<h2>${esc(title)}</h2>${subText ? `<p class="pp-sub">${esc(subText)}</p>` : ""}`;
 
-function safetyHtml(text: string, e: AtlasEntry): string {
-  return `<aside class="pp-safety" aria-label="Hinweis"><p>${esc(text)}</p><div class="pp-actions"><button class="pp-ghost" data-act="atlas">${ico("globe")}Im 3D-Atlas ansehen</button><button class="pp-ghost" data-act="back">${ico("arrow")}Zurück zum Pflanzenatlas</button></div><p class="pp-pilot">Pilot: nicht fachlich geprüft. Alle Aussagen tragen eine Belegstufe; Quellen nennen wir als „Source pending verification“, solange das Original nicht geprüft ist. ${esc(e.name)} ersetzt keine ärztliche Beratung.</p></aside>`;
+function safetyHtml(text: string, e: AtlasEntry, from: ProfileFrom): string {
+  return `<aside class="pp-safety" aria-label="Hinweis"><p>${esc(text)}</p><div class="pp-actions"><button class="pp-ghost" data-act="atlas">${ico("globe")}Im 3D-Atlas ansehen</button><button class="pp-ghost" data-act="back">${ico("arrow")}Zurück zum ${FROM_LABEL[from]}</button></div><p class="pp-pilot">Pilot: nicht fachlich geprüft. Alle Aussagen tragen eine Belegstufe; Quellen nennen wir als „Source pending verification“, solange das Original nicht geprüft ist. ${esc(e.name)} ersetzt keine ärztliche Beratung.</p></aside>`;
 }
 
 /** the drawn placeholder of a profile: herb or fruit */
 const artFor = (p: PlantProfile, uid: string, sketch = false, ground = true) => (p.art === "fruit" ? fruitSvg(uid, { sketch, ground }) : plantSvg(uid, { sketch, ground }));
 
 // ---------------------------------------------------------------------------------------------------------- the sections of a full profile
-function heroHtml(e: AtlasEntry, p: PlantProfile, uid: string): string {
+function heroHtml(e: AtlasEntry, p: PlantProfile, uid: string, from: ProfileFrom): string {
   const tabs: { label: string; icon: string; to?: string; act?: string }[] = p.layout === "frucht"
     ? [
       { label: "Übersicht", icon: "overview", to: "pp-top" }, { label: "Eigenschaften", icon: "leaf", to: "pp-traits" }, { label: "Nährstoffe", icon: "flask", to: "pp-nutrients" },
@@ -104,7 +108,7 @@ function heroHtml(e: AtlasEntry, p: PlantProfile, uid: string): string {
     <header class="pp-hero${heroImg ? " has-img" : ""}" id="pp-top">
       ${heroImg ? `<div class="pp-hero-bg" data-slot="plant-${e.id}-hero" data-fit="cover" data-eager="true"></div>` : `<div class="pp-hero-art" aria-hidden="true">${artFor(p, `${uid}h`, false, false)}</div>`}
       <div class="pp-hero-text">
-        <nav class="pp-crumbs" aria-label="Pfad"><button data-act="back">${esc(p.crumbs[0])}</button><i>›</i><span>${esc(p.crumbs[1])}</span><i>›</i><strong>${esc(e.name)}</strong></nav>
+        <nav class="pp-crumbs" aria-label="Pfad"><button data-act="back">${FROM_LABEL[from]}</button><i>›</i><span>${esc(p.crumb)}</span><i>›</i><strong>${esc(e.name)}</strong></nav>
         <h1>${esc(e.name)}</h1>
         <p class="pp-latin">${esc(e.latin)}</p>
         <ul class="pp-tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
@@ -288,7 +292,7 @@ function networkHtml(e: AtlasEntry, p: PlantProfile): string {
 }
 
 /** the complete profile: the hero, then rows of panels (the rows differ by layout) */
-function fullHtml(e: AtlasEntry, p: PlantProfile): string {
+function fullHtml(e: AtlasEntry, p: PlantProfile, from: ProfileFrom): string {
   const uid = `pp${++uidN}`;
   const rows = p.layout === "frucht"
     ? [
@@ -305,11 +309,11 @@ function fullHtml(e: AtlasEntry, p: PlantProfile): string {
       ["d", formsHtml(p) + combosHtml(p)],
       ["e", historyHtml(p) + researchHtml(p) + networkHtml(e, p)],
     ];
-  return `${heroHtml(e, p, uid)}<div class="pp-wrap">${rows.map(([k, inner]) => `<div class="pp-row ${k}">${inner}</div>`).join("")}${safetyHtml(p.safety, e)}</div>`;
+  return `${heroHtml(e, p, uid, from)}<div class="pp-wrap">${rows.map(([k, inner]) => `<div class="pp-row ${k}">${inner}</div>`).join("")}${safetyHtml(p.safety, e, from)}</div>`;
 }
 
 // ---------------------------------------------------------------------------------------------------------- the shorter profile of every other plant
-function genericHtml(e: AtlasEntry): string {
+function genericHtml(e: AtlasEntry, from: ProfileFrom): string {
   const fam = e.facts.find((f) => f.label === "Familie")?.value;
   const regions = ORIGIN[e.id] ?? [];
   const tags = [CATEGORY_LABEL[e.category], ...(fam ? [fam.replace(/\s*\(.*\)/, "")] : []), ...e.associations.map((a) => a.system).filter((v, i, a) => a.indexOf(v) === i).slice(0, 2)];
@@ -325,7 +329,7 @@ function genericHtml(e: AtlasEntry): string {
     <header class="pp-hero generic" id="pp-top">
       <div class="pp-hero-art" aria-hidden="true">${hasImg ? slotOr(imgName, "pp-hero-img", "") : `<div class="pp-hero-glyph" style="--tint:${esc(e.model.color)}"><span>✿</span><small>Bild folgt</small></div>`}</div>
       <div class="pp-hero-text">
-        <nav class="pp-crumbs" aria-label="Pfad"><button data-act="back">Pflanzenatlas</button><i>›</i><span>${esc(CATEGORY_LABEL[e.category])}</span><i>›</i><strong>${esc(e.name)}</strong></nav>
+        <nav class="pp-crumbs" aria-label="Pfad"><button data-act="back">${FROM_LABEL[from]}</button><i>›</i><span>${esc(CATEGORY_LABEL[e.category])}</span><i>›</i><strong>${esc(e.name)}</strong></nav>
         <h1>${esc(e.name)}</h1>
         <p class="pp-latin">${esc(e.latin)}</p>
         <ul class="pp-tags">${tags.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
@@ -350,7 +354,7 @@ function genericHtml(e: AtlasEntry): string {
   const src = panel("pp-sources", "pp-sourcespanel", `
       ${head("Quellen")}
       <ul class="pp-assoc">${e.sources.map((s) => `<li><strong>${esc(s.title)}</strong><small>${esc(s.author)}</small><span>${esc(s.citation)}${s.url ? ` · <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Seite öffnen</a>` : ""}${s.verified ? "" : " · nicht geprüft"}</span></li>`).join("")}</ul>`);
-  return `${hero}<div class="pp-wrap"><div class="pp-row g1">${trad}${cl}</div><div class="pp-row g2">${comb}${org}${src}</div>${safetyHtml("Information, keine medizinische Beratung. Pflanzen können Wechselwirkungen mit Medikamenten haben; bei Beschwerden, Schwangerschaft oder Medikamenten bitte ärztlich oder in der Apotheke nachfragen. Wildpflanzen und Pilze nur sammeln und essen, wenn eine Fachperson sie sicher bestimmt hat.", e)}</div>`;
+  return `${hero}<div class="pp-wrap"><div class="pp-row g1">${trad}${cl}</div><div class="pp-row g2">${comb}${org}${src}</div>${safetyHtml("Information, keine medizinische Beratung. Pflanzen können Wechselwirkungen mit Medikamenten haben; bei Beschwerden, Schwangerschaft oder Medikamenten bitte ärztlich oder in der Apotheke nachfragen. Wildpflanzen und Pilze nur sammeln und essen, wenn eine Fachperson sie sicher bestimmt hat.", e, from)}</div>`;
 }
 
 // ---------------------------------------------------------------------------------------------------------- the page
@@ -364,18 +368,20 @@ export function initPlantProfile(root: HTMLElement, api: PlantProfileApi) {
   const tone = createTone();
   let raf = 0, playing = false, resize: ResizeObserver | null = null;
   let current: string | null = null;
+  let from: ProfileFrom = "plants";
   let hz = 432;
 
   function stopTone() { tone.stop(); playing = false; cancelAnimationFrame(raf); raf = 0; }
 
-  function show(id: string) {
+  function show(id: string, origin: ProfileFrom = from) {
     const e = entryById(id);
     if (!e) return;
+    from = origin;
     stopTone();
     current = id;
     const p = PROFILES[id];
     hz = p?.frequency.hz ?? 432;
-    scroll.innerHTML = p ? fullHtml(e, p) : genericHtml(e);
+    scroll.innerHTML = p ? fullHtml(e, p, from) : genericHtml(e, from);
     scroll.scrollTop = 0;
     mountSlots(scroll);
     if (p) { renderCompound(p, 0, 0); renderCombos(p, 0); drawWave(); setPart(p, p.startPart, true); }
@@ -548,7 +554,7 @@ export function initPlantProfile(root: HTMLElement, api: PlantProfileApi) {
     }
     const act = t.closest<HTMLElement>("[data-act]")?.dataset.act;
     if (!act) return;
-    if (act === "back") api.back();
+    if (act === "back") api.back(from);
     else if (act === "atlas" && e) api.openAtlas(e.id);
     else if (act === "lab") api.openLab();
     else if (act === "fx") api.openFxGeometry();

@@ -218,6 +218,33 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `plant-granatapfel-combo-3` | 700×420 | Szene | pomegranate arils with fresh rosemary sprigs on dark wood |
 | `plant-granatapfel-combo-4` | 700×420 | Szene | a rich dark stew with walnuts and pomegranate arils in a ceramic dish, persian style |
 | `plant-granatapfel-combo-5` | 700×420 | Szene | a fresh green salad topped with ruby pomegranate arils, dark background |
+| `obst-hero` | 2800×1300 | Szene | a woven basket overflowing with colourful fruit and vegetables, pomegranate, pineapple, avocado, carrots and berries, in front of a misty green mountain valley with a lake, warm golden light, calm dark area on the left for text, no people |
+| `obst-sketch` | 700×1000 | Szene | antique botanical pen-and-ink illustration of a pomegranate branch with fruit and leaves on aged cream parchment, fine hatching, portrait, no text |
+| `obst-cat-obst` | 1000×800 | Szene | a colourful heap of sweet fruit, apples, pears and grapes, rich colours, dark background |
+| `obst-cat-beeren` | 1000×800 | Szene | blueberries, raspberries and blackberries with dew, rich colours, dark background |
+| `obst-cat-zitrus` | 1000×800 | Szene | halved oranges, lemons and limes, bright and juicy, dark background |
+| `obst-cat-kernobst` | 1000×800 | Szene | red and green apples and pears, fresh with leaves, dark background |
+| `obst-cat-steinobst` | 1000×800 | Szene | peaches, cherries and plums, ripe and glossy, dark background |
+| `obst-cat-tropen` | 1000×800 | Szene | pineapple, papaya, dragon fruit and mango, tropical colours, dark background |
+| `obst-cat-gemuese` | 1000×800 | Szene | a rustic crate of classic fresh vegetables, dark background |
+| `obst-cat-blatt` | 1000×800 | Szene | fresh leafy greens, spinach and lettuce with water drops, dark background |
+| `obst-cat-wurzel` | 1000×800 | Szene | carrots, beetroot and root vegetables with soil, dark background |
+| `obst-cat-huelsen` | 1000×800 | Szene | bowls of lentils, beans and peas in many colours, dark background |
+| `obst-cat-kohl` | 1000×800 | Szene | a green cabbage, broccoli and cauliflower, fresh, dark background |
+| `obst-cat-nachtschatten` | 1000×800 | Szene | red tomatoes, peppers and a purple aubergine, dark background |
+| `obst-cat-kuerbis` | 1000×800 | Szene | orange pumpkins, cucumbers and courgettes, dark background |
+| `obst-cat-zwiebel` | 1000×800 | Szene | garlic bulbs, onions and leeks, dark background |
+| `obst-cat-nuesse` | 1000×800 | Szene | a mixture of nuts and seeds in a rustic bowl, dark background |
+| `obst-cat-sprossen` | 1000×800 | Szene | fresh bean and alfalfa sprouts in a small glass dish, dark background |
+| `obst-map` | 2400×1100 | Szene | old parchment world map in dark teal and sepia with illustrated fruit and vegetables on each continent, a pineapple, oranges, corn and rice, vintage cartography, calm and dark |
+| `obst-kueche-mittelmeer` | 800×600 | Szene | a sunny Mediterranean market with olives, tomatoes and aubergines, illustration |
+| `obst-kueche-asien` | 800×600 | Szene | an Asian market with ginger, pak choi and rice paddies in the background, illustration |
+| `obst-kueche-suedamerika` | 800×600 | Szene | a South American market with corn, chilli and quinoa in colourful baskets, illustration |
+| `obst-kueche-afrika` | 800×600 | Szene | an African market with millet, okra and cassava, warm light, illustration |
+| `obst-kueche-orient` | 800×600 | Szene | an oriental bazaar with pomegranates, dates and chickpeas, warm lamp light, illustration |
+| `obst-rezept-smoothies` | 600×600 | Szene | two colourful fruit smoothies in glasses with fresh fruit around them, dark background |
+| `obst-rezept-salate` | 600×600 | Szene | a fresh colourful salad bowl with leaves, tomatoes and pomegranate seeds, dark background |
+| `obst-rezept-warm` | 600×600 | Szene | a warm vegetable stew in a ceramic pot with herbs, steam rising, dark background |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -230,7 +257,9 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-apfel` | Apfel (Malus domestica) |
 | `atlas-ashwagandha` | Ashwagandha (Withania somnifera) |
 | `atlas-austernpilz` | Austernseitling (Pleurotus ostreatus) |
+| `atlas-avocado` | Avocado (Persea americana) |
 | `atlas-brennnessel` | Große Brennnessel (Urtica dioica) |
+| `atlas-brokkoli` | Brokkoli (Brassica oleracea var. italica) |
 | `atlas-chaga` | Chaga (Schiefer Schillerporling) (Inonotus obliquus) |
 | `atlas-citrin` | Citrin (Quarz (gelbe Varietät)) |
 | `atlas-echinacea` | Purpur-Sonnenhut (Echinacea) (Echinacea purpurea) |
@@ -238,14 +267,19 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-fluorit` | Fluorit (Fluorit) |
 | `atlas-granat` | Granat (Granat (Mineralgruppe)) |
 | `atlas-granatapfel` | Granatapfel (Punica granatum) |
+| `atlas-heidelbeere` | Heidelbeere (Vaccinium myrtillus) |
 | `atlas-igelstachelbart` | Igelstachelbart (Hericium erinaceus) |
 | `atlas-ingwer` | Ingwer (Zingiber officinale) |
 | `atlas-kamille` | Echte Kamille (Matricaria chamomilla) |
 | `atlas-karotte` | Karotte (Daucus carota subsp. sativus) |
+| `atlas-kirsche` | Süßkirsche (Prunus avium) |
+| `atlas-knoblauch` | Knoblauch (Allium sativum) |
 | `atlas-kordyzeps` | Chinesischer Raupenpilz (Cordyceps) (Ophiocordyceps sinensis) |
+| `atlas-kuerbis` | Kürbis (Cucurbita pepo / Cucurbita maxima) |
 | `atlas-kurkuma` | Kurkuma (Curcuma longa) |
 | `atlas-lapislazuli` | Lapislazuli (Gestein aus Lazurit u. a.) |
 | `atlas-lavendel` | Echter Lavendel (Lavandula angustifolia) |
+| `atlas-linsen` | Linse (Lens culinaris) |
 | `atlas-malachit` | Malachit (Malachit) |
 | `atlas-obsidian` | Obsidian (Vulkanisches Glas) |
 | `atlas-pfefferminze` | Pfefferminze (Mentha × piperita) |
@@ -256,11 +290,13 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-rosmarin` | Rosmarin (Salvia rosmarinus (Rosmarinus officinalis)) |
 | `atlas-salbei` | Echter Salbei (Salvia officinalis) |
 | `atlas-shiitake` | Shiitake (Lentinula edodes) |
+| `atlas-spinat` | Spinat (Spinacia oleracea) |
 | `atlas-steinpilz` | Gemeiner Steinpilz (Boletus edulis) |
 | `atlas-teebaum` | Teebaum (Melaleuca alternifolia) |
 | `atlas-tomate` | Tomate (Solanum lycopersicum) |
 | `atlas-turmalin` | Schwarzer Turmalin (Schörl) (Turmalin-Gruppe (Schörl)) |
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
+| `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 202 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 238 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

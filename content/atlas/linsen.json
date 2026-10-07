@@ -1,0 +1,53 @@
+{
+  "id": "linsen",
+  "status": "published",
+  "category": "gemuese",
+  "name": "Linse",
+  "latin": "Lens culinaris",
+  "model": {
+    "kind": "nut",
+    "color": "#b07a3a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Hülsenfrüchtler (Fabaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Samen"
+    },
+    {
+      "label": "Heimat",
+      "value": "Vorderer Orient (Fruchtbarer Halbmond) (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Eiweiß- und ballaststoffreiche Samen; Linsen müssen vor dem Essen gekocht werden (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Linsen gehören zu den ältesten Kulturpflanzen des Vorderen Orients und werden von Südasien bis Europa gegessen.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

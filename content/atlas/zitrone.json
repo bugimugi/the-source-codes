@@ -1,0 +1,55 @@
+{
+  "id": "zitrone",
+  "status": "published",
+  "category": "obst",
+  "name": "Zitrone",
+  "latin": "Citrus × limon",
+  "model": {
+    "kind": "fruit",
+    "color": "#e8d34a",
+    "color2": "#9a8420",
+    "shape": "apple"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Rautengewächse (Rutaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Frucht, Saft, Schale"
+    },
+    {
+      "label": "Heimat",
+      "value": "Südasien; die genaue Herkunft der Kulturform ist unsicher (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Enthält Vitamin C und viel Citronensäure (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Zitrusfrüchte kamen über Handelswege nach Europa. Im 18. Jahrhundert zeigte der Schiffsarzt James Lind in einem Versuch, dass Zitrusfrüchte Seeleuten halfen, die Mangelkrankheit Skorbut zu überstehen (Source pending verification).",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

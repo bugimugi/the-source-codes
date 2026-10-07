@@ -1,0 +1,55 @@
+{
+  "id": "avocado",
+  "status": "published",
+  "category": "obst",
+  "name": "Avocado",
+  "latin": "Persea americana",
+  "model": {
+    "kind": "fruit",
+    "color": "#5b7a2e",
+    "color2": "#3a2a14",
+    "shape": "apple"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Lorbeergewächse (Lauraceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Frucht (Fruchtfleisch)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Mittelamerika (Mexiko) (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Das Fruchtfleisch enthält viel Fett, überwiegend einfach ungesättigte Fettsäuren (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Die Avocado wird in Mittelamerika seit sehr langer Zeit gegessen; ihr Name geht auf das Nahuatl-Wort „ahuacatl“ zurück.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

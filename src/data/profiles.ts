@@ -17,7 +17,7 @@ export const ASHWAGANDHA: PlantProfile = {
     history: "Geschichte & Kultur", historySub: "Verwendung im Laufe der Zeit.",
     researchSub: "Aktuelle Studien und Erkenntnisse.", networkSub: "Verbundene Themen, Pflanzen und Konzepte.",
   },
-  crumbs: ["Pflanzenatlas", "Heilpflanzen"],
+  crumb: "Heilpflanzen",
   tags: ["Heilpflanze", "Adaptogen", "Nachtschattengewächs", "Ayurveda"],
   lead: "Eine der bedeutendsten Pflanzen der ayurvedischen Überlieferung. Ihre Wurzel wird dort seit sehr langer Zeit zur Unterstützung von Körper, Geist und Nervensystem genannt. Das ist Überlieferung, kein Wirkungsnachweis.",
   bubbles: [

@@ -262,11 +262,7 @@ export function initPlants(root: HTMLElement, api: PlantsApi) {
   mountSlots(scroll);
   renderRow(); renderTopic();
   return {
-    /** `group`: open with this category selected (e.g. "fruechte" from the tile "Gemüse & Obst") */
-    start(group?: string) {
-      if (group && GROUPS.some((g) => g.id === group && !g.soon)) { filter = group; renderRow(); }
-      requestAnimationFrame(() => { drawMap(); if (group) smooth(q$(".pl-popular")); });
-    },
+    start() { requestAnimationFrame(drawMap); },
     stop() { sugg.hidden = true; },
   };
 }

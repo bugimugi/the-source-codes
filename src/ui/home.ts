@@ -23,7 +23,8 @@ export interface HomeApi {
   openNutrients(): void;
   openEnergy(): void;
   openLab(): void;
-  openPlants(group?: string): void;
+  openPlants(): void;
+  openProduce(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -146,7 +147,8 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "nutrients") api.openNutrients();
       else if (a.type === "energy") api.openEnergy();
       else if (a.type === "lab") api.openLab();
-      else if (a.type === "plants") api.openPlants(a.group);
+      else if (a.type === "plants") api.openPlants();
+      else if (a.type === "produce") api.openProduce();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

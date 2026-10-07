@@ -1,0 +1,54 @@
+{
+  "id": "spinat",
+  "status": "published",
+  "category": "gemuese",
+  "name": "Spinat",
+  "latin": "Spinacia oleracea",
+  "model": {
+    "kind": "herb",
+    "color": "#2f6b2c",
+    "color2": "#4f8f3a"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Fuchsschwanzgewächse (Amaranthaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Blätter"
+    },
+    {
+      "label": "Heimat",
+      "value": "Westasien (Persien) (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Enthält Folat und Oxalat; der Eisengehalt wird oft überschätzt, und Eisen aus Pflanzen wird schlechter aufgenommen als aus Fleisch (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Spinat gelangte vermutlich von Persien über den arabischen Raum nach Europa und wird dort seit dem Mittelalter angebaut.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

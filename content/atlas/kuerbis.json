@@ -1,0 +1,59 @@
+{
+  "id": "kuerbis",
+  "status": "published",
+  "category": "gemuese",
+  "name": "Kürbis",
+  "latin": "Cucurbita pepo / Cucurbita maxima",
+  "model": {
+    "kind": "fruit",
+    "color": "#e0872a",
+    "color2": "#a85a14",
+    "shape": "tomato"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Kürbisgewächse (Cucurbitaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Fruchtfleisch und Samen (Kerne)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Amerika (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Orange Sorten enthalten Carotinoide (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Bitter schmeckende Kürbisse (auch Zierkürbisse) können giftige Cucurbitacine enthalten und dürfen nicht gegessen werden (Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Kürbisse wurden in Mittel- und Nordamerika schon vor Jahrtausenden angebaut und kamen nach der Entdeckung Amerikas nach Europa.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

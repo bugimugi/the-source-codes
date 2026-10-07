@@ -22,6 +22,7 @@ export const ORIGIN: Record<string, Region[]> = {
   ashwagandha: ["asien"], rosmarin: ["europa"], kamille: ["europa"], kurkuma: ["asien"], ingwer: ["asien"], lavendel: ["europa"],
   pfefferminze: ["europa"], salbei: ["europa"], echinacea: ["nordamerika"], "aloe-vera": ["afrika"], teebaum: ["ozeanien"],
   brennnessel: ["europa"], ringelblume: ["europa"], weide: ["europa"], apfel: ["asien"], granatapfel: ["asien"], karotte: ["asien"], tomate: ["suedamerika"], walnuss: ["asien"],
+  avocado: ["nordamerika"], brokkoli: ["europa"], spinat: ["asien"], knoblauch: ["asien"], heidelbeere: ["europa"], zitrone: ["asien"], kirsche: ["europa"], linsen: ["asien"], kuerbis: ["nordamerika"],
 };
 
 export interface PlantGroup {
@@ -43,8 +44,8 @@ export const GROUPS: PlantGroup[] = [
   { id: "baeume", title: "Bäume", sub: "Wälder & Rinde", slot: "tile-baeume", members: ["weide", "teebaum", "walnuss", "apfel"] },
   { id: "pilze", title: "Pilze", sub: "Medizinalpilze", slot: "tile-pilze", members: ["category:pilz"] },
   { id: "gewuerze", title: "Gewürze", sub: "Küche & Tradition", slot: "plants-cat-gewuerze", fallbackSlot: "tile-pflanzen", members: ["ingwer", "kurkuma", "rosmarin"] },
-  { id: "fruechte", title: "Früchte", sub: "Nährstoffe", slot: "plants-cat-fruechte", fallbackSlot: "tile-gemuese-obst", members: ["granatapfel", "apfel", "tomate", "walnuss"] },
-  { id: "gemuese", title: "Gemüse", sub: "Nahrungspflanzen", slot: "plants-cat-gemuese", fallbackSlot: "tile-gemuese-obst", members: ["karotte", "tomate"] },
+  { id: "fruechte", title: "Früchte", sub: "Nährstoffe", slot: "plants-cat-fruechte", fallbackSlot: "tile-gemuese-obst", members: ["granatapfel", "apfel", "avocado", "heidelbeere", "zitrone", "kirsche", "tomate", "walnuss"] },
+  { id: "gemuese", title: "Gemüse", sub: "Nahrungspflanzen", slot: "plants-cat-gemuese", fallbackSlot: "tile-gemuese-obst", members: ["karotte", "tomate", "brokkoli", "spinat", "knoblauch", "linsen", "kuerbis"] },
   { id: "algen", title: "Algen", sub: "Wasserpflanzen", slot: "plants-cat-algen", fallbackSlot: "tile-pflanzen", members: [], soon: true },
 ];
 

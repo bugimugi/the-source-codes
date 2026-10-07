@@ -111,6 +111,19 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Tab „Für die Gesundheit“ heißt „Gesundheitsthemen“, „Traditionelle Mischungen“ zeigt bis zur Fachprüfung nur einen Hinweis; die Studien-Platzhalter sind echte Quellen (Suchauszug);
     Wechselwirkungen mit Medikamenten (MSKCC) stehen als Aussage und im Hinweis; Frequenzkarte als Behauptung mit Schwärzungsfeld; Mengen fehlen. Umsetzung: `src/data/profileGranatapfel.ts`,
     `src/ui/plantProfile.ts` (Layout „frucht“), `src/ui/plantArt.ts` (gezeichneter Granatapfel), `src/data/validateProfiles.ts`. Die Kachel „Gemüse & Obst“ der Startseite öffnet den Pflanzenatlas mit der Gruppe „Früchte“.
+20. **Obst & Gemüse Atlas** (Referenzbild lokal in `design/mockups/20-obst-gemuese-atlas.png`, nicht committet) – Landingpage hinter der Kachel „Gemüse & Obst“, gleiche Bauweise
+    wie der Pflanzenatlas (Seite 17). Hero „OBST & GEMÜSE ATLAS“ (Brotkrumen, Einleitung, Suchfeld, 5 Kennzahlen, Pergamentkarte „Natürliche Nahrung“ mit 6 Häkchen, Korb-Bild);
+    „Obst & Gemüse Kategorien“ (16 Karten in zwei Reihen: Obst, Beeren, Zitrusfrüchte, Kernobst, Steinobst, Tropenfrüchte, Gemüse, Blattgemüse, Wurzelgemüse, Hülsenfrüchte, Kohlgemüse,
+    Nachtschattengewächse, Kürbisgewächse, Zwiebelgewächse, Nüsse & Samen, Sprossen & Keimlinge); „Beliebte Obst & Gemüse“ (10 Karten mit Pfeil); „Globaler Anbau & Regionen“ (Weltkarte mit
+    5 Regionen-Pins, Pergamentkarte „Saisonkalender“ mit 4 Jahreszeiten); „Nährstoffe & Gesundheit“ (6 Kreise + Button); „Wirkung auf den menschlichen Körper“ (8 Zeilen, leuchtender Körper);
+    „Traditionelle Küche & Kulturen“ (5 Küchen), „Rezepte & Anwendungen“ (Smoothies, Salate, Warme Gerichte), „Wissensnetz“. **Anders umgesetzt (Schutzlinien):** Kennzahlen (800+, 600+, 200+, 100+)
+    werden aus dem Atlas gezählt; die Stichworte unter den Karten („Herz & Kreislauf“, „Immunsystem“, „Gesunde Fette“ …) sind bekannte Inhaltsstoffe (Pektin, Lycopin, Beta-Carotin …), keine
+    Wirkungsaussagen; „Wirkung auf den menschlichen Körper“ heißt „Ernährung & Körper“ und verweist auf die Zuordnungen im Körper-Atlas (kein Wirkversprechen); „Unterstützt Körper & Geist“ ist
+    „Nahrung für Körper & Geist“, „Nachhaltig & Natürlich“ ist „Saisonal & regional“; die Nährstoffkreise zeigen Lehrbuch-Erklärungen statt „Schutz & Regeneration“; Smoothies/Salate/Warme
+    Gerichte stehen als „folgt“ (es gibt noch keine Küchenrezepte, die Werkbank zeigt Hausmittel); der Saisonkalender gilt für Mitteleuropa und markiert die aktuelle Jahreszeit, ein Klick zeigt die
+    Atlas-Einträge; 9 neue Atlas-Einträge (Avocado, Brokkoli, Spinat, Knoblauch, Heidelbeere, Zitrone, Süßkirsche, Linse, Kürbis) damit die Kategorien nicht leer sind, Sprossen bleiben „in Vorbereitung“.
+    Umsetzung: `src/ui/produce.ts`, `src/data/produce.ts`, `src/produce.css` (nutzt die `.pl-*`-Teile von `src/plants.css`). Jeder Eintrag öffnet sein Profil (Granatapfel voll, die anderen als
+    Kurzprofil); „Zurück“ führt hierher. Bildplätze `obst-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-gemuese-obst`, die Karten zeigen Symbole auf getönten Flächen.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

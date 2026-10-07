@@ -21,7 +21,7 @@ export const GRANATAPFEL: PlantProfile = {
     history: "Geschichte & Kultur", historySub: "Symbolik, traditionelle Verwendung und historische Bedeutung.",
     researchSub: "Aktuelle Studien und Erkenntnisse.", networkSub: "Verwandte Themen, Pflanzen und Konzepte.",
   },
-  crumbs: ["Pflanzenatlas", "Früchte"],
+  crumb: "Früchte",
   tags: ["Frucht", "Antioxidantien", "Polyphenole", "Traditionelle Medizin"],
   lead: "Der Granatapfel ist eine der ältesten Kulturpflanzen der Welt. Er wird seit Jahrtausenden für seine nährstoffreichen Früchte, seine Symbolik und seine vielseitige Verwendung geschätzt.",
   bubbles: [

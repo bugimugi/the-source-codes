@@ -1,0 +1,91 @@
+/* Obst & Gemüse Atlas (src/ui/produce.ts). Builds on the .pl-* pieces of the plant atlas page (src/plants.css). */
+.og-hero .pl-hero-text { max-width: 42rem; }
+.og-hero-alt.slot { position: absolute; left: auto; right: 0; top: 0; bottom: 0; width: min(64%, 980px); aspect-ratio: auto; mix-blend-mode: normal; opacity: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 42%); mask-image: linear-gradient(90deg, transparent, #000 42%); }
+.og-hero-alt.slot img { object-fit: cover; object-position: center 40%; }
+.og-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ivory); }
+.og-crumbs button { all: unset; cursor: pointer; border-bottom: 1px solid transparent; } .og-crumbs button:hover { color: var(--gold-hi); border-color: var(--gold); }
+.og-crumbs button:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+.og-crumbs i { font-style: normal; opacity: 0.55; } .og-crumbs strong { font-weight: 500; opacity: 0.9; }
+.og-card { overflow: hidden; width: min(20rem, 30vw); }
+.og-card h2 { position: relative; font-family: var(--serif-text); font-weight: 600; font-size: clamp(1.25rem, 1.7vw, 1.6rem); line-height: 1.12; color: #2b2013; }
+.og-card p { position: relative; margin-top: 0.3rem; font-size: 0.74rem; line-height: 1.4; color: #4a3a24; }
+.og-card ul { position: relative; list-style: none; padding: 0; margin-top: 0.7rem; display: grid; gap: 0.5rem; }
+.og-card li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: #2b2013; }
+.og-card li .ic { width: 1rem; height: 1rem; margin: 0; display: block; opacity: 1; flex: none; fill: none; stroke: #3d7a3a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.og-sketch.slot { position: absolute; right: -8%; top: 8%; bottom: 0; width: 46%; aspect-ratio: auto; opacity: 0.5; mix-blend-mode: multiply; }
+.og-sketch.slot-empty { display: none; }
+
+/* categories: 16 cards in two rows */
+.og-cat-row { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; }
+.og-cat-row .og-cat { aspect-ratio: 5 / 4; }
+.og-cat > span { padding-top: 1.6rem; } .og-cat strong { font-size: 1rem; } .og-cat small { font-size: 0.6rem; }
+.og-cat .pl-cat-img.slot-empty { background: linear-gradient(160deg, #26341f, #0d130f); }
+.og-pop-sub { max-width: 40rem; }
+
+/* world: text | map | season calendar */
+.og-world { grid-template-columns: minmax(220px, 0.62fr) minmax(0, 2.1fr) minmax(220px, 0.74fr); }
+.og-season-q { font-size: 0.74rem; margin-bottom: 0.4rem; color: #4a3a24; }
+.og-season button { grid-template-columns: 26px 1fr !important; align-items: start !important; padding: 0.5rem 0.3rem !important; }
+.og-season button .ic { width: 20px; height: 20px; flex: none; fill: none; stroke: #5b4630; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.og-season span { display: grid; gap: 0.05rem; } .og-season strong { font-size: 0.9rem; } .og-season small { font-size: 0.72rem; color: #4a3a24; }
+.og-season em { font-style: normal; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.05rem 0.4rem; margin-left: 0.3rem; border-radius: 99px; background: #3d7a3a; color: #f3e9cc; }
+.og-season [aria-current] { background: rgba(80, 58, 30, 0.1); }
+
+/* nutrients + body */
+.og-duo { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px; align-items: stretch; }
+.og-nu-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.og-nu { all: unset; cursor: pointer; box-sizing: border-box; display: grid; justify-items: center; align-content: start; gap: 0.2rem; padding: 0.7rem 0.3rem; text-align: center; border: 1px solid rgba(203, 170, 103, 0.3); border-radius: 12px; background: rgba(10, 16, 12, 0.55); transition: border-color 0.2s, background 0.2s; }
+.og-nu:hover { border-color: var(--gold); } .og-nu[aria-pressed="true"] { border-color: var(--gold-hi); background: rgba(240, 209, 139, 0.12); }
+.og-nu:focus-visible { outline: 2px solid var(--ivory); outline-offset: 2px; }
+.og-nu i { width: 2.8rem; height: 2.8rem; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--gold-hi); color: var(--gold-hi); background: radial-gradient(circle, rgba(240, 209, 139, 0.22), rgba(8, 12, 9, 0.7)); box-shadow: 0 0 14px rgba(240, 209, 139, 0.2); }
+.og-nu i .ic { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.og-nu strong { font-size: 0.74rem; font-weight: 600; line-height: 1.2; } .og-nu small { font-size: 0.6rem; line-height: 1.25; color: var(--muted); }
+.og-nu-text { min-height: 3.6em; font-size: 0.78rem; line-height: 1.55; color: var(--ivory); padding: 0.6rem 0.8rem; border-left: 2px solid var(--gold); background: rgba(255, 255, 255, 0.03); border-radius: 0 8px 8px 0; }
+.og-nutrients .pl-ghost { justify-self: start; }
+.og-body .pl-organs button .ic { width: 1.05rem; height: 1.05rem; flex: none; fill: none; stroke: var(--gold); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* cuisines, recipes, network */
+.og-trio { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 12px; align-items: stretch; }
+.og-cu-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.og-cu, .og-re { all: unset; box-sizing: border-box; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.og-cu { cursor: pointer; padding: 0.3rem; border: 1px solid transparent; border-radius: 10px; } .og-cu:hover, .og-cu[aria-pressed="true"] { border-color: var(--gold-hi); background: rgba(240, 209, 139, 0.08); }
+.og-cu:focus-visible { outline: 2px solid var(--ivory); outline-offset: 2px; }
+.og-cu-img, .og-re-img { position: relative; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; border: 1px solid rgba(203, 170, 103, 0.28); }
+.og-cu-img.slot, .og-re-img.slot { aspect-ratio: 4 / 3; } .og-cu-img.slot-empty, .og-re-img.slot-empty { background: linear-gradient(160deg, #2a2a1c, #0d130f); }
+.og-re-img.slot { aspect-ratio: 1 / 1; }
+.og-cu span, .og-re span { display: grid; gap: 0.05rem; } .og-cu strong, .og-re strong { font-family: var(--serif-text); font-size: 0.98rem; font-weight: 600; line-height: 1.1; }
+.og-cu small, .og-re small { font-size: 0.6rem; line-height: 1.3; color: var(--muted); }
+.og-re-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.og-re { padding: 0.3rem; }
+.og-cuisines .pl-ghost, .og-recipes .pl-ghost, .og-network .pl-ghost { justify-self: start; }
+.og-net { position: relative; aspect-ratio: 1 / 0.9; min-height: 240px; }
+.og-net svg { position: absolute; inset: 0; width: 100%; height: 100%; } .og-net line { stroke: rgba(203, 170, 103, 0.4); stroke-width: 1; vector-effect: non-scaling-stroke; } .og-net line.link { stroke: rgba(240, 209, 139, 0.8); stroke-dasharray: 3 3; }
+.og-node { all: unset; cursor: pointer; position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 0.1rem; width: 4.6rem; text-align: center; }
+.og-node-img { position: relative; width: 2.6rem; height: 2.6rem; border-radius: 50%; overflow: hidden; border: 1px solid var(--gold); background: #0d130f; box-shadow: 0 0 12px rgba(240, 209, 139, 0.25); transition: box-shadow 0.2s; }
+.og-node-img .pl-card-img.slot { position: absolute; inset: 0; } .og-node-img .atlas-fallback.slot-empty::after { font-size: 1.1rem; }
+.og-node:hover .og-node-img, .og-node:focus-visible .og-node-img { box-shadow: 0 0 20px rgba(240, 209, 139, 0.6); border-color: var(--gold-hi); }
+.og-node:focus-visible { outline: 2px solid var(--ivory); outline-offset: 2px; border-radius: 10px; }
+.og-node em { font-style: normal; font-size: 0.62rem; line-height: 1.2; text-shadow: 0 1px 6px #000; }
+.og-node.center { left: 50%; top: 50%; cursor: default; width: 5rem; height: 5rem; border-radius: 50%; border: 2px solid var(--gold-hi); background: radial-gradient(circle, rgba(240, 209, 139, 0.3), rgba(8, 12, 9, 0.92)); align-content: center; font-family: var(--serif-text); font-weight: 600; font-size: 0.9rem; line-height: 1.1; color: var(--gold-hi); box-shadow: 0 0 22px rgba(240, 209, 139, 0.35); }
+
+@media (max-width: 1180px) {
+  .og-cat-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .og-world { grid-template-columns: 1fr 1fr; } .og-world .pl-map { grid-column: 1 / -1; order: 3; } .og-world .og-season { order: 2; }
+  .og-duo, .og-trio { grid-template-columns: 1fr; }
+  .og-nu-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .og-card { width: min(18rem, 34vw); }
+}
+@media (max-width: 760px) {
+  .og-cat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .og-world { grid-template-columns: 1fr; }
+  .og-card { width: auto; }
+  .og-cu-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .og-re-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .og-hero-alt.slot { width: 100%; opacity: 0.4; -webkit-mask-image: none; mask-image: none; }
+}
+
+/* placeholders until the pictures exist: a tinted glow with an icon */
+.og-ph { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--tint) 55%, #0c120e), #0b100c 78%); color: color-mix(in srgb, var(--tint) 45%, #ECE8DE); }
+.og-ph .ic { width: 2.2rem; height: 2.2rem; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px var(--tint)); }
+.og-cu-img.og-ph, .og-re-img.og-ph { position: relative; inset: auto; } .og-cu-img.og-ph .ic, .og-re-img.og-ph .ic { width: 1.6rem; height: 1.6rem; }
+.og-season strong em { margin-left: 0.4rem; vertical-align: middle; }

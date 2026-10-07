@@ -67,7 +67,8 @@ export interface PlantProfile {
   /** which drawn placeholder stands in for the pictures */
   art: "herb" | "fruit";
   t: ProfileTexts;
-  crumbs: string[];
+  /** the category in the breadcrumb after the atlas name, e.g. "Früchte" */
+  crumb: string;
   tags: string[];
   lead: string;
   /** "Themen in der Überlieferung" under the lead (neutral: no benefit statements) */

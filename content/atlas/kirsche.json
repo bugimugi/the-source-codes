@@ -1,0 +1,55 @@
+{
+  "id": "kirsche",
+  "status": "published",
+  "category": "obst",
+  "name": "Süßkirsche",
+  "latin": "Prunus avium",
+  "model": {
+    "kind": "fruit",
+    "color": "#a3141f",
+    "color2": "#4a0a10",
+    "shape": "apple"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Rosengewächse (Rosaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Frucht (Steinfrucht)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Europa und Westasien (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Die Farbstoffe der dunklen Sorten sind Anthocyane (Lehrbuchwissen, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag zum Lebensmittel dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    }
+  ],
+  "tradition": "Kirschen werden in Europa seit der Antike angebaut und gegessen.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

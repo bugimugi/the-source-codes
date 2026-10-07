@@ -166,10 +166,11 @@ html { scroll-padding-top: 84px; }
 .band h2, .band-like h2 { font-family: var(--serif); font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; margin-bottom: 0.4rem; }
 .band p, .band-like p { font-size: 0.8rem; line-height: 1.55; color: var(--ivory); opacity: 0.88; margin-bottom: 0.8rem; }
 .trio { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 18px; }
-.diy { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 0.8rem; }
-.diy-card { all: unset; box-sizing: border-box; position: relative; cursor: pointer; aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; border: 1px solid var(--gold-line); }
-.diy-card strong { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem 0.4rem 0.4rem; font-size: 0.66rem; font-weight: 500; text-align: center; background: linear-gradient(transparent, rgba(2, 7, 11, 0.92)); }
-.diy-img.slot { position: absolute; inset: 0; }
+.egy-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0.8rem 0 0.9rem; }
+.egy-card { all: unset; box-sizing: border-box; position: relative; cursor: pointer; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; border: 1px solid var(--gold-line); transition: border-color 0.2s, transform 0.3s; }
+.egy-card:hover, .egy-card:focus-visible { border-color: var(--gold); transform: translateY(-2px); }
+.egy-card strong { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem 0.4rem 0.4rem; font-size: 0.66rem; font-weight: 500; text-align: center; background: linear-gradient(transparent, rgba(2, 7, 11, 0.92)); }
+.egy-img.slot { position: absolute; inset: 0; }
 .motto { font-size: 0.62rem !important; letter-spacing: 0.22em; color: var(--gold-hi) !important; }
 .notice { position: static; padding: 1.2rem clamp(14px, 3vw, 44px) 2rem; font-size: 0.72rem; line-height: 1.6; color: var(--muted); background: var(--bg); text-align: center; z-index: 2; position: relative; }
 .notice .pilot { color: var(--gold-hi); }
@@ -194,7 +195,6 @@ html { scroll-padding-top: 84px; }
   .organs { grid-template-columns: repeat(3, 1fr); } .organs { grid-template-columns: repeat(3, 1fr); }
   .plant-feature { grid-template-columns: 1fr; } .plant-img.slot { max-width: 180px; } .plant-list { grid-template-columns: 1fr; }
   .lab-grid { grid-template-columns: 1fr; } .orb.slot { max-width: 180px; justify-self: center; }
-  .diy { grid-template-columns: repeat(2, 1fr); }
   .nav-cta { display: none; }
   .hero-section { max-height: none; height: auto; min-height: 112vh; }
   .hero-section::before { background: linear-gradient(0deg, var(--bg) 0, rgba(2, 7, 11, 0.92) 44%, transparent 68%); }
@@ -214,3 +214,5 @@ html { scroll-padding-top: 84px; }
 .nav.solid { background: rgba(2, 7, 11, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--gold-line); }
 
 @media (prefers-reduced-motion: reduce) { .planet { animation: none; } }
+@media (max-width: 1560px) { .nav-links { gap: clamp(8px, 1.05vw, 16px); } }
+@media (max-width: 1360px) { .nav-link:nth-child(n+9) { display: none; } }

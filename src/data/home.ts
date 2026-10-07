@@ -10,6 +10,7 @@ export type TileAction =
   | { type: "breath" }
   | { type: "places" }
   | { type: "cultures" }
+  | { type: "energy" }
   | { type: "nutrients" }
   | { type: "soon" };
 
@@ -32,7 +33,7 @@ export const TILES: Tile[] = [
   { title: "Chakren", sub: "Energiezentren & Bewusstsein", slot: "tile-chakren", action: { type: "chakra" } },
   { title: "Alte Kulturen", sub: "Wissen der Zivilisationen", slot: "tile-kulturen", action: { type: "cultures" } },
   { title: "Heilige Orte", sub: "Orte besonderer Bedeutung", slot: "tile-orte", action: { type: "places" } },
-  { title: "Lab & Experimente", sub: "Selbst ausprobieren", slot: "tile-lab", action: { type: "scroll", target: "labor" } },
+  { title: "Freie Energie", sub: "Wie die Erde Energie erzeugt", slot: "tile-energie", action: { type: "energy" } },
 ];
 
 export const ORGANS = ["Gehirn", "Herz", "Lunge", "Leber", "Magen", "Darm", "Immunsystem", "Hormone", "Knochen", "Muskeln", "Haut", "Nervensystem"];
@@ -68,9 +69,10 @@ export const BANDS = [
   { id: "orte", title: "Heilige Orte", text: "Orte von besonderer historischer und kultureller Bedeutung: Giza, Machu Picchu, Angkor Wat, Stonehenge.", slot: "band-orte" as SlotName, button: "Orte entdecken", places: true as const },
 ];
 
-export const DIY = [
-  { title: "Pflanzenextrakte selbst herstellen", slot: "diy-extrakte" as SlotName },
-  { title: "Wasser strukturieren", slot: "diy-wasser" as SlotName },
-  { title: "Räuchern & Essenzen", slot: "diy-raeuchern" as SlotName },
-  { title: "Mikroskopie erleben", slot: "diy-mikroskop" as SlotName },
+/** Four of the seven energy sources, shown as teaser cards on the home page (ids from data/energy.ts). */
+export const ENERGY_TEASER: { id: string; title: string; slot: SlotName }[] = [
+  { id: "sonne", title: "Sonne", slot: "energy-src-sonne" },
+  { id: "wasser", title: "Wasser", slot: "energy-src-wasser" },
+  { id: "wind", title: "Wind", slot: "energy-src-wind" },
+  { id: "geothermie", title: "Erdwärme", slot: "energy-src-geothermie" },
 ];

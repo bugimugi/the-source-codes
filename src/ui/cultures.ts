@@ -1,8 +1,7 @@
-import { CULTURES_NOTICE, DOSSIERS, KIND_SECTION, KIND_TAG, PATTERNS, PATTERN_ANSWER, THEMES, type BlockKind, type Dossier, type FringeClaim, type Theme } from "../data/cultures";
-import { LEVEL_LABEL } from "../data/types";
+import { CULTURES_NOTICE, DOSSIERS, KIND_SECTION, KIND_TAG, PATTERNS, PATTERN_ANSWER, THEMES, type BlockKind, type Dossier, type Theme } from "../data/cultures";
 import { mountSlots } from "../assets/slots";
+import { claimHtml, esc, toggleRedaction } from "./dossierParts";
 
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 const ORDER: BlockKind[] = ["fund", "wissen", "glaube", "raetsel"];
 const TAG_COLOR: Record<BlockKind, string> = { fund: "var(--lvl-historical)", wissen: "var(--lvl-historical)", glaube: "var(--gold-hi)", raetsel: "var(--cyan)" };
 
@@ -86,15 +85,6 @@ export function initCultures(root: HTMLElement, api: CulturesApi) {
   }
 
   // ---- the file (drawer)
-  const claimHtml = (c: FringeClaim, from?: string) => `
-    <div class="cu-claim">
-      <button class="cu-redact" aria-expanded="false"><span class="cu-bar" aria-hidden="true"></span><span class="cu-redact-label">Behauptung · Schwärzung aufheben</span></button>
-      <div class="cu-claim-body" hidden>
-        <p class="cu-claim-text">${from ? `<small>${esc(from)}</small>` : ""}„${esc(c.text)}“</p>
-        <span class="cu-level" style="--c:var(--lvl-${c.level})">${esc(LEVEL_LABEL[c.level])}</span>
-        <p class="cu-counter"><strong>Einordnung und Gegenbelege:</strong> ${esc(c.counter)}</p>
-      </div>
-    </div>`;
 
   function renderFile(d: Dossier) {
     const sections = ORDER.map((k) => {
@@ -169,16 +159,7 @@ export function initCultures(root: HTMLElement, api: CulturesApi) {
     if (op) { openDossier(op.dataset.open!, op.closest(".cu-file") ? opener : op); return; }
     const th = t.closest<HTMLElement>(".cu-theme");
     if (th) { theme = theme === th.dataset.theme ? null : (th.dataset.theme as Theme); applyTheme(); return; }
-    const red = t.closest<HTMLButtonElement>(".cu-redact");
-    if (red) {
-      const body = red.nextElementSibling as HTMLElement;
-      const open = red.getAttribute("aria-expanded") !== "true";
-      red.setAttribute("aria-expanded", String(open));
-      body.hidden = !open;
-      red.classList.toggle("open", open);
-      if (open) { body.tabIndex = -1; body.focus({ preventScroll: true }); }
-      return;
-    }
+    if (toggleRedaction(t)) return;
     if (t.closest("[data-list]")) { const k = (t.closest("[data-list]") as HTMLElement).dataset.list as "raetsel" | "claims"; openFile(() => renderList(k), t.closest("button")); return; }
     if (t.closest("[data-scroll-to]")) { root.querySelector<HTMLElement>(`.${(t.closest("[data-scroll-to]") as HTMLElement).dataset.scrollTo}`)?.scrollIntoView({ behavior: api.reduceMotion ? "auto" : "smooth", block: "start" }); return; }
   });

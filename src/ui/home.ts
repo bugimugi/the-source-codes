@@ -3,7 +3,7 @@ import { claims } from "../data/claims";
 import { BODY_ORGANS } from "../data/body";
 import { createBodyStage } from "./bodyStage";
 import { organById, organDetailHtml } from "./organDetail";
-import { BANDS, CONDITIONS, DIY, FREQUENCIES, ORGANS, TILES } from "../data/home";
+import { BANDS, CONDITIONS, ENERGY_TEASER, FREQUENCIES, ORGANS, TILES } from "../data/home";
 import { CATEGORY_LABEL, type AtlasCategory } from "../data/types";
 import { mountSlots } from "../assets/slots";
 import type { SlotName } from "../assets/registry";
@@ -21,6 +21,7 @@ export interface HomeApi {
   openPlaces(id?: string): void;
   openCultures(): void;
   openNutrients(): void;
+  openEnergy(id?: string): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -115,8 +116,9 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
   <div class="bands">${BANDS.map((b) => `<section class="band" id="${b.id}">${slot(b.slot, "band-bg", 'data-fit="cover"')}<div><h2>${esc(b.title)}</h2><p>${esc(b.text)}</p>${"cultures" in b ? `<button class="cta ghost small" data-act="cultures">${esc(b.button)} <span aria-hidden="true">→</span></button>` : "places" in b ? `<button class="cta ghost small" data-act="places">${esc(b.button)} <span aria-hidden="true">→</span></button>` : "fx" in b ? `<button class="cta ghost small" data-act="fx" data-mode="${b.fx}">${esc(b.button)} <span aria-hidden="true">→</span></button>` : `<button class="cta ghost small" data-act="soon">${esc((b as { button: string }).button)} <span class="soon-tag inline">bald</span></button>`}</div></section>`).join("")}</div>
 
   <div class="trio">
-    <section class="sec" id="labor" aria-labelledby="h-diy"><h2 id="h-diy">DIY Labor</h2><p>Experimente, Rezepte und praktische Anwendungen.</p>
-      <div class="diy">${DIY.map((d) => `<button data-act="soon" class="diy-card">${slot(d.slot, "diy-img", 'data-fit="cover"')}<strong>${esc(d.title)}</strong></button>`).join("")}</div></section>
+    <section class="sec" id="energie" aria-labelledby="h-energie"><h2 id="h-energie">Freie Energie der Erde</h2><p>Sonne, Wind, Wasser, Erdwärme: Die Erde liefert ständig Energie. Wie viel davon nutzbar ist, was dokumentiert ist und was nur behauptet wird.</p>
+      <div class="egy-cards">${ENERGY_TEASER.map((d) => `<button data-act="energy" data-src="${d.id}" class="egy-card">${slot(d.slot, "egy-img", 'data-fit="cover" data-sizes="(max-width: 700px) 45vw, 12vw"')}<strong>${esc(d.title)}</strong></button>`).join("")}</div>
+      <button class="cta ghost small" data-act="energy">Seite öffnen <span aria-hidden="true">→</span></button></section>
     <section class="sec band-like" id="bibliothek" aria-labelledby="h-lib">${slot("library-bg", "band-bg", 'data-fit="cover"')}<div><h2 id="h-lib">Research Bibliothek</h2><p>Studien, historische Texte und Quellen, mit Belegstufe und Prüfstatus zu jeder Aussage.</p><button class="cta ghost small" data-act="universe">Bibliothek öffnen <span aria-hidden="true">→</span></button></div></section>
     <section class="sec band-like earth" id="verbunden" aria-labelledby="h-conn">${slot("connected-earth", "band-bg", 'data-fit="cover"')}<div><h2 id="h-conn">Alles ist verbunden</h2><p>„Natur, Mensch und Universum sind kein getrenntes System, sondern ein lebendiges Ganzes.“ – eine Leitidee, die wir Aussage für Aussage prüfen.</p><p class="motto">ENTDECKEN · VERSTEHEN · VERBINDEN · PRÜFEN · WEITERDENKEN</p></div></section>
   </div>`;
@@ -141,6 +143,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "places") api.openPlaces();
       else if (a.type === "cultures") api.openCultures();
       else if (a.type === "nutrients") api.openNutrients();
+      else if (a.type === "energy") api.openEnergy();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }
@@ -151,6 +154,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (k === "body") api.openBody();
       else if (k === "places") api.openPlaces();
       else if (k === "cultures") api.openCultures();
+      else if (k === "energy") api.openEnergy(act.dataset.src);
       else if (k === "fx") api.openFx(act.dataset.mode === "geometrie" ? "geometrie" : "kymatik");
       else if (k === "atlas-all") api.openAtlas(null);
       else if (k === "atlas-entry") api.openAtlas(null, act.dataset.id);

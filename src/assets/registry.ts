@@ -21,6 +21,7 @@ export interface SlotDef {
 const d = (page: string, prio: number, bg: SlotDef["bg"], w: number, h: number, prompt: string, mobile?: string): SlotDef => ({ w, h, bg, mobile, prio, page, prompt });
 const HOME = "Startseite";
 const CULT = "Alte Kulturen";
+const ENERGY = "Freie Energie";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -48,7 +49,7 @@ export const SLOTS = {
   "tile-chakren": d(HOME, 2, "scene", 1000, 1200, "meditating figure with seven glowing colourful energy centres along the spine, dark background"),
   "tile-kulturen": d(HOME, 2, "scene", 1000, 1200, "ancient Egyptian pyramids and temple at golden hour, dramatic sky"),
   "tile-orte": d(HOME, 2, "scene", 1000, 1200, "ancient standing stones at dusk, dramatic sky, mystic atmosphere"),
-  "tile-lab": d(HOME, 2, "scene", 1000, 1200, "glass laboratory flasks with a seedling and glowing liquid, dark background"),
+  "tile-energie": d(HOME, 2, "scene", 1000, 1200, "dramatic earth energy collage: a bright sun above a lightning storm, a waterfall and wind turbines, dark background"),
 
   // ---- Startseite: body atlas, plant atlas, sections (priority 3)
   "body-front": d(HOME, 3, "black", 2400, 3600, "translucent human body, front view, anatomical, glowing blue with organs visible in red and orange, on a pure black background"),
@@ -65,10 +66,6 @@ export const SLOTS = {
   "band-geometrie": d(HOME, 3, "scene", 1800, 600, "golden flower of life geometry glowing on a dark background, space on the left for text"),
   "band-kulturen": d(HOME, 3, "scene", 1800, 600, "ancient pyramids and temple ruins at golden hour, space on the left for text"),
   "band-orte": d(HOME, 3, "scene", 1800, 600, "sacred mountain site with ancient terraces in mist, space on the left for text"),
-  "diy-extrakte": d(HOME, 3, "scene", 800, 1000, "glass bottles with plant extracts and herbs on a dark wooden table"),
-  "diy-wasser": d(HOME, 3, "scene", 800, 1000, "glowing structured water in a glass with a swirling vortex, dark background"),
-  "diy-raeuchern": d(HOME, 3, "scene", 800, 1000, "smoking incense bowl with herbs, atmospheric, dark background"),
-  "diy-mikroskop": d(HOME, 3, "scene", 800, 1000, "antique microscope with warm light, dark background"),
   "library-bg": d(HOME, 3, "scene", 1800, 900, "old library with tall shelves and an open ancient book in warm light, space on the left for text"),
   "connected-earth": d(HOME, 3, "scene", 1800, 900, "Earth from space with a glowing network of connections across continents, dark space"),
 
@@ -116,6 +113,24 @@ export const SLOTS = {
   "cult-theme-artefakte": d(CULT, 6, "scene", 600, 600, "clay tablet with cuneiform and a carved stone seal on dark cloth, close-up"),
   "cult-theme-mythen": d(CULT, 6, "scene", 600, 600, "winged guardian relief of ancient Mesopotamia, glowing gold on dark stone"),
   "cult-theme-verborgenes": d(CULT, 6, "scene", 600, 600, "narrow ancient stone passage leading to a lit chamber, mysterious, no people"),
+
+  // ---- Freie Energie der Erde (priority 7)
+  "energy-hero": d(ENERGY, 7, "scene", 3200, 1400, "epic panorama of earth's natural energies: bright sun and aurora over mountains, a thunderstorm with lightning at the right, a waterfall and river on the left, wind turbines, a small volcano, dark calm area on the left for text, no people"),
+  "energy-src-sonne": d(ENERGY, 7, "scene", 700, 540, "radiant sun over a landscape with solar panels at golden hour"),
+  "energy-src-blitz": d(ENERGY, 7, "scene", 700, 540, "violet lightning storm over dark clouds"),
+  "energy-src-wasser": d(ENERGY, 7, "scene", 700, 540, "powerful waterfall in a green valley"),
+  "energy-src-meer": d(ENERGY, 7, "scene", 700, 540, "huge turquoise ocean wave curling, backlit"),
+  "energy-src-wind": d(ENERGY, 7, "scene", 700, 540, "wind turbines on a hill in dramatic evening light"),
+  "energy-src-geothermie": d(ENERGY, 7, "scene", 700, 540, "erupting volcano with glowing lava at dusk"),
+  "energy-src-magnetfeld": d(ENERGY, 7, "scene", 700, 540, "earth from space with glowing blue magnetic field lines and aurora"),
+  "energy-topic-atmosphaere": d(ENERGY, 7, "scene", 1200, 700, "earth atmosphere seen from the side with layered blue bands and a starry sky above, curved horizon"),
+  "energy-topic-gewitter": d(ENERGY, 7, "scene", 1200, 700, "huge supercell thundercloud with branching lightning bolts over a plain"),
+  "energy-topic-wasserkreislauf": d(ENERGY, 7, "scene", 1200, 700, "waterfall and river valley with clouds forming above, water cycle atmosphere"),
+  "energy-topic-elektrokultur": d(ENERGY, 7, "scene", 1200, 700, "cross-section of garden soil with plant roots and a copper spiral coil, glowing fine lines"),
+  "energy-topic-erdrotation": d(ENERGY, 7, "scene", 1200, 700, "planet earth with glowing blue magnetic field lines, seen from space"),
+  "energy-topic-erdung": d(ENERGY, 7, "scene", 1200, 700, "bare feet standing on green grass and soil, soft morning light, close-up, subtle glowing lines in the ground"),
+  "energy-topic-schmuck": d(ENERGY, 7, "scene", 1200, 700, "gold, silver and copper bracelets and gemstone rings on dark cloth, warm light, no hands"),
+  "energy-topic-tesla": d(ENERGY, 7, "scene", 1200, 700, "tall early-1900s transmission tower with a large dome and blue electric discharge at dusk, no people"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

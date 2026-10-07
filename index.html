@@ -24,7 +24,7 @@
         <button class="nav-link" data-scroll="beschwerden">Beschwerden</button>
         <button class="nav-link" data-scroll="frequenz">Frequenz</button>
         <button class="nav-link" data-scroll="kulturen">Alte Kulturen</button>
-        <button class="nav-link" data-scroll="labor">Labor</button>
+        <button class="nav-link" data-scroll="energie">Energie</button>
         <button class="nav-link" id="open-manifesto-nav">Methode</button>
       </nav>
       <div class="nav-search">
@@ -273,6 +273,40 @@
       </div>
       <aside class="cu-file" hidden role="dialog" aria-labelledby="cu-file-title">
         <button class="cu-file-close" aria-label="Schließen">×</button>
+        <div class="cu-file-body"></div>
+      </aside>
+    </section>
+
+    <section id="energy" class="culturesview energyview" hidden aria-label="Freie Energie der Erde">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-energy">← Start</button>
+        <nav class="tabs" aria-label="Ansicht" data-tabs="energy"></nav>
+      </header>
+      <div class="bv-scroll cu-scroll">
+        <div class="eg-hero">
+          <div class="eg-hero-bg" data-slot="energy-hero" data-fit="cover" data-eager="true"></div>
+          <div class="eg-hero-text">
+            <p class="fx-eyebrow">Labor &amp; Naturphänomene</p>
+            <h1>Freie Energie <span>der Erde.</span></h1>
+            <p>Die Erde bewegt, erwärmt und lädt sich ständig: durch Sonne, Atmosphäre, Wasser, Magnetfeld, Rotation und Wärme aus dem Inneren. Hier steht, was davon dokumentiert ist, was sich nutzen lässt und was nur behauptet wird.</p>
+            <div class="cu-cta"><button class="cu-primary" data-scroll-to="eg-sources">Naturgeneratoren erkunden <span aria-hidden="true">→</span></button><button class="cu-ghost" data-scroll-to="eg-thesis">Die These prüfen</button></div>
+          </div>
+        </div>
+        <section class="eg-thesis" aria-label="These"></section>
+        <section class="eg-scale" aria-label="Größenordnungen"><h2>Wie viel Energie kommt an?</h2><div class="eg-scale-bars"></div><p class="eg-scale-note cu-small"></p></section>
+        <section aria-labelledby="eg-h-src"><div class="cu-journey-head"><h2 id="eg-h-src" class="eg-sources-title">Natürliche Energiequellen</h2><p>Sieben Quellen, jede als Akte: was dokumentiert ist, wie sie heute genutzt wird und warum sie nicht einfach „kostenlos“ ist.</p></div><div class="eg-sources"></div></section>
+        <section aria-labelledby="eg-h-demo" class="eg-demos-wrap"><div class="cu-journey-head"><h2 id="eg-h-demo">Zum Ausprobieren</h2><p>Drei berechnete Darstellungen, keine Messungen.</p></div>
+          <div class="eg-demos">
+            <article class="eg-demo"><h3>Die Atmosphäre – mehrere Ebenen</h3><div class="eg-atmo"></div><button class="cu-link" data-dossier="atmosphaere">Akte „Atmosphäre“ öffnen →</button></article>
+            <article class="eg-demo"><h3>Gewitter – die natürliche Batterie</h3><div class="eg-boltwrap"><canvas class="eg-bolt" aria-label="Animation: Blitz aus einer Gewitterwolke"></canvas></div><div class="eg-demo-row"><button class="cu-ghost eg-bolt-btn">Blitz auslösen</button><button class="cu-link" data-dossier="gewitter">Akte „Gewitter“ öffnen →</button></div><p class="cu-small">Vereinfachte Darstellung der Ladungstrennung: oben überwiegend positiv, unten negativ.</p></article>
+            <article class="eg-demo wide"><h3>Die Erde und ihr Magnetfeld</h3><div class="eg-fieldwrap"><canvas class="eg-field" aria-label="3D-Darstellung der Erde mit Magnetfeldlinien"></canvas><p class="eg-field-fallback" hidden>Diese 3D-Ansicht braucht WebGL. Bitte Hardwarebeschleunigung im Browser aktivieren.</p></div><p class="cu-small">Vereinfachtes Dipol-Modell, rund 11° gegen die Drehachse geneigt. Die Linien zeigen die Form des Feldes, keinen Stromfluss. Ziehen zum Drehen.</p><div class="eg-demo-row"><button class="cu-link" data-dossier="magnetfeld">Akte „Magnetfeld“ →</button><button class="cu-link" data-dossier="erdrotation">Akte „Erdrotation“ →</button></div></article>
+          </div>
+        </section>
+        <section aria-labelledby="eg-h-top"><div class="cu-journey-head"><h2 id="eg-h-top">Themen-Akten</h2><p>Von der Atmosphäre bis zu Tesla: Jede Akte trennt Dokumentiertes, Grenzen und Behauptungen.</p></div><div class="eg-topics"></div></section>
+        <p class="eg-notice br-notice"></p>
+      </div>
+      <aside class="cu-file" hidden role="dialog" aria-labelledby="cu-file-title">
+        <button class="cu-file-close" aria-label="Akte schließen">×</button>
         <div class="cu-file-body"></div>
       </aside>
     </section>

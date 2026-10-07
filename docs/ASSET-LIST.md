@@ -45,7 +45,7 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `tile-chakren` | 1000×1200 | Szene | meditating figure with seven glowing colourful energy centres along the spine, dark background |
 | `tile-kulturen` | 1000×1200 | Szene | ancient Egyptian pyramids and temple at golden hour, dramatic sky |
 | `tile-orte` | 1000×1200 | Szene | ancient standing stones at dusk, dramatic sky, mystic atmosphere |
-| `tile-lab` | 1000×1200 | Szene | glass laboratory flasks with a seedling and glowing liquid, dark background |
+| `tile-energie` | 1000×1200 | Szene | dramatic earth energy collage: a bright sun above a lightning storm, a waterfall and wind turbines, dark background |
 
 ## Priorität 3 – Startseiten-Abschnitte
 
@@ -65,10 +65,6 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `band-geometrie` | 1800×600 | Szene | golden flower of life geometry glowing on a dark background, space on the left for text |
 | `band-kulturen` | 1800×600 | Szene | ancient pyramids and temple ruins at golden hour, space on the left for text |
 | `band-orte` | 1800×600 | Szene | sacred mountain site with ancient terraces in mist, space on the left for text |
-| `diy-extrakte` | 800×1000 | Szene | glass bottles with plant extracts and herbs on a dark wooden table |
-| `diy-wasser` | 800×1000 | Szene | glowing structured water in a glass with a swirling vortex, dark background |
-| `diy-raeuchern` | 800×1000 | Szene | smoking incense bowl with herbs, atmospheric, dark background |
-| `diy-mikroskop` | 800×1000 | Szene | antique microscope with warm light, dark background |
 | `library-bg` | 1800×900 | Szene | old library with tall shelves and an open ancient book in warm light, space on the left for text |
 | `connected-earth` | 1800×900 | Szene | Earth from space with a glowing network of connections across continents, dark space |
 
@@ -128,6 +124,27 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `cult-theme-mythen` | 600×600 | Szene | winged guardian relief of ancient Mesopotamia, glowing gold on dark stone |
 | `cult-theme-verborgenes` | 600×600 | Szene | narrow ancient stone passage leading to a lit chamber, mysterious, no people |
 
+## Priorität 7 – Freie Energie der Erde
+
+| Datei | Größe | Typ | Prompt-Kern |
+|---|---|---|---|
+| `energy-hero` | 3200×1400 | Szene | epic panorama of earth's natural energies: bright sun and aurora over mountains, a thunderstorm with lightning at the right, a waterfall and river on the left, wind turbines, a small volcano, dark calm area on the left for text, no people |
+| `energy-src-sonne` | 700×540 | Szene | radiant sun over a landscape with solar panels at golden hour |
+| `energy-src-blitz` | 700×540 | Szene | violet lightning storm over dark clouds |
+| `energy-src-wasser` | 700×540 | Szene | powerful waterfall in a green valley |
+| `energy-src-meer` | 700×540 | Szene | huge turquoise ocean wave curling, backlit |
+| `energy-src-wind` | 700×540 | Szene | wind turbines on a hill in dramatic evening light |
+| `energy-src-geothermie` | 700×540 | Szene | erupting volcano with glowing lava at dusk |
+| `energy-src-magnetfeld` | 700×540 | Szene | earth from space with glowing blue magnetic field lines and aurora |
+| `energy-topic-atmosphaere` | 1200×700 | Szene | earth atmosphere seen from the side with layered blue bands and a starry sky above, curved horizon |
+| `energy-topic-gewitter` | 1200×700 | Szene | huge supercell thundercloud with branching lightning bolts over a plain |
+| `energy-topic-wasserkreislauf` | 1200×700 | Szene | waterfall and river valley with clouds forming above, water cycle atmosphere |
+| `energy-topic-elektrokultur` | 1200×700 | Szene | cross-section of garden soil with plant roots and a copper spiral coil, glowing fine lines |
+| `energy-topic-erdrotation` | 1200×700 | Szene | planet earth with glowing blue magnetic field lines, seen from space |
+| `energy-topic-erdung` | 1200×700 | Szene | bare feet standing on green grass and soil, soft morning light, close-up, subtle glowing lines in the ground |
+| `energy-topic-schmuck` | 1200×700 | Szene | gold, silver and copper bracelets and gemstone rings on dark cloth, warm light, no hands |
+| `energy-topic-tesla` | 1200×700 | Szene | tall early-1900s transmission tower with a large dome and blue electric discharge at dusk, no people |
+
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
 Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or mineral subject, scientific illustration meets glowing light, on a pure black background. Das Motiv steht im Prompt-Kern jeweils zuerst.
@@ -164,4 +181,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 113 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 125 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

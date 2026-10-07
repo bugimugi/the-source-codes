@@ -1,0 +1,85 @@
+/* Freie Energie der Erde (src/ui/energy.ts). Shares the .culturesview / .cu-file frame with Alte Kulturen. */
+.energyview { background: radial-gradient(ellipse at 50% 0%, #0b1c2b, #02070B 60%); }
+.eg-hero { position: relative; min-height: min(62vh, 560px); display: grid; align-items: center; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 22px; overflow: hidden; padding: clamp(18px, 4vw, 56px); background: linear-gradient(120deg, #0a2236, #02070B 70%); }
+.eg-hero-bg.slot { position: absolute; inset: 0; }
+.eg-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2, 7, 11, 0.9), rgba(2, 7, 11, 0.45) 55%, rgba(2, 7, 11, 0.1)); }
+.eg-hero-text { position: relative; z-index: 1; max-width: 36rem; }
+.eg-hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.1rem, 4.8vw, 4.2rem); line-height: 1.05; margin-bottom: 1rem; }
+.eg-hero h1 span { display: block; color: var(--gold-hi); }
+.eg-hero p { font-size: 0.98rem; line-height: 1.65; color: var(--ivory); opacity: 0.9; margin-bottom: 1.2rem; }
+
+/* thesis */
+.eg-thesis { margin-top: 22px; padding: clamp(16px, 2.2vw, 28px); border: 1px solid var(--gold); border-radius: 18px; background: linear-gradient(135deg, rgba(203, 170, 103, 0.08), rgba(6, 19, 26, 0.75)); scroll-margin-top: 90px; }
+.eg-thesis-head { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 0.7rem; }
+.eg-tag { font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
+.eg-thesis-text { font-family: var(--serif-text); font-size: clamp(1.25rem, 2.1vw, 1.7rem); line-height: 1.35; margin-bottom: 1.1rem; }
+.eg-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 28px); }
+.eg-cols h3 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 0.5rem; }
+.eg-cols ul { padding-left: 1.1rem; display: grid; gap: 0.5rem; }
+.eg-cols li { font-size: 0.88rem; line-height: 1.6; color: var(--ivory); opacity: 0.92; }
+.eg-cols > div:first-child li::marker { color: var(--lvl-established); } .eg-cols > div:last-child li::marker { color: var(--lvl-hypothesis); }
+.eg-note { margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--gold-line, rgba(203,170,103,.28)); font-size: 0.8rem; line-height: 1.6; color: var(--muted); }
+
+/* scale strip */
+.eg-scale { margin-top: 22px; padding: clamp(14px, 2vw, 24px); border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 18px; background: rgba(6, 19, 26, 0.7); }
+.eg-scale h2, .eg-demos-wrap h2, .eg-sources-title { font-family: var(--serif); font-weight: 400; letter-spacing: 0.04em; font-size: clamp(1.2rem, 2vw, 1.7rem); margin-bottom: 0.8rem; }
+.eg-bar { display: grid; grid-template-columns: minmax(150px, 0.8fr) minmax(0, 2fr) minmax(0, 1.4fr); gap: 0.8rem; align-items: center; padding: 0.4rem 0; }
+.eg-bar-label { font-size: 0.84rem; }
+.eg-bar-track { height: 12px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); overflow: hidden; }
+.eg-bar-track i { display: block; height: 100%; border-radius: 99px; box-shadow: 0 0 14px currentColor; }
+.eg-bar-text { font-size: 0.74rem; color: var(--muted); line-height: 1.4; }
+.eg-scale-note { margin-top: 0.8rem; }
+
+/* sources and topics */
+.eg-sources { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; }
+.eg-src, .eg-topic { all: unset; cursor: pointer; box-sizing: border-box; position: relative; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 14px; overflow: hidden; display: block; transition: border-color 0.2s, transform 0.3s; }
+.eg-src { aspect-ratio: 3 / 4; } .eg-topic { aspect-ratio: 16 / 9; }
+.eg-src:hover, .eg-topic:hover, .eg-src:focus-visible, .eg-topic:focus-visible { border-color: var(--gold-hi); transform: translateY(-3px); outline: none; }
+.eg-src-img.slot, .eg-topic-img.slot { position: absolute; inset: 0; aspect-ratio: auto; transition: transform 0.9s cubic-bezier(.2, .7, .2, 1); }
+.eg-src:hover .eg-src-img, .eg-topic:hover .eg-topic-img { transform: scale(1.06); }
+.eg-src-img.slot-empty, .eg-topic-img.slot-empty { background: linear-gradient(160deg, hsl(205 50% 16%), var(--bg)); }
+.eg-src > span, .eg-topic > span { position: absolute; left: 0; right: 0; bottom: 0; display: grid; gap: 0.15rem; padding: 2rem 0.7rem 0.6rem; background: linear-gradient(transparent, rgba(2, 7, 11, 0.94) 55%); text-align: center; }
+.eg-src strong, .eg-topic strong { font-family: var(--serif-text); font-size: 1.05rem; font-weight: 600; line-height: 1.15; }
+.eg-src small, .eg-topic small { font-size: 0.64rem; color: var(--muted); line-height: 1.3; }
+.eg-topics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+
+/* demos */
+.eg-demos-wrap { margin-top: 30px; }
+.eg-demos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.eg-demo { padding: 16px; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 16px; background: rgba(6, 19, 26, 0.7); display: grid; gap: 0.7rem; align-content: start; }
+.eg-demo.wide { grid-column: 1 / -1; }
+.eg-demo h3 { font-family: var(--serif-text); font-weight: 600; font-size: 1.3rem; }
+.eg-demo-row { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center; }
+.eg-atmo { display: grid; grid-template-columns: minmax(150px, 0.9fr) 1.4fr; gap: 14px; align-items: stretch; }
+.eg-layers { display: grid; gap: 4px; }
+.eg-layer { all: unset; cursor: pointer; box-sizing: border-box; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid transparent; display: grid; gap: 0.05rem; }
+.eg-layer strong { font-size: 0.86rem; font-weight: 500; } .eg-layer small { font-size: 0.68rem; opacity: 0.8; }
+.eg-layer:nth-child(1) { background: linear-gradient(90deg, #0c0a2a, #121047); } .eg-layer:nth-child(2) { background: linear-gradient(90deg, #14205a, #1b3b86); }
+.eg-layer:nth-child(3) { background: linear-gradient(90deg, #1b3b86, #2766b0); } .eg-layer:nth-child(4) { background: linear-gradient(90deg, #2766b0, #3b8fd0); }
+.eg-layer:nth-child(5) { background: linear-gradient(90deg, #3b8fd0, #7fc4e6); color: #02070B; }
+.eg-layer[aria-pressed="true"] { border-color: var(--gold-hi); box-shadow: 0 0 16px rgba(240, 209, 139, 0.3); }
+.eg-layer:focus-visible, .eg-demo .cu-link:focus-visible, .eg-src:focus-visible, .eg-topic:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+.eg-layer-text h3 { font-family: var(--serif-text); font-size: 1.25rem; font-weight: 600; } .eg-km { color: var(--gold-hi); font-size: 0.8rem; margin: 0.15rem 0 0.5rem; }
+.eg-layer-text p { font-size: 0.86rem; line-height: 1.6; color: var(--ivory); opacity: 0.9; }
+.eg-boltwrap, .eg-fieldwrap { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); background: #05080f; }
+.eg-boltwrap { aspect-ratio: 16 / 10; } .eg-fieldwrap { aspect-ratio: 16 / 7; min-height: 280px; }
+.eg-bolt, .eg-field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.eg-field { cursor: grab; touch-action: none; }
+.eg-field-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 1rem; text-align: center; font-size: 0.85rem; color: var(--muted); }
+.eg-field-fallback[hidden] { display: none; }
+.energyview .cu-link { margin-top: 0; }
+
+@media (max-width: 1100px) { .eg-sources { grid-template-columns: repeat(4, minmax(0, 1fr)); } .eg-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 800px) {
+  .eg-cols, .eg-demos { grid-template-columns: 1fr; }
+  .eg-bar { grid-template-columns: 1fr; gap: 0.3rem; }
+  .eg-atmo { grid-template-columns: 1fr; }
+  .eg-fieldwrap { aspect-ratio: 1; min-height: 0; }
+}
+@media (max-width: 700px) { .eg-sources { grid-template-columns: repeat(2, minmax(0, 1fr)); } .eg-topics { grid-template-columns: 1fr; } }
+
+/* spacing and small print outside the drawer */
+.energyview .cu-journey-head { margin-top: 30px; }
+.energyview .eg-demos-wrap .cu-journey-head { margin-top: 0; }
+.energyview .cu-small, .eg-demo .cu-small { font-size: 0.74rem; line-height: 1.55; color: var(--muted); }
+.cu-file .cu-small { color: var(--muted); }

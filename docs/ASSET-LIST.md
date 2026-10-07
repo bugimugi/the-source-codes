@@ -379,6 +379,58 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `kristall-thema-frequenzen` | 600×520 | Szene | a glowing sound wave pattern in sand, cymatics, dark background, no text |
 | `kristall-thema-kulturen` | 600×520 | Szene | ancient stone temples and statues, dark background, no text |
 | `kristall-thema-forschung` | 600×520 | Szene | a microscope and crystal lattice diagram, dark background, no text |
+| `koerper-hero` | 2800×1300 | Szene | a glowing translucent human body in the centre right, front view, with a faintly visible skeleton, muscles, nerves and organs in blue, gold and red, a soft golden halo behind it, small floating particles, a dark calm area on the left for text, no text, no letters |
+| `koerper-sys-nerven` | 500×560 | Szene | a glowing network of nerves and a brain in violet, dark background, no text |
+| `koerper-sys-hormon` | 500×560 | Szene | glowing endocrine glands, thyroid and pituitary, in orange, dark background, no text |
+| `koerper-sys-kreislauf` | 500×560 | Szene | a glowing heart with arteries and veins in red and blue, dark background, no text |
+| `koerper-sys-atmung` | 500×560 | Szene | glowing lungs and bronchial tree in pink and violet, dark background, no text |
+| `koerper-sys-verdauung` | 500×560 | Szene | glowing stomach and intestines in warm orange, dark background, no text |
+| `koerper-sys-muskel` | 500×560 | Szene | glowing muscle fibres of an arm in deep red, dark background, no text |
+| `koerper-sys-skelett` | 500×560 | Szene | a glowing skeleton in ivory and blue, dark background, no text |
+| `koerper-sys-immun` | 500×560 | Szene | glowing white blood cells and a shield motif in violet, dark background, no text |
+| `koerper-sys-harn` | 500×560 | Szene | glowing kidneys and bladder in coral, dark background, no text |
+| `koerper-sys-fortpflanzung` | 500×560 | Szene | an abstract glowing cell division and a tiny embryo motif in rose, dark background, no text |
+| `koerper-sys-lymph` | 500×560 | Szene | glowing lymph vessels and lymph nodes in green, dark background, no text |
+| `koerper-sys-haut` | 500×560 | Szene | a glowing skin cross-section with layers in warm amber, dark background, no text |
+| `koerper-kette-atome` | 500×500 | Szene | a glowing atom with orbiting electrons, dark background, no text |
+| `koerper-kette-molekuele` | 500×500 | Szene | a glowing molecule model of connected spheres, dark background, no text |
+| `koerper-kette-zellen` | 500×500 | Szene | a glowing human cell with a nucleus in cross-section, dark background, no text |
+| `koerper-kette-gewebe` | 500×500 | Szene | glowing tissue cells packed in a pattern, dark background, no text |
+| `koerper-kette-organe` | 500×500 | Szene | a glowing human heart, dark background, no text |
+| `koerper-kette-organsysteme` | 500×500 | Szene | a glowing network of connected organs, dark background, no text |
+| `koerper-kette-koerper` | 500×500 | Szene | a glowing human body silhouette, dark background, no text |
+| `koerper-zelle` | 1000×700 | Szene | a large glowing human cell in cross-section with nucleus, mitochondria and membrane, in blue, gold and violet, dark background, no text |
+| `koerper-leben-embryo` | 500×600 | Szene | a human embryo in the womb, soft glow, painterly, dark background, no text |
+| `koerper-leben-kindheit` | 500×600 | Szene | a happy child in a meadow, soft light, painterly, dark background, no text |
+| `koerper-leben-jugend` | 500×600 | Szene | a teenager with a backpack at dusk, soft light, painterly, dark background, no text |
+| `koerper-leben-erwachsen` | 500×600 | Szene | an adult standing in a calm landscape, soft light, painterly, dark background, no text |
+| `koerper-leben-alter` | 500×600 | Szene | an elderly person looking at the sunset, soft light, painterly, dark background, no text |
+| `koerper-gesund-ernaehrung` | 500×500 | Szene | a bowl of colourful fresh vegetables and fruit, dark background, no text |
+| `koerper-gesund-bewegung` | 500×500 | Szene | a person jogging at sunrise, dark background, no text |
+| `koerper-gesund-schlaf` | 500×500 | Szene | a person sleeping under a night sky, dark background, no text |
+| `koerper-gesund-stress` | 500×500 | Szene | a calm hand on a chest with a soft glow, dark background, no text |
+| `koerper-gesund-immun` | 500×500 | Szene | an abstract shield of light over a body outline, dark background, no text |
+| `koerper-gesund-darm` | 500×500 | Szene | an abstract gut with glowing bacteria, dark background, no text |
+| `koerper-gesund-mental` | 500×500 | Szene | a person meditating in a calm room, dark background, no text |
+| `koerper-gesund-langlebigkeit` | 500×500 | Szene | a tree with deep roots and an hourglass, dark background, no text |
+| `koerper-forschung-neuro` | 500×420 | Szene | a glowing brain scan with neural connections, dark background, no text |
+| `koerper-forschung-genetik` | 500×420 | Szene | a glowing DNA double helix, dark background, no text |
+| `koerper-forschung-mikrobiom` | 500×420 | Szene | glowing gut bacteria under a microscope, dark background, no text |
+| `koerper-forschung-regeneration` | 500×420 | Szene | stem cells in a petri dish, soft glow, dark background, no text |
+| `koerper-forschung-langlebigkeit` | 500×420 | Szene | an hourglass with golden light and a cell, dark background, no text |
+| `koerper-link-naehrstoffe` | 600×480 | Szene | colourful fruit and vegetables with glowing vitamin molecules, dark background, no text |
+| `koerper-link-pflanzen` | 600×480 | Szene | a medicinal plant with glowing leaves, dark background, no text |
+| `koerper-link-mineralien` | 600×480 | Szene | raw mineral crystals in blue and white, dark background, no text |
+| `koerper-link-frequenzen` | 600×480 | Szene | a glowing sound wave pattern in sand, dark background, no text |
+| `koerper-hirn` | 1200×700 | Szene | a glowing human brain in profile with golden neural pathways and tiny sparks, dark background, no text |
+| `koerper-funktion-stoffwechsel` | 500×500 | Szene | a glowing flame inside a cell with energy particles, dark background, no text |
+| `koerper-funktion-hormone` | 500×500 | Szene | glowing hormone molecules flowing in a blood vessel, dark background, no text |
+| `koerper-funktion-regeneration` | 500×500 | Szene | new green skin cells growing over a small wound, soft glow, dark background, no text |
+| `koerper-funktion-wachstum` | 500×500 | Szene | a seedling and a growing silhouette of a child, soft glow, dark background, no text |
+| `koerper-funktion-temperatur` | 500×500 | Szene | a glowing thermometer over a body outline, dark background, no text |
+| `koerper-funktion-entgiftung` | 500×500 | Szene | a glowing liver and kidneys with clean water drops, dark background, no text |
+| `koerper-funktion-sinne` | 500×500 | Szene | an eye, an ear and a nose glowing as signals, dark background, no text |
+| `koerper-funktion-homoeostase` | 500×500 | Szene | balanced glowing scales over a body outline, dark background, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -446,4 +498,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 385 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 437 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

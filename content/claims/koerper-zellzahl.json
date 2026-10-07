@@ -1,0 +1,35 @@
+{
+  "id": "koerper-zellzahl",
+  "short": "Zahl der Zellen im Körper",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Ein erwachsener Mensch besteht aus etwa 30 bis 37 Billionen eigenen Körperzellen.",
+  "level": "supported",
+  "rationale": "Es sind Schätzungen, keine Zählungen: Bianconi et al. (2013) kamen aus Gewebevolumen und Zelldichte auf rund 37,2 Billionen, Sender et al. (2016) auf rund 30 Billionen (Referenzmann, ohne Bakterien). Die Spanne zeigt die Unsicherheit. Beide Arbeiten sind hier nur als Suchauszug geführt, die Originale sind noch nicht geprüft. Source pending verification.",
+  "sources": [
+    {
+      "id": "bianconi-2013",
+      "kind": "peer-reviewed",
+      "title": "An estimation of the number of cells in the human body",
+      "author": "Bianconi E. et al.",
+      "year": 2013,
+      "citation": "Annals of Human Biology 40(6): 463–471 – Suchauszug, Source pending verification",
+      "url": "https://doi.org/10.3109/03014460.2013.807878",
+      "verified": false
+    },
+    {
+      "id": "sender-2016",
+      "kind": "peer-reviewed",
+      "title": "Revised estimates for the number of human and bacteria cells in the body",
+      "author": "Sender R., Fuchs S., Milo R.",
+      "year": 2016,
+      "citation": "PLoS Biology 14(8): e1002533 – Suchauszug, Source pending verification",
+      "url": "https://doi.org/10.1371/journal.pbio.1002533",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

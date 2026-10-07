@@ -17,6 +17,7 @@ export type TileAction =
   | { type: "trees" }
   | { type: "minerals" }
   | { type: "crystals" }
+  | { type: "anatomy" }
   | { type: "nutrients" }
   | { type: "soon" };
 
@@ -30,7 +31,7 @@ export const TILES: Tile[] = [
   { title: "Pilze & Mykologie", sub: "Arten & Inhaltsstoffe", slot: "tile-pilze", action: { type: "atlas", category: "pilz" } },
   { title: "Mineralien", sub: "Elemente & Spurenelemente", slot: "tile-mineralien", action: { type: "minerals" } },
   { title: "Kristalle & Heilsteine", sub: "Eigenschaften & Überlieferung", slot: "tile-kristalle", action: { type: "crystals" } },
-  { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "body" } },
+  { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "anatomy" } },
   { title: "Nährstoffe", sub: "Vitamine, Mineralien, Aminosäuren", slot: "tile-naehrstoffe", action: { type: "nutrients" } },
   { title: "Krankheiten & Beschwerden", sub: "Von Schnupfen bis chronisch", slot: "tile-krankheiten", action: { type: "scroll", target: "beschwerden" } },
   { title: "Atem & Meditation", sub: "Atemtechniken & Nervensystem", slot: "tile-atem", action: { type: "breath" } },

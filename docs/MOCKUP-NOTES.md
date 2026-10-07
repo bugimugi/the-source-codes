@@ -183,6 +183,24 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Kristalle; die Systeme, Kristallstrukturen, der SiO₄-Baustein und die Figur sind im Code gezeichnet (`src/ui/crystalArt.ts`). Umsetzung: `src/ui/crystals.ts`, `src/data/crystals.ts`, `src/crystals.css`, Prüfung in
     `src/data/validateCrystals.ts`. Bildplätze `kristall-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-kristalle`, die Karten gezeichnete Kristalle in der Farbe des Atlas-Eintrags.
 
+25. **Der menschliche Körper** (Referenzbild lokal in `design/mockups/25-menschlicher-koerper.png`, nicht committet) – Landingpage hinter der Kachel „Menschlicher Körper“ (View `anatomy`, Tab „Körper“; der bisherige Körper-Atlas mit
+    Organ-Pins heißt jetzt Tab „Organe“ und bleibt über „Organ im Detail ansehen“, „Im Körper-Atlas ansehen“ und die Startseite erreichbar). Hero „DER MENSCHLICHE KÖRPER – Ein faszinierendes System.“ (Einleitung, Buttons „Körper erkunden“ und
+    „Video ansehen“, 4 Kennzahlen, Liste mit 10 Bereichen rechts, Spruch „Ein Meisterwerk der Natur.“); „Die Organsysteme“ (12 Karten in 6 × 2, Tippen zeigt Text, Organe und Sprünge); „Interaktiver 3D-Körper“ (links Text, Knopf
+    „3D-Modell starten“ und 6 Ebenen-Chips, Mitte der Körper mit Werkzeugknöpfen Zoom +, −, Zurücksetzen, Transparenz, rechts das Organ-Fenster „Herz – das Kraftzentrum“ mit Bild, Text, Knopf „Organ im Detail ansehen“, 4 Zahlen und 7 Themen);
+    „Von der Zelle zum Organismus“ (7 Stufen) mit „Zellen – die Grundbausteine“ (4 Themen); „Der Körper im Laufe des Lebens“ (5 Abschnitte); „Körperfunktionen & Prozesse“ (8); „Gesundheit & Wohlbefinden“ (8);
+    „Wissenschaft & Forschung“ (5 Karten, „Alle Studien anzeigen“); „Verbindungen im Atlas“ (4) und ein Zitat auf dem Gehirnbild.
+    **Interaktiver Körper (echtes 3D mit freiem Modell):** Standardansicht ist das Anatomie-Bild mit Organ-Pins (Tippen zoomt, das Organ-Fenster wechselt). „3D-Modell starten“ lädt beim ersten Mal zwei Dateien (je etwa 1,5 MB) und zeigt
+    **echte Geometrie** von Knochen, Bändern, Sehnen und Muskeln aus **BodyParts3D 4.0** (© The Database Center for Life Science, **CC BY 4.0**; Auswahl, Vereinfachung und Kompression von uns, Rezept `scripts/build-body-models.mjs`,
+    Quelle: npm-Paket `@somakine/bodyparts3d-musculoskeletal` 0.2.0). Ziehen dreht, die Knöpfe zoomen (das Mausrad scrollt weiter die Seite), Tippen auf ein Teil zeigt Namen (deutsch, englisch, Art; Wörterbuch `src/data/bodyparts.ts`).
+    Ebenen-Chips: Knochen und Muskeln schalten die zwei Modelle, Transparenz macht die Muskeln durchsichtig, Organe kehrt zum Bild zurück. **Nerven und Gefäße** zeigt die Vorlage als Ebenen; dafür liegt kein frei lizenziertes Modell vor,
+    die Chips sind gestrichelt und erklären das. Auch das Herz gibt es nur als Bild (kein freies 3D-Organmodell gefunden); „3D-Ansicht“ in der Herz-Liste sagt das offen. Ohne WebGL bleibt die Bildansicht.
+    **Anders umgesetzt (Schutzlinien):** Die Überschrift der Vorlage „Die 11 Organsysteme“ zeigt zwölf Karten; je nach Lehrbuch zählt man 11 oder 12 (Immun- und Lymphsystem oft zusammen), die Seite sagt „Die Organsysteme“ und erklärt es.
+    Platzhalterzahlen („78+ Organe“, „100.000+ biochemische Prozesse“) entfallen; die Kennzahlen sind 12 Organsysteme (aus den Daten), 206 Knochen, über 600 Skelettmuskeln, 30–37 Billionen Zellen (Aussage `koerper-zellzahl`, Schätzung nach
+    Bianconi 2013 und Sender 2016, „Suchauszug, Source pending verification“). „Video ansehen“ ist ein deaktivierter Knopf mit „folgt“ (es gibt kein Video). Entgiftung hat die Aussage `koerper-detox` (nicht belegt, Klein & Kiat 2015);
+    Gesundheitsthemen geben nur Orientierung ohne Mengen, bei Beschwerden und Notfällen (112) steht der Hinweis auf ärztliche Hilfe. Die fünf Forschungskarten tragen je eine Quelle (Azevedo 2009, Nurk 2022 mit DOI, HMP 2012, Takahashi 2006,
+    López-Otín 2013); die Platzhalter-Studientitel der Vorlage entfallen. Lebensabschnitte, Zelle und Herz sind bis zu den Bildern im Code gezeichnet (`src/ui/anatomyArt.ts`). Umsetzung: `src/ui/anatomy.ts`, `src/data/anatomy.ts`,
+    `src/gl/bodyscene.ts`, `src/data/bodyparts.ts`, `src/anatomy.css`, Prüfung in `src/data/validateAnatomy.ts`. Bildplätze `koerper-*` (52, Priorität 8); bis dahin zeigt der Hero das vorhandene `body-front`.
+
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).
 - **3D (freie Modelle):** menschlicher Körper und Organe (Seiten 2, 3, 4, 5), Erde (Seiten 1, 8, 16).

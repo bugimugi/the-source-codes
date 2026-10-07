@@ -1,0 +1,25 @@
+{
+  "id": "koerper-detox",
+  "short": "„Detox“-Kuren entgiften den Körper",
+  "area": "ernaehrung-umwelt",
+  "status": "published",
+  "statement": "Spezielle „Detox“-Kuren, Säfte oder Tees entgiften den Körper über die normale Leistung von Leber, Nieren, Darm und Haut hinaus.",
+  "level": "unsupported",
+  "rationale": "Leber und Nieren bauen Fremd- und Abfallstoffe dauerhaft selbst ab und scheiden sie aus; das ist Lehrbuchwissen. Ein Überblick über Studien zu Detox-Diäten fand keine überzeugende Evidenz dafür, dass solche Kuren Giftstoffe zusätzlich entfernen (Klein & Kiat 2015, Suchauszug, Original nicht geprüft). Bei echten Vergiftungen und Nierenerkrankungen ist ärztliche Hilfe nötig. Source pending verification.",
+  "sources": [
+    {
+      "id": "klein-kiat-2015",
+      "kind": "systematic-review",
+      "title": "Detox diets for toxin elimination and weight management: a critical review of the evidence",
+      "author": "Klein A.V., Kiat H.",
+      "year": 2015,
+      "citation": "Journal of Human Nutrition and Dietetics 28(6): 675–686 – Suchauszug, Source pending verification",
+      "url": "https://doi.org/10.1111/jhn.12286",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

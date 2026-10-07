@@ -28,6 +28,7 @@ export interface HomeApi {
   openTrees(): void;
   openMinerals(): void;
   openCrystals(): void;
+  openAnatomy(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -155,6 +156,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "trees") api.openTrees();
       else if (a.type === "minerals") api.openMinerals();
       else if (a.type === "crystals") api.openCrystals();
+      else if (a.type === "anatomy") api.openAnatomy();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

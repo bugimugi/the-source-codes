@@ -25,6 +25,7 @@ const ENERGY = "Freie Energie";
 const PLANTS = "Pflanzenatlas";
 const PROFILE = "Pflanzenprofil";
 const MINERALS = "Mineralatlas";
+const ELEMENT = "Elementprofil Wasserstoff";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -318,6 +319,27 @@ export const SLOTS = {
   "mineral-hist-antike": d(MINERALS, 8, "scene", 600, 500, "a Greek marble statue holding a crystal sphere, painterly, warm light, no text"),
   "mineral-hist-mittelalter": d(MINERALS, 8, "scene", 600, 500, "a medieval scholar studying gemstones in a candle-lit study, painterly, warm light, no text"),
   "mineral-hist-moderne": d(MINERALS, 8, "scene", 600, 500, "a modern laboratory with crystals and measuring instruments, painterly, warm light, no text"),
+
+  // ---- Elementprofil Wasserstoff (priority 8)
+  "element-h-hero": d(ELEMENT, 8, "scene", 2800, 1300, "a large transparent glass sphere containing a glowing blue atom nucleus with thin orbit rings, floating over dark rocks and a waterfall in a night landscape, small soap-bubble spheres around it, a dark calm area on the left for text, no text, no letters"),
+  "element-h-universum": d(ELEMENT, 8, "scene", 800, 600, "a spiral galaxy and nebula with glowing hydrogen clouds in blue and violet, deep space, no text"),
+  "element-h-erde-1": d(ELEMENT, 8, "scene", 600, 400, "a glacier and blue ocean seen from above, clear cold light, no people"),
+  "element-h-erde-2": d(ELEMENT, 8, "scene", 600, 400, "a steaming geyser and volcanic hot spring in a rocky landscape, no people"),
+  "element-h-verb-wasser": d(ELEMENT, 8, "scene", 600, 600, "a water molecule as a ball-and-stick model with one red oxygen and two white hydrogen atoms, glowing, dark background, no text"),
+  "element-h-verb-methan": d(ELEMENT, 8, "scene", 600, 600, "a methane molecule as a ball-and-stick model, one grey carbon and four white hydrogen atoms, dark background, no text"),
+  "element-h-verb-ammoniak": d(ELEMENT, 8, "scene", 600, 600, "an ammonia molecule as a ball-and-stick model, one blue nitrogen and three white hydrogen atoms, dark background, no text"),
+  "element-h-verb-salzsaeure": d(ELEMENT, 8, "scene", 600, 600, "a hydrogen chloride molecule as a ball-and-stick model, one green chlorine and one white hydrogen atom, dark background, no text"),
+  "element-h-anw-energie": d(ELEMENT, 8, "scene", 600, 450, "a futuristic city powered by a hydrogen fuel cell, blue glowing energy, cinematic, no text"),
+  "element-h-anw-raumfahrt": d(ELEMENT, 8, "scene", 600, 450, "a rocket launching at dawn with a bright exhaust flame, cinematic, no text"),
+  "element-h-anw-industrie": d(ELEMENT, 8, "scene", 600, 450, "a chemical plant with tall columns and pipes at dusk, cinematic, no text"),
+  "element-h-anw-metall": d(ELEMENT, 8, "scene", 600, 450, "glowing molten metal being poured in a steel mill, cinematic, no text"),
+  "element-h-anw-mobil": d(ELEMENT, 8, "scene", 600, 450, "a modern hydrogen fuel cell car on a road at dusk, cinematic, no text"),
+  "element-h-anw-zukunft": d(ELEMENT, 8, "scene", 600, 450, "a green hydrogen plant with wind turbines and solar panels at sunrise, cinematic, no text"),
+  "element-h-hist-urzeit": d(ELEMENT, 8, "scene", 600, 450, "an early human around a campfire in a cave, firelight, painterly, no text"),
+  "element-h-hist-alchemie": d(ELEMENT, 8, "scene", 600, 450, "an alchemist's workshop with flasks and a burning flame, painterly, painterly, no text"),
+  "element-h-hist-wissenschaft": d(ELEMENT, 8, "scene", 600, 450, "an 18th century laboratory with glass apparatus and a scientist, warm light, painterly, no text"),
+  "element-h-hist-raumfahrt": d(ELEMENT, 8, "scene", 600, 450, "a rocket on a launch pad with steam, vintage space age, painterly, no text"),
+  "element-h-hist-zukunft": d(ELEMENT, 8, "scene", 600, 450, "a clean future landscape with wind turbines and a glowing hydrogen tank, painterly, no text"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

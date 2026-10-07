@@ -17,6 +17,8 @@ export interface MineralsApi {
   openAtlas(id?: string): void;
   /** the frequency page with the cymatics plate */
   openFx(): void;
+  /** the profile page of an element */
+  openElement(sym: string): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -63,7 +65,7 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
   const elCard = (e: ChemElement) => {
     const slot = `element-${e.sym.toLowerCase()}`;
     const art = hasAsset(slot) ? `<div class="mn-el-img" data-slot="${slot}" data-fit="cover" data-sizes="(max-width: 700px) 30vw, 8vw"></div>` : `<div class="mn-el-img mn-el-art">${gemSvg(CAT_COLOR[e.cat])}</div>`;
-    return `<button class="mn-el" data-el="${e.sym}" style="--c:${CAT_COLOR[e.cat]}" aria-pressed="false"><small>${e.z}</small><strong>${e.sym}</strong><em>${esc(e.name)}</em>${art}</button>`;
+    return `<button class="mn-el" data-el="${e.sym}" style="--c:${CAT_COLOR[e.cat]}"><small>${e.z}</small><strong>${e.sym}</strong><em>${esc(e.name)}</em>${art}</button>`;
   };
 
   scroll.innerHTML = `
@@ -89,7 +91,7 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
 
     <section class="mn-band mn-elements" id="mn-elements" aria-labelledby="mn-el-h">
       <div class="mn-bar">
-        <div class="mn-bar-t"><h2 id="mn-el-h">Das Periodensystem</h2><p class="pl-sub">Alle Elemente interaktiv entdecken</p></div>
+        <div class="mn-bar-t"><h2 id="mn-el-h">Das Periodensystem</h2><p class="pl-sub">Alle Elemente interaktiv entdecken. Ein Klick öffnet die Seite des Elements.</p></div>
         <div class="mn-chips" role="group" aria-label="Elemente filtern">${FILTERS.map((f) => `<button data-filter="${f.id}" aria-pressed="${f.id === "alle"}">${esc(f.label)}</button>`).join("")}</div>
         <label class="mn-find"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg><input type="search" class="mn-q" placeholder="Element suchen …" aria-label="Element suchen" autocomplete="off"></label>
         <button class="pl-ghost mn-3d" data-3d>${ico("cell")} 3D-Ansicht</button>
@@ -97,10 +99,9 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
       <div class="mn-el-row" tabindex="-1"></div>
       <div class="mn-table-bar"><button class="pl-ghost" data-table="toggle" aria-expanded="false" aria-controls="mn-table">Alle ${ELEMENTS.length} Elemente im Periodensystem <span aria-hidden="true">→</span></button></div>
       <div class="mn-table-wrap" id="mn-table" hidden>
-        <div class="mn-table" role="group" aria-label="Periodensystem der Elemente">${ELEMENTS.map((e) => `<button class="mn-cell" data-el="${e.sym}" style="grid-column:${e.col};grid-row:${e.row};--c:${CAT_COLOR[e.cat]}" aria-label="${esc(e.name)}, Ordnungszahl ${e.z}" aria-pressed="false"><small>${e.z}</small><b>${e.sym}</b></button>`).join("")}</div>
+        <div class="mn-table" role="group" aria-label="Periodensystem der Elemente">${ELEMENTS.map((e) => `<button class="mn-cell" data-el="${e.sym}" style="grid-column:${e.col};grid-row:${e.row};--c:${CAT_COLOR[e.cat]}" aria-label="${esc(e.name)}, Ordnungszahl ${e.z}"><small>${e.z}</small><b>${e.sym}</b></button>`).join("")}</div>
         <ul class="mn-legend">${(Object.keys(CAT_LABEL) as (keyof typeof CAT_LABEL)[]).map((c) => `<li><i style="background:${CAT_COLOR[c]}"></i>${esc(CAT_LABEL[c])}</li>`).join("")}</ul>
       </div>
-      <div class="mn-el-detail" aria-live="polite" hidden></div>
     </section>
 
     <section class="mn-band mn-journey" id="mn-journey" aria-labelledby="mn-jo-h">
@@ -194,7 +195,6 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
 
   // ---------------------------------------------------------------- the 13 element cards, the table and the detail box
   const row = q$<HTMLElement>(".mn-el-row");
-  const detail = q$<HTMLElement>(".mn-el-detail");
   const tableWrap = q$<HTMLElement>(".mn-table-wrap");
   const visible = (e: ChemElement) => matches(e, filter) && (!query || [e.name, e.sym, String(e.z)].some((v) => v.toLowerCase().includes(query)));
   function renderRow() {
@@ -203,28 +203,20 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
       ? list.map(elCard).join("")
       : `<p class="pl-none">${filter === "alle" && !query ? "" : `Zu dieser Auswahl gibt es noch keine Karte. Im Periodensystem unten sind die passenden Elemente hervorgehoben.`}</p>`;
     mountSlots(row);
-    row.querySelectorAll<HTMLElement>("[data-el]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.el === elSel)));
-    scroll.querySelectorAll<HTMLElement>(".mn-cell").forEach((c) => { const e = ELEMENTS.find((x) => x.sym === c.dataset.el)!; c.classList.toggle("dim", !visible(e)); c.setAttribute("aria-pressed", String(e.sym === elSel)); });
+    row.querySelectorAll<HTMLElement>("[data-el]").forEach((b) => b.classList.toggle("sel", b.dataset.el === elSel));
+    scroll.querySelectorAll<HTMLElement>(".mn-cell").forEach((c) => { const e = ELEMENTS.find((x) => x.sym === c.dataset.el)!; c.classList.toggle("dim", !visible(e)); c.classList.toggle("sel", e.sym === elSel); });
     scroll.querySelectorAll<HTMLElement>("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === filter)));
   }
   function setTable(open: boolean) {
     tableWrap.hidden = !open;
     scroll.querySelectorAll<HTMLElement>('[data-table="toggle"]').forEach((b) => b.setAttribute("aria-expanded", String(open)));
   }
-  function selectElement(sym: string) {
-    const e = ELEMENTS.find((x) => x.sym === sym);
-    if (!e) return;
-    elSel = elSel === sym ? "" : sym;
+  /** marks an element in the table and row (when coming back from its profile) and opens the table */
+  function focusElement(sym: string) {
+    elSel = sym;
+    setTable(true);
     renderRow();
-    if (!elSel) { detail.hidden = true; return; }
-    const f = FEATURED.find((x) => x.sym === sym);
-    detail.hidden = false;
-    detail.innerHTML = `<div class="mn-el-d-card" style="--c:${CAT_COLOR[e.cat]}"><small>${e.z}</small><b>${e.sym}</b></div>
-      <div><h3>${esc(e.name)} <small>Ordnungszahl ${e.z} · Atommasse ${esc(e.mass)} u</small></h3>
-      <p class="mn-el-cat"><span>${esc(CAT_LABEL[e.cat])}</span>${TRACE.includes(e.sym) ? `<span>Spurenelement (Lehrbuchliste)</span>` : ""}</p>
-      <p>${f ? esc(f.text) : "Zu diesem Element gibt es im Pilot noch keinen Kurztext. Angaben werden nach der Fachprüfung ergänzt."}</p>
-      <p class="mn-note">Atommasse gerundet; eine Zahl in eckigen Klammern ist die Massenzahl des stabilsten Isotops. Lehrbuchwerte, Source pending verification. Keine medizinische Beratung.</p></div>`;
-    detail.scrollIntoView({ behavior: api.reduceMotion ? "auto" : "smooth", block: "nearest" });
+    requestAnimationFrame(() => q$(".mn-table-bar").scrollIntoView({ behavior: api.reduceMotion ? "auto" : "smooth", block: "start" }));
   }
 
   // ---------------------------------------------------------------- the spotlight (one mineral of the quartz group at a time)
@@ -325,7 +317,7 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
     const f = t.closest<HTMLElement>("[data-filter]");
     if (f) { filter = f.dataset.filter as Filter; if (filter !== "alle") setTable(true); renderRow(); return; }
     const el = t.closest<HTMLElement>("[data-el]");
-    if (el) { selectElement(el.dataset.el!); if (el.closest(".mn-bub")) smooth(q$("#mn-elements")); return; }
+    if (el) { api.openElement(el.dataset.el!); return; }
     if (t.closest("[data-3d]")) { api.openAtlas(); return; }
     if (t.closest("[data-3d-model]")) { api.openAtlas(sel); return; }
     if (t.closest("[data-nature]")) { smooth(q$("#mn-map")); return; }
@@ -391,8 +383,9 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
   });
   input.addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
+    e.preventDefault(); // focus moves to the next page's button: its click must not fire from this same key press
     const hit = ELEMENTS.find(visible);
-    if (hit) { elSel = ""; selectElement(hit.sym); }
+    if (hit) api.openElement(hit.sym);
   });
 
   mountSlots(scroll);
@@ -401,5 +394,6 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
   return {
     start() { requestAnimationFrame(drawMap); },
     stop() { stopTone(); },
+    focusElement,
   };
 }

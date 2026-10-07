@@ -142,7 +142,7 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Fe, Cu, Zn, Ag, Au, I); „Von Atom bis Kristall“ (8 Stationen); Spotlight „Quarz SiO₂“ (Schlagwörter, 2 Buttons, 4 Vorschaubilder mit Pfeilen, „Wichtige Eigenschaften“ mit 10 Zeilen, „Kristallgeometrie“ mit 3 Formen);
     „Entstehung & Vorkommen“ (4 Karten: Magmatisch, Metamorph, Sedimentär, Hydrothermal); „Vorkommen weltweit“ (Weltkarte mit Legende und 4 Fundort-Karten Brasilien, Madagaskar, Schweiz, USA); „Quarz im menschlichen Körper?“
     (Figur mit 5 Stellen); „Frequenzen & Schwingung“ (Wellenform, 432 Hz, „Frequenz demonstrieren“, 3 Symbole); „Anwendungen“ (8 Karten); „Geschichte & Kultur“ (5 Epochen auf einer Zeitleiste); „Verwandte Mineralien“ (Karussell
-    Amethyst, Rosenquarz, Citrin, Bergkristall, Rauchquarz, Achat). **Anders umgesetzt (Schutzlinien):** „2.400+ Mineralien“ ist ein Platzhalter und wird zu „6.000+ Mineralarten“ (anerkannte Arten der IMA-Liste, Link; genaue Zahl
+    Amethyst, Rosenquarz, Citrin, Bergkristall, Rauchquarz, Achat). Ein Klick auf ein Element öffnet dessen Seite (Seite 23). **Anders umgesetzt (Schutzlinien):** „2.400+ Mineralien“ ist ein Platzhalter und wird zu „6.000+ Mineralarten“ (anerkannte Arten der IMA-Liste, Link; genaue Zahl
     ändert sich jährlich und steht deshalb nicht da); „92 natürlich vorkommend“ wird zu 94 (inklusive Spuren von Neptunium und Plutonium; manche Quellen nennen 92); 118 Elemente werden aus den Daten gezählt. Die Legende der Karte
     „Hauptvorkommen / Weitere Vorkommen / Besondere Qualität“ ist eine Wertung ohne Beleg und entfällt: es steht „Fundort (Auswahl, nicht vollständig)“. Die Körper-Seite sagt ausdrücklich: Gelöstes Silizium kommt im Körper vor,
     Quarzkristalle werden nicht aufgenommen (Aussage `mineral-silizium`, Hypothese, EFSA hat Haut/Haare/Nägel-Aussagen als nicht ausreichend belegt eingestuft); „432 Hz – Harmonische Resonanz, entspricht natürlicher Ordnung“
@@ -151,6 +151,23 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Atlas-Einträge (Rosenquarz, Rauchquarz, Achat). Das Periodensystem ist vollständig (118 Elemente, Lehrbuchwerte, „Source pending verification“); die 13 Karten haben einen Kurztext zur Rolle in Mineralen.
     Umsetzung: `src/ui/minerals.ts`, `src/data/minerals.ts`, `src/data/elements.ts`, `src/minerals.css`, `src/ui/plantArt.ts` (gezeichneter Kristall, Reise-Symbole, Geometrie-Linien). Bildplätze `mineral-*` und `element-*`
     (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-mineralien` mit Element-Blasen als Text, die Körper-Figur nutzt das vorhandene `body-front`.
+23. **Elementprofil Wasserstoff** (Referenzbild lokal in `design/mockups/23-element-wasserstoff.png`, nicht committet) – die Seite, die sich öffnet, wenn man im Mineral Atlas ein Element anklickt (Karte, Tabellenfeld,
+    Element-Blase oder Enter in der Suche). Hero (Brotkrumen Mineralien › Elemente › Wasserstoff, Kasten mit Ordnungszahl, großes „H“, „Hydrogen“, 3 Schlagwörter, Einleitung, Buttons „Element im Überblick“ und „3D-Ansicht“,
+    Datenkarte mit 11 Zeilen), Reiterleiste mit 11 Abschnitten (folgt beim Scrollen), „Das Element im Detail“ (Buttons „Wissenschaftliche Daten“, „Kurzfakten“), „Atomarer Aufbau“ (Bohr-Bild mit Proton, Neutron, Elektron und drei
+    Isotop-Knöpfen), „3D-Ansicht“ (Atommodell, Elektronendichte, Orbital-Ansicht, Isotope vergleichen, Rotieren, Zoom, Animation), „Periodensystem“, „Elektronenkonfiguration“ (1s¹, Kästchen, Energieniveaus), „Physikalische
+    Eigenschaften“ (8 Zeilen), „Vorkommen im Universum“ (≈ 75 %), „Vorkommen auf der Erde“, „Verbindungen“ (Wasser, Methan, Ammoniak, Salzsäure), „Isotope“, „Rolle im menschlichen Körper“ (5 Punkte), „Frequenzen &
+    Schwingungen“ (Lyman-Alpha, Spektrum, Schwingungsmuster, Resonanz & Anwendungen), „Anwendungen“ (6 Karten), „Geschichte & Kultur“ (5 Epochen), „Forschung & Aktuelle Studien“ (Pergamentkarte mit 3 Einträgen).
+    **Anders umgesetzt (Schutzlinien):** Die 3 Studientitel der Vorlage („Hydrogen as a clean energy carrier (2024)“ usw.) sind Platzhalter und entfallen; es stehen 3 auffindbare Quellen (IEA-Bericht „The Future of
+    Hydrogen“ 2019, Übersichtsarbeit „Molecular Hydrogen Therapy – A Review on Clinical Studies and Outcomes“ in Molecules 2023, AGU-Pressemitteilung zum Wasserstoff im Erdwasser), alle als Suchauszug, Source pending
+    verification. Schmelzpunkt −259,16 °C und Siedepunkt −252,88 °C (Vorlage: −259,14 und −252,87) nach Referenzwerten; Isotopen-Häufigkeiten 99,9885 % und 0,0115 %, Tritium T½ 12,3 Jahre (12,32). „Die energetische
+    Signatur des Wasserstoffs“ heißt „Die spektrale Signatur“ (es ist Physik: Spektrallinien); die Wellenlängen kommen aus der Rydberg-Formel (Lyman, Balmer, Paschen), der Ton entfällt (UV ist nicht hörbar); das
+    Schwingungsmuster ist als Veranschaulichung gekennzeichnet. „Entgiftung“ im Körper-Abschnitt ist kein Wasserstoff-Fachbegriff und wurde durch „Redox-Reaktionen (Wasserstoff-Überträger)“ ersetzt; zu molekularem
+    Wasserstoff als Gas gibt es die Aussage `wasserstoff-h2-medizin` (Hypothese, Tierversuch Ohsawa 2007 und vorläufige Studien am Menschen, keine Selbstbehandlung); „Grüner Wasserstoff“ ist die Aussage
+    `wasserstoff-gruen` (Erwartung, Behauptung). „Wasserstoff ist hochentzündlich“ bekommt einen Sicherheitshinweis (Knallgas). Die 3D-Ansicht ist berechnet (`src/gl/atomscene.ts`: Bohr-Modell mit dem echten
+    Verhältnis 1 : 4 der ersten Bahnen, Elektronenwolke 1s, Orbitale 2s und 2p aus den Wellenfunktionen, die drei Isotope) und als Veranschaulichung gekennzeichnet; ohne WebGL bleibt eine Zeichnung. Die Moleküle sind
+    berechnet bzw. schematisch gezeichnet (Wasser mit 104,5°). Alle anderen 117 Elemente bekommen ein Kurzprofil aus der Elementtabelle (Ordnungszahl, Symbol, Masse, Gruppe, Periode, Kategorie, Satz zur Rolle in
+    Mineralen); weitere vollständige Profile folgen nach dem Muster in `src/data/elementProfile.ts`. Umsetzung: `src/ui/elementProfile.ts`, `src/data/elementProfile.ts`, `src/ui/elementArt.ts`, `src/gl/atomscene.ts`,
+    `src/elementProfile.css`, Prüfung in `src/data/validateElements.ts`. Bildplätze `element-h-*` (Priorität 8); bis dahin zeigt die Seite gezeichnete Platzhalter und das vorhandene `body-front`.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

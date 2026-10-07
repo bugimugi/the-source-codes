@@ -1,0 +1,36 @@
+{
+  "id": "wasserstoff-h2-medizin",
+  "short": "Molekularer Wasserstoff – Wirkung",
+  "area": "biophysik",
+  "status": "published",
+  "statement": "Molekularer Wasserstoff (H₂) hat biologische Wirkungen, etwa als selektives Antioxidans, und kann medizinisch nützlich sein.",
+  "level": "hypothesis",
+  "rationale": "Im Tiermodell und in Zellversuchen wurden Wirkungen beschrieben (Ohsawa et al., Nature Medicine 2007: H₂ reduziert selektiv das Hydroxyl-Radikal und schützte im Rattenmodell vor Hirnschäden nach Durchblutungsstörung). Übersichten zu Studien am Menschen nennen die Ergebnisse vielversprechend, aber vorläufig; größere und strengere Studien fehlen, und H₂ ist als Therapie nicht allgemein anerkannt. Das gilt für Gas oder Wasserstoffwasser in Studien, nicht als Empfehlung zur Selbstbehandlung. Angaben aus Suchauszügen, Originale nicht geprüft. Source pending verification.",
+  "sources": [
+    {
+      "id": "ohsawa-2007",
+      "kind": "peer-reviewed",
+      "title": "Hydrogen acts as a therapeutic antioxidant by selectively reducing cytotoxic oxygen radicals",
+      "author": "Ohsawa I. et al.",
+      "year": 2007,
+      "citation": "Nature Medicine 13, 688–694 (2007) – Suchauszug, Source pending verification",
+      "verified": false,
+      "note": "Tierexperiment (Ratte) und Zellversuche; Originalarbeit nicht geprüft."
+    },
+    {
+      "id": "molecules-2023",
+      "kind": "peer-reviewed",
+      "title": "Molecular Hydrogen Therapy – A Review on Clinical Studies and Outcomes",
+      "author": "Autoren in der Quelle nachschlagen",
+      "year": 2023,
+      "citation": "Molecules, 2023 – Suchauszug, Source pending verification",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10707987/",
+      "verified": false,
+      "note": "Übersichtsarbeit; Original nicht geprüft."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

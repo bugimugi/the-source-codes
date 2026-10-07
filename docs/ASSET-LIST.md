@@ -325,6 +325,25 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `mineral-hist-antike` | 600×500 | Szene | a Greek marble statue holding a crystal sphere, painterly, warm light, no text |
 | `mineral-hist-mittelalter` | 600×500 | Szene | a medieval scholar studying gemstones in a candle-lit study, painterly, warm light, no text |
 | `mineral-hist-moderne` | 600×500 | Szene | a modern laboratory with crystals and measuring instruments, painterly, warm light, no text |
+| `element-h-hero` | 2800×1300 | Szene | a large transparent glass sphere containing a glowing blue atom nucleus with thin orbit rings, floating over dark rocks and a waterfall in a night landscape, small soap-bubble spheres around it, a dark calm area on the left for text, no text, no letters |
+| `element-h-universum` | 800×600 | Szene | a spiral galaxy and nebula with glowing hydrogen clouds in blue and violet, deep space, no text |
+| `element-h-erde-1` | 600×400 | Szene | a glacier and blue ocean seen from above, clear cold light, no people |
+| `element-h-erde-2` | 600×400 | Szene | a steaming geyser and volcanic hot spring in a rocky landscape, no people |
+| `element-h-verb-wasser` | 600×600 | Szene | a water molecule as a ball-and-stick model with one red oxygen and two white hydrogen atoms, glowing, dark background, no text |
+| `element-h-verb-methan` | 600×600 | Szene | a methane molecule as a ball-and-stick model, one grey carbon and four white hydrogen atoms, dark background, no text |
+| `element-h-verb-ammoniak` | 600×600 | Szene | an ammonia molecule as a ball-and-stick model, one blue nitrogen and three white hydrogen atoms, dark background, no text |
+| `element-h-verb-salzsaeure` | 600×600 | Szene | a hydrogen chloride molecule as a ball-and-stick model, one green chlorine and one white hydrogen atom, dark background, no text |
+| `element-h-anw-energie` | 600×450 | Szene | a futuristic city powered by a hydrogen fuel cell, blue glowing energy, cinematic, no text |
+| `element-h-anw-raumfahrt` | 600×450 | Szene | a rocket launching at dawn with a bright exhaust flame, cinematic, no text |
+| `element-h-anw-industrie` | 600×450 | Szene | a chemical plant with tall columns and pipes at dusk, cinematic, no text |
+| `element-h-anw-metall` | 600×450 | Szene | glowing molten metal being poured in a steel mill, cinematic, no text |
+| `element-h-anw-mobil` | 600×450 | Szene | a modern hydrogen fuel cell car on a road at dusk, cinematic, no text |
+| `element-h-anw-zukunft` | 600×450 | Szene | a green hydrogen plant with wind turbines and solar panels at sunrise, cinematic, no text |
+| `element-h-hist-urzeit` | 600×450 | Szene | an early human around a campfire in a cave, firelight, painterly, no text |
+| `element-h-hist-alchemie` | 600×450 | Szene | an alchemist's workshop with flasks and a burning flame, painterly, painterly, no text |
+| `element-h-hist-wissenschaft` | 600×450 | Szene | an 18th century laboratory with glass apparatus and a scientist, warm light, painterly, no text |
+| `element-h-hist-raumfahrt` | 600×450 | Szene | a rocket on a launch pad with steam, vintage space age, painterly, no text |
+| `element-h-hist-zukunft` | 600×450 | Szene | a clean future landscape with wind turbines and a glowing hydrogen tank, painterly, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -391,4 +410,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 330 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 349 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

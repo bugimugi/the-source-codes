@@ -1,0 +1,26 @@
+{
+  "id": "wasserstoff-gruen",
+  "short": "Grüner Wasserstoff",
+  "area": "ernaehrung-umwelt",
+  "status": "published",
+  "statement": "Grüner Wasserstoff (aus Elektrolyse mit erneuerbarem Strom) kann in der Energiewende fossile Energieträger in Industrie und Verkehr ersetzen.",
+  "level": "claimed",
+  "rationale": "Das ist eine Erwartung und Prognose, kein gemessenes Ergebnis. Die Internationale Energieagentur (IEA) sah 2019 große Chancen, nannte aber hohe Kosten und fehlende Infrastruktur als Hürden; heute wird Wasserstoff überwiegend aus Erdgas hergestellt. Der Anteil, den grüner Wasserstoff erreichen wird, ist offen. Angaben aus Suchauszügen, Original nicht geprüft. Source pending verification.",
+  "sources": [
+    {
+      "id": "iea-2019",
+      "kind": "historical-document",
+      "title": "The Future of Hydrogen: Seizing Today's Opportunities",
+      "author": "Internationale Energieagentur (IEA)",
+      "year": 2019,
+      "citation": "IEA-Bericht für die G20, 2019 – Suchauszug, Source pending verification",
+      "url": "https://www.iea.org/reports/the-future-of-hydrogen",
+      "verified": false,
+      "note": "Aus Suchauszügen, Original nicht geprüft."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

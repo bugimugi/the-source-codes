@@ -7,6 +7,7 @@ import "./style.css";
 import "./home.css";
 import "./fx.css";
 import "./body.css";
+import "./breath.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -20,6 +21,7 @@ import { initHome } from "./ui/home";
 import { initFx } from "./ui/fx";
 import { initBody } from "./ui/body";
 import { initChakra } from "./ui/chakra";
+import { initBreath } from "./ui/breath";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
@@ -113,7 +115,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -121,12 +123,14 @@ let fxView: ReturnType<typeof initFx> | null = null;
 let fxMode: FxMode = "kymatik";
 let bodyView: ReturnType<typeof initBody> | null = null;
 let chakraView: ReturnType<typeof initChakra> | null = null;
+let breathView: ReturnType<typeof initBreath> | null = null;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
 const fxEl = $("fx");
 const bodyEl = $("body");
 const chakraEl = $("chakra");
+const breathEl = $("breath");
 const stageEl = $("stage");
 const nav = $("nav");
 const pinsEl = $("pins");
@@ -236,6 +240,14 @@ function openFxView(): boolean {
   return true;
 }
 
+function openBreathView(): boolean {
+  breathEl.hidden = false;
+  breathView ??= initBreath(breathEl, { openBody: (organ) => { breathEl.hidden = true; breathView?.stop(); view = "hero"; pendingOrgan = organ; go("body"); }, reduceMotion });
+  fade(breathEl, true);
+  $("leave-breath").focus();
+  return true;
+}
+
 function openChakraView(id?: string): boolean {
   chakraEl.hidden = false;
   try {
@@ -278,6 +290,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "fx" && !openFxView()) return false;
   if (next === "body" && !openBodyView(pendingOrgan)) return false;
   if (next === "chakra" && !openChakraView(pendingChakra)) return false;
+  if (next === "breath" && !openBreathView()) return false;
   pendingOrgan = undefined;
   pendingChakra = undefined;
   view = next;
@@ -287,6 +300,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (prev === "fx") fade(fxEl, false, () => fxView?.stop());
   if (prev === "body") fade(bodyEl, false);
   if (prev === "chakra") fade(chakraEl, false, () => chakraView?.stop());
+  if (prev === "breath") fade(breathEl, false, () => breathView?.stop());
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
   else setChrome(false);
   syncHero();
@@ -316,6 +330,7 @@ const home = initHome($("home"), {
   },
   openUniverse() { void enterLibrary(); },
   openBody(organ?: string) { if (view === "body") { if (organ) bodyView?.show(organ); } else { pendingOrgan = organ; go("body"); } },
+  openBreath() { go("breath"); },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
   openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
   openClaim: (id, from) => overlay.open(id, from),
@@ -336,6 +351,7 @@ $("leave-atlas").addEventListener("click", () => go("hero"));
 $("leave-fx").addEventListener("click", () => go("hero"));
 $("leave-body").addEventListener("click", () => go("hero"));
 $("leave-chakra").addEventListener("click", () => go("hero"));
+$("leave-breath").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;
@@ -347,6 +363,7 @@ document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
     else if (from === "atlas") { atlasEl.hidden = true; atlasView?.stop(); }
     else if (from === "fx") { fxEl.hidden = true; fxView?.stop(); }
     else if (from === "chakra") { chakraEl.hidden = true; chakraView?.stop(); }
+    else if (from === "breath") { breathEl.hidden = true; breathView?.stop(); }
     else bodyEl.hidden = true;
     go(target);
   }),

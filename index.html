@@ -87,6 +87,7 @@
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
           <button class="tab" data-goto="chakra">Chakren</button>
+          <button class="tab" data-goto="breath">Atem</button>
         </nav>
         <input id="search" class="search" type="search" placeholder="Suchen …" aria-label="Aussagen durchsuchen" />
         <button class="chip" id="universe-home">Überblick</button>
@@ -111,6 +112,7 @@
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
           <button class="tab" data-goto="chakra">Chakren</button>
+          <button class="tab" data-goto="breath">Atem</button>
         </nav>
         <input class="search atlas-search" type="search" placeholder="Pflanze oder Stein suchen …" aria-label="Atlas durchsuchen" />
         <select class="atlas-target" aria-label="Nach Zuordnung filtern"></select>
@@ -133,6 +135,7 @@
           <button class="tab" aria-current="true">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
           <button class="tab" data-goto="chakra">Chakren</button>
+          <button class="tab" data-goto="breath">Atem</button>
         </nav>
         <div class="tabs" role="group" aria-label="Darstellung">
           <button class="tab" data-fx-mode="kymatik" aria-current="true">Kymatik</button>
@@ -151,6 +154,7 @@
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" aria-current="true">Körper</button>
           <button class="tab" data-goto="chakra">Chakren</button>
+          <button class="tab" data-goto="breath">Atem</button>
         </nav>
       </header>
       <div class="bv-scroll">
@@ -190,9 +194,59 @@
           <button class="tab" data-goto="fx">Frequenz</button>
           <button class="tab" data-goto="body">Körper</button>
           <button class="tab" aria-current="true">Chakren</button>
+          <button class="tab" data-goto="breath">Atem</button>
         </nav>
       </header>
       <aside class="fx-panel" aria-live="polite"></aside>
+    </section>
+
+    <section id="breath" class="breathview" hidden aria-label="Atem und Meditation">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-breath">← Start</button>
+        <nav class="tabs" aria-label="View">
+          <button class="tab" data-goto="universe">Universum</button>
+          <button class="tab" data-goto="atlas">Atlas</button>
+          <button class="tab" data-goto="fx">Frequenz</button>
+          <button class="tab" data-goto="body">Körper</button>
+          <button class="tab" data-goto="chakra">Chakren</button>
+          <button class="tab" aria-current="true">Atem</button>
+        </nav>
+      </header>
+      <div class="bv-scroll">
+        <div class="br-hero">
+          <div class="br-intro">
+            <p class="fx-eyebrow">Atem · Aufmerksamkeit · Überlieferung</p>
+            <h1>Dein Atem verbindet alles.</h1>
+            <p>Der Atem läuft von allein und lässt sich doch bewusst lenken. Hier findest du eine Atemübung zum Mitmachen, Lehrbuchwissen über die Atmung und Überlieferungen aus verschiedenen Kulturen.</p>
+            <p class="br-missing">Wirkungen von Atemübungen werden hier nicht behauptet. Die Bibliothek führt dazu noch keine bewerteten Aussagen.</p>
+          </div>
+          <div class="br-timer">
+            <div class="br-ringwrap">
+              <svg class="br-svg" viewBox="0 0 100 100" aria-hidden="true"><circle class="br-track" cx="50" cy="50" r="46"/><circle class="br-arc" cx="50" cy="50" r="46"/></svg>
+              <div class="br-ring" data-phase="idle" aria-hidden="true"></div>
+              <div class="br-text"><div class="br-phase">Bereit</div><div class="br-count" aria-hidden="true"></div><div class="br-round"></div></div>
+            </div>
+            <div class="br-controls">
+              <div class="br-row" role="group" aria-label="Rhythmus"><span class="br-label">Rhythmus</span><div class="br-patterns br-row"></div></div>
+              <div class="br-row" role="group" aria-label="Runden"><span class="br-label">Runden</span><div class="br-rounds br-row"></div></div>
+              <button class="br-start" aria-pressed="false">Übung starten</button>
+              <p class="br-note"></p>
+            </div>
+            <div class="br-live" aria-live="polite"></div>
+          </div>
+        </div>
+        <section class="br-section" aria-label="Was beim Atmen im Körper passiert">
+          <h2>Was beim Atmen im Körper passiert</h2>
+          <div class="br-grid br-anatomy"></div>
+          <button class="cta ghost small br-more" data-open-body>Lunge im Körper-Atlas ansehen <span aria-hidden="true">→</span></button>
+        </section>
+        <section class="br-section" aria-label="Überlieferungen">
+          <h2>Überlieferungen rund um den Atem</h2>
+          <div class="br-grid three br-trad"></div>
+          <p class="br-missing">Quellenangaben zu den Überlieferungen: Source pending verification.</p>
+        </section>
+        <p class="br-notice"></p>
+      </div>
     </section>
 
     <aside id="overlay" class="proof" hidden role="dialog" aria-labelledby="proof-title" tabindex="-1">

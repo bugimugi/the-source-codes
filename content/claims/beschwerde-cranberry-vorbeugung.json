@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-cranberry-vorbeugung",
+  "short": "Cranberry und wiederkehrende Harnwegsinfekte",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Cranberry-Produkte können wiederkehrende Harnwegsinfekte bei Frauen vorbeugend etwas verringern; zur Behandlung einer akuten Blasenentzündung taugen sie nicht.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion fasst ein Cochrane-Überblick (Williams et al. 2023) Studien zur Vorbeugung zusammen; die Aussagekraft ist mäßig. Eine akute Blasenentzündung mit Fieber, Flankenschmerz oder Blut im Urin gehört in ärztliche Abklärung; Antibiotika gibt es nur auf Verordnung. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "williams-2023",
+      "kind": "systematic-review",
+      "title": "Cranberries for preventing urinary tract infections",
+      "author": "Williams G. et al.",
+      "year": 2023,
+      "citation": "Cochrane Database of Systematic Reviews – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

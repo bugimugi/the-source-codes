@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-pfefferminzoel-reizdarm",
+  "short": "Pfefferminzöl bei Reizdarm",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Pfefferminzöl in magensaftresistenten Kapseln besserte in Studien die Beschwerden bei Reizdarmsyndrom etwas.",
+  "level": "supported",
+  "rationale": "Nach dem Kenntnisstand der Redaktion fassen Meta-Analysen (u. a. Alammar et al. 2019) kleine bis mittelgroße Studien zusammen; Nebenwirkungen wie Sodbrennen kommen vor. Eine Selbstdiagnose „Reizdarm“ ist nicht sinnvoll, weil andere Erkrankungen ähnliche Beschwerden machen; Dosierung und Eignung klärt die Ärztin oder der Apotheker, hier steht keine Dosierung. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "alammar-2019",
+      "kind": "systematic-review",
+      "title": "The impact of peppermint oil on the irritable bowel syndrome: a meta-analysis of the pooled clinical data",
+      "author": "Alammar N. et al.",
+      "year": 2019,
+      "citation": "BMC Complementary and Alternative Medicine 19: 21 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

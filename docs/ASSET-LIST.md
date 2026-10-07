@@ -460,6 +460,32 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `atem-mehr-nerven` | 800×500 | Szene | glowing nerve cells connected by light, blue and violet, dark cinematic, no text |
 | `atem-mehr-schlaf` | 800×500 | Szene | a person sleeping peacefully in a dark blue bedroom, dark cinematic, no text |
 | `atem-schluss` | 2800×500 | Szene | a person sitting in meditation seen from behind on a rock above a misty mountain valley at sunrise, golden light, a dark calm area on the left for text, no text, no letters |
+| `beschwerden-hero` | 2800×1300 | Szene | a standing translucent human figure with seven softly glowing chakra points along the spine and fine blue energy lines, in a dark mountain landscape with forest on both sides and a golden sunset sky, a dark calm area on the left for text, no text, no letters, no icons, no circles |
+| `beschwerden-kugel-geist` | 600×600 | Szene | a glowing human head profile with a luminous brain in cyan inside a round frame, dark background, no text |
+| `beschwerden-kugel-atmung` | 600×600 | Szene | glowing lungs in cyan and blue inside a round frame, dark background, no text |
+| `beschwerden-kugel-ernaehrung` | 600×600 | Szene | a glowing red apple inside a round frame, dark background, no text |
+| `beschwerden-kugel-pflanzen` | 600×600 | Szene | a glowing green plant sprout inside a round frame, dark background, no text |
+| `beschwerden-kugel-chakren` | 600×600 | Szene | a glowing pink lotus flower inside a round frame, dark background, no text |
+| `beschwerden-kugel-frequenzen` | 600×600 | Szene | a glowing violet sound wave inside a round frame, dark background, no text |
+| `beschwerden-kugel-kristalle` | 600×600 | Szene | a glowing violet crystal cluster inside a round frame, dark background, no text |
+| `beschwerden-kugel-lebensstil` | 600×600 | Szene | a glowing orange sun inside a round frame, dark background, no text |
+| `beschwerden-erkaeltung` | 600×700 | Szene | a young woman with a cold wrapped in a blanket holding a tissue, soft light, no text |
+| `beschwerden-kopf` | 600×700 | Szene | a woman holding her head, a glowing brain in orange behind her, dark background, no text |
+| `beschwerden-magen` | 600×700 | Szene | a glowing human stomach and intestines in orange and red, dark background, no text |
+| `beschwerden-schlaf` | 600×700 | Szene | a person lying awake in bed at night, blue light, no text |
+| `beschwerden-stress` | 600×700 | Szene | a person meditating at sunset in the mountains, no text |
+| `beschwerden-haut` | 600×700 | Szene | a close up of skin with a red patch, soft light, no text |
+| `beschwerden-frauen` | 600×700 | Szene | a pink lotus flower in soft light, dark background, no text |
+| `beschwerden-schmerz` | 600×700 | Szene | a glowing knee joint with orange pain glow, dark background, no text |
+| `beschwerden-analyse` | 900×1100 | Szene | a translucent human head and torso in profile with a glowing orange brain and stomach, dark blue background, no text |
+| `beschwerden-empf-pflanzen` | 600×420 | Szene | fresh mint leaves and herbs, dark cinematic, no text |
+| `beschwerden-empf-ernaehrung` | 600×420 | Szene | a bowl of fresh vegetables and grains, dark cinematic, no text |
+| `beschwerden-empf-wasser` | 600×420 | Szene | a glass of clear water with a waterfall behind, dark cinematic, no text |
+| `beschwerden-empf-atem` | 600×420 | Szene | a person meditating on a rock at sunset, dark cinematic, no text |
+| `beschwerden-empf-meditation` | 600×420 | Szene | a person meditating in a forest with golden light, dark cinematic, no text |
+| `beschwerden-empf-kristalle` | 600×420 | Szene | purple amethyst crystals, dark cinematic, no text |
+| `beschwerden-empf-koerperarbeit` | 600×420 | Szene | a back with acupressure points and hands, dark cinematic, no text |
+| `beschwerden-empf-lebensstil` | 600×420 | Szene | a sunrise over a mountain landscape, dark cinematic, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -527,4 +553,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 466 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 492 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

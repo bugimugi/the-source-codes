@@ -19,6 +19,7 @@ export type TileAction =
   | { type: "crystals" }
   | { type: "anatomy" }
   | { type: "freq" }
+  | { type: "beschwerden" }
   | { type: "nutrients" }
   | { type: "soon" };
 
@@ -34,7 +35,7 @@ export const TILES: Tile[] = [
   { title: "Kristalle & Heilsteine", sub: "Eigenschaften & Überlieferung", slot: "tile-kristalle", action: { type: "crystals" } },
   { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "anatomy" } },
   { title: "Nährstoffe", sub: "Vitamine, Mineralien, Aminosäuren", slot: "tile-naehrstoffe", action: { type: "nutrients" } },
-  { title: "Krankheiten & Beschwerden", sub: "Von Schnupfen bis chronisch", slot: "tile-krankheiten", action: { type: "scroll", target: "beschwerden" } },
+  { title: "Krankheiten & Beschwerden", sub: "Von Schnupfen bis chronisch", slot: "tile-krankheiten", action: { type: "beschwerden" } },
   { title: "Atem & Meditation", sub: "Atemtechniken & Nervensystem", slot: "tile-atem", action: { type: "breath" } },
   { title: "Frequenzen & Vibrationen", sub: "Klang, Frequenz & Resonanz", slot: "tile-frequenzen", action: { type: "freq" } },
   { title: "Geometrie", sub: "Heilige Geometrie & Mathematik", slot: "tile-geometrie", action: { type: "fx", mode: "geometrie" } },

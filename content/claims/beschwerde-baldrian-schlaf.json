@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-baldrian-schlaf",
+  "short": "Baldrian bei Schlafproblemen",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Baldrian hilft bei Einschlaf- und Durchschlafproblemen.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion kommt eine Meta-Analyse (Bent et al. 2006) zu einem möglichen, aber unsicheren Nutzen, weil die Studien klein und uneinheitlich waren. Baldrian ist ein traditionelles Mittel; Wechselwirkungen und Nebenwirkungen sind möglich, die Eignung klärt die Apotheke. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "bent-2006",
+      "kind": "systematic-review",
+      "title": "Valerian for sleep: a systematic review and meta-analysis",
+      "author": "Bent S. et al.",
+      "year": 2006,
+      "citation": "American Journal of Medicine 119(12): 1005–1012 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

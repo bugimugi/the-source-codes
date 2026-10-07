@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-kopfschmerz-ausloeser",
+  "short": "Auslöser von Kopfschmerzen",
+  "area": "medizingeschichte",
+  "status": "published",
+  "statement": "Kopfschmerzen können durch Flüssigkeitsmangel, Schlafmangel, Stress, Alkohol und Fasten ausgelöst oder verstärkt werden.",
+  "level": "supported",
+  "rationale": "Lehrbuchwissen: Die internationale Klassifikation der Kopfschmerzerkrankungen (ICHD-3) führt Kopfschmerzen auf, die Alkohol, Fasten oder anderen Auslösern zugeschrieben werden; Spannungskopfschmerz und Migräne werden häufig durch Schlafmangel und Stress ausgelöst. Das ist keine Diagnose im Einzelfall: Wer häufig oder stark Kopfschmerzen hat, lässt die Ursache ärztlich klären. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "ichd-3",
+      "kind": "peer-reviewed",
+      "title": "The International Classification of Headache Disorders, 3rd edition",
+      "author": "Headache Classification Committee of the International Headache Society",
+      "year": 2018,
+      "citation": "Cephalalgia 38(1): 1–211 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

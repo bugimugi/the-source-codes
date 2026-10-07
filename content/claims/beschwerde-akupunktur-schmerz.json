@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-akupunktur-schmerz",
+  "short": "Akupunktur bei chronischen Schmerzen",
+  "area": "medizingeschichte",
+  "status": "published",
+  "statement": "Akupunktur wirkt bei chronischen Schmerzen etwas stärker als keine Behandlung und etwas stärker als eine Schein-Akupunktur.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion fasst eine Analyse einzelner Patientendaten (Vickers et al. 2018) einen kleinen Unterschied gegenüber Schein-Akupunktur zusammen; ob er klinisch bedeutsam ist und wie er zustande kommt, wird diskutiert. Die Aussage sagt nichts über Meridiane oder „Energiefluss“. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "vickers-2018",
+      "kind": "systematic-review",
+      "title": "Acupuncture for chronic pain: update of an individual patient data meta-analysis",
+      "author": "Vickers A.J. et al.",
+      "year": 2018,
+      "citation": "Journal of Pain 19(5): 455–474 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

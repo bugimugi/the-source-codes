@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-honig-husten",
+  "short": "Honig bei Husten",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Honig lindert in Studien nächtlichen Husten bei Kindern ab einem Jahr etwas besser als keine Behandlung.",
+  "level": "hypothesis",
+  "rationale": "Nach dem Kenntnisstand der Redaktion fasst ein Cochrane-Überblick (Oduwole et al. 2018) Studien zu Honig bei akutem Husten von Kindern zusammen; die Aussagekraft ist gering bis mäßig. Wichtig: Honig gehört nicht in den Mund von Säuglingen unter einem Jahr (Gefahr des Säuglingsbotulismus). Husten, der länger als wenige Wochen anhält oder mit Atemnot einhergeht, gehört in ärztliche Abklärung. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "oduwole-2018",
+      "kind": "systematic-review",
+      "title": "Honey for acute cough in children",
+      "author": "Oduwole O. et al.",
+      "year": 2018,
+      "citation": "Cochrane Database of Systematic Reviews, CD007094 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-schlaf-kvt",
+  "short": "Verhaltenstherapie bei Schlafstörungen",
+  "area": "medizingeschichte",
+  "status": "published",
+  "statement": "Bei anhaltenden Schlafstörungen gilt die kognitive Verhaltenstherapie für Insomnie (KVT-I) als erste Wahl, vor Schlafmitteln.",
+  "level": "supported",
+  "rationale": "Nach dem Kenntnisstand der Redaktion empfehlen Leitlinien (u. a. American College of Physicians, Qaseem et al. 2016) die KVT-I als erste Behandlung chronischer Schlafstörungen. Sie wird in ärztlicher oder psychotherapeutischer Begleitung durchgeführt. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "qaseem-2016",
+      "kind": "peer-reviewed",
+      "title": "Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians",
+      "author": "Qaseem A. et al.",
+      "year": 2016,
+      "citation": "Annals of Internal Medicine 165(2): 125–133 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

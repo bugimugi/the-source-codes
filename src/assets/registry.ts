@@ -30,6 +30,7 @@ const KRISTALL = "Kristall-Atlas";
 const KOERPER = "Der menschliche Körper";
 const FREQ = "Frequenz-Seite";
 const ATEM = "Atem-Seite";
+const BESCH = "Beschwerden-Seite";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -462,6 +463,32 @@ export const SLOTS = {
   "atem-mehr-nerven": d(ATEM, 8, "scene", 800, 500, "glowing nerve cells connected by light, blue and violet, dark cinematic, no text"),
   "atem-mehr-schlaf": d(ATEM, 8, "scene", 800, 500, "a person sleeping peacefully in a dark blue bedroom, dark cinematic, no text"),
   "atem-schluss": d(ATEM, 8, "scene", 2800, 500, "a person sitting in meditation seen from behind on a rock above a misty mountain valley at sunrise, golden light, a dark calm area on the left for text, no text, no letters"),
+  "beschwerden-hero": d(BESCH, 8, "scene", 2800, 1300, "a standing translucent human figure with seven softly glowing chakra points along the spine and fine blue energy lines, in a dark mountain landscape with forest on both sides and a golden sunset sky, a dark calm area on the left for text, no text, no letters, no icons, no circles"),
+  "beschwerden-kugel-geist": d(BESCH, 8, "scene", 600, 600, "a glowing human head profile with a luminous brain in cyan inside a round frame, dark background, no text"),
+  "beschwerden-kugel-atmung": d(BESCH, 8, "scene", 600, 600, "glowing lungs in cyan and blue inside a round frame, dark background, no text"),
+  "beschwerden-kugel-ernaehrung": d(BESCH, 8, "scene", 600, 600, "a glowing red apple inside a round frame, dark background, no text"),
+  "beschwerden-kugel-pflanzen": d(BESCH, 8, "scene", 600, 600, "a glowing green plant sprout inside a round frame, dark background, no text"),
+  "beschwerden-kugel-chakren": d(BESCH, 8, "scene", 600, 600, "a glowing pink lotus flower inside a round frame, dark background, no text"),
+  "beschwerden-kugel-frequenzen": d(BESCH, 8, "scene", 600, 600, "a glowing violet sound wave inside a round frame, dark background, no text"),
+  "beschwerden-kugel-kristalle": d(BESCH, 8, "scene", 600, 600, "a glowing violet crystal cluster inside a round frame, dark background, no text"),
+  "beschwerden-kugel-lebensstil": d(BESCH, 8, "scene", 600, 600, "a glowing orange sun inside a round frame, dark background, no text"),
+  "beschwerden-erkaeltung": d(BESCH, 8, "scene", 600, 700, "a young woman with a cold wrapped in a blanket holding a tissue, soft light, no text"),
+  "beschwerden-kopf": d(BESCH, 8, "scene", 600, 700, "a woman holding her head, a glowing brain in orange behind her, dark background, no text"),
+  "beschwerden-magen": d(BESCH, 8, "scene", 600, 700, "a glowing human stomach and intestines in orange and red, dark background, no text"),
+  "beschwerden-schlaf": d(BESCH, 8, "scene", 600, 700, "a person lying awake in bed at night, blue light, no text"),
+  "beschwerden-stress": d(BESCH, 8, "scene", 600, 700, "a person meditating at sunset in the mountains, no text"),
+  "beschwerden-haut": d(BESCH, 8, "scene", 600, 700, "a close up of skin with a red patch, soft light, no text"),
+  "beschwerden-frauen": d(BESCH, 8, "scene", 600, 700, "a pink lotus flower in soft light, dark background, no text"),
+  "beschwerden-schmerz": d(BESCH, 8, "scene", 600, 700, "a glowing knee joint with orange pain glow, dark background, no text"),
+  "beschwerden-analyse": d(BESCH, 8, "scene", 900, 1100, "a translucent human head and torso in profile with a glowing orange brain and stomach, dark blue background, no text"),
+  "beschwerden-empf-pflanzen": d(BESCH, 8, "scene", 600, 420, "fresh mint leaves and herbs, dark cinematic, no text"),
+  "beschwerden-empf-ernaehrung": d(BESCH, 8, "scene", 600, 420, "a bowl of fresh vegetables and grains, dark cinematic, no text"),
+  "beschwerden-empf-wasser": d(BESCH, 8, "scene", 600, 420, "a glass of clear water with a waterfall behind, dark cinematic, no text"),
+  "beschwerden-empf-atem": d(BESCH, 8, "scene", 600, 420, "a person meditating on a rock at sunset, dark cinematic, no text"),
+  "beschwerden-empf-meditation": d(BESCH, 8, "scene", 600, 420, "a person meditating in a forest with golden light, dark cinematic, no text"),
+  "beschwerden-empf-kristalle": d(BESCH, 8, "scene", 600, 420, "purple amethyst crystals, dark cinematic, no text"),
+  "beschwerden-empf-koerperarbeit": d(BESCH, 8, "scene", 600, 420, "a back with acupressure points and hands, dark cinematic, no text"),
+  "beschwerden-empf-lebensstil": d(BESCH, 8, "scene", 600, 420, "a sunrise over a mountain landscape, dark cinematic, no text"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

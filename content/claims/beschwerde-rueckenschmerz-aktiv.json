@@ -1,0 +1,24 @@
+{
+  "id": "beschwerde-rueckenschmerz-aktiv",
+  "short": "Aktiv bleiben bei Rückenschmerzen",
+  "area": "medizingeschichte",
+  "status": "published",
+  "statement": "Bei unspezifischen Rückenschmerzen empfehlen Leitlinien, aktiv zu bleiben und nicht-medikamentöse Verfahren wie Bewegung, Wärme oder Massage zu nutzen.",
+  "level": "supported",
+  "rationale": "Nach dem Kenntnisstand der Redaktion empfiehlt u. a. die Leitlinie des American College of Physicians (Qaseem et al. 2017) nicht-medikamentöse Verfahren als erste Wahl; für die deutsche Nationale Versorgungsleitlinie Kreuzschmerz gilt Ähnliches. Das gilt für unspezifische Schmerzen ohne Warnzeichen; bei Lähmung, Taubheit, Fieber oder Störungen von Blase und Darm ist es ein Fall für die Ärztin. Die Quelle stammt aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "qaseem-2017",
+      "kind": "peer-reviewed",
+      "title": "Noninvasive treatments for acute, subacute, and chronic low back pain: a clinical practice guideline from the American College of Physicians",
+      "author": "Qaseem A. et al.",
+      "year": 2017,
+      "citation": "Annals of Internal Medicine 166(7): 514–530 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

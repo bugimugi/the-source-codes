@@ -1,0 +1,33 @@
+{
+  "id": "beschwerde-wechselwirkungen",
+  "short": "Wechselwirkungen von Pflanzen und Lebensmitteln mit Medikamenten",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Pflanzen und Lebensmittel können die Wirkung von Arzneimitteln verändern, zum Beispiel Johanniskraut oder Grapefruitsaft.",
+  "level": "supported",
+  "rationale": "Lehrbuchwissen der Pharmakologie: Johanniskraut beschleunigt den Abbau vieler Arzneimittel in der Leber und kann ihre Wirkung abschwächen (u. a. hormonelle Verhütungsmittel und Mittel gegen Abstoßungsreaktionen); Grapefruitsaft hemmt den Abbau einiger Arzneimittel und kann ihre Wirkung verstärken. Die Liste auf der Seite ist eine Auswahl und kein Prüfwerkzeug; die Apotheke prüft Wechselwirkungen für die tatsächlich genommenen Mittel. Medikamente nie ohne Rücksprache absetzen. Quellen aus dem Suchauszug. Source pending verification.",
+  "sources": [
+    {
+      "id": "bailey-2013",
+      "kind": "peer-reviewed",
+      "title": "Grapefruit–medication interactions: forbidden fruit or avoidable consequences?",
+      "author": "Bailey D.G. et al.",
+      "year": 2013,
+      "citation": "Canadian Medical Association Journal 185(4): 309–316 – Suchauszug, Source pending verification",
+      "verified": false
+    },
+    {
+      "id": "henderson-2002",
+      "kind": "peer-reviewed",
+      "title": "St John's wort (Hypericum perforatum): drug interactions and clinical outcomes",
+      "author": "Henderson L. et al.",
+      "year": 2002,
+      "citation": "British Journal of Clinical Pharmacology 54(4): 349–356 – Suchauszug, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

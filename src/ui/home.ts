@@ -30,6 +30,7 @@ export interface HomeApi {
   openCrystals(): void;
   openAnatomy(): void;
   openFreq(): void;
+  openBeschwerden(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -159,6 +160,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "crystals") api.openCrystals();
       else if (a.type === "anatomy") api.openAnatomy();
       else if (a.type === "freq") api.openFreq();
+      else if (a.type === "beschwerden") api.openBeschwerden();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }

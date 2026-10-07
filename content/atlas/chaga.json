@@ -1,0 +1,57 @@
+{
+  "id": "chaga",
+  "status": "published",
+  "category": "pilz",
+  "name": "Chaga (Schiefer Schillerporling)",
+  "latin": "Inonotus obliquus",
+  "model": {
+    "kind": "mushroom",
+    "color": "#1a1512",
+    "color2": "#b6651e",
+    "shape": "conk"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Hymenochaetaceae"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Sklerotium (schwarze, holzige Wucherung), meist als Tee oder Auszug"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Vor allem an Birken in kalten Regionen Nordeuropas, Sibiriens und Nordamerikas"
+    },
+    {
+      "label": "Aussehen",
+      "value": "Außen schwarz und rissig, innen rostbraun"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "In der Volksmedizin Nordeuropas und Russlands wird Chaga seit langer Zeit als Tee getrunken.",
+  "associations": [],
+  "combinations": [],
+  "claims": [
+    "chaga-traditional-use"
+  ]
+}

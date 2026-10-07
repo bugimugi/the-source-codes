@@ -1,0 +1,55 @@
+{
+  "id": "fliegenpilz",
+  "status": "published",
+  "category": "pilz",
+  "name": "Fliegenpilz",
+  "latin": "Amanita muscaria",
+  "model": {
+    "kind": "mushroom",
+    "color": "#c0281c",
+    "color2": "#f4efe4",
+    "shape": "cap"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Wulstlingsverwandte (Amanitaceae)"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Mykorrhiza-Pilz bei Birken und Nadelbäumen, häufig im Herbst"
+    },
+    {
+      "label": "Giftig",
+      "value": "Giftpilz mit berauschender Wirkung; der Verzehr kann zu Vergiftungen führen. Nicht essen und nicht als Heilmittel verwenden."
+    },
+    {
+      "label": "Aussehen",
+      "value": "Roter Hut mit weißen Flecken"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Fliegenpilz ist ein Symbol in Märchen, Kunst und Volksglauben (Glückspilz). Berichte über rituelle Verwendungen in Sibirien werden in der Völkerkunde beschrieben.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

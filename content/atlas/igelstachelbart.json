@@ -1,0 +1,68 @@
+{
+  "id": "igelstachelbart",
+  "status": "published",
+  "category": "pilz",
+  "name": "Igelstachelbart",
+  "latin": "Hericium erinaceus",
+  "model": {
+    "kind": "mushroom",
+    "color": "#f1ead8",
+    "color2": "#d9c9a3",
+    "shape": "lion"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Stachelbartverwandte (Hericiaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Fruchtkörper"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Selten, an Stämmen alter Laubbäume (zum Beispiel Buche); in Deutschland gefährdet und geschützt"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Lange, herabhängende Stacheln statt Lamellen; auch „Löwenmähne“ (Lion’s Mane) genannt"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Wildfunde stehen unter Schutz: nicht sammeln. Der Pilz wird als Kulturpilz angeboten."
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "In Ostasien wird der Igelstachelbart als Speisepilz und in der traditionellen Medizin verwendet.",
+  "associations": [
+    {
+      "system": "Moderne Pilzheilkunde",
+      "target": "Gehirn",
+      "origin": "modern",
+      "note": "Deutung des 20./21. Jahrhunderts, kein Wirkbeleg."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "igelstachelbart-cognition"
+  ]
+}

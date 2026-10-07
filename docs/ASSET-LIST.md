@@ -136,13 +136,18 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 |---|---|
 | `atlas-amethyst` | Amethyst (Quarz (violette Varietät)) |
 | `atlas-apfel` | Apfel (Malus domestica) |
+| `atlas-austernpilz` | Austernseitling (Pleurotus ostreatus) |
 | `atlas-brennnessel` | Große Brennnessel (Urtica dioica) |
+| `atlas-chaga` | Chaga (Schiefer Schillerporling) (Inonotus obliquus) |
 | `atlas-citrin` | Citrin (Quarz (gelbe Varietät)) |
+| `atlas-fliegenpilz` | Fliegenpilz (Amanita muscaria) |
 | `atlas-fluorit` | Fluorit (Fluorit) |
 | `atlas-granat` | Granat (Granat (Mineralgruppe)) |
+| `atlas-igelstachelbart` | Igelstachelbart (Hericium erinaceus) |
 | `atlas-ingwer` | Ingwer (Zingiber officinale) |
 | `atlas-kamille` | Echte Kamille (Matricaria chamomilla) |
 | `atlas-karotte` | Karotte (Daucus carota subsp. sativus) |
+| `atlas-kordyzeps` | Chinesischer Raupenpilz (Cordyceps) (Ophiocordyceps sinensis) |
 | `atlas-lapislazuli` | Lapislazuli (Gestein aus Lazurit u. a.) |
 | `atlas-lavendel` | Echter Lavendel (Lavandula angustifolia) |
 | `atlas-malachit` | Malachit (Malachit) |
@@ -150,10 +155,13 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-pfefferminze` | Pfefferminze (Mentha × piperita) |
 | `atlas-pyrit` | Pyrit (Pyrit) |
 | `atlas-quarz` | Bergkristall (Quarz) (Quarz) |
+| `atlas-reishi` | Reishi (Glänzender Lackporling) (Ganoderma lucidum) |
 | `atlas-ringelblume` | Ringelblume (Calendula officinalis) |
+| `atlas-shiitake` | Shiitake (Lentinula edodes) |
+| `atlas-steinpilz` | Gemeiner Steinpilz (Boletus edulis) |
 | `atlas-tomate` | Tomate (Solanum lycopersicum) |
 | `atlas-turmalin` | Schwarzer Turmalin (Schörl) (Turmalin-Gruppe (Schörl)) |
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 105 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 113 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

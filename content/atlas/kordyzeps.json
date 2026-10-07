@@ -1,0 +1,70 @@
+{
+  "id": "kordyzeps",
+  "status": "published",
+  "category": "pilz",
+  "name": "Chinesischer Raupenpilz (Cordyceps)",
+  "latin": "Ophiocordyceps sinensis",
+  "model": {
+    "kind": "mushroom",
+    "color": "#d9792b",
+    "color2": "#6b4a2a",
+    "shape": "club"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Ophiocordycipitaceae"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Pilz zusammen mit der befallenen Raupe"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Hochlagen des Himalaya und Tibets; der Pilz lebt als Parasit in Raupen bestimmter Schmetterlinge"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Wildfunde sind sehr gefragt und teuer; im Handel sind oft verwandte, gezüchtete Arten (Cordyceps militaris) gemeint"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "In der tibetischen und chinesischen Medizin hat der Raupenpilz einen hohen Stellenwert und gilt als wertvolles Tonikum.",
+  "associations": [
+    {
+      "system": "Traditionelle chinesische Medizin",
+      "target": "Lunge",
+      "origin": "traditional",
+      "note": "Laut TCM-Darstellungen; Quelle zu prüfen."
+    },
+    {
+      "system": "Traditionelle chinesische Medizin",
+      "target": "Nieren",
+      "origin": "traditional",
+      "note": "Laut TCM-Darstellungen; Quelle zu prüfen."
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "kordyzeps-traditional-use"
+  ]
+}

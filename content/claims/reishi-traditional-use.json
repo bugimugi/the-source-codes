@@ -1,0 +1,20 @@
+{
+  "id": "reishi-traditional-use",
+  "short": "Reishi – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Lackporling (Lingzhi, Reishi) wird in der traditionellen chinesischen Medizin seit Jahrhunderten als Stärkungsmittel (Tonikum) beschrieben.",
+  "level": "historical",
+  "rationale": "Beschreibt die überlieferte Verwendung, keine Wirkung und keine Heilungsaussage. Die klassische Quelle (die Materia-Medica-Tradition, z. B. das Shennong Bencao Jing) ist noch nicht geprüft. Ob Zubereitungen wirken, ist damit nicht gesagt.",
+  "sources": [
+    {
+      "id": "shennong",
+      "kind": "historical-document",
+      "title": "Klassische chinesische Materia-Medica-Schriften (z. B. Shennong Bencao Jing)",
+      "author": "Titel und Stelle zu ergänzen",
+      "citation": "Stelle zum Lingzhi nachschlagen – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": []
+}

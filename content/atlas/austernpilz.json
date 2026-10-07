@@ -1,0 +1,59 @@
+{
+  "id": "austernpilz",
+  "status": "published",
+  "category": "pilz",
+  "name": "Austernseitling",
+  "latin": "Pleurotus ostreatus",
+  "model": {
+    "kind": "mushroom",
+    "color": "#a79a8b",
+    "color2": "#efe7da",
+    "shape": "shelf"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Seitlingsverwandte (Pleurotaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Fruchtkörper"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Auf Laubholz, oft im Herbst und Winter; weltweit als Kulturpilz gezogen"
+    },
+    {
+      "label": "Verwendung",
+      "value": "Speisepilz"
+    },
+    {
+      "label": "Besonderheit",
+      "value": "Wächst büschelig und schalenförmig am Stamm"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Austernseitling ist einer der am häufigsten angebauten Speisepilze und lässt sich auf Stroh und Holzresten ziehen.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

@@ -145,7 +145,7 @@ export const KIND_LABEL: Record<SourceKind, string> = {
 
 // ---------------------------------------------------------------- Atlas (Guidebook)
 
-export type AtlasCategory = "kraut" | "blume" | "baum" | "obst" | "gemuese" | "kristall";
+export type AtlasCategory = "kraut" | "blume" | "baum" | "obst" | "gemuese" | "pilz" | "kristall";
 
 export const CATEGORY_LABEL: Record<AtlasCategory, string> = {
   kraut: "Kräuter",
@@ -153,12 +153,13 @@ export const CATEGORY_LABEL: Record<AtlasCategory, string> = {
   baum: "Bäume",
   obst: "Obst & Nüsse",
   gemuese: "Gemüse",
+  pilz: "Pilze",
   kristall: "Kristalle & Heilsteine",
 };
 
 export type ModelKind =
   | "quartz" | "fluorite" | "pyrite" | "garnet" | "tourmaline" | "malachite" | "lapis" | "obsidian"
-  | "flower" | "herb" | "lavender" | "rhizome" | "willow" | "nut" | "carrot" | "fruit";
+  | "flower" | "herb" | "lavender" | "rhizome" | "willow" | "nut" | "carrot" | "fruit" | "mushroom";
 
 export interface ModelSpec {
   kind: ModelKind;
@@ -166,7 +167,8 @@ export interface ModelSpec {
   color2?: string;
   /** flower: number of petals; fruit: "apple" | "tomato" */
   petals?: number;
-  shape?: "apple" | "tomato";
+  /** fruit: "apple" | "tomato"; mushroom: form of the placeholder model */
+  shape?: "apple" | "tomato" | "cap" | "shelf" | "lion" | "conk" | "club";
 }
 
 /** A cultural/traditional mapping (organ, chakra, signature ...). Never an efficacy statement. */

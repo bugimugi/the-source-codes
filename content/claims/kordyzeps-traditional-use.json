@@ -1,0 +1,20 @@
+{
+  "id": "kordyzeps-traditional-use",
+  "short": "Raupenpilz – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Chinesische Raupenpilz wird in der tibetischen und chinesischen Medizin als Tonikum beschrieben.",
+  "level": "historical",
+  "rationale": "Beschreibt die überlieferte Verwendung, keine Wirkung. Die Zuordnung zu Lunge und Nieren stammt aus Darstellungen der TCM und ist nicht an einer Originalquelle geprüft.",
+  "sources": [
+    {
+      "id": "tcm-cordyceps",
+      "kind": "historical-document",
+      "title": "Texte der tibetischen und chinesischen Medizin zum Raupenpilz (Titel zu ergänzen)",
+      "author": "Titel und Stelle zu ergänzen",
+      "citation": "Quellen nachschlagen – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": []
+}

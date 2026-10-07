@@ -1,0 +1,55 @@
+{
+  "id": "shiitake",
+  "status": "published",
+  "category": "pilz",
+  "name": "Shiitake",
+  "latin": "Lentinula edodes",
+  "model": {
+    "kind": "mushroom",
+    "color": "#6b4423",
+    "color2": "#e9dcc2",
+    "shape": "cap"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Omphalotaceae"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Fruchtkörper"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Wächst in Ostasien an Laubholz; weltweit als Kulturpilz auf Holz oder Substrat gezogen"
+    },
+    {
+      "label": "Verwendung",
+      "value": "Speisepilz, besonders in der ostasiatischen Küche"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "In Ostasien wird der Shiitake seit langer Zeit angebaut, als Speise- und als Heilpilz geschätzt.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

@@ -552,6 +552,109 @@ function fruit(spec: ModelSpec) {
   return g;
 }
 
+/** Simple placeholder models for the mushroom entries, until a generated picture exists (see src/ui/atlas.ts). */
+function mushroom(spec: ModelSpec) {
+  const g = new THREE.Group();
+  const capMat = new THREE.MeshStandardMaterial({ color: spec.color, roughness: 0.55 });
+  const stemMat = new THREE.MeshStandardMaterial({ color: spec.color2 ?? "#eee6d4", roughness: 0.8 });
+  const lathe = (pts: [number, number][]) => new THREE.LatheGeometry(pts.map(([x, y]) => new THREE.Vector2(x, y)), 36);
+  const capProfile: [number, number][] = [[0, 1.0], [0.3, 0.97], [0.6, 0.86], [0.85, 0.64], [1.0, 0.38], [1.06, 0.26], [0.8, 0.27], [0, 0.32]];
+  const spotted = spec.color === "#c0281c"; // fly agaric
+  const one = (scale: number, x: number, z: number, tilt: number) => {
+    const m = new THREE.Group();
+    const cap = new THREE.Mesh(lathe(capProfile), capMat);
+    cap.material.side = THREE.DoubleSide;
+    m.add(cap);
+    m.add(new THREE.Mesh(lathe([[0.0, -0.9], [0.22, -0.9], [0.3, -0.4], [0.25, 0.3], [0.0, 0.36]]), stemMat));
+    if (spotted) {
+      const r = rng(Math.round(scale * 10));
+      const spot = new THREE.MeshStandardMaterial({ color: spec.color2 ?? "#f4efe4", roughness: 0.7 });
+      for (let i = 0; i < 14; i++) {
+        // a point on the cap profile (top part), pushed 2 % outwards so the spot sits on the surface
+        const k = 1 + Math.floor(r() * 3), f = r();
+        const [x0, y0] = capProfile[k], [x1, y1] = capProfile[k + 1];
+        const rad = (x0 + (x1 - x0) * f) * 1.02, y = (y0 + (y1 - y0) * f) * 1.02, a = r() * Math.PI * 2;
+        const d = new THREE.Mesh(new THREE.SphereGeometry(0.07 + r() * 0.05, 10, 8), spot);
+        d.scale.y = 0.45;
+        d.position.set(Math.cos(a) * rad, y, Math.sin(a) * rad);
+        d.lookAt(d.position.clone().multiplyScalar(2));
+        m.add(d);
+      }
+    }
+    m.scale.setScalar(scale);
+    m.position.set(x, 0, z);
+    m.rotation.z = tilt;
+    return m;
+  };
+  switch (spec.shape) {
+    case "shelf": {
+      // bracket / shelf fungus: flattened kidney-shaped caps on a short side stalk
+      for (let i = 0; i < 3; i++) {
+        const cap = new THREE.Mesh(new THREE.SphereGeometry(1, 36, 18, 0, Math.PI * 2, 0, Math.PI / 2), capMat);
+        cap.scale.set(1.15 - i * 0.2, 0.28, 0.85 - i * 0.12);
+        cap.position.set(i * 0.25 - 0.2, -0.3 + i * 0.55, 0);
+        cap.rotation.y = i * 0.7;
+        g.add(cap);
+      }
+      g.add(stem([new THREE.Vector3(-0.1, -1.5, 0), new THREE.Vector3(0.0, -0.8, 0), new THREE.Vector3(0.0, 0.4, 0)], 0.14, spec.color2 ?? "#d9c9a3"));
+      break;
+    }
+    case "lion": {
+      // lion's mane: pale blob with hanging spines
+      const blob = new THREE.Mesh(displaced(new THREE.IcosahedronGeometry(1.1, 4), 0.08, 5, 9), new THREE.MeshStandardMaterial({ color: spec.color, roughness: 0.9 }));
+      blob.scale.set(1.2, 0.95, 1.0);
+      g.add(blob);
+      const r = rng(5);
+      const spineMat = new THREE.MeshStandardMaterial({ color: spec.color2 ?? "#d9c9a3", roughness: 0.9 });
+      for (let i = 0; i < 380; i++) {
+        const a = r() * Math.PI * 2, ny = -0.15 - r() * 0.85; // lower half only
+        const rr = Math.sqrt(1 - ny * ny);
+        const len = 0.25 + r() * 0.55;
+        const sp = new THREE.Mesh(new THREE.ConeGeometry(0.022, len, 5), spineMat);
+        sp.position.set(Math.cos(a) * rr * 1.2 * 1.08, ny * 0.95 * 1.08 - len / 2, Math.sin(a) * rr * 1.08);
+        sp.rotation.x = Math.PI;
+        g.add(sp);
+      }
+      break;
+    }
+    case "conk": {
+      // chaga: dark irregular, cracked mass with a rust-brown inside
+      const blob = new THREE.Mesh(displaced(new THREE.IcosahedronGeometry(1.2, 5), 0.22, 4.2, 21), new THREE.MeshStandardMaterial({ color: spec.color, roughness: 1 }));
+      blob.scale.set(1.15, 0.8, 0.95);
+      g.add(blob);
+      const core = new THREE.Mesh(new THREE.SphereGeometry(0.5, 20, 14), new THREE.MeshStandardMaterial({ color: spec.color2 ?? "#b6651e", roughness: 0.8 }));
+      core.position.set(0.55, 0.45, 0.55);
+      core.scale.set(0.9, 0.25, 0.9);
+      g.add(core);
+      break;
+    }
+    case "club": {
+      // caterpillar fungus: slender orange clubs rising from a pale body
+      const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 1.1, 6, 14), new THREE.MeshStandardMaterial({ color: "#d8c9a6", roughness: 0.85 }));
+      body.rotation.z = 1.2;
+      body.position.set(0, -0.9, 0);
+      g.add(body);
+      for (let i = 0; i < 2; i++) {
+        const club = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.1, 2.1 - i * 0.5, 10), capMat);
+        club.position.set(-0.35 + i * 0.7, 0.2 - i * 0.2, 0);
+        club.rotation.z = (i ? -1 : 1) * 0.08;
+        g.add(club);
+        const tip = new THREE.Mesh(new THREE.CapsuleGeometry(0.1, 0.3, 4, 10), capMat);
+        tip.position.set(club.position.x, club.position.y + (2.1 - i * 0.5) / 2, 0);
+        g.add(tip);
+      }
+      break;
+    }
+    default: {
+      g.add(one(1.15, 0, 0, 0));
+      g.add(one(0.6, 1.2, 0.4, -0.18));
+      g.add(one(0.45, -1.15, 0.5, 0.2));
+    }
+  }
+  g.scale.setScalar(1.35);
+  return g;
+}
+
 export function buildModel(spec: ModelSpec): THREE.Group {
   const c = spec.color;
   switch (spec.kind) {
@@ -571,6 +674,7 @@ export function buildModel(spec: ModelSpec): THREE.Group {
     case "nut": return nut(spec);
     case "carrot": return carrot(spec);
     case "fruit": return fruit(spec);
+    case "mushroom": return mushroom(spec);
   }
 }
 

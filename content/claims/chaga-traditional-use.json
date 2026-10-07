@@ -1,0 +1,20 @@
+{
+  "id": "chaga-traditional-use",
+  "short": "Chaga – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Chaga wird in der Volksmedizin Nordeuropas und Russlands traditionell als Tee verwendet.",
+  "level": "historical",
+  "rationale": "Beschreibt die überlieferte Anwendung als Tee, keine Wirkung. Konkrete historische Belege (Volkskunde, Kräuterbücher) sind noch zu ergänzen.",
+  "sources": [
+    {
+      "id": "chaga-volkskunde",
+      "kind": "historical-document",
+      "title": "Volkskundliche Quellen zu Chaga (Titel zu ergänzen)",
+      "author": "Titel und Stelle zu ergänzen",
+      "citation": "Quellen nachschlagen – aus dem Gedächtnis, nicht geprüft",
+      "verified": false
+    }
+  ],
+  "related": []
+}

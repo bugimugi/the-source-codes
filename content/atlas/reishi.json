@@ -1,0 +1,63 @@
+{
+  "id": "reishi",
+  "status": "published",
+  "category": "pilz",
+  "name": "Reishi (Glänzender Lackporling)",
+  "latin": "Ganoderma lucidum",
+  "model": {
+    "kind": "mushroom",
+    "color": "#8e2b17",
+    "color2": "#e8c58a",
+    "shape": "shelf"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Lackporlinge (Ganodermataceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Fruchtkörper"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Holzbewohner an Laubbäumen; in Asien auch als Kulturpilz gezogen"
+    },
+    {
+      "label": "Namen",
+      "value": "Lingzhi (chinesisch), Reishi (japanisch); in Asien wird oft die verwandte Art Ganoderma lingzhi gemeint"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "In der chinesischen Überlieferung gilt der Lingzhi seit alters als besonderer Pilz und erscheint in der Kunst als Glückssymbol.",
+  "associations": [
+    {
+      "system": "Traditionelle chinesische Medizin",
+      "target": "Tonikum (Stärkungsmittel)",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "reishi-traditional-use"
+  ]
+}

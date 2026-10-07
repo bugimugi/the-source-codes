@@ -1,0 +1,20 @@
+{
+  "id": "igelstachelbart-cognition",
+  "short": "Igelstachelbart – Gedächtnis und Nerven",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Dem Igelstachelbart werden positive Effekte auf Gedächtnis und Nervenwachstum zugeschrieben.",
+  "level": "hypothesis",
+  "rationale": "Hinweise stammen vor allem aus Laborversuchen und wenigen kleinen Studien. Belastbare Belege für Menschen fehlen nach meinem Kenntnisstand; die genannten Studien sind nicht geprüft. Keine Heilungsaussage und keine Empfehlung.",
+  "sources": [
+    {
+      "id": "lions-mane-studies",
+      "kind": "conference-abstract",
+      "title": "Laborversuche und kleine Studien (Titel zu ergänzen)",
+      "author": "zu ergänzen",
+      "citation": "Studienlage aus dem Gedächtnis, nicht geprüft; Originalquellen nachschlagen",
+      "verified": false
+    }
+  ],
+  "related": []
+}

@@ -87,6 +87,7 @@ Chakren-Seite mit berechnetem 3D (src/ui/chakra.ts, src/gl/chakrascene.ts, src/d
 Atem-Seite mit Übungs-Timer ohne WebGL (src/ui/breath.ts, src/data/breath.ts): keine Wirkaussagen, Lehrbuchwissen und Überlieferungen getrennt.
 Orte-Seite mit berechneter Weltkugel (src/ui/places.ts, src/gl/globescene.ts, src/data/sites.ts; Küstenpunkte aus Natural Earth via `npm run globe:data`): keine Linien zwischen Orten, keine Energie-Behauptungen. Alle Vollbild-Ansichten stehen in `VIEW_TABS` und `SCREENS` in src/main.ts.
 Alte Kulturen als Akten (src/ui/cultures.ts, src/data/cultures.ts): acht Akten, getrennt in Dokumentiert / Überlieferung / Offene Frage / Behauptungen (geschwärzt bis zum Klick, mit Belegstufe und Gegenbelegen); alle Texte im Pilot ungeprüft, Quellen "pending". Nährstoffe (src/ui/nutrients.ts, src/data/nutrients.ts): Lehrbuchniveau, keine Mengen oder Dosierungen.
+Pilze sind eine Atlas-Kategorie (`pilz`, 8 Einträge in content/atlas/, Aussagen in content/claims/): Platzhalter-Modelle in src/gl/models.ts bis die Bilder `atlas-<id>` da sind; Wildpilz-Warnung bei essbaren Arten, Fliegenpilz als giftig gekennzeichnet.
 Bild-Werkzeug: `npm run assets:optimize` (Originale in design/assets-raw → WebP in public/assets).
 
 ## Harte Regeln (vom Nutzer festgelegt, gelten immer)

@@ -1,0 +1,59 @@
+{
+  "id": "steinpilz",
+  "status": "published",
+  "category": "pilz",
+  "name": "Gemeiner Steinpilz",
+  "latin": "Boletus edulis",
+  "model": {
+    "kind": "mushroom",
+    "color": "#6d4a2b",
+    "color2": "#efe6cf",
+    "shape": "cap"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Dickröhrlingsverwandte (Boletaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Fruchtkörper"
+    },
+    {
+      "label": "Vorkommen",
+      "value": "Mykorrhiza-Pilz bei Fichten, Buchen und Eichen; Sommer bis Herbst"
+    },
+    {
+      "label": "Verwendung",
+      "value": "Beliebter Speisepilz, nur gezielt zu sammeln"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Wildpilze nur essen, wenn eine Pilzsachverständige oder ein Pilzsachverständiger sie bestimmt hat; Verwechslungen können lebensgefährlich sein."
+    }
+  ],
+  "sources": [
+    {
+      "id": "mycobank",
+      "kind": "primary-text",
+      "title": "MycoBank / Index Fungorum",
+      "author": "Internationale Pilz-Datenbanken",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://www.mycobank.org",
+      "verified": false
+    },
+    {
+      "id": "dgfm",
+      "kind": "primary-text",
+      "title": "Deutsche Gesellschaft für Mykologie (DGfM)",
+      "author": "DGfM e. V.",
+      "citation": "Pilzporträt und Hinweise zum Sammeln dort nachschlagen",
+      "url": "https://www.dgfm-ev.de",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Steinpilz ist in Mitteleuropa der klassische Speisepilz der Pilzsuche und wird gern getrocknet.",
+  "associations": [],
+  "combinations": [],
+  "claims": []
+}

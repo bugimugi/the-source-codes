@@ -1,0 +1,23 @@
+{
+  "id": "salbei-traditional-use",
+  "short": "Salbei – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Salbeiblätter werden traditionell als Aufguss zum Gurgeln bei leichten Entzündungen in Mund und Rachen angewendet.",
+  "level": "claimed",
+  "rationale": "Die EMA beschreibt die traditionelle Anwendung (laut Suchauszug, 2017); „traditionell“ heißt lange Anwendung, nicht klinisch belegt. Der Aufguss wird nicht geschluckt (Thujon). Quelle: Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

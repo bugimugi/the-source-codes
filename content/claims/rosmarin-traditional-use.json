@@ -1,0 +1,23 @@
+{
+  "id": "rosmarin-traditional-use",
+  "short": "Rosmarin – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Rosmarinblätter werden traditionell bei Verdauungsbeschwerden und zur Anregung des Kreislaufs angewendet.",
+  "level": "claimed",
+  "rationale": "Nach dem Kenntnisstand der Redaktion in Monographien (EMA, Kommission E) als traditionelle Anwendung beschrieben; die Fassung ist noch zu prüfen. Beschreibt die überlieferte Verwendung, keine Heilungsaussage. Quelle: Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

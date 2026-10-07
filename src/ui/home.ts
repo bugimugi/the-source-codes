@@ -23,6 +23,7 @@ export interface HomeApi {
   openNutrients(): void;
   openEnergy(): void;
   openLab(): void;
+  openPlants(): void;
   openClaim(id: string, from: HTMLElement): void;
 }
 
@@ -68,7 +69,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
 
     <section class="sec" id="natur" aria-labelledby="h-plants">
       <div class="sec-head"><div><h2 id="h-plants">Pflanzen-Atlas</h2><p>Pflanzen, ihre Inhaltsstoffe und überlieferten Anwendungen – jeweils mit Quellen und Belegstufe.</p></div>
-        <button class="link" data-act="atlas-all">Alle Pflanzen <span aria-hidden="true">→</span></button></div>
+        <button class="link" data-act="plants">Alle Pflanzen <span aria-hidden="true">→</span></button></div>
       ${featured ? `<div class="plant-grid">
         <article class="plant-feature">
           ${slot(`atlas-${featured.id}` as `atlas-${string}`, "plant-img atlas-fallback", `style="--tint:${featured.model.color}" data-glyph="${glyph(featured)}"`)}
@@ -145,6 +146,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
       else if (a.type === "nutrients") api.openNutrients();
       else if (a.type === "energy") api.openEnergy();
       else if (a.type === "lab") api.openLab();
+      else if (a.type === "plants") api.openPlants();
       else say("Dieser Bereich folgt in einer späteren Phase.");
       return;
     }
@@ -152,6 +154,7 @@ export function initHome(root: HTMLElement, api: HomeApi, reduceMotion: boolean)
     if (act) {
       const k = act.dataset.act;
       if (k === "universe") api.openUniverse();
+      else if (k === "plants") api.openPlants();
       else if (k === "body") api.openBody();
       else if (k === "places") api.openPlaces();
       else if (k === "cultures") api.openCultures();

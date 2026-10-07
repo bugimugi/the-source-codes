@@ -1,0 +1,73 @@
+{
+  "id": "rosmarin",
+  "status": "published",
+  "category": "kraut",
+  "name": "Rosmarin",
+  "latin": "Salvia rosmarinus (Rosmarinus officinalis)",
+  "model": {
+    "kind": "herb",
+    "color": "#5c8a62",
+    "color2": "#9fb7e6"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Lippenblütler (Lamiaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Blätter (Nadeln)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Mittelmeerraum"
+    },
+    {
+      "label": "Inhaltsstoffe",
+      "value": "u. a. ätherisches Öl mit Cineol und Kampfer, Rosmarinsäure"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "hmpc",
+      "kind": "historical-document",
+      "title": "Pflanzliche Monographien (HMPC)",
+      "author": "EMA, Committee on Herbal Medicinal Products",
+      "citation": "Monographie zur Pflanze dort nachschlagen (Nr. noch ergänzen)",
+      "url": "https://www.ema.europa.eu",
+      "verified": false
+    }
+  ],
+  "tradition": "Als Küchengewürz und in der europäischen Volksmedizin seit der Antike bekannt; in Klostergärten des Mittelalters angebaut.",
+  "associations": [
+    {
+      "system": "Traditionelle europäische Pflanzenheilkunde",
+      "target": "Magen-Darm-Trakt",
+      "origin": "traditional"
+    },
+    {
+      "system": "Traditionelle europäische Pflanzenheilkunde",
+      "target": "Kreislauf",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [
+    {
+      "with": "salbei",
+      "note": "Beide gehören zu den Lippenblütlern und stehen oft nebeneinander im Kräutergarten.",
+      "origin": "traditional"
+    }
+  ],
+  "claims": [
+    "rosmarin-traditional-use"
+  ]
+}

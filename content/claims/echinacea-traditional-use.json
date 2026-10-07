@@ -1,0 +1,23 @@
+{
+  "id": "echinacea-traditional-use",
+  "short": "Echinacea – Anwendung bei Erkältung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Zubereitungen aus Purpur-Sonnenhut werden in der Pflanzenheilkunde zur Unterstützung bei beginnenden Erkältungen angewendet.",
+  "level": "hypothesis",
+  "rationale": "Die Studienlage ist uneinheitlich: Eine Cochrane-Übersicht (2014) fand keine eindeutige Wirkung (aus dem Gedächtnis, Source pending verification). Die Aussage beschreibt die Anwendung, keine gesicherte Wirkung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

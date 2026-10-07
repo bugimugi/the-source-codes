@@ -1,0 +1,52 @@
+{
+  "id": "teebaum",
+  "status": "published",
+  "category": "baum",
+  "name": "Teebaum",
+  "latin": "Melaleuca alternifolia",
+  "model": {
+    "kind": "willow",
+    "color": "#6f9a52"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Myrtengewächse (Myrtaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Blätter; daraus wird das ätherische Teebaumöl destilliert"
+    },
+    {
+      "label": "Heimat",
+      "value": "Küstenregionen im Südosten Australiens (New South Wales)"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Teebaumöl nur äußerlich und verdünnt verwenden; verschluckt ist es giftig (auch für Kinder und Haustiere) und kann Kontaktallergien auslösen (Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Nach australischer Überlieferung nutzten Aborigines die Blätter für Aufgüsse und Umschläge; das Öl wird seit dem 20. Jahrhundert industriell gewonnen.",
+  "associations": [
+    {
+      "system": "Volksmedizin",
+      "target": "Haut",
+      "origin": "unknown"
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "teebaum-traditional-use"
+  ]
+}

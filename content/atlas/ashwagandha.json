@@ -1,0 +1,53 @@
+{
+  "id": "ashwagandha",
+  "status": "published",
+  "category": "kraut",
+  "name": "Ashwagandha",
+  "latin": "Withania somnifera",
+  "model": {
+    "kind": "herb",
+    "color": "#8a9a55",
+    "color2": "#d9a640"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Nachtschattengewächse (Solanaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Wurzel, in Teilen der Überlieferung auch Blätter"
+    },
+    {
+      "label": "Heimat",
+      "value": "Trockene Gebiete Indiens, des Nahen Ostens und Nordafrikas"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Wechselwirkungen (u. a. mit Schilddrüsen- und Beruhigungsmitteln) und seltene Leberschäden sind beschrieben; bei Medikamenten, Schwangerschaft und Vorerkrankungen vorher ärztlich klären (aus dem Gedächtnis, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Im Ayurveda zählt die Wurzel seit alters zu den Stärkungsmitteln (Tonika). Der Name bedeutet im Sanskrit etwa „Geruch des Pferdes“.",
+  "associations": [
+    {
+      "system": "Ayurveda",
+      "target": "Tonikum (Stärkungsmittel)",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "ashwagandha-traditional-use"
+  ]
+}

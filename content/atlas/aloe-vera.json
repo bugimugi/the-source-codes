@@ -1,0 +1,53 @@
+{
+  "id": "aloe-vera",
+  "status": "published",
+  "category": "kraut",
+  "name": "Aloe vera",
+  "latin": "Aloe vera (Aloe barbadensis)",
+  "model": {
+    "kind": "herb",
+    "color": "#5aa56a",
+    "color2": "#d9c24f"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Grasbaumgewächse (Asphodelaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Gel aus dem Blattinneren; der gelbe Saft unter der Blatthaut (Latex) ist ein anderer Stoff"
+    },
+    {
+      "label": "Heimat",
+      "value": "Vermutlich Arabische Halbinsel; heute weltweit in warmen Ländern angebaut"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Der Latex wirkt abführend und soll nicht ohne ärztlichen Rat eingenommen werden (Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "In vielen warmen Ländern seit der Antike als Hautpflanze bekannt; das Gel wird äußerlich verwendet.",
+  "associations": [
+    {
+      "system": "Volksmedizin",
+      "target": "Haut",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [],
+  "claims": [
+    "aloe-vera-traditional-use"
+  ]
+}

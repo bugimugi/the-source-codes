@@ -149,18 +149,34 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `energy-topic-schmuck` | 1200×700 | Szene | gold, silver and copper bracelets and gemstone rings on dark cloth, warm light, no hands |
 | `energy-topic-tesla` | 1200×700 | Szene | tall early-1900s transmission tower with a large dome and blue electric discharge at dusk, no people |
 
+## Priorität 8
+
+| Datei | Größe | Typ | Prompt-Kern |
+|---|---|---|---|
+| `plants-hero` | 2800×1300 | Szene | dark moody botanical still life: an open antique herbal book with pressed plant illustrations, a glass dropper bottle, a mortar, dried herbs, a stack of old leather books with gold lettering, lush green leaves and violet flowers framing the right side, warm candle light, calm dark area on the left for text, no people |
+| `plants-cat-kraeuter` | 1000×1200 | Szene | fresh green medicinal herbs, rosemary sage and mint, painterly botanical, dark background |
+| `plants-cat-blueten` | 1000×1200 | Szene | pink and violet fragrant flowers in bloom, soft glow, dark background |
+| `plants-cat-gewuerze` | 1000×1200 | Szene | ginger root, turmeric and cinnamon sticks with whole spices, warm light, dark background |
+| `plants-cat-fruechte` | 1000×1200 | Szene | a halved pomegranate with glowing seeds and other fruits, rich red, dark background |
+| `plants-cat-gemuese` | 1000×1200 | Szene | fresh leafy green vegetables and bok choy, dew drops, dark background |
+| `plants-cat-algen` | 1000×1200 | Szene | underwater seaweed and kelp with teal light rays, dark background |
+| `plants-map` | 2400×1100 | Szene | old parchment world map in dark teal and sepia with illustrated plants on each continent, mountains and ocean, vintage cartography, calm and dark |
+
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
 Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or mineral subject, scientific illustration meets glowing light, on a pure black background. Das Motiv steht im Prompt-Kern jeweils zuerst.
 
 | Datei | Motiv |
 |---|---|
+| `atlas-aloe-vera` | Aloe vera (Aloe vera (Aloe barbadensis)) |
 | `atlas-amethyst` | Amethyst (Quarz (violette Varietät)) |
 | `atlas-apfel` | Apfel (Malus domestica) |
+| `atlas-ashwagandha` | Ashwagandha (Withania somnifera) |
 | `atlas-austernpilz` | Austernseitling (Pleurotus ostreatus) |
 | `atlas-brennnessel` | Große Brennnessel (Urtica dioica) |
 | `atlas-chaga` | Chaga (Schiefer Schillerporling) (Inonotus obliquus) |
 | `atlas-citrin` | Citrin (Quarz (gelbe Varietät)) |
+| `atlas-echinacea` | Purpur-Sonnenhut (Echinacea) (Echinacea purpurea) |
 | `atlas-fliegenpilz` | Fliegenpilz (Amanita muscaria) |
 | `atlas-fluorit` | Fluorit (Fluorit) |
 | `atlas-granat` | Granat (Granat (Mineralgruppe)) |
@@ -169,6 +185,7 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-kamille` | Echte Kamille (Matricaria chamomilla) |
 | `atlas-karotte` | Karotte (Daucus carota subsp. sativus) |
 | `atlas-kordyzeps` | Chinesischer Raupenpilz (Cordyceps) (Ophiocordyceps sinensis) |
+| `atlas-kurkuma` | Kurkuma (Curcuma longa) |
 | `atlas-lapislazuli` | Lapislazuli (Gestein aus Lazurit u. a.) |
 | `atlas-lavendel` | Echter Lavendel (Lavandula angustifolia) |
 | `atlas-malachit` | Malachit (Malachit) |
@@ -178,11 +195,14 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-quarz` | Bergkristall (Quarz) (Quarz) |
 | `atlas-reishi` | Reishi (Glänzender Lackporling) (Ganoderma lucidum) |
 | `atlas-ringelblume` | Ringelblume (Calendula officinalis) |
+| `atlas-rosmarin` | Rosmarin (Salvia rosmarinus (Rosmarinus officinalis)) |
+| `atlas-salbei` | Echter Salbei (Salvia officinalis) |
 | `atlas-shiitake` | Shiitake (Lentinula edodes) |
 | `atlas-steinpilz` | Gemeiner Steinpilz (Boletus edulis) |
+| `atlas-teebaum` | Teebaum (Melaleuca alternifolia) |
 | `atlas-tomate` | Tomate (Solanum lycopersicum) |
 | `atlas-turmalin` | Schwarzer Turmalin (Schörl) (Turmalin-Gruppe (Schörl)) |
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 129 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 144 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

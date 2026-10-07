@@ -1,0 +1,23 @@
+{
+  "id": "ashwagandha-traditional-use",
+  "short": "Ashwagandha – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Die Wurzel der Ashwagandha wird im Ayurveda traditionell als Stärkungsmittel (Tonikum) verwendet.",
+  "level": "claimed",
+  "rationale": "Beschreibt die überlieferte Verwendung, keine Wirksamkeitsaussage. Zu Wirkungen beim Menschen gibt es klinische Studien unterschiedlicher Qualität; eine Bewertung steht aus. Wechselwirkungen und seltene Leberschäden sind beschrieben (aus dem Gedächtnis, ungeprüft). Quelle: Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

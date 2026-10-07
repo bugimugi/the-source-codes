@@ -1,0 +1,62 @@
+{
+  "id": "kurkuma",
+  "status": "published",
+  "category": "kraut",
+  "name": "Kurkuma",
+  "latin": "Curcuma longa",
+  "model": {
+    "kind": "rhizome",
+    "color": "#e0951c"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Ingwergewächse (Zingiberaceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Wurzelstock (Rhizom)"
+    },
+    {
+      "label": "Heimat",
+      "value": "Südasien, vor allem Indien"
+    },
+    {
+      "label": "Inhaltsstoffe",
+      "value": "u. a. Curcuminoide (gelber Farbstoff) und ätherisches Öl"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Als Gewürz in Küchenmengen üblich; Kurkuma-Präparate können den Magen reizen, Leberschäden sind bei hochdosierten Präparaten berichtet; bei Blutverdünnern ärztlich nachfragen (Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    }
+  ],
+  "tradition": "Im Ayurveda und in der südasiatischen Küche seit Jahrtausenden als Gewürz, Farbstoff und Hausmittel gebräuchlich.",
+  "associations": [
+    {
+      "system": "Ayurveda",
+      "target": "Magen-Darm-Trakt",
+      "origin": "traditional"
+    }
+  ],
+  "combinations": [
+    {
+      "with": "ingwer",
+      "note": "Verwandte Wurzelstöcke, in der asiatischen Küche und im Ayurveda oft gemeinsam genannt.",
+      "origin": "traditional"
+    }
+  ],
+  "claims": [
+    "kurkuma-traditional-use"
+  ]
+}

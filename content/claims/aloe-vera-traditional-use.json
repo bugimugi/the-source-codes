@@ -1,0 +1,23 @@
+{
+  "id": "aloe-vera-traditional-use",
+  "short": "Aloe vera – traditionelle Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Das Gel der Aloe vera wird traditionell äußerlich bei gereizter Haut angewendet.",
+  "level": "claimed",
+  "rationale": "Beschreibt die überlieferte äußerliche Verwendung. Eine Wirkung ist hier nicht bewertet. Der Latex ist ein anderer Stoff und wirkt abführend. Quelle: Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

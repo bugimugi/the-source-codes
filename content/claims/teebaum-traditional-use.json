@@ -1,0 +1,23 @@
+{
+  "id": "teebaum-traditional-use",
+  "short": "Teebaumöl – äußere Anwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Teebaumöl wird äußerlich und verdünnt bei leichten Hautproblemen verwendet; es darf nicht eingenommen werden.",
+  "level": "claimed",
+  "rationale": "Beschreibt die übliche äußerliche Anwendung. Eine Wirkung ist hier nicht bewertet; Kontaktallergien sind möglich, das Öl ist verschluckt giftig. Quelle: Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

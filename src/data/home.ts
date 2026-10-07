@@ -12,6 +12,7 @@ export type TileAction =
   | { type: "cultures" }
   | { type: "energy" }
   | { type: "lab" }
+  | { type: "plants" }
   | { type: "nutrients" }
   | { type: "soon" };
 
@@ -19,7 +20,7 @@ export interface Tile { title: string; sub: string; slot: SlotName; action: Tile
 
 /** The 16 tiles of the knowledge matrix. Subtitles are neutral descriptions, not effect claims. */
 export const TILES: Tile[] = [
-  { title: "Pflanzen", sub: "Heilpflanzen & Wildkräuter", slot: "tile-pflanzen", action: { type: "atlas", category: "kraut" } },
+  { title: "Pflanzen", sub: "Heilpflanzen & Wildkräuter", slot: "tile-pflanzen", action: { type: "plants" } },
   { title: "Bäume", sub: "Arten & Eigenschaften", slot: "tile-baeume", action: { type: "atlas", category: "baum" } },
   { title: "Gemüse & Obst", sub: "Nährstoffe & Inhaltsstoffe", slot: "tile-gemuese-obst", action: { type: "atlas", category: "gemuese" } },
   { title: "Pilze & Mykologie", sub: "Arten & Inhaltsstoffe", slot: "tile-pilze", action: { type: "atlas", category: "pilz" } },

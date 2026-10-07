@@ -22,6 +22,7 @@ const d = (page: string, prio: number, bg: SlotDef["bg"], w: number, h: number, 
 const HOME = "Startseite";
 const CULT = "Alte Kulturen";
 const ENERGY = "Freie Energie";
+const PLANTS = "Pflanzenatlas";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -135,6 +136,15 @@ export const SLOTS = {
   "energy-topic-erdung": d(ENERGY, 7, "scene", 1200, 700, "bare feet standing on green grass and soil, soft morning light, close-up, subtle glowing lines in the ground"),
   "energy-topic-schmuck": d(ENERGY, 7, "scene", 1200, 700, "gold, silver and copper bracelets and gemstone rings on dark cloth, warm light, no hands"),
   "energy-topic-tesla": d(ENERGY, 7, "scene", 1200, 700, "tall early-1900s transmission tower with a large dome and blue electric discharge at dusk, no people"),
+  // ---- Pflanzenatlas: landing page (priority 8). Existing tile/body/culture images are reused where they fit.
+  "plants-hero": d(PLANTS, 8, "scene", 2800, 1300, "dark moody botanical still life: an open antique herbal book with pressed plant illustrations, a glass dropper bottle, a mortar, dried herbs, a stack of old leather books with gold lettering, lush green leaves and violet flowers framing the right side, warm candle light, calm dark area on the left for text, no people"),
+  "plants-cat-kraeuter": d(PLANTS, 8, "scene", 1000, 1200, "fresh green medicinal herbs, rosemary sage and mint, painterly botanical, dark background"),
+  "plants-cat-blueten": d(PLANTS, 8, "scene", 1000, 1200, "pink and violet fragrant flowers in bloom, soft glow, dark background"),
+  "plants-cat-gewuerze": d(PLANTS, 8, "scene", 1000, 1200, "ginger root, turmeric and cinnamon sticks with whole spices, warm light, dark background"),
+  "plants-cat-fruechte": d(PLANTS, 8, "scene", 1000, 1200, "a halved pomegranate with glowing seeds and other fruits, rich red, dark background"),
+  "plants-cat-gemuese": d(PLANTS, 8, "scene", 1000, 1200, "fresh leafy green vegetables and bok choy, dew drops, dark background"),
+  "plants-cat-algen": d(PLANTS, 8, "scene", 1000, 1200, "underwater seaweed and kelp with teal light rays, dark background"),
+  "plants-map": d(PLANTS, 8, "scene", 2400, 1100, "old parchment world map in dark teal and sepia with illustrated plants on each continent, mountains and ocean, vintage cartography, calm and dark"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

@@ -70,6 +70,15 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
 16. **Heilige Orte** – „Orte mit besonderer Energie.“; Hero Erdkugel mit leuchtenden Orten und Linien; 8 Kategorien; „Bedeutende
     heilige Orte“ (10 Karten mit Koordinaten); Interaktive Weltkarte (Filter links, Legende, Detailkarte Angkor Wat);
     Verbindungen (Ley-Linien, Sternenausrichtungen …). **Heikel:** Ley-Linien/Energiebehauptungen → `claimed`.
+17. **Pflanzenatlas** (Referenzbild lokal in `design/mockups/pflanzenatlas.png`, nicht committet) – Hero „Pflanzen Atlas“ mit Suchfeld,
+    „Beliebt:“-Chips, vier Kennzahlen und einer Pergamentkarte mit dem Satz „Die Natur ist die größte Bibliothek der Heilkunst.“; Reihe mit
+    9 Kategoriekarten (Alle, Kräuter, Blüten, Bäume, Pilze, Gewürze, Früchte, Gemüse, Algen); „Beliebte Pflanzen“ als Kartenreihe;
+    „Pflanzen der Welt“ mit Pergamentkarte, Regionen-Pins und Liste „Pflanzen nach Region“; Panel „Nach Wirkung suchen“ mit 12 Themen;
+    Panel „Der menschliche Körper“ mit Organliste und Körperbild; Panel „Wissen aus aller Welt“; „Aktuelle Entdeckungen“ (4 Karten).
+    **Anders umgesetzt (Schutzlinien):** Kennzahlen (25.000+, 1.200+, 500+) und Regionenzahlen aus echten Daten statt Platzhaltern;
+    „Nach Wirkung suchen / Was möchtest du unterstützen?“ heißt „Nach Thema suchen / Was interessiert dich?“ und zeigt nur Pflanzen mit
+    überlieferter Zuordnung (kein Wirkungsversprechen); die Entdeckungen verweisen auf Vorhandenes (Gewürze, Pilze, Rezepte, Kulturen);
+    „Zum Magazin“ → „Zur Bibliothek“. Umsetzung: `src/ui/plants.ts`, `src/data/plants.ts`, `src/plants.css`.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

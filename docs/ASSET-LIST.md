@@ -344,6 +344,41 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `element-h-hist-wissenschaft` | 600×450 | Szene | an 18th century laboratory with glass apparatus and a scientist, warm light, painterly, no text |
 | `element-h-hist-raumfahrt` | 600×450 | Szene | a rocket on a launch pad with steam, vintage space age, painterly, no text |
 | `element-h-hist-zukunft` | 600×450 | Szene | a clean future landscape with wind turbines and a glowing hydrogen tank, painterly, no text |
+| `kristall-hero` | 2800×1300 | Szene | a huge glowing violet amethyst crystal cluster in the centre right inside a dark cave, a golden sacred geometry circle behind it, a view out to a mountain lake at sunset on the right, small floating crystals, a dark calm area on the left for text, no text, no letters |
+| `kristall-cat-alle` | 600×672 | Szene | a mixed cluster of amethyst, quartz and rose quartz crystals, glowing, dark background, no text |
+| `kristall-cat-quarz` | 600×672 | Szene | a cluster of clear and smoky quartz crystals, dark background, no text |
+| `kristall-cat-edel` | 600×672 | Szene | faceted gemstones in purple, blue and red, sparkling, dark background, no text |
+| `kristall-cat-heil` | 600×672 | Szene | green and violet healing stones in a bowl, soft light, dark background, no text |
+| `kristall-cat-roh` | 600×672 | Szene | raw rough pink and white crystal points on dark rock, dark background, no text |
+| `kristall-cat-trommel` | 600×672 | Szene | polished tumbled stones in warm colours, dark background, no text |
+| `kristall-cat-selten` | 600×672 | Szene | a rare rainbow crystal with fine inclusions, glowing, dark background, no text |
+| `kristall-cat-meteor` | 600×672 | Szene | a dark meteorite fragment with crystal patterns, dark background, no text |
+| `kristall-cat-farbe` | 600×672 | Szene | bright blue and violet colour crystals, glowing, dark background, no text |
+| `kristall-cat-sammler` | 600×672 | Szene | a museum quality mineral specimen on a stand, red crystals, dark background, no text |
+| `kristall-system` | 900×1200 | Schwarz | a large glowing violet crystal prism with a fine network of glowing lines inside, on a pure black background |
+| `kristall-amethyst-1` | 1600×1300 | Schwarz | a large cluster of violet amethyst crystals on dark rock, glowing, on a pure black background |
+| `kristall-amethyst-2` | 1600×1300 | Schwarz | a single tall amethyst crystal point with sharp facets, on a pure black background |
+| `kristall-amethyst-3` | 1600×1300 | Schwarz | an amethyst geode cut open showing crystals, on a pure black background |
+| `kristall-amethyst-4` | 1600×1300 | Schwarz | small amethyst crystals growing in a cluster, on a pure black background |
+| `kristall-anw-meditation` | 600×630 | Szene | a person meditating with a crystal in the hand, candle light, dark background, no text |
+| `kristall-anw-wohnraum` | 600×630 | Szene | a calm living room with crystal decoration on a shelf, dark background, no text |
+| `kristall-anw-schmuck` | 600×630 | Szene | a gemstone ring and necklace on dark velvet, dark background, no text |
+| `kristall-anw-heil` | 600×630 | Szene | crystals laid out on a cloth for a relaxation session, soft light, dark background, no text |
+| `kristall-anw-wasser` | 600×630 | Szene | a glass of water with a crystal beside it, dark background, no text |
+| `kristall-anw-garten` | 600×630 | Szene | crystals among plants and stones in a garden, dark background, no text |
+| `kristall-anw-sammlung` | 600×630 | Szene | a display case with mineral specimens in a museum, dark background, no text |
+| `kristall-anw-deko` | 600×630 | Szene | a decorative geode and crystal sculpture in a room, dark background, no text |
+| `kristall-map` | 2400×1200 | Szene | a dark stylised world map in violet and gold with fine glowing contour lines, calm and dark, no text |
+| `kristall-hist-aegypten` | 600×500 | Szene | an ancient Egyptian amulet and jewellery with lapis lazuli and amethyst, painterly, warm light, no text |
+| `kristall-hist-antike` | 600×500 | Szene | a Greek marble statue holding a crystal sphere, painterly, warm light, no text |
+| `kristall-hist-mittelalter` | 600×500 | Szene | a medieval scholar studying gemstones in a candle-lit study, painterly, warm light, no text |
+| `kristall-hist-moderne` | 600×500 | Szene | a modern laboratory with crystals and measuring instruments, painterly, warm light, no text |
+| `kristall-thema-mineralien` | 600×520 | Szene | raw mineral rocks in blue and white, glowing, dark background, no text |
+| `kristall-thema-elemente` | 600×520 | Szene | a periodic table cell glowing with a crystal, dark background, no text |
+| `kristall-thema-geologie` | 600×520 | Szene | layered rock strata and a volcano, dark background, no text |
+| `kristall-thema-frequenzen` | 600×520 | Szene | a glowing sound wave pattern in sand, cymatics, dark background, no text |
+| `kristall-thema-kulturen` | 600×520 | Szene | ancient stone temples and statues, dark background, no text |
+| `kristall-thema-forschung` | 600×520 | Szene | a microscope and crystal lattice diagram, dark background, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -383,6 +418,7 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-kordyzeps` | Chinesischer Raupenpilz (Cordyceps) (Ophiocordyceps sinensis) |
 | `atlas-kuerbis` | Kürbis (Cucurbita pepo / Cucurbita maxima) |
 | `atlas-kurkuma` | Kurkuma (Curcuma longa) |
+| `atlas-labradorit` | Labradorit (Plagioklas-Feldspat) |
 | `atlas-lapislazuli` | Lapislazuli (Gestein aus Lazurit u. a.) |
 | `atlas-lavendel` | Echter Lavendel (Lavandula angustifolia) |
 | `atlas-linsen` | Linse (Lens culinaris) |
@@ -410,4 +446,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 349 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 385 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

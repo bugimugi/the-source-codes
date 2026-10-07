@@ -9,6 +9,7 @@ import { slotDef } from "../src/assets/registry.ts";
 import { FULL } from "../src/data/elementProfile.ts";
 import { ELEMENTS } from "../src/data/elements.ts";
 import { validateElementProfiles } from "../src/data/validateElements.ts";
+import { validateCrystalPage } from "../src/data/validateCrystals.ts";
 import type { AtlasEntry, Claim } from "../src/data/types.ts";
 
 const dir = new URL("../content/claims/", import.meta.url);
@@ -33,7 +34,8 @@ const c2 = validateAtlas(atlasEntries, claims);
 const c3 = validateRecipes(RECIPES);
 const c4 = validateProfiles(Object.values(PROFILES), new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), new Set(atlasEntries.filter((e) => e.status === "published").map((e) => e.id)), (n) => !!slotDef(n));
 const c5 = validateElementProfiles(FULL, new Set(ELEMENTS.map((e) => e.sym)), new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n));
-const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5];
+const c6 = validateCrystalPage(new Set(atlasEntries.filter((e) => e.status === "published").map((e) => e.id)), new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n));
+const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6];
 const warnings = [...c1.warnings, ...c2.warnings, ...c3.warnings];
 const verbose = process.argv.includes("--report");
 if (verbose && warnings.length) console.log(`Hinweise:\n${warnings.map((w) => "  - " + w).join("\n")}\n`);

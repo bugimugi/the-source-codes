@@ -26,6 +26,7 @@ const PLANTS = "Pflanzenatlas";
 const PROFILE = "Pflanzenprofil";
 const MINERALS = "Mineralatlas";
 const ELEMENT = "Elementprofil Wasserstoff";
+const KRISTALL = "Kristall-Atlas";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -340,6 +341,43 @@ export const SLOTS = {
   "element-h-hist-wissenschaft": d(ELEMENT, 8, "scene", 600, 450, "an 18th century laboratory with glass apparatus and a scientist, warm light, painterly, no text"),
   "element-h-hist-raumfahrt": d(ELEMENT, 8, "scene", 600, 450, "a rocket on a launch pad with steam, vintage space age, painterly, no text"),
   "element-h-hist-zukunft": d(ELEMENT, 8, "scene", 600, 450, "a clean future landscape with wind turbines and a glowing hydrogen tank, painterly, no text"),
+
+  // ---- Kristall-Atlas (priority 8)
+  "kristall-hero": d(KRISTALL, 8, "scene", 2800, 1300, "a huge glowing violet amethyst crystal cluster in the centre right inside a dark cave, a golden sacred geometry circle behind it, a view out to a mountain lake at sunset on the right, small floating crystals, a dark calm area on the left for text, no text, no letters"),
+  "kristall-cat-alle": d(KRISTALL, 8, "scene", 600, 672, "a mixed cluster of amethyst, quartz and rose quartz crystals, glowing, dark background, no text"),
+  "kristall-cat-quarz": d(KRISTALL, 8, "scene", 600, 672, "a cluster of clear and smoky quartz crystals, dark background, no text"),
+  "kristall-cat-edel": d(KRISTALL, 8, "scene", 600, 672, "faceted gemstones in purple, blue and red, sparkling, dark background, no text"),
+  "kristall-cat-heil": d(KRISTALL, 8, "scene", 600, 672, "green and violet healing stones in a bowl, soft light, dark background, no text"),
+  "kristall-cat-roh": d(KRISTALL, 8, "scene", 600, 672, "raw rough pink and white crystal points on dark rock, dark background, no text"),
+  "kristall-cat-trommel": d(KRISTALL, 8, "scene", 600, 672, "polished tumbled stones in warm colours, dark background, no text"),
+  "kristall-cat-selten": d(KRISTALL, 8, "scene", 600, 672, "a rare rainbow crystal with fine inclusions, glowing, dark background, no text"),
+  "kristall-cat-meteor": d(KRISTALL, 8, "scene", 600, 672, "a dark meteorite fragment with crystal patterns, dark background, no text"),
+  "kristall-cat-farbe": d(KRISTALL, 8, "scene", 600, 672, "bright blue and violet colour crystals, glowing, dark background, no text"),
+  "kristall-cat-sammler": d(KRISTALL, 8, "scene", 600, 672, "a museum quality mineral specimen on a stand, red crystals, dark background, no text"),
+  "kristall-system": d(KRISTALL, 8, "black", 900, 1200, "a large glowing violet crystal prism with a fine network of glowing lines inside, on a pure black background"),
+  "kristall-amethyst-1": d(KRISTALL, 8, "black", 1600, 1300, "a large cluster of violet amethyst crystals on dark rock, glowing, on a pure black background"),
+  "kristall-amethyst-2": d(KRISTALL, 8, "black", 1600, 1300, "a single tall amethyst crystal point with sharp facets, on a pure black background"),
+  "kristall-amethyst-3": d(KRISTALL, 8, "black", 1600, 1300, "an amethyst geode cut open showing crystals, on a pure black background"),
+  "kristall-amethyst-4": d(KRISTALL, 8, "black", 1600, 1300, "small amethyst crystals growing in a cluster, on a pure black background"),
+  "kristall-anw-meditation": d(KRISTALL, 8, "scene", 600, 630, "a person meditating with a crystal in the hand, candle light, dark background, no text"),
+  "kristall-anw-wohnraum": d(KRISTALL, 8, "scene", 600, 630, "a calm living room with crystal decoration on a shelf, dark background, no text"),
+  "kristall-anw-schmuck": d(KRISTALL, 8, "scene", 600, 630, "a gemstone ring and necklace on dark velvet, dark background, no text"),
+  "kristall-anw-heil": d(KRISTALL, 8, "scene", 600, 630, "crystals laid out on a cloth for a relaxation session, soft light, dark background, no text"),
+  "kristall-anw-wasser": d(KRISTALL, 8, "scene", 600, 630, "a glass of water with a crystal beside it, dark background, no text"),
+  "kristall-anw-garten": d(KRISTALL, 8, "scene", 600, 630, "crystals among plants and stones in a garden, dark background, no text"),
+  "kristall-anw-sammlung": d(KRISTALL, 8, "scene", 600, 630, "a display case with mineral specimens in a museum, dark background, no text"),
+  "kristall-anw-deko": d(KRISTALL, 8, "scene", 600, 630, "a decorative geode and crystal sculpture in a room, dark background, no text"),
+  "kristall-map": d(KRISTALL, 8, "scene", 2400, 1200, "a dark stylised world map in violet and gold with fine glowing contour lines, calm and dark, no text"),
+  "kristall-hist-aegypten": d(KRISTALL, 8, "scene", 600, 500, "an ancient Egyptian amulet and jewellery with lapis lazuli and amethyst, painterly, warm light, no text"),
+  "kristall-hist-antike": d(KRISTALL, 8, "scene", 600, 500, "a Greek marble statue holding a crystal sphere, painterly, warm light, no text"),
+  "kristall-hist-mittelalter": d(KRISTALL, 8, "scene", 600, 500, "a medieval scholar studying gemstones in a candle-lit study, painterly, warm light, no text"),
+  "kristall-hist-moderne": d(KRISTALL, 8, "scene", 600, 500, "a modern laboratory with crystals and measuring instruments, painterly, warm light, no text"),
+  "kristall-thema-mineralien": d(KRISTALL, 8, "scene", 600, 520, "raw mineral rocks in blue and white, glowing, dark background, no text"),
+  "kristall-thema-elemente": d(KRISTALL, 8, "scene", 600, 520, "a periodic table cell glowing with a crystal, dark background, no text"),
+  "kristall-thema-geologie": d(KRISTALL, 8, "scene", 600, 520, "layered rock strata and a volcano, dark background, no text"),
+  "kristall-thema-frequenzen": d(KRISTALL, 8, "scene", 600, 520, "a glowing sound wave pattern in sand, cymatics, dark background, no text"),
+  "kristall-thema-kulturen": d(KRISTALL, 8, "scene", 600, 520, "ancient stone temples and statues, dark background, no text"),
+  "kristall-thema-forschung": d(KRISTALL, 8, "scene", 600, 520, "a microscope and crystal lattice diagram, dark background, no text"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

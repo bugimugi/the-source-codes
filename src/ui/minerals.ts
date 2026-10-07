@@ -395,5 +395,10 @@ export function initMinerals(root: HTMLElement, api: MineralsApi) {
     start() { requestAnimationFrame(drawMap); },
     stop() { stopTone(); },
     focusElement,
+    /** coming from the crystal page: the periodic table or the formation section */
+    showSection(section: "table" | "formation") {
+      if (section === "table") { setTable(true); requestAnimationFrame(() => smooth(q$(".mn-table-bar"))); }
+      else requestAnimationFrame(() => smooth(q$("#mn-formation")));
+    },
   };
 }

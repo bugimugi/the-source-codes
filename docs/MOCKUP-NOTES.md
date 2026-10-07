@@ -136,7 +136,7 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     mindestens 2.000); „Reinigt die Luft“ bekommt einen Hinweis; die Wissensebenen zeigen die typische Belegstufe jeder Ebene. Umsetzung: `src/ui/trees.ts`, `src/data/trees.ts`, `src/trees.css`,
     `src/ui/plantArt.ts` (gezeichnetes Schaubild und Torus). 9 neue Baum-Einträge im Atlas (Eiche, Ahorn, Olivenbaum, Buche, Zeder, Mammutbaum, Baobab, Ginkgo, Kiefer); jeder Baum öffnet sein Kurzprofil, „Zurück“ führt hierher.
     Bildplätze `baum-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-baeume`.
-22. **Mineral Atlas** (Referenzbild lokal in `design/mockups/22-mineral-atlas.png`, nicht committet) – Landingpage hinter der Kachel „Mineralien“ (die Kachel „Kristalle & Heilsteine“ führt weiter zum 3D-Atlas).
+22. **Mineral Atlas** (Referenzbild lokal in `design/mockups/22-mineral-atlas.png`, nicht committet) – Landingpage hinter der Kachel „Mineralien“ (die Kachel „Kristalle & Heilsteine“ führt zum Kristall-Atlas, Seite 24).
     Hero „MINERAL ATLAS – Die Bausteine der Erde“ (Einleitung, Buttons „Atlas erkunden“ / „Periodensystem öffnen“, 4 Kennzahlen, Erde mit Kristallen und sechs Element-Blasen Si, Cu, Fe, Mg, Au, O,
     senkrechte Sprungleiste mit 8 Punkten); „Das Periodensystem“ (Filterchips Alle, Metalle, Nichtmetalle, Halogene, Edelgase, Seltene Erden, Spurenelemente, Suchfeld, „3D-Ansicht“, 13 Elementkarten H, C, O, Na, Mg, Si, Ca,
     Fe, Cu, Zn, Ag, Au, I); „Von Atom bis Kristall“ (8 Stationen); Spotlight „Quarz SiO₂“ (Schlagwörter, 2 Buttons, 4 Vorschaubilder mit Pfeilen, „Wichtige Eigenschaften“ mit 10 Zeilen, „Kristallgeometrie“ mit 3 Formen);
@@ -168,6 +168,20 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     berechnet bzw. schematisch gezeichnet (Wasser mit 104,5°). Alle anderen 117 Elemente bekommen ein Kurzprofil aus der Elementtabelle (Ordnungszahl, Symbol, Masse, Gruppe, Periode, Kategorie, Satz zur Rolle in
     Mineralen); weitere vollständige Profile folgen nach dem Muster in `src/data/elementProfile.ts`. Umsetzung: `src/ui/elementProfile.ts`, `src/data/elementProfile.ts`, `src/ui/elementArt.ts`, `src/gl/atomscene.ts`,
     `src/elementProfile.css`, Prüfung in `src/data/validateElements.ts`. Bildplätze `element-h-*` (Priorität 8); bis dahin zeigt die Seite gezeichnete Platzhalter und das vorhandene `body-front`.
+24. **Kristall-Atlas „Kristalle & Heilsteine“** (Referenzbild lokal in `design/mockups/24-kristall-atlas.png`, nicht committet) – Landingpage hinter der Kachel „Kristalle & Heilsteine“ (der 3D-Atlas bleibt über „3D-Ansicht“ und
+    „Details“ erreichbar). Hero „KRISTALLE & HEILSTEINE – Die verborgene Geometrie der Erde“ (Einleitung, Buttons „Kristalle entdecken“ und „Die Wissenschaft“, Kennzahlen-Karte mit 4 Zeilen, Spruch „Kristalle sind gefrorenes Licht der Erde“);
+    10 Kategorienkarten (Alle Kristalle, Quarz-Gruppe, Edelsteine, Heilsteine, Rohkristalle, Trommelsteine, Seltene Kristalle, Meteoriten-Kristalle, Farbkristalle, Sammlerstücke); „Beliebte Kristalle“ (Karussell); „Kristallsysteme“ (7 Zeichnungen);
+    Spotlight „Amethyst“ mit Vorschaubildern, Pfeilen und den Reitern Eigenschaften (11 Zeilen, Formel, Kristallstruktur), Wirkung, Anwendung, Vorkommen; „Energetische Eigenschaften“ (528, 432, 963 Hz); „Chakra-Zuordnung“ (sitzende Figur,
+    7 Chakren); „Anwendungsbereiche“ (8 Karten); „Vorkommen weltweit“ (Karte, 5 Länder); „Entstehung“ (4 Karten); „Geschichte & Kultur“ (4 Epochen); „Verwandte Themen“ (6 Karten); „Wissenschaft & Studien“ (Pergamentkarte).
+    **Anders umgesetzt (Schutzlinien):** „2.000+ Kristallarten“ ist ein Platzhalter und wird zu „6.000+ Mineralarten“ (IMA-Liste, Link); die drei Studientitel der Vorlage sind Platzhalter und entfallen, es stehen drei auffindbare Quellen:
+    Curie 1880 (Aussage `mineral-piezo`), von Laue 1912 / Nobelpreis 1914 (Link zu nobelprize.org) und die Placebo-Untersuchung von French 2001 (Aussage `crystal-healing-general`, „aus dem Gedächtnis“). Die Symmetrie der Kristallsysteme ist in
+    der Vorlage teils falsch („Kubisch 4-zählig“, „Orthorhombisch 3-zählig“): richtig sind vier dreizählige und drei zweizählige Achsen. Die Schlagwörter unter dem Namen („Schutz · Klarheit · Spiritualität“) sind Überlieferung der modernen
+    Steinkunde und tragen die Belegstufe der Aussage `crystal-<id>-effects` (nicht belegt); Chakra-Zuordnungen kommen nur aus dem Atlas und sind als modern gekennzeichnet; die Frequenzen 528, 432 und 963 Hz stehen als Aussage `kristall-solfeggio`
+    (nicht belegt, Solfeggio-Zahlen sind modern) neben dem belegten Schwingquarz (32.768 Hz). „Wasser: Energetisierung“ hat einen Giftwarnhinweis (Malachit, Pyrit u. a. nicht ins Trinkwasser) und bei jeder Anwendungskarte steht, ob sie
+    dokumentiert oder Überlieferung ist. Die Weltkarte zeigt Fundorte ohne Wertung („Russland: Seltene Kristalle“ der Vorlage entfällt, die Länder und Kristalle werden aus den Daten gezählt). Die Kategorien „Seltene Kristalle“, „Meteoriten-Kristalle“
+    und „Sammlerstücke“ sind „in Vorbereitung“; die übrigen filtern die Einträge nach nachvollziehbaren Regeln (Heilsteine = mit Chakra-Zuordnung im Atlas). Neuer Atlas-Eintrag Labradorit (Beliebte Kristalle der Vorlage), insgesamt 14
+    Kristalle; die Systeme, Kristallstrukturen, der SiO₄-Baustein und die Figur sind im Code gezeichnet (`src/ui/crystalArt.ts`). Umsetzung: `src/ui/crystals.ts`, `src/data/crystals.ts`, `src/crystals.css`, Prüfung in
+    `src/data/validateCrystals.ts`. Bildplätze `kristall-*` (Priorität 8); bis dahin zeigt der Hero das Kachelbild `tile-kristalle`, die Karten gezeichnete Kristalle in der Farbe des Atlas-Eintrags.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

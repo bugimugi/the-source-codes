@@ -1,0 +1,26 @@
+{
+  "id": "kristall-solfeggio",
+  "short": "Solfeggio-Frequenzen und Kristalle",
+  "area": "kristalle-mineralien",
+  "status": "published",
+  "statement": "Die Frequenzen 528 Hz (Transformation), 432 Hz (Harmonie) und 963 Hz (Spiritualität) wirken wie zugeschrieben und Kristalle stehen mit ihnen in Resonanz.",
+  "level": "unsupported",
+  "rationale": "Keine Quelle gefunden. Die „Solfeggio“-Zahlenreihe und ihre Zuordnung zu Chakren und Wirkungen stammt aus der modernen Klangheilkunde (20. Jahrhundert). Mir ist keine kontrollierte Messung bekannt, die eine Resonanz eines Kristalls mit diesen Frequenzen oder die zugeschriebene Wirkung zeigt; kleine Pilotstudien zu Musik in diesen Stimmungen müssten einzeln geprüft werden. Gemessen ist dagegen die Schwingfrequenz von Schwingquarzen. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial-input",
+      "kind": "editorial-input",
+      "title": "Angabe des Betreibers, ungeprüft",
+      "author": "Betreiber der Seite",
+      "citation": "Entwurf der Kristall-Atlas-Seite (Pilot)",
+      "verified": false
+    }
+  ],
+  "related": [
+    "hz432-theta",
+    "mineral-quarz-frequenz"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

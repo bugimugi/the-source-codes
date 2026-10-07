@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-haut",
+  "short": "Granatapfel – Haut und Alterung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Granatapfelsamenöl und Extrakte werden in der Kosmetik mit Hautpflege und Hautalterung in Verbindung gebracht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Belege für eine Wirkung auf die Hautalterung sind nicht bekannt; eine Bewertung steht aus. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

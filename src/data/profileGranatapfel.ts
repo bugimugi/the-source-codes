@@ -1,0 +1,207 @@
+import type { PlantProfile } from "./profileTypes.ts";
+
+/**
+ * Granatapfel: the complete fruit profile, built after the user's reference picture (docs/MOCKUP-NOTES.md, page 19).
+ * Nutrient values are USDA FoodData Central values for raw pomegranate arils per 100 g (search excerpt, Source pending
+ * verification); bars show the share of the EU reference value (Verordnung (EU) Nr. 1169/2011). Everything else marked
+ * "Vorlage" comes from the operator's picture and is unchecked. Effect statements live as claims `granatapfel-*`.
+ */
+export const GRANATAPFEL: PlantProfile = {
+  id: "granatapfel",
+  layout: "frucht",
+  art: "fruit",
+  t: {
+    parts: "Die Pflanze & Frucht", partsSub: "Merkmale, Bestandteile und botanische Details.", traits: "Botanische Informationen",
+    origin: "Ursprung & Verbreitung", originSub: "Ursprünglich in Persien und dem Nahen Osten beheimatet, heute weltweit in warmen Regionen kultiviert.",
+    effects: "Wirkung & Gesundheitsthemen", effectsSub: "Traditionelle Verwendung und Forschung, jeweils mit Belegstufe.",
+    compounds: "Inhaltsstoffe & bioaktive Verbindungen", compoundsSub: "",
+    freqSub: "Die energetische Signatur des Granatapfels (Überlieferung).",
+    forms: "Anwendungsformen", formsSub: "Vielseitige Verwendung in Küche, Medizin und Alltag.",
+    combos: "Kombinationen & Rezepte", combosSub: "Wird in Küche und Überlieferung mit anderen Zutaten genannt.",
+    history: "Geschichte & Kultur", historySub: "Symbolik, traditionelle Verwendung und historische Bedeutung.",
+    researchSub: "Aktuelle Studien und Erkenntnisse.", networkSub: "Verwandte Themen, Pflanzen und Konzepte.",
+  },
+  crumbs: ["Pflanzenatlas", "Früchte"],
+  tags: ["Frucht", "Antioxidantien", "Polyphenole", "Traditionelle Medizin"],
+  lead: "Der Granatapfel ist eine der ältesten Kulturpflanzen der Welt. Er wird seit Jahrtausenden für seine nährstoffreichen Früchte, seine Symbolik und seine vielseitige Verwendung geschätzt.",
+  bubbles: [
+    { label: "Herz &\nKreislauf", icon: "heart" },
+    { label: "Antioxi-\ndantien", icon: "shield" },
+    { label: "Immun-\nsystem", icon: "bolt" },
+    { label: "Zellschutz", icon: "cell" },
+    { label: "Entzün-\ndungsgeschehen", icon: "flame" },
+  ],
+  glance: [
+    { icon: "dna", label: "Wissenschaftlicher Name", value: "Punica granatum" },
+    { icon: "family", label: "Familie", value: "Lythraceae" },
+    { icon: "berry", label: "Verwendete Teile", value: "Frucht, Saft, Schale, Blüte, Samenöl" },
+    { icon: "globe", label: "Herkunft", value: "Persien, Mittlerer Osten" },
+    { icon: "tongue", label: "Geschmack", value: "Süß, säuerlich, erfrischend" },
+    { icon: "nose", label: "Duft", value: "Fruchtig, leicht blumig" },
+    { icon: "tree", label: "Lebensform", value: "Kleiner Baum / Strauch" },
+  ],
+  startPart: "frucht",
+  parts: [
+    { id: "frucht", label: "Frucht", icon: "berry", title: "Frucht", text: "Die Frucht enthält viele Samen, jeweils in einer saftigen Hülle (Arillus). Das Fruchtfleisch ist reich an Antioxidantien (Vorlage, Source pending verification).", callout: { at: [81, 38], to: [66, 66], side: "r", short: "Saftige Arillen,\nreich an Antioxidantien" } },
+    { id: "bluete", label: "Blüte", icon: "flower", title: "Blüte", text: "Traditionell verwendet, reich an Polyphenolen (Vorlage, Source pending verification). Die Blüten sind leuchtend rot bis orange.", callout: { at: [42, 3], to: [78, 21], side: "l", short: "Traditionell verwendet,\nreich an Polyphenolen" } },
+    { id: "samen", label: "Samen", icon: "seed", title: "Samen", text: "Enthalten wertvolles Öl (Punicasäure) (Vorlage, Source pending verification). Das Samenöl wird in Küche und Kosmetik genutzt.", callout: { at: [81, 58], to: [85, 77], side: "r", short: "Enthält wertvolles Öl\n(Punicasäure)" } },
+    { id: "schale", label: "Schale", icon: "layers", title: "Schale", text: "Enthält Tannine und Polyphenole (Vorlage, Source pending verification). Die getrocknete Schale wird in manchen Regionen als Tee zubereitet.", callout: { at: [0, 36], to: [23, 56], side: "l", short: "Enthält Tannine\nund Polyphenole" } },
+    { id: "blaetter", label: "Blätter", icon: "leaf", title: "Blätter", text: "Schmale, glänzend grüne Blätter, gegenständig oder büschelig angeordnet.", ring: [19, 29] },
+    { id: "zweig", label: "Zweig", icon: "stem", title: "Zweig", text: "Die Zweige sind dünn und tragen manchmal Dornen.", ring: [31, 43] },
+    { id: "baum", label: "Baum", icon: "tree", title: "Baum", text: "Ein sommergrüner, dicht verzweigter Strauch oder kleiner Baum, der sehr alt werden kann." },
+  ],
+  traits: [
+    { icon: "ruler", label: "Höhe", value: "3 – 6 m" },
+    { icon: "flower", label: "Blütezeit", value: "Mai – Juni" },
+    { icon: "berry", label: "Fruchtzeit", value: "September – November" },
+    { icon: "clock", label: "Lebensdauer", value: "Mehrjährig (bis 50 Jahre)" },
+    { icon: "sun", label: "Standort", value: "Warm, trocken, sonnig" },
+    { icon: "soil", label: "Boden", value: "Durchlässig, nährstoffreich" },
+    { icon: "thermo", label: "Klima", value: "Mediterran, subtropisch" },
+    { icon: "seed", label: "Vermehrung", value: "Samen, Stecklinge" },
+    { icon: "cup", label: "Verwendung", value: "Frucht, Saft, Schale, Blüte" },
+    { icon: "scroll", label: "Besonderheit", value: "Alte Kulturpflanze (seit über 4.000 Jahren)" },
+  ],
+  traitsNote: "Angaben laut Vorlage, nicht geprüft (Source pending verification). Andere Quellen nennen auch Höhen bis 5–10 m und deutlich höhere Alter (bis etwa 200 Jahre); die Art stammt aus dem Gebiet vom Iran bis zum Himalaya (Suchauszüge).",
+  gallery: false,
+  origin: {
+    place: { title: "Persien", text: "Der Granatapfel galt in der antiken persischen Kultur als Symbol für Leben, Fruchtbarkeit und Ewigkeit (Angabe der Vorlage, ungeprüft)." },
+    layers: [
+      { label: "Ursprungsgebiet", color: "#f2e7ac", boxes: [{ lat0: 24, lon0: 44, lat1: 40, lon1: 78 }] },
+      { label: "Traditionelle Verbreitung", color: "#f0a248", boxes: [{ lat0: 12, lon0: -10, lat1: 46, lon1: 44 }, { lat0: 6, lon0: 78, lat1: 40, lon1: 100 }] },
+      { label: "Heute weltweit kultiviert", color: "#7fc46a", boxes: [{ lat0: 30, lon0: -125, lat1: 38, lon1: -100 }, { lat0: -40, lon0: -74, lat1: -8, lon1: -58 }, { lat0: -35, lon0: 16, lat1: -22, lon1: 32 }, { lat0: -38, lon0: 138, lat1: -26, lon1: 152 }] },
+    ],
+    note: "Grobe Darstellung nach Lehrbuchwissen und Vorlage (Source pending verification): heimisch vom Iran bis zum Himalaya, seit alters im Mittelmeerraum und in Südasien angebaut.",
+  },
+  sensory: [
+    { icon: "tongue", label: "Geschmack", value: "Süß, säuerlich, leicht herb" },
+    { icon: "nose", label: "Duft", value: "Fruchtig, blumig" },
+    { icon: "texture", label: "Textur", value: "Saftige, knackige Arillen" },
+    { icon: "palette", label: "Farbe", value: "Tiefrot bis rubinrot" },
+  ],
+  stages: [
+    { label: "Keimung", time: "2 – 4 Wochen" },
+    { label: "Blüte", time: "Mai – Juni" },
+    { label: "Fruchtbildung", time: "Juli – Sept." },
+    { label: "Reife", time: "Sept. – Nov." },
+  ],
+  nutrients: {
+    per: "pro 100 g Arillen, roh",
+    rows: [
+      { label: "Kalorien", value: "83 kcal" },
+      { label: "Kohlenhydrate", value: "19 g" },
+      { label: "Ballaststoffe", value: "4 g" },
+      { label: "Vitamin C", value: "10 mg", share: 10.2 / 80 },
+      { label: "Vitamin K", value: "16 µg", share: 16.4 / 75 },
+      { label: "Folat", value: "38 µg", share: 38 / 200 },
+      { label: "Kalium", value: "236 mg", share: 236 / 2000 },
+    ],
+    richTitle: "Enthält u. a.",
+    rich: ["Antioxidantien (Punicalagine)", "Polyphenole", "Flavonoide", "Ellagsäure", "Tannine"],
+    note: "Nährwerte: USDA FoodData Central, roher Granatapfel, essbarer Anteil (Suchauszug, Source pending verification). Die Balken zeigen den Anteil am EU-Referenzwert (NRV) für Vitamin C, Vitamin K, Folat und Kalium; für Kalorien, Kohlenhydrate und Ballaststoffe gibt es keinen Balken. Das ist Lebensmittelinformation, keine Ernährungsempfehlung.",
+  },
+  compounds: [
+    {
+      tab: "Polyphenole",
+      items: [
+        { title: "Punicalagin", thumb: "Punicalagin", formula: "C48H28O30", mass: "ca. 1084,7 g/mol", text: "Punicalagin ist ein Ellagitannin (hydrolysierbares Tannin) und der bekannteste Polyphenol-Farb- und Gerbstoff des Granatapfels. Es zerfällt im Wasser in kleinere Phenole wie Ellagsäure (Suchauszug, Source pending verification).", bullets: ["Starker antioxidativer Wirkstoff", "Entzündungshemmende Eigenschaften (in Studien untersucht)", "Unterstützt den Zellschutz"], bulletsNote: "Angaben der Vorlage. Antioxidative Wirkung im Reagenzglas ist kein Nachweis für einen Nutzen im Körper; das sind Themen der Laborforschung (Source pending verification).", slot: "compound-punicalagin" },
+        { title: "Ellagsäure", thumb: "Ellagsäure", text: "Ellagsäure ist eine Phenolsäure, die beim Abbau von Ellagitanninen wie Punicalagin entsteht (Lehrbuchwissen, Source pending verification).", bullets: ["Entsteht aus Ellagitanninen", "Kommt auch in Beeren und Nüssen vor"], slot: "compound-ellagsaeure" },
+        { title: "Anthocyane", thumb: "Anthocyane", text: "Anthocyane sind rote bis violette Pflanzenfarbstoffe. Sie färben Schale und Arillen des Granatapfels (Lehrbuchwissen, Source pending verification).", bullets: ["Rote bis violette Farbstoffe", "Wasserlöslich"], slot: "compound-anthocyane" },
+        { title: "Flavonoide", thumb: "Flavonoide", text: "Flavonoide sind eine große Gruppe sekundärer Pflanzenstoffe (Lehrbuchwissen, Source pending verification).", bullets: ["Große Stoffgruppe", "Einzelstoffe werden im Fachreview ergänzt"], slot: "compound-flavonoide" },
+        { title: "Gerbstoffe", thumb: "Gerbstoffe", text: "Gerbstoffe (Tannine) schmecken herb-zusammenziehend. Punicalagin gehört zu den hydrolysierbaren Tanninen (Lehrbuchwissen, Source pending verification).", bullets: ["Herb-zusammenziehender Geschmack", "In der Schale besonders reichlich (Vorlage)"], slot: "compound-gerbstoffe" },
+      ],
+    },
+    {
+      tab: "Vitamine",
+      items: [
+        { title: "Vitamin C", thumb: "Vitamin C", text: "Wasserlösliches Vitamin, das Menschen über die Nahrung aufnehmen müssen (Lehrbuchwissen).", bullets: ["Gehalt: ca. 10 mg pro 100 g Arillen (USDA, Suchauszug)"] },
+        { title: "Vitamin K", thumb: "Vitamin K", text: "Fettlösliches Vitamin; wichtig für die Blutgerinnung (Lehrbuchwissen). Wer Gerinnungshemmer nimmt, klärt Ernährungsumstellungen ärztlich.", bullets: ["Gehalt: ca. 16 µg pro 100 g Arillen (USDA, Suchauszug)"] },
+        { title: "Folat", thumb: "Folat", text: "Wasserlösliches B-Vitamin, auch Vitamin B9 genannt (Lehrbuchwissen).", bullets: ["Gehalt: ca. 38 µg pro 100 g Arillen (USDA, Suchauszug)"] },
+      ],
+    },
+    {
+      tab: "Mineralstoffe",
+      items: [{ title: "Kalium", text: "Mineralstoff, der im Körper u. a. für den Wasserhaushalt und die Nervenleitung gebraucht wird (Lehrbuchwissen).", bullets: ["Gehalt: ca. 236 mg pro 100 g Arillen (USDA, Suchauszug)"], bulletsNote: "Weitere Mineralstoffe werden im Fachreview ergänzt." }],
+    },
+    {
+      tab: "Weitere",
+      items: [{ title: "Punicasäure", text: "Punicasäure ist eine ungewöhnliche Fettsäure (konjugierte Linolensäure), die im Samenöl des Granatapfels vorkommt (Lehrbuchwissen, Source pending verification).", bullets: ["Im Samenöl enthalten (Vorlage)"], bulletsNote: "Weitere Stoffgruppen werden im Fachreview ergänzt." }],
+    },
+  ],
+  effects: [
+    { label: "Herz & Kreislauf", icon: "heart", claim: "granatapfel-herz" },
+    { label: "Immunsystem", icon: "bolt", claim: "granatapfel-immun" },
+    { label: "Zellschutz", icon: "cell", claim: "granatapfel-zellschutz" },
+    { label: "Entzündungsprozesse", icon: "flame", claim: "granatapfel-entzuendung" },
+    { label: "Haut & Alterung", icon: "drop", claim: "granatapfel-haut" },
+    { label: "Hormonbalance", icon: "balance", claim: "granatapfel-hormone" },
+  ],
+  frequency: {
+    hz: 528,
+    geometry: "Granatapfel-Muster",
+    geometryNote: "Samenstruktur",
+    hzNote: "Zellregeneration, Transformation (Behauptung)",
+    symbolics: "Fruchtbarkeit · Leben · Einheit",
+    themes: [],
+    claim: "granatapfel-frequency",
+    more: [432, 528, 639, 741, 852],
+    pattern: "seeds",
+    fxLabel: "Heilige Geometrie ansehen",
+  },
+  forms: [
+    { name: "Frisch essen", text: "Arillen (Samenhüllen)", slot: "form-frisch", icon: "berry" },
+    { name: "Saft", text: "Frisch gepresst", slot: "form-saft", icon: "drop" },
+    { name: "Schale", text: "Getrocknet (Tee)", slot: "form-schale", icon: "cup" },
+    { name: "Kapseln", text: "Extrakt", slot: "form-kapseln", icon: "capsule" },
+    { name: "Samenöl", text: "Kosmetik & Küche", slot: "form-samenoel", icon: "dropper" },
+  ],
+  combos: [
+    {
+      tab: "Gesundheitsthemen",
+      items: [
+        { title: "Granatapfel + Honig + Ingwer", sub: "Überlieferte Zuordnung: Immunsystem (Vorlage)", ids: ["granatapfel", "ingwer"], slot: "plant-granatapfel-combo-1" },
+        { title: "Granatapfel + Kurkuma", sub: "Thema: Antioxidantien, Mischung laut Vorlage", ids: ["granatapfel", "kurkuma"], slot: "plant-granatapfel-combo-2" },
+        { title: "Granatapfel + Rosmarin", sub: "Überlieferte Zuordnung: Herz & Kreislauf (Vorlage)", ids: ["granatapfel", "rosmarin"], slot: "plant-granatapfel-combo-3" },
+      ],
+    },
+    {
+      tab: "Kulinarisch",
+      intro: "Küchenwissen, Source pending verification. Mengen nennt diese Seite nicht.",
+      items: [
+        { title: "Granatapfel + Walnuss", sub: "Aus der persischen Küche (Fesenjan: Schmorgericht mit Granatapfelsirup und Walnüssen)", ids: ["granatapfel", "walnuss"], slot: "plant-granatapfel-combo-4" },
+        { title: "Granatapfel im Salat", sub: "Arillen als säuerlich-süße Beigabe", ids: ["granatapfel"], slot: "plant-granatapfel-combo-5" },
+      ],
+    },
+    {
+      tab: "Traditionelle Mischungen",
+      intro: "Überlieferte Mischungen aus anderen Heilkunden (z. B. Ayurveda, Unani) werden nach der Fachprüfung ergänzt. Bis dahin nennt diese Seite keine, damit nichts Ungeprüftes als Überlieferung erscheint.",
+      items: [],
+    },
+  ],
+  history: [
+    { title: "Antike", sub: "Persien & Mesopotamien (> 3.000 Jahre, Vorlage)", text: "", slot: "plant-granatapfel-history-1", icon: "scroll" },
+    { title: "Ägypten", sub: "Symbol für Leben und Fruchtbarkeit", text: "", slot: "plant-granatapfel-history-2", icon: "globe" },
+    { title: "Griechenland", sub: "Mythologie & Heilkunde", text: "", slot: "plant-granatapfel-history-3", icon: "book" },
+    { title: "Mittelalter", sub: "Medizin & Klöster", text: "", slot: "plant-granatapfel-history-4", icon: "book" },
+    { title: "Moderne Zeit", sub: "Wissenschaftliche Forschung", text: "", slot: "plant-granatapfel-history-5", icon: "flask" },
+  ],
+  historyNote: "Angaben der Vorlage, nicht geprüft (Source pending verification). „Seit über 3.000 / 4.000 Jahren“ ist eine Schätzung der Vorlage; belegte Funde und Texte werden im Fachreview ergänzt.",
+  research: [
+    { title: "Granatapfelsaft und Blutdruck: systematische Übersichtsarbeit mit Meta-Analyse (Sahebkar u. a., 2016/2017)", year: 0, url: "https://research-repository.uwa.edu.au/en/publications/impact-of-pomegranate-juice-on-blood-pressure-a-systematic-review/", claim: "granatapfel-herz" },
+    { title: "Granatapfel-Verzehr und Blutdruck bei Erwachsenen: systematische Übersichtsarbeit mit Meta-Analyse", year: 2024, url: "https://pubmed.ncbi.nlm.nih.gov/38410857/", claim: "granatapfel-herz" },
+    { title: "Informationsseite zu Granatapfel und Wechselwirkungen (MSKCC)", year: 0, url: "https://www.mskcc.org/cancer-care/herb/pomegranate", claim: "granatapfel-safety" },
+    { title: "Nährwertdatenbank des US-Landwirtschaftsministeriums (USDA FoodData Central)", year: 0, url: "https://fdc.nal.usda.gov/", claim: "granatapfel-zellschutz", more: true },
+  ],
+  network: [
+    { label: "Rosmarin", kind: "plant", ref: "rosmarin" },
+    { label: "Kurkuma", kind: "plant", ref: "kurkuma" },
+    { label: "Ingwer", kind: "plant", ref: "ingwer" },
+    { label: "Walnuss", kind: "plant", ref: "walnuss" },
+    { label: "Herz", kind: "organ", ref: "herz" },
+    { label: "Immunsystem", kind: "organ", ref: "immunsystem" },
+    { label: "Persien", kind: "culture" },
+    { label: "Polyphenole", kind: "info", hint: "Polyphenole: große Gruppe sekundärer Pflanzenstoffe (u. a. Tannine, Flavonoide, Anthocyane). Ihre antioxidative Wirkung ist im Reagenzglas gut messbar; ein Nutzen im Körper ist damit nicht belegt." },
+    { label: "Ellagsäure", kind: "info", hint: "Ellagsäure: Phenolsäure, die beim Abbau von Ellagitanninen wie Punicalagin entsteht." },
+  ],
+  safety: "Information, keine medizinische Beratung. Beim regelmäßigen Konsum von Granatapfelsaft oder Extrakten sind Wechselwirkungen mit Medikamenten Thema (u. a. Blutverdünner wie Warfarin; Laborbefunde und ein Fallbericht, beim Menschen unklar). Auch Vitamin K spielt bei Gerinnungshemmern eine Rolle. Mengen und Dauer nennt diese Seite bewusst nicht: Bei Medikamenten, Schwangerschaft oder Vorerkrankungen bitte vorher ärztlich oder in der Apotheke klären.",
+};

@@ -1,0 +1,25 @@
+{
+  "id": "granatapfel-safety",
+  "short": "Granatapfel – Wechselwirkungen mit Medikamenten",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Granatapfelsaft hemmt im Laborversuch Leberenzyme, die Medikamente abbauen (u. a. CYP3A4); beim Menschen ist die Bedeutung unklar. Ein Fallbericht beschreibt einen möglichen Einfluss auf den Gerinnungshemmer Warfarin.",
+  "level": "hypothesis",
+  "rationale": "Hypothese: Laborbefunde und ein einzelner Fallbericht, die Studien am Menschen (z. B. mit Midazolam oder Simvastatin) fanden keinen klaren Einfluss. Wer Gerinnungshemmer oder andere Medikamente nimmt, klärt regelmäßigen Konsum von Saft oder Extrakt vorher ärztlich. Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification).",
+  "sources": [
+    {
+      "id": "mskcc",
+      "kind": "historical-document",
+      "title": "Granatapfel: Informationsseite des Memorial Sloan Kettering Cancer Center (Wechselwirkungen)",
+      "author": "Memorial Sloan Kettering Cancer Center, USA",
+      "citation": "Seite dort nachschlagen. Einzelangaben: Source pending verification",
+      "url": "https://www.mskcc.org/cancer-care/herb/pomegranate",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

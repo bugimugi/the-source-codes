@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-zellschutz",
+  "short": "Granatapfel – Zellschutz und Antioxidantien",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Granatapfel enthält viele Polyphenole mit antioxidativer Wirkung und wird mit Zellschutz in Verbindung gebracht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Die antioxidative Kapazität von Polyphenolen ist im Reagenzglas gut messbar; ein Nutzen im Körper (Zellschutz, Langlebigkeit) ist damit nicht belegt. Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

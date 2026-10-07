@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-entzuendung",
+  "short": "Granatapfel – Entzündungsprozesse",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Inhaltsstoffe des Granatapfels (z. B. Punicalagin) werden in Laborstudien auf entzündungsbezogene Wirkungen untersucht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Laborstudien (Zellkultur, Tier) sind kein Nachweis für eine Wirkung beim Menschen; eine Bewertung steht aus. Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

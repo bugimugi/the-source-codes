@@ -183,11 +183,14 @@ export function initPlants(root: HTMLElement, api: PlantsApi) {
   let shown: ReturnType<typeof searchItems> = [];
   function pick(it: { kind: "claim" | "atlas"; id: string }) {
     sugg.hidden = true; input.value = "";
-    if (it.kind === "atlas") api.openPlant(it.id); else api.openClaim(it.id, input);
+    if (it.kind === "atlas") { if (byId(it.id)) api.openPlant(it.id); else api.openAtlas(null, it.id); } else api.openClaim(it.id, input);
   }
   function renderSugg() {
     // plants first: the page is about the atlas, claims follow
-    shown = searchItems(input.value, 14).sort((a, b) => Number(b.kind === "atlas") - Number(a.kind === "atlas")).slice(0, 6);
+    // plants first (this page is about plants), then other atlas entries such as crystals, then claims; a title that starts with the query wins
+    const q = input.value.trim().toLowerCase();
+    const score = (it: ReturnType<typeof searchItems>[number]) => (it.kind === "atlas" ? 2 : 0) + (it.kind === "atlas" && byId(it.id) ? 2 : 0) + (it.title.toLowerCase().startsWith(q) ? 1 : 0);
+    shown = searchItems(input.value, 40).sort((a, b) => score(b) - score(a)).slice(0, 6);
     if (!input.value.trim()) { sugg.hidden = true; return; }
     sugg.hidden = false;
     sugg.innerHTML = shown.length ? shown.map((it, i) => `<li role="option" data-i="${i}"><strong>${esc(it.title)}</strong><small>${esc(it.sub.replace("Encyclopedia", "Atlas").replace("Claim", "Aussage"))}</small></li>`).join("") : `<li class="none">Nichts gefunden. Dazu gibt es noch keinen Eintrag.</li>`;
@@ -259,7 +262,11 @@ export function initPlants(root: HTMLElement, api: PlantsApi) {
   mountSlots(scroll);
   renderRow(); renderTopic();
   return {
-    start() { requestAnimationFrame(drawMap); },
+    /** `group`: open with this category selected (e.g. "fruechte" from the tile "Gemüse & Obst") */
+    start(group?: string) {
+      if (group && GROUPS.some((g) => g.id === group && !g.soon)) { filter = group; renderRow(); }
+      requestAnimationFrame(() => { drawMap(); if (group) smooth(q$(".pl-popular")); });
+    },
     stop() { sugg.hidden = true; },
   };
 }

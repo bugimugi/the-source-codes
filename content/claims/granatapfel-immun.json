@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-immun",
+  "short": "Granatapfel – Immunsystem",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Granatapfel wird in Überlieferung und Herstellerangaben dem Immunsystem zugeordnet.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Belege am Menschen für eine Wirkung auf das Immunsystem sind nicht bekannt; eine Bewertung steht aus. Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

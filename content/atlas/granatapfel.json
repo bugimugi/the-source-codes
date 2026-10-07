@@ -1,0 +1,112 @@
+{
+  "id": "granatapfel",
+  "status": "published",
+  "category": "obst",
+  "name": "Granatapfel",
+  "latin": "Punica granatum",
+  "model": {
+    "kind": "fruit",
+    "color": "#b3202a",
+    "color2": "#6f1018",
+    "shape": "apple"
+  },
+  "facts": [
+    {
+      "label": "Familie",
+      "value": "Weiderichgewächse (Lythraceae)"
+    },
+    {
+      "label": "Verwendete Teile",
+      "value": "Frucht (Arillen), Saft, Schale, Blüte, Samenöl"
+    },
+    {
+      "label": "Heimat",
+      "value": "Vom Iran bis zum Himalaya; seit alters im Mittelmeerraum und in Südasien angebaut (Suchauszug, Source pending verification)"
+    },
+    {
+      "label": "Inhaltsstoffe",
+      "value": "u. a. Punicalagin (Ellagitannin), Anthocyane, Ellagsäure; Samenöl mit Punicasäure (Lehrbuchwissen, Source pending verification)"
+    },
+    {
+      "label": "Hinweis",
+      "value": "Bei regelmäßigem Konsum von Saft oder Extrakt sind Wechselwirkungen mit Medikamenten (u. a. Gerinnungshemmer) Thema; ärztlich klären (MSKCC, Suchauszug, Source pending verification)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "powo",
+      "kind": "primary-text",
+      "title": "Plants of the World Online",
+      "author": "Royal Botanic Gardens, Kew",
+      "citation": "Eintrag zur Art dort nachschlagen",
+      "url": "https://powo.science.kew.org",
+      "verified": false
+    },
+    {
+      "id": "usda",
+      "kind": "primary-text",
+      "title": "USDA FoodData Central (Nährwerte, roher Granatapfel)",
+      "author": "U.S. Department of Agriculture",
+      "citation": "Eintrag dort nachschlagen",
+      "url": "https://fdc.nal.usda.gov/",
+      "verified": false
+    },
+    {
+      "id": "mskcc",
+      "kind": "historical-document",
+      "title": "Granatapfel (MSKCC)",
+      "author": "Memorial Sloan Kettering Cancer Center, USA",
+      "citation": "Seite dort nachschlagen",
+      "url": "https://www.mskcc.org/cancer-care/herb/pomegranate",
+      "verified": false
+    }
+  ],
+  "tradition": "Der Granatapfel gilt seit alters in Persien, Ägypten und im Mittelmeerraum als Symbol für Fruchtbarkeit und Leben und wird in der Küche und in der traditionellen Heilkunde verwendet.",
+  "associations": [
+    {
+      "system": "Traditionelle Medizin",
+      "target": "Herz & Kreislauf",
+      "origin": "unknown",
+      "note": "Zuordnung laut Vorlage des Betreibers (ungeprüft)."
+    },
+    {
+      "system": "Traditionelle Medizin",
+      "target": "Immunsystem",
+      "origin": "unknown",
+      "note": "Zuordnung laut Vorlage des Betreibers (ungeprüft)."
+    }
+  ],
+  "combinations": [
+    {
+      "with": "ingwer",
+      "note": "Kombination laut Vorlage des Betreibers (ungeprüft); in der Vorlage mit Honig und dem Thema Immunsystem verbunden.",
+      "origin": "unknown"
+    },
+    {
+      "with": "kurkuma",
+      "note": "Kombination laut Vorlage des Betreibers (ungeprüft).",
+      "origin": "unknown"
+    },
+    {
+      "with": "rosmarin",
+      "note": "Kombination laut Vorlage des Betreibers (ungeprüft); in der Vorlage mit dem Thema Herz & Kreislauf verbunden.",
+      "origin": "unknown"
+    },
+    {
+      "with": "walnuss",
+      "note": "Granatapfelsirup und Walnüsse bilden das persische Schmorgericht Fesenjan (Küchenwissen, Source pending verification).",
+      "origin": "traditional"
+    }
+  ],
+  "claims": [
+    "granatapfel-traditional-use",
+    "granatapfel-herz",
+    "granatapfel-immun",
+    "granatapfel-zellschutz",
+    "granatapfel-entzuendung",
+    "granatapfel-haut",
+    "granatapfel-hormone",
+    "granatapfel-safety",
+    "granatapfel-frequency"
+  ]
+}

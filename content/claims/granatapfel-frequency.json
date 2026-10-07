@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-frequency",
+  "short": "Granatapfel – Frequenz und Geometrie",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Dem Granatapfel wird die Frequenz 528 Hz (Zellregeneration, Transformation) und das „Granatapfel-Muster“ der Samenstruktur als geometrische Signatur zugeordnet; seine Symbolik steht für Fruchtbarkeit, Leben und Einheit.",
+  "level": "claimed",
+  "rationale": "Behauptung des Betreibers, ungeprüft. 528 Hz gehört zu den sogenannten Solfeggio-Frequenzen, die aus der Energiemedizin-Überlieferung stammen; eine messbare, pflanzenspezifische Frequenz ist nicht bekannt, und es gibt keinen Beleg für „Zellregeneration“ durch diesen Ton. Das Samenmuster ist eine Symbolzuordnung. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-traditional-use",
+  "short": "Granatapfel – Symbol und traditionelle Verwendung",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Granatapfel gilt in vielen Kulturen seit alters als Symbol für Fruchtbarkeit und Leben und wird in der traditionellen Heilkunde verwendet.",
+  "level": "claimed",
+  "rationale": "Beschreibt Symbolik und überlieferte Verwendung, keine Wirksamkeitsaussage. Quelle: Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

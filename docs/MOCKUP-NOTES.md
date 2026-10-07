@@ -97,6 +97,20 @@ sind Platzhalter und werden NICHT übernommen (CLAUDE.md, Schutzlinie 7). Alle B
     Umsetzung: `src/ui/plantProfile.ts`, `src/data/profiles.ts`, `src/ui/plantArt.ts` (gezeichnete Platzhalter), `src/ui/icons.ts`, `src/plantProfile.css`.
     Bildplätze `plant-ashwagandha-*`, `form-*`, `compound-withaferin-a` (Priorität 8). Die Positionen der Beschriftungen im Pflanzenbild stehen in
     `profiles.ts` (`callout`, in Prozent) und werden angepasst, sobald `plant-ashwagandha-parts` da ist.
+19. **Pflanzenprofil Granatapfel (Obst & Gemüse)** (Referenzbild lokal in `design/mockups/19-pflanzenprofil-granatapfel.png`, nicht committet) – gleiche
+    Bauweise wie Seite 18, aber mit Frucht-Aufbau („Ernährungsatlas › Früchte › Granatapfel“; bei uns „Pflanzenatlas › Früchte“). Hero mit Name, 4 Etiketten, 5 Themensymbolen und
+    Pergamentkarte „Auf einen Blick“; Zeile 1: „Die Pflanze & Frucht“ (7 Teile-Knöpfe: Frucht, Blüte, Samen, Schale, Blätter, Zweig, Baum; Bild mit 4 Beschriftungen und
+    Vorschaubildern), „Botanische Informationen“ (10 Zeilen), „Wachstumszyklus“ (Pergamentkarte mit 4 Stufen im Kreis); Zeile 2: „Ursprung & Verbreitung“ (Karte mit 3
+    Gebieten: Ursprung, traditionelle Verbreitung, heute weltweit), „Geschmack, Duft & Textur“ (mit Farbe), „Nährstoffe (pro 100 g)“ mit Balken und „Reich an:“; Zeile 3:
+    „Wirkung & gesundheitliche Vorteile“ (Körper links, 6 Zeilen), „Inhaltsstoffe & bioaktive Verbindungen“ (Reiter Polyphenole/Vitamine/Mineralstoffe/Weitere, Karte Punicalagin
+    mit Strukturformel, 4 Bildchen), „Frequenzen & Geometrie“ (528 Hz, Granatapfel-Muster, weitere Frequenzen 432–852 Hz); Zeile 4: „Anwendungsformen“ (5 Karten),
+    „Kombinationen & Rezepte“ (3 Reiter); Zeile 5: „Geschichte & Kultur“ (5 Karten), „Forschung“ (3 Studien), „Wissensnetz“. **Anders umgesetzt (Schutzlinien):** Nährwerte sind
+    echte USDA-Werte (roher Granatapfel, Suchauszug) statt Platzhalter, die Balken zeigen den Anteil am EU-Referenzwert nur für Vitamin C, Vitamin K, Folat und Kalium; „Wirkung & gesundheitliche
+    Vorteile“ heißt „Wirkung & Gesundheitsthemen“, die Untertitel der Wirkungszeilen („Blutdruck, Durchblutung“ usw.) entfallen, die Belegfelder kommen aus den Claims `granatapfel-*`
+    (Blutdruck als Hypothese mit zwei Meta-Analysen, Rest Behauptung); das Etikett „Herzgesundheit“ ist „Polyphenole“; „Bei Erkältung“ ist „Überlieferte Zuordnung: Immunsystem“;
+    Tab „Für die Gesundheit“ heißt „Gesundheitsthemen“, „Traditionelle Mischungen“ zeigt bis zur Fachprüfung nur einen Hinweis; die Studien-Platzhalter sind echte Quellen (Suchauszug);
+    Wechselwirkungen mit Medikamenten (MSKCC) stehen als Aussage und im Hinweis; Frequenzkarte als Behauptung mit Schwärzungsfeld; Mengen fehlen. Umsetzung: `src/data/profileGranatapfel.ts`,
+    `src/ui/plantProfile.ts` (Layout „frucht“), `src/ui/plantArt.ts` (gezeichneter Granatapfel), `src/data/validateProfiles.ts`. Die Kachel „Gemüse & Obst“ der Startseite öffnet den Pflanzenatlas mit der Gruppe „Früchte“.
 
 ## Was 3D bekommt und was Bild bleibt (CLAUDE.md, Harte Regeln)
 - **3D (Code):** Frequenz-/Wellen-/Kymatik-/Geometrie-Szenen, Chakren-Darstellung, Atem-Ring, Weltkugel (Seiten 1, 13, 11, 12, 16).

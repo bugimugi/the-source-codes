@@ -190,6 +190,34 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `form-kapseln` | 500×600 | Szene | small amber glass bottle with a dropper next to a few plain capsules, dark background |
 | `form-tinktur` | 500×600 | Szene | tall amber dropper bottle of herbal tincture with a few leaves, dark background |
 | `form-kochen` | 500×600 | Szene | a small glass jar of ground herbal powder with a wooden spoon, kitchen look, dark background |
+| `plant-granatapfel-hero` | 2800×1100 | Szene | ripe red pomegranates, one cut open showing glistening ruby arils, with glossy green leaves and a red blossom, dark moody orchard background with warm golden light, subject on the right half, calm dark area on the left for text |
+| `plant-granatapfel-sketch` | 700×1000 | Szene | antique botanical pen-and-ink illustration of a pomegranate branch with leaves, flower, whole fruit and a cut fruit on aged cream parchment, fine hatching, portrait, no text |
+| `plant-granatapfel-parts` | 1600×1000 | Szene | a pomegranate branch with glossy leaves and a red flower above, one whole fruit on the left and one fruit cut open on the right showing the arils, dark moody background, empty dark space left and right for labels |
+| `plant-granatapfel-origin` | 800×520 | Szene | ancient Persian ruins with columns in a dry warm landscape, hazy golden light, illustration |
+| `plant-granatapfel-bowl` | 900×700 | Szene | rustic wooden bowl full of glistening ruby pomegranate arils with a few leaves, dark wood, warm light |
+| `plant-granatapfel-stage-1` | 400×500 | Szene | tiny pomegranate seedling with two leaves in dark soil, dark background |
+| `plant-granatapfel-stage-2` | 400×500 | Szene | pomegranate branch with bright red flowers, dark background |
+| `plant-granatapfel-stage-3` | 400×500 | Szene | small green unripe pomegranate fruit on a branch, dark background |
+| `plant-granatapfel-stage-4` | 400×500 | Szene | ripe deep red pomegranate on a branch, dark background |
+| `compound-punicalagin` | 900×520 | Szene | hand-drawn chemical structural formula on aged parchment, many connected aromatic phenol rings with hydroxyl groups, ink drawing; check the real structure of punicalagin (C48H28O30) before use |
+| `compound-ellagsaeure` | 400×300 | Szene | close-up of ruby pomegranate arils with a soft glow, dark background |
+| `compound-anthocyane` | 400×300 | Szene | deep red and violet berries with juice drops, dark background |
+| `compound-flavonoide` | 400×300 | Szene | colourful fruit slices and leaves in soft light, dark background |
+| `compound-gerbstoffe` | 400×300 | Szene | dried pomegranate peel pieces, brown and red, dark background |
+| `form-frisch` | 500×600 | Szene | a small bowl of fresh ruby pomegranate arils, dark background |
+| `form-saft` | 500×600 | Szene | a glass of freshly pressed red pomegranate juice with a halved fruit beside it, dark background |
+| `form-schale` | 500×600 | Szene | dried pomegranate peel pieces and a cup of tea, dark background |
+| `form-samenoel` | 500×600 | Szene | amber dropper bottle of pomegranate seed oil with a few seeds, dark background |
+| `plant-granatapfel-history-1` | 600×450 | Szene | ancient Persian and Mesopotamian relief with a pomegranate motif, sepia illustration |
+| `plant-granatapfel-history-2` | 600×450 | Szene | ancient Egyptian wall painting with pomegranates, sepia illustration |
+| `plant-granatapfel-history-3` | 600×450 | Szene | ancient Greek vase scene with pomegranates and a goddess, sepia illustration |
+| `plant-granatapfel-history-4` | 600×450 | Szene | medieval monastery garden with a monk tending fruit trees, sepia illustration |
+| `plant-granatapfel-history-5` | 600×450 | Szene | modern laboratory with fruit extracts and glassware, warm light |
+| `plant-granatapfel-combo-1` | 700×420 | Szene | pomegranate arils in a glass with honey and fresh ginger on dark wood |
+| `plant-granatapfel-combo-2` | 700×420 | Szene | a halved pomegranate next to turmeric roots and powder on dark wood |
+| `plant-granatapfel-combo-3` | 700×420 | Szene | pomegranate arils with fresh rosemary sprigs on dark wood |
+| `plant-granatapfel-combo-4` | 700×420 | Szene | a rich dark stew with walnuts and pomegranate arils in a ceramic dish, persian style |
+| `plant-granatapfel-combo-5` | 700×420 | Szene | a fresh green salad topped with ruby pomegranate arils, dark background |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -209,6 +237,7 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-fliegenpilz` | Fliegenpilz (Amanita muscaria) |
 | `atlas-fluorit` | Fluorit (Fluorit) |
 | `atlas-granat` | Granat (Granat (Mineralgruppe)) |
+| `atlas-granatapfel` | Granatapfel (Punica granatum) |
 | `atlas-igelstachelbart` | Igelstachelbart (Hericium erinaceus) |
 | `atlas-ingwer` | Ingwer (Zingiber officinale) |
 | `atlas-kamille` | Echte Kamille (Matricaria chamomilla) |
@@ -234,4 +263,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-walnuss` | Walnuss (Juglans regia) |
 | `atlas-weide` | Silberweide (Salix alba) |
 
-Insgesamt 173 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 202 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

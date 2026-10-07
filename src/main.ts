@@ -147,6 +147,7 @@ let labView: ReturnType<typeof initLab> | null = null;
 let plantsView: ReturnType<typeof initPlants> | null = null;
 let plantView: ReturnType<typeof initPlantProfile> | null = null;
 let pendingPlant: string | undefined;
+let pendingPlantsGroup: string | undefined;
 let pendingLab: StationId | undefined;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
@@ -303,7 +304,7 @@ function openEnergyView(id?: string): boolean {
 /** leaves the plant atlas page for another view (the page hides itself, then the target opens) */
 function fromPlants(next: () => void) { plantsEl.hidden = true; plantsView?.stop(); view = "hero"; next(); }
 
-function openPlantsView(): boolean {
+function openPlantsView(group?: string): boolean {
   plantsEl.hidden = false;
   plantsView ??= initPlants(plantsEl, {
     reduceMotion,
@@ -315,7 +316,7 @@ function openPlantsView(): boolean {
     openUniverse: () => fromPlants(() => { go("universe"); }),
     openClaim: (cid, from) => overlay.open(cid, from),
   });
-  plantsView.start();
+  plantsView.start(group);
   fade(plantsEl, true);
   $("leave-plants").focus();
   return true;
@@ -455,10 +456,11 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "nutrients" && !openNutrientsView()) return false;
   if (next === "energy" && !openEnergyView(pendingEnergy)) return false;
   if (next === "lab" && !openLabView(pendingLab)) return false;
-  if (next === "plants" && !openPlantsView()) return false;
+  if (next === "plants" && !openPlantsView(pendingPlantsGroup)) return false;
   if (next === "plant" && !openPlantView(pendingPlant)) return false;
   pendingEnergy = undefined;
   pendingPlant = undefined;
+  pendingPlantsGroup = undefined;
   pendingLab = undefined;
   pendingOrgan = undefined;
   pendingChakra = undefined;
@@ -501,7 +503,7 @@ const home = initHome($("home"), {
   openCultures() { go("cultures"); },
   openNutrients() { go("nutrients"); },
   openEnergy(id?: string) { if (view === "energy") energyView?.start(id); else { pendingEnergy = id; go("energy"); } },
-  openPlants() { go("plants"); },
+  openPlants(group?: string) { pendingPlantsGroup = group; go("plants"); },
   openLab(station?: StationId) { if (view === "lab") labView?.start(station); else { pendingLab = station; go("lab"); } },
   openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },

@@ -1,0 +1,37 @@
+{
+  "id": "granatapfel-herz",
+  "short": "Granatapfel – Herz und Kreislauf (Blutdruck)",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "In Meta-Analysen randomisierter Studien war der Konsum von Granatapfelsaft mit einem geringen Blutdruckrückgang verbunden; die Studien sind klein und uneinheitlich.",
+  "level": "hypothesis",
+  "rationale": "Hypothese: Mehrere Meta-Analysen berichten über einen kleinen Rückgang des Blutdrucks (Sahebkar u. a.: im Mittel etwa 5 mmHg systolisch und 2 mmHg diastolisch; eine Übersichtsarbeit von 2024 mit 22 Studien: etwa 8 und 3 mmHg). Die Studien unterscheiden sich in Saftmenge, Dauer und Teilnehmern. Das ist kein Beleg für Schutz vor Herz-Kreislauf-Erkrankungen. Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "sahebkar-2017",
+      "kind": "systematic-review",
+      "title": "Granatapfelsaft und Blutdruck: systematische Übersichtsarbeit mit Meta-Analyse randomisierter Studien",
+      "author": "Sahebkar A u. a.",
+      "year": 2017,
+      "citation": "Erscheinungsjahr 2016/2017 je nach Quelle; Zeitschrift und Einzelangaben: Source pending verification",
+      "url": "https://research-repository.uwa.edu.au/en/publications/impact-of-pomegranate-juice-on-blood-pressure-a-systematic-review/",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Genannt wird ein mittlerer Rückgang von etwa 5 mmHg (systolisch) und 2 mmHg (diastolisch)."
+    },
+    {
+      "id": "bp-review-2024",
+      "kind": "systematic-review",
+      "title": "Wirkung von Granatapfel-Verzehr auf den Blutdruck bei Erwachsenen: systematische Übersichtsarbeit mit Meta-Analyse (22 randomisierte Studien)",
+      "author": "Autoren: siehe PubMed-Eintrag",
+      "year": 2024,
+      "citation": "PMID 38410857. Einzelangaben: Source pending verification",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38410857/",
+      "verified": false,
+      "note": "Angaben aus Suchauszügen, Originale nicht geprüft (Source pending verification). Genannt wird ein mittlerer Rückgang von etwa 8 mmHg (systolisch) und 3 mmHg (diastolisch)."
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

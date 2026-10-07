@@ -12,7 +12,7 @@ export type TileAction =
   | { type: "cultures" }
   | { type: "energy" }
   | { type: "lab" }
-  | { type: "plants" }
+  | { type: "plants"; group?: string }
   | { type: "nutrients" }
   | { type: "soon" };
 
@@ -22,7 +22,7 @@ export interface Tile { title: string; sub: string; slot: SlotName; action: Tile
 export const TILES: Tile[] = [
   { title: "Pflanzen", sub: "Heilpflanzen & Wildkräuter", slot: "tile-pflanzen", action: { type: "plants" } },
   { title: "Bäume", sub: "Arten & Eigenschaften", slot: "tile-baeume", action: { type: "atlas", category: "baum" } },
-  { title: "Gemüse & Obst", sub: "Nährstoffe & Inhaltsstoffe", slot: "tile-gemuese-obst", action: { type: "atlas", category: "gemuese" } },
+  { title: "Gemüse & Obst", sub: "Nährstoffe & Inhaltsstoffe", slot: "tile-gemuese-obst", action: { type: "plants", group: "fruechte" } },
   { title: "Pilze & Mykologie", sub: "Arten & Inhaltsstoffe", slot: "tile-pilze", action: { type: "atlas", category: "pilz" } },
   { title: "Mineralien", sub: "Elemente & Spurenelemente", slot: "tile-mineralien", action: { type: "atlas", category: "kristall" } },
   { title: "Kristalle & Heilsteine", sub: "Eigenschaften & Überlieferung", slot: "tile-kristalle", action: { type: "atlas", category: "kristall" } },

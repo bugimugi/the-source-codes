@@ -1,0 +1,23 @@
+{
+  "id": "granatapfel-hormone",
+  "short": "Granatapfel – Hormone",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Der Granatapfel wird in der Überlieferung mit hormonellem Gleichgewicht in Verbindung gebracht.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Belege am Menschen sind nicht bekannt; eine Bewertung steht aus. Source pending verification. Das ist Information und keine Anwendungsempfehlung.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [],
+  "review": {
+    "state": "pending"
+  }
+}

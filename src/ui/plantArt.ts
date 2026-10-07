@@ -146,16 +146,17 @@ export function stageSvg(uid: string, stage: number, o: { leaf?: string; berry?:
 }
 
 /** wooden bowl with powder and dried root pieces (320 x 240) */
-export function bowlSvg(uid: string): string {
+export function bowlSvg(uid: string, kind: "powder" | "arils" = "powder"): string {
   return `<svg class="pa-bowl" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs><linearGradient id="${uid}-w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5a30"/><stop offset="1" stop-color="#3f2812"/></linearGradient>
     <radialGradient id="${uid}-p" cx=".5" cy=".3" r=".7"><stop offset="0" stop-color="#e7cf9f"/><stop offset="1" stop-color="#b58f55"/></radialGradient></defs>
     <ellipse cx="150" cy="206" rx="118" ry="14" fill="#000" opacity=".4"/>
     <path d="M30 108c0 62 52 98 120 98s120-36 120-98z" fill="url(#${uid}-w)" stroke="#2a1a0a"/>
     <ellipse cx="150" cy="108" rx="120" ry="24" fill="#5a3a1c" stroke="#2a1a0a"/>
-    <path d="M42 106c14-26 38-52 108-52s94 26 108 52c-18 14-56 22-108 22s-90-8-108-22z" fill="url(#${uid}-p)"/>
-    <g fill="#8d6a3a" opacity=".5">${Array.from({ length: 30 }, (_, i) => `<circle cx="${70 + ((i * 41) % 170)}" cy="${84 + ((i * 17) % 34)}" r="${0.9 + (i % 3) * 0.5}"/>`).join("")}</g>
-    <g fill="#a47a48" stroke="#5a3a1c"><rect x="226" y="164" width="62" height="14" rx="7" transform="rotate(-16 257 171)"/><rect x="238" y="186" width="54" height="12" rx="6" transform="rotate(8 265 192)"/><rect x="40" y="170" width="50" height="12" rx="6" transform="rotate(14 65 176)"/></g></svg>`;
+    <path d="M42 106c14-26 38-52 108-52s94 26 108 52c-18 14-56 22-108 22s-90-8-108-22z" fill="${kind === "arils" ? "#8d1426" : `url(#${uid}-p)`}"/>
+    ${kind === "arils" ? `<g>${Array.from({ length: 46 }, (_, i) => { const a = i * 2.4, r = 14 + ((i * 29) % 100); const x = 150 + Math.cos(a) * r * 1.05, y = 92 + Math.sin(a) * r * 0.26; return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="9" fill="#c4223a" stroke="#5a0c18" stroke-width=".8"/><circle cx="${(x - 3).toFixed(1)}" cy="${(y - 3).toFixed(1)}" r="2.4" fill="#fff" fill-opacity=".4"/>`; }).join("")}</g>` : ""}
+    <g fill="#8d6a3a" opacity="${kind === "arils" ? 0 : 0.5}">${Array.from({ length: 30 }, (_, i) => `<circle cx="${70 + ((i * 41) % 170)}" cy="${84 + ((i * 17) % 34)}" r="${0.9 + (i % 3) * 0.5}"/>`).join("")}</g>
+    <g fill="${kind === "arils" ? "#6a2a1c" : "#a47a48"}" stroke="#5a3a1c" opacity="${kind === "arils" ? 0 : 1}"><rect x="226" y="164" width="62" height="14" rx="7" transform="rotate(-16 257 171)"/><rect x="238" y="186" width="54" height="12" rx="6" transform="rotate(8 265 192)"/><rect x="40" y="170" width="50" height="12" rx="6" transform="rotate(14 65 176)"/></g></svg>`;
 }
 
 /** simple glowing figure for the "Wirkung" panel (200 x 360); the lines mark the nervous system */
@@ -174,4 +175,81 @@ export function flowerOfLifeSvg(): string {
   const r = 17, pts: P[] = [];
   for (let q = -2; q <= 2; q++) for (let s = -2; s <= 2; s++) if (Math.max(Math.abs(q), Math.abs(s), Math.abs(q + s)) <= 2) pts.push([r * (q + s / 2), r * (Math.sqrt(3) / 2) * s]);
   return `<svg class="pa-fol" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" stroke="#F0D18B" stroke-width=".9" stroke-opacity=".85">${pts.map(([x, y]) => `<circle cx="${f(x)}" cy="${f(y)}" r="${r}"/>`).join("")}<circle r="${r * 3}" stroke-width="1.4"/></g></svg>`;
+}
+
+/** a pomegranate branch with leaves, a red flower, one whole fruit and one cut fruit with arils (640 x 520) */
+export function fruitSvg(uid: string, opt: { sketch?: boolean; ground?: boolean } = {}): string {
+  const sk = !!opt.sketch, ink = "#4a3a24";
+  const skin = sk ? "none" : `url(#${uid}-s)`, aril = sk ? "none" : `url(#${uid}-a)`, lf = sk ? "rgba(120,100,60,.07)" : `url(#${uid}-l)`;
+  const edge = sk ? ink : "#4a0b12";
+  const leafAt = (x: number, y: number, rot: number, s: number) =>
+    `<g transform="translate(${f(x)} ${f(y)}) rotate(${f(rot)}) scale(${f(s)})"><path d="M0 0C10 -9 38 -10 56 0C38 10 10 9 0 0Z" fill="${lf}" stroke="${sk ? ink : "#26451a"}" stroke-width="${f(1.1 / s)}" stroke-linejoin="round"/><path d="M2 0L52 0" stroke="${sk ? ink : "#26451a"}" stroke-opacity=".5" stroke-width="${f(0.8 / s)}"/></g>`;
+  const b1: P[] = [[40, 70], [130, 90], [210, 140], [300, 190]], b2: P[] = [[300, 190], [360, 150], [430, 120], [500, 118]];
+  let body = "";
+  const twig = (p: P[]) => `<path d="M${p[0]} C${p[1]} ${p[2]} ${p[3]}" fill="none" stroke="${sk ? ink : "#5b4a2c"}" stroke-width="${sk ? 2 : 5}" stroke-linecap="round"/>`;
+  body += twig(b1) + twig(b2);
+  body += `<path d="M215 250C216 215 208 175 201 135" fill="none" stroke="${sk ? ink : "#5b4a2c"}" stroke-width="${sk ? 2 : 4}" stroke-linecap="round"/>`;
+  const L1 = [0.12, 0.26, 0.4, 0.55, 0.7, 0.85], L2 = [0.22, 0.45, 0.68];
+  L1.forEach((t, i) => { const [x, y] = bez(b1, t); body += leafAt(x, y, tangent(b1, t) + (i % 2 ? 58 : -58), 1.05 + (i % 3) * 0.12); });
+  L2.forEach((t, i) => { const [x, y] = bez(b2, t); body += leafAt(x, y, tangent(b2, t) + (i % 2 ? 60 : -60), 1.0 + (i % 2) * 0.15); });
+  body += leafAt(40, 70, tangent(b1, 0) + 180, 0.9) + leafAt(500, 118, 20, 0.85);
+  // whole fruit
+  body += `<ellipse cx="215" cy="350" rx="108" ry="104" fill="${skin}" stroke="${edge}" stroke-width="1.6"/>`;
+  if (!sk) body += `<ellipse cx="178" cy="308" rx="40" ry="22" transform="rotate(-30 178 308)" fill="#fff" fill-opacity=".16"/>`;
+  body += `<path d="M188 252L194 228L205 244L215 224L225 244L236 228L242 252Z" fill="${sk ? "none" : "#7a1a1a"}" stroke="${edge}" stroke-width="1.2" stroke-linejoin="round"/>`;
+  // cut fruit
+  const cx = 410, cy = 345;
+  body += `<circle cx="${cx}" cy="${cy}" r="100" fill="${skin}" stroke="${edge}" stroke-width="1.6"/><circle cx="${cx}" cy="${cy}" r="88" fill="${sk ? "none" : "#f2d8c0"}" stroke="${sk ? ink : "#d9b99c"}"/>`;
+  let mem = "";
+  for (let i = 0; i < 8; i++) { const a = (i / 8) * 6.283 + 0.2; mem += `M${cx} ${cy}L${f(cx + Math.cos(a) * 88)} ${f(cy + Math.sin(a) * 88)}`; }
+  body += `<path d="${mem}" stroke="${sk ? ink : "#e4bfa0"}" stroke-width="3" fill="none"/>`;
+  const ring = (r: number, n: number, ar: number, off: number) => {
+    let s = "";
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * 6.283 + off, x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+      s += `<circle cx="${f(x)}" cy="${f(y)}" r="${ar}" fill="${aril}" stroke="${sk ? ink : "#5a0c18"}" stroke-width=".8"/>${sk ? "" : `<circle cx="${f(x - ar * 0.3)}" cy="${f(y - ar * 0.32)}" r="${f(ar * 0.28)}" fill="#fff" fill-opacity=".35"/>`}`;
+    }
+    return s;
+  };
+  body += ring(72, 16, 11.5, 0.1) + ring(47, 9, 12.5, 0.4) + ring(22, 4, 12, 0.2) + ring(0, 1, 11, 0);
+  // loose arils
+  [[540, 405, 9], [556, 420, 9], [528, 424, 9], [572, 398, 8], [548, 440, 9], [520, 448, 8]].forEach(([x, y, r]) => {
+    body += `<circle cx="${x}" cy="${y}" r="${r}" fill="${aril}" stroke="${sk ? ink : "#5a0c18"}" stroke-width=".8"/>${sk ? "" : `<circle cx="${x - 3}" cy="${y - 3}" r="2.4" fill="#fff" fill-opacity=".35"/>`}`;
+  });
+  // flower
+  const petals = Array.from({ length: 6 }, (_, i) => `<ellipse cx="0" cy="-22" rx="13" ry="28" transform="rotate(${i * 60})" fill="${sk ? "none" : `url(#${uid}-f)`}" stroke="${sk ? ink : "#8f2410"}" stroke-width="1"/>`).join("");
+  body += `<g transform="translate(500 112)"><path d="M-13 14C-16 38 -9 52 0 58C9 52 16 38 13 14Z" fill="${sk ? "none" : "#a33a1e"}" stroke="${sk ? ink : "#6b200f"}"/>${petals}<circle r="8" fill="${sk ? "none" : "#f6c744"}" stroke="${sk ? ink : "#b88a1c"}"/><g fill="${sk ? ink : "#e8a21c"}">${Array.from({ length: 8 }, (_, i) => `<circle cx="${f(Math.cos(i * 0.785) * 5)}" cy="${f(Math.sin(i * 0.785) * 5)}" r="1.3"/>`).join("")}</g></g>`;
+  body += `<g transform="translate(548 158) scale(.55)"><path d="M-12 12C-14 34 -8 46 0 52C8 46 14 34 12 12Z" fill="${sk ? "none" : "#a33a1e"}" stroke="${sk ? ink : "#6b200f"}"/>${petals}</g>`;
+  const defs = sk ? "" : `<defs>
+    <radialGradient id="${uid}-s" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#e8554a"/><stop offset=".55" stop-color="#b3202a"/><stop offset="1" stop-color="#5c0f17"/></radialGradient>
+    <radialGradient id="${uid}-a" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#f4707a"/><stop offset=".6" stop-color="#c4223a"/><stop offset="1" stop-color="#7b1020"/></radialGradient>
+    <linearGradient id="${uid}-l" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7db055"/><stop offset="1" stop-color="#2f5a22"/></linearGradient>
+    <linearGradient id="${uid}-f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#d93a1c"/></linearGradient>
+    <radialGradient id="${uid}-g" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#d9a640" stop-opacity=".2"/><stop offset="1" stop-color="#d9a640" stop-opacity="0"/></radialGradient>
+  </defs>`;
+  const glow = sk || opt.ground === false && sk ? "" : `<ellipse cx="320" cy="270" rx="310" ry="250" fill="url(#${uid}-g)"/>`;
+  return `<svg class="pa-svg" viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gezeichnete Darstellung von Zweig, Blüte und Frucht (Platzhalter bis das Bild vorliegt)" preserveAspectRatio="xMidYMid meet">${defs}${glow}${body}</svg>`;
+}
+
+/** four small growth-stage drawings of a fruit tree (100 x 130): seedling, flower, green fruit, ripe fruit */
+export function fruitStageSvg(stage: number): string {
+  const lf = (x: number, y: number, r: number, s: number) => `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})"><path d="M0 0C8 -8 28 -9 40 0C28 9 8 8 0 0Z" fill="#5f9440" stroke="#26451a" stroke-width=".8"/></g>`;
+  const soil = `<ellipse cx="50" cy="108" rx="34" ry="8" fill="#1d140b"/>`;
+  const twig = `<path d="M50 108C52 84 48 60 56 34" stroke="#5b4a2c" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+  const crown = (x: number, y: number, s: number) => `<path d="M${x - 6 * s} ${y}L${x - 4 * s} ${y - 8 * s}L${x} ${y - 3 * s}L${x + 4 * s} ${y - 8 * s}L${x + 6 * s} ${y}Z" fill="#7a1a1a"/>`;
+  let g = "";
+  if (stage === 0) g = soil + `<path d="M50 108C50 98 49 94 50 88" stroke="#5b4a2c" stroke-width="2.4" fill="none" stroke-linecap="round"/>` + lf(50, 90, -150, 0.5) + lf(50, 90, -30, 0.5);
+  else if (stage === 1) {
+    const petals = Array.from({ length: 6 }, (_, i) => `<ellipse cy="-6" rx="3.4" ry="7" transform="rotate(${i * 60})" fill="#e8552b" stroke="#8f2410" stroke-width=".6"/>`).join("");
+    g = soil + twig + lf(50, 96, -165, 0.8) + lf(51, 82, -15, 0.8) + lf(53, 64, -160, 0.7) + `<g transform="translate(56 34)">${petals}<circle r="2.6" fill="#f6c744"/></g>` + `<g transform="translate(36 54) scale(.7)">${petals}<circle r="2.6" fill="#f6c744"/></g>`;
+  } else if (stage === 2) g = soil + twig + lf(50, 96, -165, 0.8) + lf(51, 82, -15, 0.8) + `<circle cx="58" cy="46" r="13" fill="#7fa24a" stroke="#3d5a22"/>` + crown(58, 33, 1) + `<ellipse cx="54" cy="42" rx="4" ry="2.6" fill="#fff" fill-opacity=".25"/>`;
+  else g = soil + twig + lf(50, 96, -165, 0.8) + lf(51, 82, -15, 0.8) + `<circle cx="58" cy="50" r="19" fill="#b3202a" stroke="#5c0f17"/>` + crown(58, 31, 1.3) + `<ellipse cx="51" cy="43" rx="6" ry="3.4" transform="rotate(-30 51 43)" fill="#fff" fill-opacity=".25"/>`;
+  return `<svg class="pa-stage" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${g}</svg>`;
+}
+
+/** the "pomegranate pattern": seeds packed on a hexagonal lattice inside one circle (the geometric signature of the profile) */
+export function seedPatternSvg(uid: string): string {
+  const d = 13, pts: P[] = [];
+  for (let q = -3; q <= 3; q++) for (let s = -3; s <= 3; s++) if (Math.max(Math.abs(q), Math.abs(s), Math.abs(q + s)) <= 3) pts.push([d * (q + s / 2), d * (Math.sqrt(3) / 2) * s]);
+  return `<svg class="pa-fol" viewBox="-56 -56 112 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="${uid}" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#f4707a"/><stop offset="1" stop-color="#7b1020"/></radialGradient></defs><circle r="52" fill="none" stroke="#F0D18B" stroke-width="1.4"/><g fill="url(#${uid})" stroke="#F0D18B" stroke-width=".7">${pts.map(([x, y]) => `<circle cx="${f(x)}" cy="${f(y)}" r="5.6"/>`).join("")}</g></svg>`;
 }

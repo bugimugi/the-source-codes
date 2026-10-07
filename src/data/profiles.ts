@@ -1,58 +1,22 @@
-import type { SlotName } from "../assets/registry";
+import type { PlantProfile } from "./profileTypes.ts";
+import { GRANATAPFEL } from "./profileGranatapfel.ts";
 
-/**
- * Content of the plant profile pages (src/ui/plantProfile.ts). Ashwagandha is the complete template, built after the user's
- * reference picture; every other plant gets a shorter profile generated from its atlas entry.
- *
- * Pilot rules: statements about effects are NOT written here but live as graded claims in content/claims/ (shown with their level);
- * no amounts or dosages anywhere; everything marked "Vorlage" comes from the operator's reference picture and is unchecked
- * (Source pending verification). Positions of the callouts are percentages of the plant picture: adjust them when the final
- * picture `plant-<id>-parts` exists.
- */
-export type PartId = "gesamt" | "wurzel" | "blaetter" | "blueten" | "fruechte" | "samen" | "staengel";
-
-export interface PartDef {
-  id: PartId;
-  label: string;
-  icon: string;
-  title: string;
-  text: string;
-  /** callout text position and the point it links to, in percent of the picture */
-  callout?: { at: [number, number]; to: [number, number]; side: "l" | "r"; short: string };
-}
-
-export interface Box { lat0: number; lon0: number; lat1: number; lon1: number }
-
-export interface ProfileCompound { tab: string; title: string; formula?: string; mass?: string; text: string; bullets: string[]; bulletsNote?: string }
-
-export interface PlantProfile {
-  id: string;
-  crumbs: string[];
-  tags: string[];
-  lead: string;
-  /** "Themen in der Überlieferung" under the lead (neutral: no benefit statements) */
-  bubbles: { label: string; icon: string }[];
-  glance: { icon: string; label: string; value: string }[];
-  parts: PartDef[];
-  traits: { icon: string; label: string; value: string }[];
-  traitsNote: string;
-  origin: { place: { title: string; text: string }; home: Box[]; spread: Box[]; note: string };
-  sensory: { icon: string; label: string; value: string }[];
-  stages: { label: string; time: string }[];
-  compounds: ProfileCompound[];
-  effects: { label: string; icon: string; claim: string }[];
-  frequency: { hz: number; geometry: string; geometryNote: string; themes: string[]; claim: string };
-  forms: { name: string; text: string; slot: SlotName; icon: string }[];
-  combos: { tab: string; intro?: string; items: { title: string; sub: string; ids: string[]; slot?: SlotName }[] }[];
-  history: { title: string; sub: string; text: string; slot: SlotName; icon: string }[];
-  historyNote: string;
-  research: { title: string; year: number; url: string; claim: string; more?: boolean }[];
-  network: { label: string; kind: "plant" | "organ" | "culture" | "claim" | "breath" | "info"; ref?: string; hint?: string }[];
-  safety: string;
-}
-
+/** Ashwagandha is the complete herb profile (reference picture 18 in docs/MOCKUP-NOTES.md); see profileTypes.ts for the rules. */
 export const ASHWAGANDHA: PlantProfile = {
   id: "ashwagandha",
+  layout: "kraut",
+  art: "herb",
+  t: {
+    parts: "Die Pflanze", partsSub: "Bestandteile und ihre Verwendung.", traits: "Botanische Merkmale",
+    origin: "Ursprung & Verbreitung", originSub: "Historische Herkunft und heutige Anbaugebiete.",
+    effects: "Wirkung & Anwendungsbereiche", effectsSub: "Traditionell und erforscht, mit Belegstufe.",
+    compounds: "Inhaltsstoffe", compoundsSub: "Wichtige bioaktive Verbindungen.",
+    freqSub: "Die energetische Signatur der Pflanze (Überlieferung).",
+    forms: "Anwendungsformen", formsSub: "Wie wird die Pflanze traditionell zubereitet?",
+    combos: "Kombinationen & Synergien", combosSub: "Wird in der Überlieferung gemeinsam mit anderen Pflanzen genannt.",
+    history: "Geschichte & Kultur", historySub: "Verwendung im Laufe der Zeit.",
+    researchSub: "Aktuelle Studien und Erkenntnisse.", networkSub: "Verbundene Themen, Pflanzen und Konzepte.",
+  },
   crumbs: ["Pflanzenatlas", "Heilpflanzen"],
   tags: ["Heilpflanze", "Adaptogen", "Nachtschattengewächs", "Ayurveda"],
   lead: "Eine der bedeutendsten Pflanzen der ayurvedischen Überlieferung. Ihre Wurzel wird dort seit sehr langer Zeit zur Unterstützung von Körper, Geist und Nervensystem genannt. Das ist Überlieferung, kein Wirkungsnachweis.",
@@ -72,6 +36,7 @@ export const ASHWAGANDHA: PlantProfile = {
     { icon: "nose", label: "Duft", value: "Erdig, herb" },
     { icon: "shrub", label: "Lebensform", value: "Mehrjähriger Strauch" },
   ],
+  startPart: "gesamt",
   parts: [
     { id: "gesamt", label: "Gesamtansicht", icon: "shrub", title: "Gesamtansicht", text: "Ein mehrjähriger Strauch mit filzig behaarten Trieben, eiförmigen Blättern, unscheinbaren hellgelben Blüten und roten Beeren in einer papierartigen Hülle." },
     { id: "wurzel", label: "Wurzel", icon: "root", title: "Wurzel", text: "Der hauptsächlich verwendete Teil. Reich an Withanoliden (Vorlage, Source pending verification).", callout: { at: [4, 78], to: [44, 84], side: "l", short: "Hauptsächlich verwendeter Teil\nReich an Withanoliden" } },
@@ -79,7 +44,7 @@ export const ASHWAGANDHA: PlantProfile = {
     { id: "blueten", label: "Blüten", icon: "flower", title: "Blüten", text: "Selten verwendet. Die Blüten sind klein, glockig und hellgelb bis gelbgrün.", callout: { at: [72, 7], to: [64, 29], side: "r", short: "Selten verwendet" } },
     { id: "fruechte", label: "Früchte", icon: "berry", title: "Früchte", text: "Enthalten Alkaloide (Vorlage, Source pending verification). Die Beere ist rot und von einer papierartigen Kelchhülle umgeben.", callout: { at: [78, 36], to: [71, 53], side: "r", short: "Enthalten Alkaloide" } },
     { id: "samen", label: "Samen", icon: "seed", title: "Samen", text: "Traditionelle Verwendung in manchen Regionen (Vorlage, Source pending verification).", callout: { at: [72, 82], to: [82, 74], side: "r", short: "Traditionelle Verwendung\nin manchen Regionen" } },
-    { id: "staengel", label: "Stängel", icon: "stem", title: "Stängel", text: "Verzweigte, fein behaarte Triebe, im unteren Teil verholzend." },
+    { id: "staengel", label: "Stängel", icon: "stem", title: "Stängel", text: "Verzweigte, fein behaarte Triebe, im unteren Teil verholzend.", ring: [50, 58] },
   ],
   traits: [
     { icon: "ruler", label: "Höhe", value: "30 – 150 cm" },
@@ -92,11 +57,14 @@ export const ASHWAGANDHA: PlantProfile = {
     { icon: "seed", label: "Vermehrung", value: "Samen, Stecklinge" },
     { icon: "clock", label: "Lebensdauer", value: "Mehrjährig" },
   ],
+  gallery: true,
   traitsNote: "Angaben laut Vorlage, nicht geprüft (Source pending verification). Blüte- und Fruchtzeit hängen von der Region ab: im südlichen Afrika werden z. B. Oktober bis Juni genannt (SANBI, Suchauszug).",
   origin: {
     place: { title: "Indien", text: "Traditionelle Verwendung in der ayurvedischen Medizin seit über 3.000 Jahren (Angabe der Vorlage, ungeprüft)." },
-    home: [{ lat0: 8, lon0: 68, lat1: 32, lon1: 90 }],
-    spread: [{ lat0: 12, lon0: -17, lat1: 38, lon1: 60 }, { lat0: -34, lon0: 16, lat1: 6, lon1: 40 }],
+    layers: [
+      { label: "Ursprungsgebiet", color: "#f0a248", boxes: [{ lat0: 8, lon0: 68, lat1: 32, lon1: 90 }] },
+      { label: "Verbreitet / Kultiviert", color: "#7fc46a", boxes: [{ lat0: 12, lon0: -17, lat1: 38, lon1: 60 }, { lat0: -34, lon0: 16, lat1: 6, lon1: 40 }] },
+    ],
     note: "Grobe Darstellung nach Lehrbuchwissen und Vorlage (Source pending verification): trockene Gebiete Indiens, des Nahen Ostens und Nordafrikas.",
   },
   sensory: [
@@ -112,11 +80,11 @@ export const ASHWAGANDHA: PlantProfile = {
     { label: "Ernte (Wurzel)", time: "Okt. – Feb." },
   ],
   compounds: [
-    { tab: "Withanolide", title: "Withaferin A", formula: "C28H38O6", mass: "ca. 470,6 g/mol", text: "Withanolide sind Steroidlactone, die für die Gattung Withania kennzeichnend sind. Withaferin A ist der bekannteste Vertreter.", bullets: ["Entzündungshemmend (untersucht)", "Zellschutz", "Stressregulation (Forschung)"], bulletsNote: "Angaben der Vorlage. Das sind Themen der Laborforschung, kein Wirkungsnachweis am Menschen (Source pending verification)." },
-    { tab: "Alkaloide", title: "Alkaloide", text: "Alkaloide sind für Nachtschattengewächse typisch. In der Literatur zu Withania werden u. a. Somniferin und Withanin genannt (aus dem Gedächtnis, Source pending verification).", bullets: ["Laut Vorlage in den Früchten enthalten"], bulletsNote: "Einzelstoffe und Mengen werden im Fachreview ergänzt." },
-    { tab: "Sitoindoside", title: "Sitoindoside", text: "Sitoindoside VII–X werden in der Ayurveda-Literatur als Withanolid-Glykoside beschrieben (aus dem Gedächtnis, Source pending verification).", bullets: ["Gegenstand von Laborforschung"], bulletsNote: "Einzelheiten werden im Fachreview ergänzt." },
-    { tab: "Flavonoide", title: "Flavonoide", text: "Flavonoide gehören zu den sekundären Pflanzenstoffen und kommen auch in den Blättern vor (Lehrbuchwissen, Source pending verification).", bullets: ["In geringer Menge beschrieben"], bulletsNote: "Einzelstoffe werden im Fachreview ergänzt." },
-    { tab: "Weitere", title: "Weitere Stoffgruppen", text: "Neben den genannten Gruppen enthält die Wurzel weitere Pflanzenstoffe. Eine geprüfte Liste fehlt noch (Source pending verification).", bullets: ["Liste folgt nach der Fachprüfung"] },
+    { tab: "Withanolide", items: [{ title: "Withaferin A", formula: "C28H38O6", mass: "ca. 470,6 g/mol", text: "Withanolide sind Steroidlactone, die für die Gattung Withania kennzeichnend sind. Withaferin A ist der bekannteste Vertreter.", bullets: ["Entzündungshemmend (untersucht)", "Zellschutz", "Stressregulation (Forschung)"], bulletsNote: "Angaben der Vorlage. Das sind Themen der Laborforschung, kein Wirkungsnachweis am Menschen (Source pending verification).", slot: "compound-withaferin-a" }] },
+    { tab: "Alkaloide", items: [{ title: "Alkaloide", text: "Alkaloide sind für Nachtschattengewächse typisch. In der Literatur zu Withania werden u. a. Somniferin und Withanin genannt (aus dem Gedächtnis, Source pending verification).", bullets: ["Laut Vorlage in den Früchten enthalten"], bulletsNote: "Einzelstoffe und Mengen werden im Fachreview ergänzt." }] },
+    { tab: "Sitoindoside", items: [{ title: "Sitoindoside", text: "Sitoindoside VII–X werden in der Ayurveda-Literatur als Withanolid-Glykoside beschrieben (aus dem Gedächtnis, Source pending verification).", bullets: ["Gegenstand von Laborforschung"], bulletsNote: "Einzelheiten werden im Fachreview ergänzt." }] },
+    { tab: "Flavonoide", items: [{ title: "Flavonoide", text: "Flavonoide gehören zu den sekundären Pflanzenstoffen und kommen auch in den Blättern vor (Lehrbuchwissen, Source pending verification).", bullets: ["In geringer Menge beschrieben"], bulletsNote: "Einzelstoffe werden im Fachreview ergänzt." }] },
+    { tab: "Weitere", items: [{ title: "Weitere Stoffgruppen", text: "Neben den genannten Gruppen enthält die Wurzel weitere Pflanzenstoffe. Eine geprüfte Liste fehlt noch (Source pending verification).", bullets: ["Liste folgt nach der Fachprüfung"] }] },
   ],
   effects: [
     { label: "Stress & Cortisol", icon: "stress", claim: "ashwagandha-stress" },
@@ -130,6 +98,9 @@ export const ASHWAGANDHA: PlantProfile = {
     hz: 432,
     geometry: "Blume des Lebens",
     geometryNote: "Harmonie · Regeneration",
+    hzNote: "natürliche Resonanz (Behauptung)",
+    pattern: "flower",
+    fxLabel: "In 3D ansehen",
     themes: ["Erdung", "Balance", "Regeneration", "Schutz"],
     claim: "ashwagandha-frequency",
   },
@@ -194,4 +165,4 @@ export const ASHWAGANDHA: PlantProfile = {
   safety: "Information, keine medizinische Beratung. Für Ashwagandha-Präparate sind Wechselwirkungen und seltene Leberschäden beschrieben; in Schwangerschaft und Stillzeit wird abgeraten. Mengen und Dauer nennt diese Seite bewusst nicht: Bei Medikamenten, Schilddrüsenerkrankungen oder anderen Vorerkrankungen bitte vorher ärztlich oder in der Apotheke klären.",
 };
 
-export const PROFILES: Record<string, PlantProfile> = { ashwagandha: ASHWAGANDHA };
+export const PROFILES: Record<string, PlantProfile> = { ashwagandha: ASHWAGANDHA, granatapfel: GRANATAPFEL };

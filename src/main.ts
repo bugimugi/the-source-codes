@@ -22,6 +22,7 @@ import { initFx } from "./ui/fx";
 import { initBody } from "./ui/body";
 import { initChakra } from "./ui/chakra";
 import { initBreath } from "./ui/breath";
+import { initPlaces } from "./ui/places";
 import type { FxMode } from "./gl/fxscene";
 import { claims } from "./data/claims";
 import { atlas } from "./data/atlas";
@@ -115,7 +116,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath";
+type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places";
 let view: View = "hero";
 let universe: ReturnType<typeof initUniverse> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
@@ -124,6 +125,8 @@ let fxMode: FxMode = "kymatik";
 let bodyView: ReturnType<typeof initBody> | null = null;
 let chakraView: ReturnType<typeof initChakra> | null = null;
 let breathView: ReturnType<typeof initBreath> | null = null;
+let placesView: ReturnType<typeof initPlaces> | null = null;
+let pendingPlace: string | undefined;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
 const atlasEl = $("atlas");
@@ -131,6 +134,16 @@ const fxEl = $("fx");
 const bodyEl = $("body");
 const chakraEl = $("chakra");
 const breathEl = $("breath");
+const placesEl = $("places");
+
+// the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
+const VIEW_TABS: { id: View; label: string }[] = [
+  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "fx", label: "Frequenz" }, { id: "body", label: "Körper" },
+  { id: "chakra", label: "Chakren" }, { id: "breath", label: "Atem" }, { id: "places", label: "Orte" },
+];
+document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
+  nav.innerHTML = VIEW_TABS.map((t) => (t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
+});
 const stageEl = $("stage");
 const nav = $("nav");
 const pinsEl = $("pins");
@@ -240,6 +253,22 @@ function openFxView(): boolean {
   return true;
 }
 
+function openPlacesView(id?: string): boolean {
+  placesEl.hidden = false;
+  try {
+    placesView ??= initPlaces(placesEl, { openClaim: (cid, from) => overlay.open(cid, from), reduceMotion });
+    placesView.start(id);
+  } catch (err) {
+    placesEl.hidden = true;
+    console.warn("WebGL not available – places page cannot be shown.", err);
+    alert("The 3D globe needs WebGL. Please enable hardware acceleration in your browser or use another browser.");
+    return false;
+  }
+  fade(placesEl, true);
+  $("leave-places").focus();
+  return true;
+}
+
 function openBreathView(): boolean {
   breathEl.hidden = false;
   breathView ??= initBreath(breathEl, { openBody: (organ) => { breathEl.hidden = true; breathView?.stop(); view = "hero"; pendingOrgan = organ; go("body"); }, reduceMotion });
@@ -282,6 +311,17 @@ function openBodyView(organ?: string): boolean {
   return true;
 }
 
+/** every full-screen view: its element and how to stop its rendering */
+const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void }> = {
+  universe: { el: matrixEl, stop: () => universe?.stop() },
+  atlas: { el: atlasEl, stop: () => atlasView?.stop() },
+  fx: { el: fxEl, stop: () => fxView?.stop() },
+  body: { el: bodyEl, stop: () => {} },
+  chakra: { el: chakraEl, stop: () => chakraView?.stop() },
+  breath: { el: breathEl, stop: () => breathView?.stop() },
+  places: { el: placesEl, stop: () => placesView?.stop() },
+};
+
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === view) return false;
   const prev = view;
@@ -291,16 +331,13 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "body" && !openBodyView(pendingOrgan)) return false;
   if (next === "chakra" && !openChakraView(pendingChakra)) return false;
   if (next === "breath" && !openBreathView()) return false;
+  if (next === "places" && !openPlacesView(pendingPlace)) return false;
   pendingOrgan = undefined;
   pendingChakra = undefined;
+  pendingPlace = undefined;
   view = next;
   if (next !== "hero") home?.stopAudio();
-  if (prev === "universe") fade(matrixEl, false, () => universe?.stop());
-  if (prev === "atlas") fade(atlasEl, false, () => atlasView?.stop());
-  if (prev === "fx") fade(fxEl, false, () => fxView?.stop());
-  if (prev === "body") fade(bodyEl, false);
-  if (prev === "chakra") fade(chakraEl, false, () => chakraView?.stop());
-  if (prev === "breath") fade(breathEl, false, () => breathView?.stop());
+  if (prev !== "hero") fade(SCREENS[prev].el, false, SCREENS[prev].stop);
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
   else setChrome(false);
   syncHero();
@@ -331,6 +368,7 @@ const home = initHome($("home"), {
   openUniverse() { void enterLibrary(); },
   openBody(organ?: string) { if (view === "body") { if (organ) bodyView?.show(organ); } else { pendingOrgan = organ; go("body"); } },
   openBreath() { go("breath"); },
+  openPlaces(id?: string) { if (view === "places") placesView?.start(id); else { pendingPlace = id; go("places"); } },
   openChakra(id?: string) { if (view === "chakra") chakraView?.start(id); else { pendingChakra = id; go("chakra"); } },
   openFx(mode: FxMode) { fxMode = mode; if (view === "fx") fxView?.start(mode); else go("fx"); },
   openClaim: (id, from) => overlay.open(id, from),
@@ -352,6 +390,7 @@ $("leave-fx").addEventListener("click", () => go("hero"));
 $("leave-body").addEventListener("click", () => go("hero"));
 $("leave-chakra").addEventListener("click", () => go("hero"));
 $("leave-breath").addEventListener("click", () => go("hero"));
+$("leave-places").addEventListener("click", () => go("hero"));
 document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
   b.addEventListener("click", () => {
     const target = b.dataset.goto as View;
@@ -359,12 +398,8 @@ document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
     // switch straight from one full-screen view to another: close the current one at once, then open the target
     const from = view;
     view = "hero";
-    if (from === "universe") { matrixEl.hidden = true; universe?.stop(); }
-    else if (from === "atlas") { atlasEl.hidden = true; atlasView?.stop(); }
-    else if (from === "fx") { fxEl.hidden = true; fxView?.stop(); }
-    else if (from === "chakra") { chakraEl.hidden = true; chakraView?.stop(); }
-    else if (from === "breath") { breathEl.hidden = true; breathView?.stop(); }
-    else bodyEl.hidden = true;
+    SCREENS[from].el.hidden = true;
+    SCREENS[from].stop();
     go(target);
   }),
 );

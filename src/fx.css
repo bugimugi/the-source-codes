@@ -62,3 +62,10 @@
 .bv-rel button { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; padding: 0.5rem 0.7rem; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); border-radius: 10px; background: rgba(2, 7, 11, 0.5); display: grid; gap: 0.1rem; }
 .bv-rel button:hover { border-color: var(--gold); }
 .bv-rel strong { font-size: 0.84rem; font-weight: 500; } .bv-rel small { font-size: 0.66rem; color: var(--muted); }
+
+/* Places page (src/ui/places.ts) */
+.pl-img.slot { width: 100%; margin: 0 0 0.6rem; border-radius: 12px; border: 1px solid var(--gold-line, rgba(203,170,103,.28)); overflow: hidden; }
+.pl-img.slot-empty { background: linear-gradient(160deg, rgba(20, 122, 145, 0.25), rgba(2, 7, 11, 0.9)); }
+.pl-img.slot-empty::after { content: "Bild folgt"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.pl-chip i { background: var(--gold-hi, #F0D18B); box-shadow: 0 0 12px rgba(240, 209, 139, 0.8); }
+.pl-chip:hover, .pl-chip[aria-pressed="true"] { border-color: var(--gold); background: rgba(203, 170, 103, 0.12); }

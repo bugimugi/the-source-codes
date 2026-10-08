@@ -1,0 +1,26 @@
+{
+  "id": "chakra-arbeit-heilung",
+  "short": "Chakra-Arbeit löst Beschwerden",
+  "area": "texte-tradition",
+  "status": "published",
+  "statement": "Chakra-Arbeit (Meditation, Steine, Töne, Düfte) löst körperliche oder seelische Beschwerden, die einzelnen Chakren zugeordnet werden.",
+  "level": "unsupported",
+  "rationale": "Nach dem Kenntnisstand der Redaktion gibt es keine kontrollierte Studie, die zeigt, dass Beschwerden an einem „blockierten“ Chakra liegen oder dass Chakra-Arbeit sie löst. Entspannung, Meditation und Atemübungen können unabhängig vom Chakra-Modell das Befinden beeinflussen (siehe die Aussagen der Atem-Seite). Körperliche Beschwerden haben körperliche Ursachen und gehören in ärztliche Abklärung. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial-input",
+      "kind": "editorial-input",
+      "title": "Angabe des Betreibers, ungeprüft",
+      "author": "Betreiber der Seite",
+      "citation": "Entwurf der Chakren-Seite (Pilot)",
+      "verified": false
+    }
+  ],
+  "related": [
+    "chakra-modell",
+    "atem-achtsamkeit"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

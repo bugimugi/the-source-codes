@@ -486,6 +486,111 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `beschwerden-empf-kristalle` | 600×420 | Szene | purple amethyst crystals, dark cinematic, no text |
 | `beschwerden-empf-koerperarbeit` | 600×420 | Szene | a back with acupressure points and hands, dark cinematic, no text |
 | `beschwerden-empf-lebensstil` | 600×420 | Szene | a sunrise over a mountain landscape, dark cinematic, no text |
+| `chakren-hero` | 2800×1300 | Szene | a serene woman meditating in lotus position at a calm mountain lake at dusk, translucent glowing body with seven softly glowing chakra points along the spine in rainbow colours and a glowing violet lotus above the crown of her head, stars and a purple twilight sky, forest and mountains on both sides, a dark calm area on the left for text, no text, no letters, no icons |
+| `chakren-symbol-wurzel` | 800×800 | Schwarz | red lotus with four petals inside a square, glowing sacred geometry, on a pure black background, no text |
+| `chakren-symbol-sakral` | 800×800 | Schwarz | orange lotus with six petals around a crescent moon, glowing sacred geometry, on a pure black background, no text |
+| `chakren-symbol-solar` | 800×800 | Schwarz | yellow lotus with ten petals around a downward triangle, glowing sacred geometry, on a pure black background, no text |
+| `chakren-symbol-herz` | 800×800 | Schwarz | green lotus with twelve petals around a six-pointed star, glowing sacred geometry, on a pure black background, no text |
+| `chakren-symbol-hals` | 800×800 | Schwarz | light blue lotus with sixteen petals around a white circle, glowing sacred geometry, on a pure black background, no text |
+| `chakren-symbol-stirn` | 800×800 | Schwarz | indigo lotus with two petals and a glowing centre, glowing sacred geometry, on a pure black background, no text |
+| `chakren-symbol-krone` | 800×800 | Schwarz | violet and white lotus with a thousand fine petals, glowing gold centre, glowing sacred geometry, on a pure black background, no text |
+| `chakren-med-erdung` | 400×400 | Szene | a calm meditation scene for the theme erdung, a person sitting in meditation, dark cinematic, no text |
+| `chakren-med-weite` | 400×400 | Szene | a calm meditation scene for the theme weite, a person sitting in meditation, dark cinematic, no text |
+| `chakren-med-licht` | 400×400 | Szene | a calm meditation scene for the theme licht, a person sitting in meditation, dark cinematic, no text |
+| `chakren-med-klang` | 400×400 | Szene | a calm meditation scene for the theme klang, a person sitting in meditation, dark cinematic, no text |
+| `chakren-med-stille` | 400×400 | Szene | a calm meditation scene for the theme stille, a person sitting in meditation, dark cinematic, no text |
+| `chakren-med-reinigung` | 400×400 | Szene | a calm meditation scene for the theme vorstellung, a person sitting in meditation, dark cinematic, no text |
+| `chakren-stein-roter-jaspis` | 600×600 | Schwarz | one Roter Jaspis crystal (Quarz-Varietät, rot durch Eisenoxid), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-karneol` | 600×600 | Schwarz | one Karneol crystal (orange-roter Chalcedon (SiO₂)), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-orangenkalzit` | 600×600 | Schwarz | one Orangenkalzit crystal (orangefarbener Calcit (CaCO₃), weich), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-mondstein` | 600×600 | Schwarz | one Mondstein crystal (Feldspat mit bläulichem Schimmer), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-bernstein` | 600×600 | Schwarz | one Bernstein crystal (fossiles Baumharz, kein Mineral), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-tigerauge` | 600×600 | Schwarz | one Tigerauge crystal (Quarz mit Fasereinschlüssen, goldbraun schimmernd), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-gruener-aventurin` | 600×600 | Schwarz | one Grüner Aventurin crystal (Quarz mit Glimmer-Einschlüssen), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-rhodonit` | 600×600 | Schwarz | one Rhodonit crystal (rosa Mangansilikat), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-smaragd` | 600×600 | Schwarz | one Smaragd crystal (grüne Beryll-Varietät), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-aquamarin` | 600×600 | Schwarz | one Aquamarin crystal (blaue Beryll-Varietät), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-sodalith` | 600×600 | Schwarz | one Sodalith crystal (blaues Natrium-Aluminium-Silikat), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-tuerkis` | 600×600 | Schwarz | one Türkis crystal (Kupfer-Aluminium-Phosphat, himmelblau bis grünlich), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-blauer-chalcedon` | 600×600 | Schwarz | one Blauer Chalcedon crystal (hellblaue Chalcedon-Varietät (SiO₂)), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-selenit` | 600×600 | Schwarz | one Selenit crystal (durchsichtiger Gips (CaSO₄·2H₂O), sehr weich), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-stein-lepidolith` | 600×600 | Schwarz | one Lepidolith crystal (Lithium-Glimmer, rosa bis violett), softly glowing, studio macro, on a pure black background, no text |
+| `chakren-essen-rote-bete` | 600×600 | Schwarz | Rote Bete (Wurzelgemüse, roter Farbstoff Betanin), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-suesskartoffel` | 600×600 | Schwarz | Süßkartoffel (Knolle, Stärke; orange Sorten mit Beta-Carotin), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-orange` | 600×600 | Schwarz | Orange (Zitrusfrucht, Vitamin C), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-mango` | 600×600 | Schwarz | Mango (Steinfrucht, Carotinoide, Vitamin C), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-aprikose` | 600×600 | Schwarz | Aprikose (Steinfrucht, Carotinoide), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-banane` | 600×600 | Schwarz | Banane (Frucht, Kalium, Stärke und Zucker), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-mais` | 600×600 | Schwarz | Mais (Getreide, Stärke, gelber Farbstoff Lutein), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-gruenkohl` | 600×600 | Schwarz | Grünkohl (Kohlgemüse, Vitamin K, Carotinoide), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-kiwi` | 600×600 | Schwarz | Kiwi (Frucht, Vitamin C), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-pflaume` | 600×600 | Schwarz | Pflaume (Steinfrucht, Anthocyane in der Schale), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-brombeeren` | 600×600 | Schwarz | Brombeeren (Beere, Anthocyane), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-kraeutertee` | 600×600 | Schwarz | Kräutertee (Aufguss aus Kräutern, z. B. Kamille oder Pfefferminze), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-birne` | 600×600 | Schwarz | Birne (Kernobst, Ballaststoffe), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-trauben` | 600×600 | Schwarz | Trauben (Beere; blaue Sorten mit Anthocyanen in der Schale), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-aubergine` | 600×600 | Schwarz | Aubergine (Fruchtgemüse, Anthocyane in der Schale), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-rotkohl` | 600×600 | Schwarz | Rotkohl (Kohlgemüse, Anthocyane (rot bis blau je nach Säure)), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-kokosnuss` | 600×600 | Schwarz | Kokosnuss (Steinfrucht, Fett (überwiegend gesättigt), Ballaststoffe), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-ananas` | 600×600 | Schwarz | Ananas (Frucht, Enzym Bromelain, Vitamin C), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-essen-lila-gemuese` | 600×600 | Schwarz | Lila Gemüse (z. B. Rotkohl, Aubergine, violette Karotten; Anthocyane), fresh, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-zeder` | 600×600 | Schwarz | Zeder as an aromatic ingredient (holziger Duft des Zedernholzes), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-patchouli` | 600×600 | Schwarz | Patchouli as an aromatic ingredient (Blätter von Pogostemon cablin, erdiger Duft), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-vetiver` | 600×600 | Schwarz | Vetiver as an aromatic ingredient (Wurzel eines Grases, erdig-rauchiger Duft), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-myrrhe` | 600×600 | Schwarz | Myrrhe as an aromatic ingredient (Harz von Commiphora-Arten, balsamisch-herb), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-suessorange` | 600×600 | Schwarz | Süßorange as an aromatic ingredient (Schalenöl, frisch-fruchtig), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-ylang-ylang` | 600×600 | Schwarz | Ylang-Ylang as an aromatic ingredient (Blüten von Cananga odorata, süß-blumig), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-sandelholz` | 600×600 | Schwarz | Sandelholz as an aromatic ingredient (warm-holziger Duft; Santalum album gilt als gefährdet), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-jasmin` | 600×600 | Schwarz | Jasmin as an aromatic ingredient (Blüten, süß-blumig (meist als Absolue)), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-bergamotte` | 600×600 | Schwarz | Bergamotte as an aromatic ingredient (Schalenöl, zitrusartig-blumig), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-rose` | 600×600 | Schwarz | Rose as an aromatic ingredient (Blüten von Rosa damascena, süß-blumig), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-geranie` | 600×600 | Schwarz | Geranie as an aromatic ingredient (Blätter von Pelargonium, rosig-grüner Duft), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-melisse` | 600×600 | Schwarz | Melisse as an aromatic ingredient (Blätter, zitronig), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-eukalyptus` | 600×600 | Schwarz | Eukalyptus as an aromatic ingredient (Blätter, Cineol, frisch-kampferartig), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-wacholder` | 600×600 | Schwarz | Wacholder as an aromatic ingredient (Beerenzapfen, harzig-frisch), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-weihrauch` | 600×600 | Schwarz | Weihrauch as an aromatic ingredient (Harz von Boswellia-Arten, balsamisch-würzig; wird verräuchert), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-duft-lotus` | 600×600 | Schwarz | Lotus as an aromatic ingredient (zarter Blütenduft; im Handel häufig nachgebildet), with a small glass bottle, glowing in soft light, on a pure black background, no text |
+| `chakren-yoga-berghaltung` | 600×600 | Szene | a person in the yoga pose Berghaltung (Tadasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-baum` | 600×600 | Szene | a person in the yoga pose Baum (Vrksasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-krieger-i` | 600×600 | Szene | a person in the yoga pose Krieger I (Virabhadrasana I) at sunset, dark cinematic, no text |
+| `chakren-yoga-girlande` | 600×600 | Szene | a person in the yoga pose Girlande (Malasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-schmetterling` | 600×600 | Szene | a person in the yoga pose Schmetterling (Baddha Konasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-taube` | 600×600 | Szene | a person in the yoga pose Taube (Eka Pada Rajakapotasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-goettin` | 600×600 | Szene | a person in the yoga pose Göttin (Utkata Konasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-boot` | 600×600 | Szene | a person in the yoga pose Boot (Navasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-drehsitz` | 600×600 | Szene | a person in the yoga pose Drehsitz (Ardha Matsyendrasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-sonnengruss` | 600×600 | Szene | a person in the yoga pose Sonnengruß (Surya Namaskar) at sunset, dark cinematic, no text |
+| `chakren-yoga-kobra` | 600×600 | Szene | a person in the yoga pose Kobra (Bhujangasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-bruecke` | 600×600 | Szene | a person in the yoga pose Brücke (Setu Bandhasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-kamel` | 600×600 | Szene | a person in the yoga pose Kamel (Ustrasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-fisch` | 600×600 | Szene | a person in the yoga pose Fisch (Matsyasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-schulterstand` | 600×600 | Szene | a person in the yoga pose Schulterstand (Sarvangasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-pflug` | 600×600 | Szene | a person in the yoga pose Pflug (Halasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-loewenatem` | 600×600 | Szene | a person in the yoga pose Löwenatem (Simhasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-kindhaltung` | 600×600 | Szene | a person in the yoga pose Kindhaltung (Balasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-sitzende-vorbeuge` | 600×600 | Szene | a person in the yoga pose Sitzende Vorbeuge (Paschimottanasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-delfin` | 600×600 | Szene | a person in the yoga pose Delfin (Ardha Pincha Mayurasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-wechselatmung` | 600×600 | Szene | a person in the yoga pose Wechselatmung (Nadi Shodhana) at sunset, dark cinematic, no text |
+| `chakren-yoga-kopfstand` | 600×600 | Szene | a person in the yoga pose Kopfstand (Sirsasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-lotussitz` | 600×600 | Szene | a person in the yoga pose Lotussitz (Padmasana) at sunset, dark cinematic, no text |
+| `chakren-yoga-meditation-im-sitzen` | 600×600 | Szene | a person in the yoga pose Meditation im Sitzen (Sukhasana) at sunset, dark cinematic, no text |
+| `chakren-natur-wald` | 800×500 | Szene | Wald: Bäume, Humus, Schatten und Stille, dark cinematic landscape, no text |
+| `chakren-natur-felsen` | 800×500 | Szene | Felsen: Stein und Erde unter den Füßen, dark cinematic landscape, no text |
+| `chakren-natur-garten` | 800×500 | Szene | Garten: Beete und Erde, dark cinematic landscape, no text |
+| `chakren-natur-seen-meer` | 800×500 | Szene | Seen & Meer: Weite Wasserflächen, dark cinematic landscape, no text |
+| `chakren-natur-wasserfaelle` | 800×500 | Szene | Wasserfälle: Rauschendes Wasser, dark cinematic landscape, no text |
+| `chakren-natur-flussufer` | 800×500 | Szene | Flussufer: Fließendes Wasser, dark cinematic landscape, no text |
+| `chakren-natur-sonnenaufgang` | 800×500 | Szene | Sonnenaufgang: Morgenlicht im Freien, dark cinematic landscape, no text |
+| `chakren-natur-wiesen` | 800×500 | Szene | Wiesen: Offene Flächen im Sonnenlicht, dark cinematic landscape, no text |
+| `chakren-natur-weite` | 800×500 | Szene | Weite: Offene Landschaften mit weitem Blick, dark cinematic landscape, no text |
+| `chakren-natur-blumenwiesen` | 800×500 | Szene | Blumenwiesen: Blühende Wiesen, dark cinematic landscape, no text |
+| `chakren-natur-himmel` | 800×500 | Szene | Himmel: Wolken und freie Sicht nach oben, dark cinematic landscape, no text |
+| `chakren-natur-berggipfel` | 800×500 | Szene | Berggipfel: Klare Luft und Fernsicht, dark cinematic landscape, no text |
+| `chakren-natur-nachthimmel` | 800×500 | Szene | Nachthimmel: Sterne fernab von Stadtlicht, dark cinematic landscape, no text |
+| `chakren-natur-daemmerung` | 800×500 | Szene | Dämmerung: Übergang zwischen Tag und Nacht, dark cinematic landscape, no text |
+| `chakren-natur-berge` | 800×500 | Szene | Berge: Weite und klare Luft, dark cinematic landscape, no text |
+| `chakren-natur-sternenhimmel` | 800×500 | Szene | Sternenhimmel: Blick in den Nachthimmel, dark cinematic landscape, no text |
+| `chakren-natur-stille-orte` | 800×500 | Szene | Stille Orte: Plätze ohne Lärm, dark cinematic landscape, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -553,4 +658,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 492 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 597 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

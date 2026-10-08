@@ -1,0 +1,27 @@
+{
+  "id": "chakra-modell",
+  "short": "Chakren als Energiezentren des Körpers",
+  "area": "texte-tradition",
+  "status": "published",
+  "statement": "Der Körper hat sieben Energiezentren (Chakren), die man messen, öffnen oder ausgleichen kann.",
+  "level": "unsupported",
+  "rationale": "Das Chakra-Modell stammt aus indischen tantrischen Texten (z. B. dem Sat-Cakra-Nirupana, 16. Jahrhundert, im Westen durch John Woodroffes Übersetzung „The Serpent Power“ von 1919 bekannt). Es beschreibt eine Vorstellung, die in Meditation erlebt wird. Anatomisch gibt es an den genannten Stellen keine messbaren Strukturen mit diesem Namen, und eine Messung von „Energiefluss“ oder „Blockaden“ ist nicht bekannt. Das Modell ist Kultur- und Ideengeschichte. Source pending verification.",
+  "sources": [
+    {
+      "id": "woodroffe-1919",
+      "kind": "historical-document",
+      "title": "The Serpent Power",
+      "author": "John Woodroffe (Arthur Avalon)",
+      "year": 1919,
+      "citation": "Übersetzung des Sat-Cakra-Nirupana und der Paduka-Panchaka – aus dem Gedächtnis, Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": [
+    "chakra-zuordnungen-modern",
+    "chakra-arbeit-heilung"
+  ],
+  "review": {
+    "state": "pending"
+  }
+}

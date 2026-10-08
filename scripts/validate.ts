@@ -14,6 +14,7 @@ import { validateAnatomyPage } from "../src/data/validateAnatomy.ts";
 import { validateFreqPage } from "../src/data/validateFreq.ts";
 import { validateAtemPage } from "../src/data/validateAtem.ts";
 import { validateChakrenPage } from "../src/data/validateChakren.ts";
+import { validateNaehrstoffePage } from "../src/data/validateNaehrstoffe.ts";
 import { validateBeschwerdenPage } from "../src/data/validateBeschwerden.ts";
 import type { AtlasEntry, Claim } from "../src/data/types.ts";
 import { LEVEL_LABEL } from "../src/data/types.ts";
@@ -46,7 +47,8 @@ const c8 = validateFreqPage(new Set(claims.filter((c) => c.status === "published
 const c9 = validateAtemPage(new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n));
 const c10 = validateBeschwerdenPage(new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), (n) => !!slotDef(n), new Set(atlasEntries.filter((e) => e.status === "published").map((e) => e.id)));
 const c11 = validateChakrenPage(new Set(claims.filter((c) => c.status === "published").map((c) => c.id)), new Set(atlasEntries.filter((e) => e.status === "published").map((e) => e.id)), (n) => !!slotDef(n));
-const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6, ...c7, ...c8, ...c9, ...c10, ...c11];
+const c12 = validateNaehrstoffePage((n) => !!slotDef(n));
+const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6, ...c7, ...c8, ...c9, ...c10, ...c11, ...c12];
 const warnings = [...c1.warnings, ...c2.warnings, ...c3.warnings];
 const verbose = process.argv.includes("--report");
 if (verbose && warnings.length) console.log(`Hinweise:\n${warnings.map((w) => "  - " + w).join("\n")}\n`);

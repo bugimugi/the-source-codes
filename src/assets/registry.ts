@@ -32,6 +32,7 @@ const FREQ = "Frequenz-Seite";
 const ATEM = "Atem-Seite";
 const BESCH = "Beschwerden-Seite";
 const CHAKREN = "Chakren-Seite";
+const NAEHR = "Nährstoff-Seite";
 
 export const SLOTS = {
   // ---- Startseite: hero (priority 1)
@@ -595,6 +596,47 @@ export const SLOTS = {
   "chakren-natur-berge": d(CHAKREN, 8, "scene", 800, 500, "Berge: Weite und klare Luft, dark cinematic landscape, no text"),
   "chakren-natur-sternenhimmel": d(CHAKREN, 8, "scene", 800, 500, "Sternenhimmel: Blick in den Nachthimmel, dark cinematic landscape, no text"),
   "chakren-natur-stille-orte": d(CHAKREN, 8, "scene", 800, 500, "Stille Orte: Plätze ohne Lärm, dark cinematic landscape, no text"),
+  // ---- Nährstoff-Seite (Referenzbild 30, Priorität 8)
+  "naehrstoffe-hero": d(NAEHR, 8, "scene", 2800, 1300, "a translucent glowing human body in lotus position meditating in a night landscape with mountains, a lake and a starry sky, visible glowing organs (brain, lungs, heart, stomach, intestines) and a network of fine blue and red vessels, a calm dark area on the left for text, no text, no letters, no icons"),
+  "naehrstoffe-koerper": d(NAEHR, 8, "black", 2400, 3600, "translucent glowing human body, front view, upper body to knees, brain, lungs, heart, liver, stomach and intestines softly glowing in pink, red and orange, a fine network of blue nerves and vessels, on a pure black background"),
+  "naehrstoffe-kat-vitamin": d(NAEHR, 8, "scene", 600, 400, "halved oranges, lemons and fresh citrus fruit with leaves, dark cinematic food photography, no text"),
+  "naehrstoffe-kat-mineral": d(NAEHR, 8, "scene", 600, 400, "blue and white raw mineral crystals, dark cinematic food photography, no text"),
+  "naehrstoffe-kat-amino": d(NAEHR, 8, "scene", 600, 400, "eggs, nuts, beans and seeds in small bowls, dark cinematic food photography, no text"),
+  "naehrstoffe-kat-fett": d(NAEHR, 8, "scene", 600, 400, "fresh salmon fillet with herbs, dark cinematic food photography, no text"),
+  "naehrstoffe-kat-spur": d(NAEHR, 8, "scene", 600, 400, "green leaves and sprouts on dark soil, dark cinematic food photography, no text"),
+  "naehrstoffe-kat-enzym": d(NAEHR, 8, "scene", 600, 400, "halved papaya and pineapple, dark cinematic food photography, no text"),
+  "naehrstoffe-kat-pflanzenstoff": d(NAEHR, 8, "scene", 600, 400, "blueberries, red grapes, purple cabbage and colourful berries, dark cinematic food photography, no text"),
+  "naehrstoffe-info-wirken": d(NAEHR, 8, "scene", 800, 450, "a glowing cell membrane with molecules, vitamins and co-factors docking, scientific illustration, blue and purple light, no text"),
+  "naehrstoffe-info-quellen": d(NAEHR, 8, "scene", 800, 450, "salmon, broccoli, blueberries, nuts and leafy greens arranged together, no text"),
+  "naehrstoffe-info-einnahme": d(NAEHR, 8, "scene", 800, 450, "capsules, a glass of water and fresh lemon on a table in warm light, no text"),
+  "naehrstoffe-info-mangel": d(NAEHR, 8, "scene", 800, 450, "a tired person sitting with glowing red points on the body, dark cinematic, no text"),
+  "naehrstoff-vit-d": d(NAEHR, 8, "scene", 600, 500, "vitamin D: a sunny morning with eggs, salmon and mushrooms, dark cinematic food photography, no text"),
+  "naehrstoff-vit-b12": d(NAEHR, 8, "scene", 600, 500, "vitamin B12: fresh meat, fish and eggs, dark cinematic food photography, no text"),
+  "naehrstoff-magnesium": d(NAEHR, 8, "scene", 600, 500, "magnesium: blueberries, dark leafy greens, nuts and seeds, dark cinematic food photography, no text"),
+  "naehrstoff-zink": d(NAEHR, 8, "scene", 600, 500, "zinc: raw stones and pumpkin seeds, cashews and cheese, dark cinematic food photography, no text"),
+  "naehrstoff-omega3": d(NAEHR, 8, "scene", 600, 500, "omega-3: fresh salmon fillets, walnuts and linseed oil, dark cinematic food photography, no text"),
+  "naehrstoff-eisen": d(NAEHR, 8, "scene", 600, 500, "iron: lentils, red meat and spinach, deep red tones, dark cinematic food photography, no text"),
+  "naehrstoff-vit-c": d(NAEHR, 8, "scene", 600, 500, "vitamin C: halved oranges, lemons, red peppers and berries, dark cinematic food photography, no text"),
+  "naehrstoff-calcium": d(NAEHR, 8, "scene", 600, 500, "calcium: white chalk-like minerals, milk, cheese and almonds, dark cinematic food photography, no text"),
+  "naehrstoff-vit-b": d(NAEHR, 8, "scene", 600, 500, "B vitamins: whole grains, legumes, eggs and leafy greens, dark cinematic food photography, no text"),
+  "naehrstoff-vit-a": d(NAEHR, 8, "scene", 600, 500, "vitamin A: carrots, sweet potatoes and liver, dark cinematic food photography, no text"),
+  "naehrstoff-vit-e": d(NAEHR, 8, "scene", 600, 500, "vitamin E: sunflower seeds, almonds and a glass of plant oil, dark cinematic food photography, no text"),
+  "naehrstoff-vit-k": d(NAEHR, 8, "scene", 600, 500, "vitamin K: kale, broccoli and spinach, dark cinematic food photography, no text"),
+  "naehrstoff-kalium": d(NAEHR, 8, "scene", 600, 500, "potassium: bananas, potatoes, beans and dried apricots, dark cinematic food photography, no text"),
+  "naehrstoff-jod": d(NAEHR, 8, "scene", 600, 500, "iodine: sea fish, seaweed and a small bowl of salt, dark cinematic food photography, no text"),
+  "naehrstoff-selen": d(NAEHR, 8, "scene", 600, 500, "selenium: brazil nuts, fish and eggs, dark cinematic food photography, no text"),
+  "naehrstoff-protein": d(NAEHR, 8, "scene", 600, 500, "protein: eggs, beans, lentils, fish and cheese, dark cinematic food photography, no text"),
+  "naehrstoff-amino": d(NAEHR, 8, "scene", 600, 500, "amino acids: abstract glowing molecular chains with eggs and legumes, dark cinematic food photography, no text"),
+  "naehrstoff-omega6": d(NAEHR, 8, "scene", 600, 500, "omega-6: sunflower seeds, safflower oil and nuts, dark cinematic food photography, no text"),
+  "naehrstoff-omega9": d(NAEHR, 8, "scene", 600, 500, "omega-9: olives, olive oil and avocado, dark cinematic food photography, no text"),
+  "naehrstoff-q10": d(NAEHR, 8, "scene", 600, 500, "coenzyme Q10: a glowing mitochondrion beside fish and nuts, dark cinematic food photography, no text"),
+  "naehrstoff-enzyme": d(NAEHR, 8, "scene", 600, 500, "digestive enzymes: fresh pineapple and papaya halves, dark cinematic food photography, no text"),
+  "naehrstoff-polyphenole": d(NAEHR, 8, "scene", 600, 500, "polyphenols: berries, red cabbage, green tea and dark cocoa, dark cinematic food photography, no text"),
+  "naehrstoff-carotinoide": d(NAEHR, 8, "scene", 600, 500, "carotenoids: tomatoes, carrots, pumpkin and peppers in orange and red, dark cinematic food photography, no text"),
+  "naehrstoff-glucosinolate": d(NAEHR, 8, "scene", 600, 500, "glucosinolates: broccoli, cabbage, radish and rocket, dark cinematic food photography, no text"),
+  "naehrstoff-cholin": d(NAEHR, 8, "scene", 600, 500, "choline: eggs, soybeans and wheat germ, dark cinematic food photography, no text"),
+  "naehrstoff-ballaststoffe": d(NAEHR, 8, "scene", 600, 500, "dietary fibre: whole grain bread, oats, legumes and seeds, dark cinematic food photography, no text"),
+  "naehrstoff-probiotika": d(NAEHR, 8, "scene", 600, 500, "probiotics: yoghurt, kefir and sauerkraut in glass jars, dark cinematic food photography, no text"),
 } as const satisfies Record<string, SlotDef>;
 
 export type SlotName = keyof typeof SLOTS;

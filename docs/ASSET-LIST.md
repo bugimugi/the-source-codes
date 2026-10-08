@@ -591,6 +591,46 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `chakren-natur-berge` | 800×500 | Szene | Berge: Weite und klare Luft, dark cinematic landscape, no text |
 | `chakren-natur-sternenhimmel` | 800×500 | Szene | Sternenhimmel: Blick in den Nachthimmel, dark cinematic landscape, no text |
 | `chakren-natur-stille-orte` | 800×500 | Szene | Stille Orte: Plätze ohne Lärm, dark cinematic landscape, no text |
+| `naehrstoffe-hero` | 2800×1300 | Szene | a translucent glowing human body in lotus position meditating in a night landscape with mountains, a lake and a starry sky, visible glowing organs (brain, lungs, heart, stomach, intestines) and a network of fine blue and red vessels, a calm dark area on the left for text, no text, no letters, no icons |
+| `naehrstoffe-koerper` | 2400×3600 | Schwarz | translucent glowing human body, front view, upper body to knees, brain, lungs, heart, liver, stomach and intestines softly glowing in pink, red and orange, a fine network of blue nerves and vessels, on a pure black background |
+| `naehrstoffe-kat-vitamin` | 600×400 | Szene | halved oranges, lemons and fresh citrus fruit with leaves, dark cinematic food photography, no text |
+| `naehrstoffe-kat-mineral` | 600×400 | Szene | blue and white raw mineral crystals, dark cinematic food photography, no text |
+| `naehrstoffe-kat-amino` | 600×400 | Szene | eggs, nuts, beans and seeds in small bowls, dark cinematic food photography, no text |
+| `naehrstoffe-kat-fett` | 600×400 | Szene | fresh salmon fillet with herbs, dark cinematic food photography, no text |
+| `naehrstoffe-kat-spur` | 600×400 | Szene | green leaves and sprouts on dark soil, dark cinematic food photography, no text |
+| `naehrstoffe-kat-enzym` | 600×400 | Szene | halved papaya and pineapple, dark cinematic food photography, no text |
+| `naehrstoffe-kat-pflanzenstoff` | 600×400 | Szene | blueberries, red grapes, purple cabbage and colourful berries, dark cinematic food photography, no text |
+| `naehrstoffe-info-wirken` | 800×450 | Szene | a glowing cell membrane with molecules, vitamins and co-factors docking, scientific illustration, blue and purple light, no text |
+| `naehrstoffe-info-quellen` | 800×450 | Szene | salmon, broccoli, blueberries, nuts and leafy greens arranged together, no text |
+| `naehrstoffe-info-einnahme` | 800×450 | Szene | capsules, a glass of water and fresh lemon on a table in warm light, no text |
+| `naehrstoffe-info-mangel` | 800×450 | Szene | a tired person sitting with glowing red points on the body, dark cinematic, no text |
+| `naehrstoff-vit-d` | 600×500 | Szene | vitamin D: a sunny morning with eggs, salmon and mushrooms, dark cinematic food photography, no text |
+| `naehrstoff-vit-b12` | 600×500 | Szene | vitamin B12: fresh meat, fish and eggs, dark cinematic food photography, no text |
+| `naehrstoff-magnesium` | 600×500 | Szene | magnesium: blueberries, dark leafy greens, nuts and seeds, dark cinematic food photography, no text |
+| `naehrstoff-zink` | 600×500 | Szene | zinc: raw stones and pumpkin seeds, cashews and cheese, dark cinematic food photography, no text |
+| `naehrstoff-omega3` | 600×500 | Szene | omega-3: fresh salmon fillets, walnuts and linseed oil, dark cinematic food photography, no text |
+| `naehrstoff-eisen` | 600×500 | Szene | iron: lentils, red meat and spinach, deep red tones, dark cinematic food photography, no text |
+| `naehrstoff-vit-c` | 600×500 | Szene | vitamin C: halved oranges, lemons, red peppers and berries, dark cinematic food photography, no text |
+| `naehrstoff-calcium` | 600×500 | Szene | calcium: white chalk-like minerals, milk, cheese and almonds, dark cinematic food photography, no text |
+| `naehrstoff-vit-b` | 600×500 | Szene | B vitamins: whole grains, legumes, eggs and leafy greens, dark cinematic food photography, no text |
+| `naehrstoff-vit-a` | 600×500 | Szene | vitamin A: carrots, sweet potatoes and liver, dark cinematic food photography, no text |
+| `naehrstoff-vit-e` | 600×500 | Szene | vitamin E: sunflower seeds, almonds and a glass of plant oil, dark cinematic food photography, no text |
+| `naehrstoff-vit-k` | 600×500 | Szene | vitamin K: kale, broccoli and spinach, dark cinematic food photography, no text |
+| `naehrstoff-kalium` | 600×500 | Szene | potassium: bananas, potatoes, beans and dried apricots, dark cinematic food photography, no text |
+| `naehrstoff-jod` | 600×500 | Szene | iodine: sea fish, seaweed and a small bowl of salt, dark cinematic food photography, no text |
+| `naehrstoff-selen` | 600×500 | Szene | selenium: brazil nuts, fish and eggs, dark cinematic food photography, no text |
+| `naehrstoff-protein` | 600×500 | Szene | protein: eggs, beans, lentils, fish and cheese, dark cinematic food photography, no text |
+| `naehrstoff-amino` | 600×500 | Szene | amino acids: abstract glowing molecular chains with eggs and legumes, dark cinematic food photography, no text |
+| `naehrstoff-omega6` | 600×500 | Szene | omega-6: sunflower seeds, safflower oil and nuts, dark cinematic food photography, no text |
+| `naehrstoff-omega9` | 600×500 | Szene | omega-9: olives, olive oil and avocado, dark cinematic food photography, no text |
+| `naehrstoff-q10` | 600×500 | Szene | coenzyme Q10: a glowing mitochondrion beside fish and nuts, dark cinematic food photography, no text |
+| `naehrstoff-enzyme` | 600×500 | Szene | digestive enzymes: fresh pineapple and papaya halves, dark cinematic food photography, no text |
+| `naehrstoff-polyphenole` | 600×500 | Szene | polyphenols: berries, red cabbage, green tea and dark cocoa, dark cinematic food photography, no text |
+| `naehrstoff-carotinoide` | 600×500 | Szene | carotenoids: tomatoes, carrots, pumpkin and peppers in orange and red, dark cinematic food photography, no text |
+| `naehrstoff-glucosinolate` | 600×500 | Szene | glucosinolates: broccoli, cabbage, radish and rocket, dark cinematic food photography, no text |
+| `naehrstoff-cholin` | 600×500 | Szene | choline: eggs, soybeans and wheat germ, dark cinematic food photography, no text |
+| `naehrstoff-ballaststoffe` | 600×500 | Szene | dietary fibre: whole grain bread, oats, legumes and seeds, dark cinematic food photography, no text |
+| `naehrstoff-probiotika` | 600×500 | Szene | probiotics: yoghurt, kefir and sauerkraut in glass jars, dark cinematic food photography, no text |
 
 ## Atlas-Einträge (ein Bild pro Eintrag)
 
@@ -658,4 +698,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 597 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 637 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

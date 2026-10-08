@@ -23,6 +23,7 @@ import "./frequency.css";
 import "./atem.css";
 import "./beschwerden.css";
 import "./chakren.css";
+import "./naehrstoffe.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
@@ -389,6 +390,8 @@ function fromAtem(next: () => void) { atemEl.hidden = true; atemView?.stop(); vi
 function fromChakren(next: () => void) { chakrenEl.hidden = true; chakrenView?.stop(); view = "hero"; next(); }
 /** leaves the complaints landing page for another view */
 function fromBeschwerden(next: () => void) { beschwerdenEl.hidden = true; beschwerdenView?.stop(); view = "hero"; next(); }
+/** leaves the nutrient landing page for another view */
+function fromNutrients(next: () => void) { nutrientsEl.hidden = true; nutrientsView?.stop(); view = "hero"; next(); }
 
 function openPlantView(id?: string, from: ProfileFrom = "plants"): boolean {
   if (!id) return false;
@@ -606,7 +609,13 @@ function openLabView(station?: StationId): boolean {
 
 function openNutrientsView(): boolean {
   nutrientsEl.hidden = false;
-  nutrientsView ??= initNutrients(nutrientsEl, { openClaim: (cid, from) => overlay.open(cid, from) });
+  nutrientsView ??= initNutrients(nutrientsEl, {
+    reduceMotion,
+    openClaim: (cid, from) => overlay.open(cid, from),
+    openProduce: () => fromNutrients(() => { go("produce"); }),
+    openBeschwerden: () => fromNutrients(() => { go("beschwerden"); }),
+    openAnatomy: () => fromNutrients(() => { go("anatomy"); }),
+  });
   fade(nutrientsEl, true);
   $("leave-nutrients").focus();
   return true;

@@ -16,17 +16,8 @@
         </svg>
         <span><small>THE</small>SOURCE CODES</span>
       </a>
-      <nav class="nav-links" aria-label="Hauptmenü">
-        <button class="nav-link" data-scroll="top">Entdecken</button>
-        <button class="nav-link" data-scroll="matrix-section">Matrix</button>
-        <button class="nav-link" data-scroll="koerper">Körper</button>
-        <button class="nav-link" data-scroll="natur">Natur</button>
-        <button class="nav-link" data-scroll="beschwerden">Beschwerden</button>
-        <button class="nav-link" data-scroll="frequenz">Frequenz</button>
-        <button class="nav-link" data-scroll="kulturen">Alte Kulturen</button>
-        <button class="nav-link" data-scroll="labor">Labor</button>
-        <button class="nav-link" id="open-manifesto-nav">Methode</button>
-      </nav>
+      <nav class="sm" aria-label="Hauptmenü" data-tabs="hero"></nav>
+      <button class="nav-link" id="open-manifesto-nav">Methode</button>
       <div class="nav-search">
         <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
         <input id="nav-search" type="search" placeholder="Im Archiv suchen …" aria-label="Im Archiv suchen" autocomplete="off" />
@@ -76,12 +67,19 @@
 
     <div id="flash" class="flash" aria-hidden="true"></div>
 
-    <section id="matrix" class="matrix" hidden aria-label="Knowledge universe">
+    <section id="wissen" class="wissen" hidden aria-label="Wissensmatrix">
+      <header class="matrix-bar bv-bar">
+        <button class="back" id="leave-wissen">← Start</button>
+        <nav class="tabs" aria-label="Ansicht" data-tabs="universe"></nav>
+      </header>
+    </section>
+
+    <section id="matrix" class="matrix" hidden aria-label="Aussagen-Karte (Galaxien)">
       <canvas id="matrix-gl"></canvas>
       <div id="matrix-labels"></div>
       <header class="matrix-bar">
         <button class="back" id="leave-matrix">← Start</button>
-        <nav class="tabs" aria-label="Ansicht" data-tabs="universe"></nav>
+        <nav class="tabs" aria-label="Ansicht" data-tabs="galaxy"></nav>
         <input id="search" class="search" type="search" placeholder="Suchen …" aria-label="Aussagen durchsuchen" />
         <button class="chip" id="universe-home">Überblick</button>
         <ul class="legend" id="legend"></ul>

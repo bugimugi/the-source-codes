@@ -1,0 +1,68 @@
+/* The one menu of the site (src/ui/siteMenu.ts): seven main points with a list of their pages; a "Menü" button on narrow screens. */
+.sm { position: relative; display: flex; align-items: center; gap: clamp(10px, 1.4vw, 22px); min-width: 0; font-family: var(--sans); }
+.nav > .sm { flex: 1; }
+.sm-bar { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: clamp(10px, 1.5vw, 26px); }
+.sm-group { position: relative; }
+
+.sm-item { all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 100%; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.84rem; color: var(--ivory); white-space: nowrap; }
+.sm-top, .sm-item.sm-top { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; width: auto; padding: 0.5rem 0; border-radius: 0; border-bottom: 1px solid transparent;
+  font-size: 0.78rem; letter-spacing: 0.03em; color: var(--ivory); opacity: 0.88; white-space: nowrap; transition: opacity 0.2s, color 0.2s, border-color 0.2s; }
+.sm-top:hover, .sm-top:focus-visible, .sm-group:hover > .sm-top, .sm-group.is-open > .sm-top { opacity: 1; color: var(--gold-hi); border-bottom-color: var(--gold); }
+.sm-group[data-current] > .sm-top { opacity: 1; color: var(--gold-hi); border-bottom-color: var(--gold-hi); }
+.sm-top:focus-visible, .sm-item:focus-visible, .sm-burger:focus-visible { outline: 1px solid var(--gold-hi); outline-offset: 3px; }
+.sm-chev { width: 9px; height: 9px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.7; transition: transform 0.2s; }
+.sm-group:hover .sm-chev, .sm-group.is-open .sm-chev { transform: rotate(180deg); }
+.sm-soon { cursor: default; opacity: 0.4; }
+.sm-group.is-soon:hover > .sm-top { color: var(--ivory); border-bottom-color: transparent; opacity: 0.4; }
+
+/* the list of pages below a main point */
+.sm-drop { list-style: none; margin: 0; padding: 8px; position: absolute; top: calc(100% + 6px); left: -14px; min-width: 230px; display: none; z-index: 30;
+  border: 1px solid var(--line); border-radius: 12px; background: rgba(5, 18, 25, 0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55); }
+.sm-drop::before { content: ""; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }
+.sm-group:hover > .sm-drop, .sm-group.is-open > .sm-drop { display: block; }
+.sm-drop .sm-item:hover, .sm-drop .sm-item:focus-visible { background: rgba(203, 170, 103, 0.14); color: var(--gold-hi); }
+.sm-drop .sm-item[aria-current="page"] { color: var(--gold-hi); background: rgba(203, 170, 103, 0.1); }
+
+/* on a page: the way to the Universum (the library) */
+.sm-cta { width: auto; flex: none; padding: 0.38rem 0.95rem; border: 1px solid var(--gold); border-radius: 99px; font-size: 0.78rem; color: var(--gold-hi); background: rgba(203, 170, 103, 0.08); transition: background 0.2s, color 0.2s; }
+.sm-cta:hover, .sm-cta:focus-visible, .sm-cta[aria-current="page"] { background: var(--gold); color: var(--bg); }
+
+/* narrow screens: one "Menü" button, the full list opens as a panel */
+.sm-burger { all: unset; box-sizing: border-box; cursor: pointer; display: none; align-items: center; gap: 8px; padding: 0.4rem 0.9rem; border: 1px solid var(--line); border-radius: 99px; font-size: 0.82rem; color: var(--ivory); background: var(--glass); }
+.sm-burger svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.sm-burger:hover { border-color: var(--gold); color: var(--gold-hi); }
+/* the bar needs room: the home bar also holds logo, search and button, a page header only the back link */
+.nav > .sm .sm-bar { gap: clamp(8px, 1.2vw, 20px); }
+.nav .nav-search { width: clamp(150px, 12vw, 240px); }
+@media (max-width: 1699px) {
+  .nav .brand span { display: none; }
+  #open-manifesto-nav { display: none; }
+}
+@media (max-width: 1359px) {
+  .nav > .sm .sm-bar { display: none; }
+  .nav > .sm .sm-burger { display: inline-flex; }
+}
+@media (max-width: 1179px) {
+  .matrix-bar .sm .sm-bar, .matrix-bar .sm .sm-cta { display: none; }
+  .matrix-bar .sm .sm-burger { display: inline-flex; }
+}
+
+.sm-panel { position: fixed; inset: 0; z-index: 90; display: flex; flex-direction: column; background: rgba(2, 7, 11, 0.98); overscroll-behavior: contain; }
+.sm-panel[hidden] { display: none; }
+.sm-panel-head { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 12px clamp(16px, 4vw, 32px); border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.sm-close { all: unset; cursor: pointer; font-size: 2rem; line-height: 1; padding: 0 0.4rem; color: var(--ivory); }
+.sm-close:hover, .sm-close:focus-visible { color: var(--gold-hi); }
+.sm-panel-body { flex: 1; overflow-y: auto; width: 100%; max-width: 720px; margin: 0 auto; padding: 20px clamp(16px, 4vw, 32px) 48px; display: grid; gap: 22px; align-content: start; }
+.sm-pquick { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.sm-pquick li { flex: none; }
+.sm-panel .sm-pbtn { width: auto; display: inline-block; padding: 0.55rem 1.1rem; border: 1px solid var(--line); border-radius: 99px; font-size: 0.9rem; }
+.sm-panel .sm-pbtn:hover, .sm-panel .sm-pbtn:focus-visible, .sm-panel .sm-pbtn[aria-current="page"] { border-color: var(--gold); color: var(--gold-hi); }
+.sm-panel .sm-method { all: unset; box-sizing: border-box; cursor: pointer; padding: 0.55rem 1.1rem; border: 1px solid var(--line); border-radius: 99px; font-size: 0.9rem; color: var(--ivory); width: fit-content; }
+.sm-pg h2 { margin: 0 0 6px; font: 0.7rem var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.sm-pg h2 span { color: var(--muted); margin-right: 0.5em; }
+.sm-pg h2 em { font-style: normal; color: var(--muted); letter-spacing: 0.08em; text-transform: none; }
+.sm-pg ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.sm-panel .sm-pg .sm-item { font-family: var(--serif-text); font-size: 1.3rem; padding: 0.5rem 0.4rem; white-space: normal; }
+.sm-panel .sm-pg .sm-item:hover, .sm-panel .sm-pg .sm-item:focus-visible { color: var(--gold-hi); background: rgba(203, 170, 103, 0.1); }
+.sm-panel .sm-pg .sm-item[aria-current="page"] { color: var(--gold-hi); }
+html.sm-open { overflow: hidden; }

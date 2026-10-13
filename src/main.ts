@@ -24,11 +24,16 @@ import "./atem.css";
 import "./beschwerden.css";
 import "./chakren.css";
 import "./naehrstoffe.css";
+import "./wissen.css";
+import "./menu.css";
 import "./depth.css";
 import gsap from "gsap";
 import { initHero, type HeroApi, type HeroPin } from "./gl/hero";
 import { initParticles } from "./gl/particles";
 import { initUniverse } from "./gl/universe";
+import { initWissen } from "./ui/wissen";
+import { initSiteMenu } from "./ui/siteMenu";
+import type { MenuItem } from "./data/menu";
 import { initProofOverlay } from "./ui/proofOverlay";
 import { initStage } from "./ui/stage";
 import { initAtlas } from "./ui/atlas";
@@ -149,9 +154,11 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "minerals" | "element" | "crystals" | "anatomy" | "freq" | "atem" | "beschwerden" | "chakren" | "plant";
+type View = "hero" | "universe" | "galaxy" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "minerals" | "element" | "crystals" | "anatomy" | "freq" | "atem" | "beschwerden" | "chakren" | "plant";
 let view: View = "hero";
-let universe: ReturnType<typeof initUniverse> | null = null;
+/** the old 3D map of all statements (galaxies), now a sub-page of the Universum */
+let galaxy: ReturnType<typeof initUniverse> | null = null;
+let wissenView: ReturnType<typeof initWissen> | null = null;
 let atlasView: ReturnType<typeof initAtlas> | null = null;
 let fxView: ReturnType<typeof initFx> | null = null;
 let fxMode: FxMode = "kymatik";
@@ -187,6 +194,7 @@ let plantFrom: ProfileFrom = "plants";
 let pendingLab: StationId | undefined;
 let pendingChakra: string | undefined;
 const matrixEl = $("matrix");
+const wissenEl = $("wissen");
 const atlasEl = $("atlas");
 const fxEl = $("fx");
 const bodyEl = $("body");
@@ -210,15 +218,11 @@ const atemEl = $("atem");
 const beschwerdenEl = $("beschwerden");
 const chakrenEl = $("chakren");
 
-// the tab bar of every full-screen view is built from one list: a new page is added here and in SCREENS below
-const VIEW_TABS: { id: View; label: string }[] = [
-  { id: "universe", label: "Universum" }, { id: "atlas", label: "Atlas" }, { id: "plants", label: "Pflanzen" }, { id: "produce", label: "Obst & Gemüse" }, { id: "trees", label: "Bäume" }, { id: "minerals", label: "Mineralien" }, { id: "crystals", label: "Kristalle" }, { id: "freq", label: "Frequenz" }, { id: "fx", label: "Kymatik" }, { id: "anatomy", label: "Körper" }, { id: "body", label: "Organe" },
-  { id: "chakren", label: "Chakren" }, { id: "chakra", label: "Chakren 3D" }, { id: "beschwerden", label: "Beschwerden" }, { id: "atem", label: "Atem" }, { id: "breath", label: "Atemübung" }, { id: "places", label: "Orte" },
-  { id: "cultures", label: "Kulturen" }, { id: "nutrients", label: "Nährstoffe" }, { id: "energy", label: "Energie" }, { id: "lab", label: "Rezepte" },
-];
-document.querySelectorAll<HTMLElement>("nav[data-tabs]").forEach((nav) => {
-  // a plant profile belongs to the "Pflanzen" or the "Obst & Gemüse" tab (the one it was opened from): marked as current in openPlantView, still a link back
-  nav.innerHTML = VIEW_TABS.map((t) => (nav.dataset.tabs === "plant" && (t.id === "plants" || t.id === "produce" || t.id === "trees") ? `<button class="tab" data-goto="${t.id}" data-from="${t.id}">${t.label}</button>` : nav.dataset.tabs === "element" && t.id === "minerals" ? `<button class="tab" data-goto="minerals" aria-current="true">${t.label}</button>` : t.id === nav.dataset.tabs ? `<button class="tab" aria-current="true">${t.label}</button>` : `<button class="tab" data-goto="${t.id}">${t.label}</button>`)).join("");
+// the one menu of the site: the same seven main points on the home page and on every page (src/data/menu.ts, src/ui/siteMenu.ts)
+const siteMenu = initSiteMenu([...document.querySelectorAll<HTMLElement>("nav[data-tabs]")], {
+  open: (item) => openFromMenu(item),
+  home: () => { if (view === "hero") scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); else go("hero"); },
+  openMethod: () => setManifesto(true),
 });
 const stageEl = $("stage");
 const nav = $("nav");
@@ -234,7 +238,7 @@ for (const level of Object.keys(LEVEL_LABEL) as EvidenceLevel[]) {
 let area: Area | null = null;
 let query = "";
 const applyFilter = () =>
-  universe?.setFilter((c) => (!area || c.area === area) && (!query || c.statement.toLowerCase().includes(query)));
+  galaxy?.setFilter((c) => (!area || c.area === area) && (!query || c.statement.toLowerCase().includes(query)));
 const usedAreas = AREA_ORDER.filter((a) => claims.some((c) => c.area === a));
 const chips = usedAreas.map((a) => {
   const b = document.createElement("button");
@@ -245,7 +249,7 @@ const chips = usedAreas.map((a) => {
     area = area === a ? null : a;
     chips.forEach((c, i) => c.setAttribute("aria-pressed", String(usedAreas[i] === area)));
     applyFilter();
-    if (area) universe?.flyToArea(area);
+    if (area) galaxy?.flyToArea(area);
   });
   $("areas").append(b);
   return b;
@@ -254,7 +258,7 @@ $<HTMLInputElement>("search").addEventListener("input", (e) => {
   query = (e.target as HTMLInputElement).value.trim().toLowerCase();
   applyFilter();
 });
-$("universe-home").addEventListener("click", () => universe?.home());
+$("universe-home").addEventListener("click", () => galaxy?.home());
 
 function fade(el: HTMLElement, show: boolean, done?: () => void) {
   if (show) {
@@ -277,14 +281,14 @@ let heroInView = true;
 const syncHero = () => (view === "hero" && heroInView ? hero.resume() : hero.pause());
 new IntersectionObserver((e) => { heroInView = e[0].isIntersecting; syncHero(); }).observe($("top"));
 
-function openUniverse(instant = false): boolean {
+function openGalaxy(instant = false): boolean {
   try {
-    universe ??= initUniverse($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), reduceMotion, (id) => {
+    galaxy ??= initUniverse($<HTMLCanvasElement>("matrix-gl"), $("matrix-labels"), reduceMotion, (id) => {
       const c = claims.find((x) => x.id === id);
       if (c) {
         // the universe sleeps while a stage is open: two WebGL scenes at once would only slow both down
-        universe?.stop();
-        stage.open(c, $("leave-matrix"), () => universe?.start());
+        galaxy?.stop();
+        stage.open(c, $("leave-matrix"), () => galaxy?.start());
       }
     });
   } catch (err) {
@@ -293,8 +297,30 @@ function openUniverse(instant = false): boolean {
     return false;
   }
   if (instant) { matrixEl.hidden = false; matrixEl.style.opacity = "1"; } else fade(matrixEl, true);
-  universe.start();
+  galaxy.start();
   $("leave-matrix").focus();
+  return true;
+}
+
+function fromWissen(next: () => void) { wissenEl.hidden = true; wissenView?.stop(); view = "hero"; next(); }
+
+/** The Universum page ("Wissensmatrix", reference image 31): code rain with five knowledge layers. */
+function openWissen(instant = false): boolean {
+  wissenEl.hidden = false;
+  wissenView ??= initWissen(wissenEl, {
+    reduceMotion,
+    openTarget: (to) => fromWissen(() => { go(to); }),
+    openOrgan: (id) => fromWissen(() => { pendingOrgan = id; go("body"); }),
+    openPlant: (id) => fromWissen(() => { pendingPlant = id; pendingPlantFrom = "plants"; go("plant"); }),
+    openAtlas: (id) => fromWissen(() => { go("atlas"); atlasView?.select(id); }),
+    openFx: (mode) => fromWissen(() => { fxMode = mode; go("fx"); }),
+    openCultures: () => fromWissen(() => { go("cultures"); }),
+    openGalaxy: () => fromWissen(() => { go("galaxy"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+  });
+  wissenView.start();
+  if (instant) wissenEl.style.opacity = "1"; else fade(wissenEl, true);
+  $("leave-wissen").focus();
   return true;
 }
 
@@ -409,7 +435,6 @@ function openPlantView(id?: string, from: ProfileFrom = "plants"): boolean {
     back: (to) => fromPlant(() => { go(to); }),
   });
   plantFrom = from;
-  plantEl.querySelectorAll<HTMLElement>(".tabs [data-from]").forEach((b) => (b.dataset.from === from ? b.setAttribute("aria-current", "true") : b.removeAttribute("aria-current")));
   plantView.show(id, from);
   fade(plantEl, true);
   $("leave-plant").focus();
@@ -681,7 +706,8 @@ function openBodyView(organ?: string): boolean {
 
 /** every full-screen view: its element and how to stop its rendering */
 const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void }> = {
-  universe: { el: matrixEl, stop: () => universe?.stop() },
+  universe: { el: wissenEl, stop: () => wissenView?.stop() },
+  galaxy: { el: matrixEl, stop: () => galaxy?.stop() },
   atlas: { el: atlasEl, stop: () => atlasView?.stop() },
   fx: { el: fxEl, stop: () => fxView?.stop() },
   body: { el: bodyEl, stop: () => {} },
@@ -709,7 +735,8 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
 function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === view) return false;
   const prev = view;
-  if (next === "universe" && !openUniverse(opts.instant)) return false;
+  if (next === "universe" && !openWissen(opts.instant)) return false;
+  if (next === "galaxy" && !openGalaxy(opts.instant)) return false;
   if (next === "atlas" && !openAtlas()) return false;
   if (next === "fx" && !openFxView()) return false;
   if (next === "body" && !openBodyView(pendingOrgan)) return false;
@@ -741,8 +768,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   pendingChakren = undefined;
   pendingPlace = undefined;
   view = next;
-  // with many tabs the bar scrolls sideways: keep the current page's tab in sight
-  if (next !== "hero") SCREENS[next].el.querySelector<HTMLElement>(".tabs [aria-current]")?.scrollIntoView({ inline: "center", block: "nearest" });
+  siteMenu.setCurrent(next, plantFrom);
   if (next !== "hero") home?.stopAudio();
   if (prev !== "hero") fade(SCREENS[prev].el, false, SCREENS[prev].stop);
   if (next === "hero") { hero.resetCamera(); setChrome(true); }
@@ -751,17 +777,38 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   return true;
 }
 
-/** Cinematic entry: the camera flies into the brain, light floods the screen, the universe opens. */
+/**
+ * A click in the menu: the page that is open closes at once and the chosen one opens. From the home page the page opens straight away;
+ * "Universum" keeps the flight into the brain.
+ */
+function openFromMenu(item: MenuItem) { switchTo(item.view ?? "atlas", item.atlas); }
+
+function switchTo(target: View, atlasCategory?: "pilz") {
+  const openTarget = () => { go(target); if (atlasCategory) atlasView?.showCategory(atlasCategory); };
+  if (view === "hero") { if (target === "universe") void enterLibrary(); else openTarget(); return; }
+  if (atlasCategory && view === "atlas") { atlasView?.showCategory(atlasCategory); return; }
+  if (view === target && !atlasCategory) return;
+  const from = view;
+  view = "hero";
+  SCREENS[from].el.hidden = true;
+  SCREENS[from].stop();
+  openTarget();
+}
+
+// links inside a page that lead to another page (`data-goto="<view>"`, e.g. "Freie Energie der Erde" on the recipes page)
+document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) => b.addEventListener("click", () => switchTo(b.dataset.goto as View)));
+
+/** Cinematic entry: the camera flies into the brain, light floods the screen, the Universum (knowledge matrix) opens. */
 async function enterLibrary() {
   if (view !== "hero") return;
   // far down the page the flight into the hero would be invisible: open the library directly
-  if (scrollY > innerHeight * 0.5) { if (go("universe")) universe?.intro(); return; }
+  if (scrollY > innerHeight * 0.5) { if (go("universe")) wissenView?.intro(); return; }
   const flash = $("flash");
   const t = gsap.to(flash, { opacity: 1, duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.8, ease: "power2.in" });
   await hero.transitionOut();
   await t;
   go("universe", { instant: true });
-  universe?.intro();
+  wissenView?.intro();
   gsap.to(flash, { opacity: 0, duration: reduceMotion ? 0 : 1.2, ease: "power2.out" });
 }
 
@@ -804,6 +851,7 @@ document.querySelectorAll<HTMLElement>("[data-scroll]").forEach((b) =>
   }),
 );
 $("leave-matrix").addEventListener("click", () => go("hero"));
+$("leave-wissen").addEventListener("click", () => go("hero"));
 $("leave-atlas").addEventListener("click", () => go("hero"));
 $("leave-fx").addEventListener("click", () => go("hero"));
 $("leave-body").addEventListener("click", () => go("hero"));
@@ -826,18 +874,6 @@ $("leave-freq").addEventListener("click", () => go("hero"));
 $("leave-atem").addEventListener("click", () => go("hero"));
 $("leave-beschwerden").addEventListener("click", () => go("hero"));
 $("leave-chakren").addEventListener("click", () => go("hero"));
-document.querySelectorAll<HTMLElement>("[data-goto]").forEach((b) =>
-  b.addEventListener("click", () => {
-    const target = b.dataset.goto as View;
-    if (view === "hero" || view === target) return;
-    // switch straight from one full-screen view to another: close the current one at once, then open the target
-    const from = view;
-    view = "hero";
-    SCREENS[from].el.hidden = true;
-    SCREENS[from].stop();
-    go(target);
-  }),
-);
 
 // ---------------------------------------------------------------- knowledge search
 initSearch($<HTMLInputElement>("nav-search"), $("search-results"), (it) => {

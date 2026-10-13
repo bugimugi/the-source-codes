@@ -18,6 +18,7 @@ import { validateNaehrstoffePage } from "../src/data/validateNaehrstoffe.ts";
 import { validateBeschwerdenPage } from "../src/data/validateBeschwerden.ts";
 import { validateWissenPage } from "../src/data/validateWissen.ts";
 import { validateMenu } from "../src/data/validateMenu.ts";
+import { validateHero } from "../src/data/validateHero.ts";
 import { BODY_ORGANS } from "../src/data/body.ts";
 import { DOSSIERS } from "../src/data/cultures.ts";
 import type { AtlasEntry, Claim } from "../src/data/types.ts";
@@ -54,7 +55,8 @@ const c11 = validateChakrenPage(new Set(claims.filter((c) => c.status === "publi
 const c12 = validateNaehrstoffePage((n) => !!slotDef(n));
 const c13 = validateWissenPage(new Set(atlasEntries.filter((e) => e.status === "published").map((e) => e.id)), new Set(BODY_ORGANS.map((o) => o.id)), new Set(DOSSIERS.map((d) => d.id)), (n) => !!slotDef(n));
 const c14 = validateMenu();
-const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6, ...c7, ...c8, ...c9, ...c10, ...c11, ...c12, ...c13, ...c14];
+const c15 = validateHero((n) => !!slotDef(n));
+const errors = [...c1.errors, ...c2.errors, ...c3.errors, ...c4, ...c5, ...c6, ...c7, ...c8, ...c9, ...c10, ...c11, ...c12, ...c13, ...c14, ...c15];
 const warnings = [...c1.warnings, ...c2.warnings, ...c3.warnings];
 const verbose = process.argv.includes("--report");
 if (verbose && warnings.length) console.log(`Hinweise:\n${warnings.map((w) => "  - " + w).join("\n")}\n`);

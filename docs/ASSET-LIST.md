@@ -25,6 +25,18 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `hero-lotus` | 1600×1600 | Schwarz | cluster of glowing luminous lotus and tropical flowers in pink and amber, on a pure black background |
 | `hero-bokeh` | 3840×2160 | Schwarz | floating golden dust particles and soft bokeh lights, sparse, dark, on a pure black background |
 | `hero-mobile` | 1080×1920 | Szene | portrait version: same figure and world, figure in the upper half, dark calm area in the lower half for text |
+| `hero-bg-1` | 1672×941 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-2` | 1916×821 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-3` | 1672×941 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-4` | 1916×821 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-5` | 1916×821 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-6` | 1672×941 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-7` | 1672×941 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-8` | 1915×821 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-9` | 1916×821 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-10` | 1672×941 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-11` | 1672×940 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
+| `hero-bg-12` | 1916×821 | Szene | wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline |
 
 ## Priorität 2 – Wissensmatrix-Kacheln
 
@@ -698,4 +710,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 637 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 649 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

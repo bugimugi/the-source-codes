@@ -20,6 +20,7 @@ export interface SlotDef {
 
 const d = (page: string, prio: number, bg: SlotDef["bg"], w: number, h: number, prompt: string, mobile?: string): SlotDef => ({ w, h, bg, mobile, prio, page, prompt });
 const HOME = "Startseite";
+const HERO_BG = "wide cinematic hero background candidate for the home page (changes every few seconds), no text, no interface elements, calm darker area on the left for the headline";
 const CULT = "Alte Kulturen";
 const ENERGY = "Freie Energie";
 const PLANTS = "Pflanzenatlas";
@@ -43,6 +44,19 @@ export const SLOTS = {
   "hero-lotus": d(HOME, 1, "black", 1600, 1600, "cluster of glowing luminous lotus and tropical flowers in pink and amber, on a pure black background"),
   "hero-bokeh": d(HOME, 1, "black", 3840, 2160, "floating golden dust particles and soft bokeh lights, sparse, dark, on a pure black background"),
   "hero-mobile": d(HOME, 1, "scene", 1080, 1920, "portrait version: same figure and world, figure in the upper half, dark calm area in the lower half for text"),
+  // hero background candidates (rotating, src/ui/heroBackground.ts): wide scenes made by the user, prompt not stored
+  "hero-bg-1": d(HOME, 1, "scene", 1672, 941, HERO_BG),
+  "hero-bg-2": d(HOME, 1, "scene", 1916, 821, HERO_BG),
+  "hero-bg-3": d(HOME, 1, "scene", 1672, 941, HERO_BG),
+  "hero-bg-4": d(HOME, 1, "scene", 1916, 821, HERO_BG),
+  "hero-bg-5": d(HOME, 1, "scene", 1916, 821, HERO_BG),
+  "hero-bg-6": d(HOME, 1, "scene", 1672, 941, HERO_BG),
+  "hero-bg-7": d(HOME, 1, "scene", 1672, 941, HERO_BG),
+  "hero-bg-8": d(HOME, 1, "scene", 1915, 821, HERO_BG),
+  "hero-bg-9": d(HOME, 1, "scene", 1916, 821, HERO_BG),
+  "hero-bg-10": d(HOME, 1, "scene", 1672, 941, HERO_BG),
+  "hero-bg-11": d(HOME, 1, "scene", 1672, 940, HERO_BG),
+  "hero-bg-12": d(HOME, 1, "scene", 1916, 821, HERO_BG),
 
   // ---- Startseite: knowledge matrix tiles (priority 2), portrait tiles
   "tile-pflanzen": d(HOME, 2, "scene", 1000, 1200, "lush green medicinal plant with large leaves and small flowers, glowing, dark background"),

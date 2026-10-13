@@ -33,6 +33,7 @@ import { initParticles } from "./gl/particles";
 import { initUniverse } from "./gl/universe";
 import { initWissen } from "./ui/wissen";
 import { initSiteMenu } from "./ui/siteMenu";
+import { initHeroBackground } from "./ui/heroBackground";
 import type { MenuItem } from "./data/menu";
 import { initProofOverlay } from "./ui/proofOverlay";
 import { initStage } from "./ui/stage";
@@ -278,7 +279,13 @@ addEventListener("scroll", () => nav.classList.toggle("solid", scrollY > 40), { 
 
 // the hero scene only renders while it is on screen and the home page is the active view
 let heroInView = true;
-const syncHero = () => (view === "hero" && heroInView ? hero.resume() : hero.pause());
+// the changing hero background (src/ui/heroBackground.ts) runs only while the hero is the page on screen
+const heroBg = initHeroBackground($("top"), { reduceMotion });
+const syncHero = () => {
+  const on = view === "hero" && heroInView;
+  heroBg?.setActive(on);
+  if (on) hero.resume(); else hero.pause();
+};
 new IntersectionObserver((e) => { heroInView = e[0].isIntersecting; syncHero(); }).observe($("top"));
 
 function openGalaxy(instant = false): boolean {
@@ -894,3 +901,6 @@ function playIntro() {
   tl.play();
 }
 try { playIntro(); } catch (err) { html.classList.remove("intro"); console.warn(err); }
+
+// Entwicklungs-Hilfe: Hero-Testbilder durchblättern (nur `npm run dev` und nur mit ?herotest in der Adresse, siehe src/dev/heroTest.ts)
+if (import.meta.env.DEV && new URLSearchParams(location.search).has("herotest")) void import("./dev/heroTest");

@@ -16,3 +16,6 @@ design/assets-raw/*
 # Landing-page previews may also be kept in public/references on the local machine: never commit them.
 # (source-codes-master.png was committed early on and stays tracked; new files are ignored.)
 public/references/*
+
+# Hero image trials (30 MB of originals): local only; the optimised copies are public/assets/hero-bg-*
+public-hero-tests/

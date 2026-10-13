@@ -2,6 +2,12 @@ import { HERO_BACKGROUND } from "../data/hero";
 import { hasAsset, mountSlots, slotHtml } from "../assets/slots";
 
 /**
+ * True when the changing background will be shown (switched on and at least one picture exists). Then the hero gets no pins: they sat on
+ * the old figures and mean nothing on the new pictures (the hint about them is hidden by CSS). With `enabled: false` they come back.
+ */
+export const heroBackgroundWanted = (): boolean => HERO_BACKGROUND.enabled && HERO_BACKGROUND.slots.some((n) => hasAsset(n));
+
+/**
  * The changing background of the hero (settings in src/data/hero.ts): two stacked layers that fade into each other. The next picture is
  * always loaded behind the visible one, so the change never waits. It stands still (first picture only) with reduced motion, and it
  * pauses while the hero is not on screen or the tab is in the background. It sits inside `.hero-layers` (as the top layer), so the

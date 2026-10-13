@@ -220,6 +220,7 @@ html { scroll-padding-top: 84px; }
 /* changing hero background (src/ui/heroBackground.ts, settings in src/data/hero.ts): the top layer inside .hero-layers; the old layers stay underneath
    (pins, parallax and the fly-in use them) but are not shown */
 .hero-bg-on .hero-layers > .hl { visibility: hidden; }
+.hero-bg-on .hero .hint { display: none; } /* it points at the golden pins, which are not shown with the changing background */
 .hero-bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
 .hero-bg-layer { position: absolute; inset: 0; opacity: 0; transition: opacity var(--hero-fade, 1.8s) ease-in-out; }
 .hero-bg-layer.on { opacity: 1; }

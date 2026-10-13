@@ -33,7 +33,7 @@ import { initParticles } from "./gl/particles";
 import { initUniverse } from "./gl/universe";
 import { initWissen } from "./ui/wissen";
 import { initSiteMenu } from "./ui/siteMenu";
-import { initHeroBackground } from "./ui/heroBackground";
+import { heroBackgroundWanted, initHeroBackground } from "./ui/heroBackground";
 import type { MenuItem } from "./data/menu";
 import { initProofOverlay } from "./ui/proofOverlay";
 import { initStage } from "./ui/stage";
@@ -96,7 +96,8 @@ try {
     const p = initParticles($<HTMLCanvasElement>("gl"), reduceMotion);
     hero = { ...noHero, pause: p.pause, resume: p.resume, buildIntro: () => gsap.timeline({ paused: true }).add(() => p.assemble(), 0) };
   } else {
-    hero = initHero($<HTMLCanvasElement>("gl"), $("pins"), PINS, reduceMotion);
+    // with the changing background (src/ui/heroBackground.ts) there are no pins: they sat on the old figures
+    hero = initHero($<HTMLCanvasElement>("gl"), $("pins"), heroBackgroundWanted() ? [] : PINS, reduceMotion);
   }
 } catch (err) {
   // WebGL can be unavailable (disabled hardware acceleration, old GPU): the page must still work without it.

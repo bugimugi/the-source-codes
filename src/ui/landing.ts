@@ -12,8 +12,8 @@ export function ph(slot: string, cls: string, icon: string, tint: string): strin
 }
 
 /** the card picture of an atlas entry: its own image, else the glowing nutrient motif, else the glyph placeholder */
-export function itemImage(e: AtlasEntry, cls = "pl-card-img"): string {
+export function itemImage(e: AtlasEntry, cls = "pl-card-img", glyph = "✿"): string {
   const own = `atlas-${e.id}`, nut = `nutrient-${e.id}`;
   const name = hasAsset(own) ? own : hasAsset(nut) ? nut : own;
-  return `<div class="${cls}${hasAsset(name) ? "" : " atlas-fallback"}" data-slot="${name}" data-fit="cover" data-sizes="(max-width: 700px) 40vw, 12vw" style="--tint:${e.model.color}" data-glyph="✿"></div>`;
+  return `<div class="${cls}${hasAsset(name) ? "" : " atlas-fallback"}" data-slot="${name}" data-fit="cover" data-sizes="(max-width: 700px) 40vw, 12vw" style="--tint:${e.model.color}" data-glyph="${glyph}"></div>`;
 }

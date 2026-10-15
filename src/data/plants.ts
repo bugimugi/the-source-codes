@@ -24,6 +24,8 @@ export const ORIGIN: Record<string, Region[]> = {
   brennnessel: ["europa"], ringelblume: ["europa"], weide: ["europa"], apfel: ["asien"], granatapfel: ["asien"], karotte: ["asien"], tomate: ["suedamerika"], walnuss: ["asien"],
   eiche: ["europa"], ahorn: ["europa"], olivenbaum: ["europa", "afrika", "asien"], buche: ["europa"], zeder: ["asien"], mammutbaum: ["nordamerika"], baobab: ["afrika"], ginkgo: ["asien"], kiefer: ["europa", "asien"],
   avocado: ["nordamerika"], brokkoli: ["europa"], spinat: ["asien"], knoblauch: ["asien"], heidelbeere: ["europa"], zitrone: ["asien"], kirsche: ["europa"], linsen: ["asien"], kuerbis: ["nordamerika"],
+  // Pilze: nur dort eingetragen, wo der Atlas-Eintrag die Region nennt (Fakt „Vorkommen“ oder Kurztext)
+  chaga: ["europa", "asien", "nordamerika"], kordyzeps: ["asien"], shiitake: ["asien"], igelstachelbart: ["europa"], steinpilz: ["europa"],
 };
 
 export interface PlantGroup {

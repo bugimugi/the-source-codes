@@ -283,6 +283,47 @@ Die Landingpage-Vorschauen (`public/references`, lokal) sind nur Layout-Vorlagen
 | `baum-holz` | 800×450 | Szene | a stack of cut logs and timber boards in warm light, dark background |
 | `baum-kultur` | 800×450 | Szene | stone temples and statues among ancient trees, a figure meditating, mystical light |
 | `baum-forschung` | 800×450 | Szene | a green seedling growing in front of a research laboratory with glassware, warm light |
+| `pilz-hero` | 2800×1300 | Szene | an enchanted forest floor at golden hour with a huge red fly-agaric-like mushroom with white spots on the right, glowing golden and violet mycelium threads in the soil, smaller mushrooms and moss, sunbeams, empty darker area on the left for the headline |
+| `pilz-skizze` | 500×600 | Szene | old parchment with fine ink sketches of several mushroom species with long stems and caps, sepia, no text |
+| `pilz-cat-heil` | 800×960 | Szene | glossy red-brown reishi bracket fungus growing on a log, dark background |
+| `pilz-cat-speise` | 800×960 | Szene | porcini and chanterelle mushrooms on moss in a forest, dark background |
+| `pilz-cat-vital` | 800×960 | Szene | a white lion's mane mushroom with long soft spines, dark background |
+| `pilz-cat-psycho` | 800×960 | Szene | a stylised violet glowing mushroom in a night forest, abstract, no text |
+| `pilz-cat-holz` | 800×960 | Szene | brown shelf fungi on a decaying tree trunk, forest light, dark background |
+| `pilz-cat-boden` | 800×960 | Szene | golden glowing mycelium threads in dark forest soil connecting tree roots |
+| `pilz-cat-schimmel` | 800×960 | Szene | green blue mould colonies on a laboratory petri dish, macro, dark background |
+| `pilz-cat-selten` | 800×960 | Szene | a rare purple coral-like mushroom in a mossy forest, dark background |
+| `pilz-cat-leucht` | 800×960 | Szene | bioluminescent blue-green glowing mushrooms in a dark forest at night |
+| `pilz-netz` | 1800×840 | Szene | cross-section of a forest: huge old trees above the ground, below ground glowing golden, violet and blue mycelium network connecting all the roots, small mushrooms on the ground, magical but natural, no text |
+| `pilz-zyklus` | 900×900 | Szene | a single red mushroom with white spots in the centre with soft golden light and tiny spores floating around it, dark forest background, empty space around |
+| `pilz-geo-spirale` | 600×800 | Szene | a golden spiral pattern made of glowing mushroom gills, dark background |
+| `pilz-geo-fraktal` | 600×800 | Szene | fractal branching of golden mycelium threads on a dark background, glowing |
+| `pilz-geo-frequenz` | 600×800 | Szene | a violet glowing sound wave over a dark background with faint mushroom silhouettes, no text |
+| `pilz-geo-geometrie` | 600×800 | Szene | a golden flower-of-life sacred geometry pattern over a dark mushroom cap, glowing |
+| `pilz-koerper` | 800×1200 | Schwarz | a translucent human body in blue light with the intestines and brain softly glowing in gold, full figure, pure black background, no text |
+| `pilz-stoff-beta` | 400×400 | Szene | a glowing molecular chain model of beta-glucan in gold on a dark background, scientific illustration |
+| `pilz-stoff-tri` | 400×400 | Szene | an amber glowing triterpene molecule model on a dark background, scientific illustration |
+| `pilz-stoff-poly` | 400×400 | Szene | orange glowing polysaccharide spheres chained together on a dark background, scientific illustration |
+| `pilz-stoff-ergo` | 400×400 | Szene | a blue glowing molecule network of ergothioneine on a dark background, scientific illustration |
+| `pilz-stoff-terp` | 400×400 | Szene | amber glowing terpene molecules with golden light on a dark background, scientific illustration |
+| `pilz-map` | 2400×1100 | Szene | a dark stylised world map in teal and gold with glowing mushroom symbols on every continent and fine connecting lines, calm and dark |
+| `pilz-kultur-volk` | 600×800 | Szene | a Siberian birch forest landscape at dusk with a distant tent, painterly, warm light, no people |
+| `pilz-kultur-medizin` | 600×800 | Szene | an old herbal book and dried reishi mushrooms on a wooden table, Chinese pharmacy, warm light, painterly |
+| `pilz-kultur-symbol` | 600×800 | Szene | a fairy-tale illustration with a red fly agaric mushroom house in a forest, warm light, painterly |
+| `pilz-kultur-forschung` | 600×800 | Szene | a microscope and a petri dish with mushroom mycelium in a laboratory, warm light |
+| `pilz-oeko-zersetzung` | 400×400 | Szene | mushrooms decomposing a fallen log, forest floor, soft light |
+| `pilz-oeko-boden` | 400×400 | Szene | rich dark forest soil with white mycelium threads, macro |
+| `pilz-oeko-wachstum` | 400×400 | Szene | a seedling with fine roots wrapped by glowing mycelium, macro, dark background |
+| `pilz-oeko-klima` | 400×400 | Szene | a misty forest with golden mycelium below the ground, calm light |
+| `pilz-oeko-bio` | 400×400 | Szene | a forest floor full of life: mushrooms, snail, beetle, moss, soft light, macro |
+| `pilz-anw-kueche` | 600×450 | Szene | a pan of sliced mushrooms with herbs on a rustic wooden table, warm kitchen light |
+| `pilz-anw-medizin` | 600×450 | Szene | dried reishi slices in a small bowl next to a mortar, warm light, apothecary |
+| `pilz-anw-extrakt` | 600×450 | Szene | small amber glass bottles and a bowl of mushroom powder on dark wood, warm light |
+| `pilz-anw-ideen` | 600×450 | Szene | a block of mycelium packaging material and a small mushroom lamp on a table, design photo |
+| `pilz-forsch-medizin` | 600×450 | Szene | a researcher in a laboratory looking at a glowing blue cell culture, warm light |
+| `pilz-forsch-neuro` | 600×450 | Szene | a glowing blue neural network inside a translucent head with a small mushroom, dark background |
+| `pilz-forsch-biotech` | 600×450 | Szene | a glowing fermenter tank with mycelium in a biotechnology lab, blue light |
+| `pilz-forsch-nachhaltig` | 600×450 | Szene | a seedling growing from mushroom mycelium compost, green and gold light |
 | `mineral-hero` | 2800×1300 | Szene | the Earth as a glowing planet in the centre right surrounded by floating raw crystals and mineral rocks in purple, gold, blue and white, a mountain waterfall landscape at the lower right, a dark calm area on the left for text, soft golden light and sparkles, no text, no letters, no symbols |
 | `element-h` | 600×720 | Szene | a clear crystal with a tiny bubble of hydrogen gas, icy blue glow, centred on a dark background, glowing, no text |
 | `element-c` | 600×720 | Szene | a diamond and a lump of graphite side by side, white and black, centred on a dark background, glowing, no text |
@@ -710,4 +751,4 @@ Name `atlas-<id>`, 1000×1000, Typ Schwarz. Prompt-Kern: one botanical or minera
 | `atlas-zeder` | Libanonzeder (Cedrus libani) |
 | `atlas-zitrone` | Zitrone (Citrus × limon) |
 
-Insgesamt 649 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.
+Insgesamt 690 Bilder. Starte mit Priorität 1 und prüfe zuerst **ein** Bild auf den Stil, bevor du den Rest erzeugst. Claude erzeugt keine Bilder.

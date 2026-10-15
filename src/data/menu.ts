@@ -8,7 +8,7 @@
  */
 export type MenuView =
   | "anatomy" | "body" | "beschwerden"
-  | "plants" | "produce" | "trees" | "minerals" | "crystals" | "nutrients" | "atlas"
+  | "plants" | "produce" | "trees" | "mushrooms" | "minerals" | "crystals" | "nutrients" | "atlas"
   | "freq" | "chakren" | "atem" | "cultures" | "places" | "lab" | "breath" | "energy" | "universe";
 
 export interface MenuItem {
@@ -46,7 +46,7 @@ export const MENU: MenuGroup[] = [
       { id: "plants", label: "Pflanzen", view: "plants", also: ["plant:plants"] },
       { id: "trees", label: "Bäume", view: "trees", also: ["plant:trees"] },
       { id: "produce", label: "Obst & Gemüse", view: "produce", also: ["plant:produce"] },
-      { id: "pilze", label: "Pilze", atlas: "pilz" },
+      { id: "pilze", label: "Pilze", view: "mushrooms", also: ["plant:mushrooms"] },
       { id: "minerals", label: "Mineralien", view: "minerals", also: ["element"] },
       { id: "crystals", label: "Kristalle", view: "crystals" },
       { id: "nutrients", label: "Nährstoffe", view: "nutrients" },

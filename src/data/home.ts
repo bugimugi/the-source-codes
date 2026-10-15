@@ -15,6 +15,7 @@ export type TileAction =
   | { type: "plants" }
   | { type: "produce" }
   | { type: "trees" }
+  | { type: "mushrooms" }
   | { type: "minerals" }
   | { type: "crystals" }
   | { type: "anatomy" }
@@ -30,7 +31,7 @@ export const TILES: Tile[] = [
   { title: "Pflanzen", sub: "Heilpflanzen & Wildkräuter", slot: "tile-pflanzen", action: { type: "plants" } },
   { title: "Bäume", sub: "Arten & Eigenschaften", slot: "tile-baeume", action: { type: "trees" } },
   { title: "Gemüse & Obst", sub: "Nährstoffe & Inhaltsstoffe", slot: "tile-gemuese-obst", action: { type: "produce" } },
-  { title: "Pilze & Mykologie", sub: "Arten & Inhaltsstoffe", slot: "tile-pilze", action: { type: "atlas", category: "pilz" } },
+  { title: "Pilze & Mykologie", sub: "Arten & Inhaltsstoffe", slot: "tile-pilze", action: { type: "mushrooms" } },
   { title: "Mineralien", sub: "Elemente & Spurenelemente", slot: "tile-mineralien", action: { type: "minerals" } },
   { title: "Kristalle & Heilsteine", sub: "Eigenschaften & Überlieferung", slot: "tile-kristalle", action: { type: "crystals" } },
   { title: "Menschlicher Körper", sub: "Organe & Systeme", slot: "tile-koerper", action: { type: "anatomy" } },

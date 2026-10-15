@@ -1,0 +1,23 @@
+{
+  "id": "pilz-muster",
+  "short": "Pilze – Muster und Geometrie",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Das Myzel der Pilze verzweigt sich netzartig und näherungsweise selbstähnlich (fraktal); Pilze zeigen Spiral- und Symmetriemuster, die als „harmonisch“ oder „heilige Geometrie“ gedeutet werden.",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Gesichert ist: Pilzfäden (Hyphen) verzweigen sich zu einem Geflecht, und Verzweigungsmuster lassen sich mit mathematischen Fraktalmodellen beschreiben; echte Pilzgeflechte sind keine exakten Fraktale. Hutpilze sind meist radialsymmetrisch gebaut. Dass diese Muster eine besondere „Harmonie“ oder Energie ausdrücken, ist eine Deutung der Überlieferung und nicht gemessen. Source pending verification.",
+  "sources": [
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": ["baum-fraktale"],
+  "review": {
+    "state": "pending"
+  }
+}

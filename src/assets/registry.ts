@@ -24,6 +24,7 @@ const HERO_BG = "wide cinematic hero background candidate for the home page (cha
 const CULT = "Alte Kulturen";
 const ENERGY = "Freie Energie";
 const PLANTS = "Pflanzenatlas";
+const PILZ = "Pilz Atlas";
 const PROFILE = "Pflanzenprofil";
 const MINERALS = "Mineralatlas";
 const ELEMENT = "Elementprofil Wasserstoff";
@@ -284,6 +285,49 @@ export const SLOTS = {
   "baum-holz": d(PLANTS, 8, "scene", 800, 450, "a stack of cut logs and timber boards in warm light, dark background"),
   "baum-kultur": d(PLANTS, 8, "scene", 800, 450, "stone temples and statues among ancient trees, a figure meditating, mystical light"),
   "baum-forschung": d(PLANTS, 8, "scene", 800, 450, "a green seedling growing in front of a research laboratory with glassware, warm light"),
+
+  // ---- Pilz Atlas (priority 8)
+  "pilz-hero": d(PILZ, 8, "scene", 2800, 1300, "an enchanted forest floor at golden hour with a huge red fly-agaric-like mushroom with white spots on the right, glowing golden and violet mycelium threads in the soil, smaller mushrooms and moss, sunbeams, empty darker area on the left for the headline"),
+  "pilz-skizze": d(PILZ, 8, "scene", 500, 600, "old parchment with fine ink sketches of several mushroom species with long stems and caps, sepia, no text"),
+  "pilz-cat-heil": d(PILZ, 8, "scene", 800, 960, "glossy red-brown reishi bracket fungus growing on a log, dark background"),
+  "pilz-cat-speise": d(PILZ, 8, "scene", 800, 960, "porcini and chanterelle mushrooms on moss in a forest, dark background"),
+  "pilz-cat-vital": d(PILZ, 8, "scene", 800, 960, "a white lion's mane mushroom with long soft spines, dark background"),
+  "pilz-cat-psycho": d(PILZ, 8, "scene", 800, 960, "a stylised violet glowing mushroom in a night forest, abstract, no text"),
+  "pilz-cat-holz": d(PILZ, 8, "scene", 800, 960, "brown shelf fungi on a decaying tree trunk, forest light, dark background"),
+  "pilz-cat-boden": d(PILZ, 8, "scene", 800, 960, "golden glowing mycelium threads in dark forest soil connecting tree roots"),
+  "pilz-cat-schimmel": d(PILZ, 8, "scene", 800, 960, "green blue mould colonies on a laboratory petri dish, macro, dark background"),
+  "pilz-cat-selten": d(PILZ, 8, "scene", 800, 960, "a rare purple coral-like mushroom in a mossy forest, dark background"),
+  "pilz-cat-leucht": d(PILZ, 8, "scene", 800, 960, "bioluminescent blue-green glowing mushrooms in a dark forest at night"),
+  "pilz-netz": d(PILZ, 8, "scene", 1800, 840, "cross-section of a forest: huge old trees above the ground, below ground glowing golden, violet and blue mycelium network connecting all the roots, small mushrooms on the ground, magical but natural, no text"),
+  "pilz-zyklus": d(PILZ, 8, "scene", 900, 900, "a single red mushroom with white spots in the centre with soft golden light and tiny spores floating around it, dark forest background, empty space around"),
+  "pilz-geo-spirale": d(PILZ, 8, "scene", 600, 800, "a golden spiral pattern made of glowing mushroom gills, dark background"),
+  "pilz-geo-fraktal": d(PILZ, 8, "scene", 600, 800, "fractal branching of golden mycelium threads on a dark background, glowing"),
+  "pilz-geo-frequenz": d(PILZ, 8, "scene", 600, 800, "a violet glowing sound wave over a dark background with faint mushroom silhouettes, no text"),
+  "pilz-geo-geometrie": d(PILZ, 8, "scene", 600, 800, "a golden flower-of-life sacred geometry pattern over a dark mushroom cap, glowing"),
+  "pilz-koerper": d(PILZ, 8, "black", 800, 1200, "a translucent human body in blue light with the intestines and brain softly glowing in gold, full figure, pure black background, no text"),
+  "pilz-stoff-beta": d(PILZ, 8, "scene", 400, 400, "a glowing molecular chain model of beta-glucan in gold on a dark background, scientific illustration"),
+  "pilz-stoff-tri": d(PILZ, 8, "scene", 400, 400, "an amber glowing triterpene molecule model on a dark background, scientific illustration"),
+  "pilz-stoff-poly": d(PILZ, 8, "scene", 400, 400, "orange glowing polysaccharide spheres chained together on a dark background, scientific illustration"),
+  "pilz-stoff-ergo": d(PILZ, 8, "scene", 400, 400, "a blue glowing molecule network of ergothioneine on a dark background, scientific illustration"),
+  "pilz-stoff-terp": d(PILZ, 8, "scene", 400, 400, "amber glowing terpene molecules with golden light on a dark background, scientific illustration"),
+  "pilz-map": d(PILZ, 8, "scene", 2400, 1100, "a dark stylised world map in teal and gold with glowing mushroom symbols on every continent and fine connecting lines, calm and dark"),
+  "pilz-kultur-volk": d(PILZ, 8, "scene", 600, 800, "a Siberian birch forest landscape at dusk with a distant tent, painterly, warm light, no people"),
+  "pilz-kultur-medizin": d(PILZ, 8, "scene", 600, 800, "an old herbal book and dried reishi mushrooms on a wooden table, Chinese pharmacy, warm light, painterly"),
+  "pilz-kultur-symbol": d(PILZ, 8, "scene", 600, 800, "a fairy-tale illustration with a red fly agaric mushroom house in a forest, warm light, painterly"),
+  "pilz-kultur-forschung": d(PILZ, 8, "scene", 600, 800, "a microscope and a petri dish with mushroom mycelium in a laboratory, warm light"),
+  "pilz-oeko-zersetzung": d(PILZ, 8, "scene", 400, 400, "mushrooms decomposing a fallen log, forest floor, soft light"),
+  "pilz-oeko-boden": d(PILZ, 8, "scene", 400, 400, "rich dark forest soil with white mycelium threads, macro"),
+  "pilz-oeko-wachstum": d(PILZ, 8, "scene", 400, 400, "a seedling with fine roots wrapped by glowing mycelium, macro, dark background"),
+  "pilz-oeko-klima": d(PILZ, 8, "scene", 400, 400, "a misty forest with golden mycelium below the ground, calm light"),
+  "pilz-oeko-bio": d(PILZ, 8, "scene", 400, 400, "a forest floor full of life: mushrooms, snail, beetle, moss, soft light, macro"),
+  "pilz-anw-kueche": d(PILZ, 8, "scene", 600, 450, "a pan of sliced mushrooms with herbs on a rustic wooden table, warm kitchen light"),
+  "pilz-anw-medizin": d(PILZ, 8, "scene", 600, 450, "dried reishi slices in a small bowl next to a mortar, warm light, apothecary"),
+  "pilz-anw-extrakt": d(PILZ, 8, "scene", 600, 450, "small amber glass bottles and a bowl of mushroom powder on dark wood, warm light"),
+  "pilz-anw-ideen": d(PILZ, 8, "scene", 600, 450, "a block of mycelium packaging material and a small mushroom lamp on a table, design photo"),
+  "pilz-forsch-medizin": d(PILZ, 8, "scene", 600, 450, "a researcher in a laboratory looking at a glowing blue cell culture, warm light"),
+  "pilz-forsch-neuro": d(PILZ, 8, "scene", 600, 450, "a glowing blue neural network inside a translucent head with a small mushroom, dark background"),
+  "pilz-forsch-biotech": d(PILZ, 8, "scene", 600, 450, "a glowing fermenter tank with mycelium in a biotechnology lab, blue light"),
+  "pilz-forsch-nachhaltig": d(PILZ, 8, "scene", 600, 450, "a seedling growing from mushroom mycelium compost, green and gold light"),
 
   // ---- Mineralatlas (priority 8)
   "mineral-hero": d(MINERALS, 8, "scene", 2800, 1300, "the Earth as a glowing planet in the centre right surrounded by floating raw crystals and mineral rocks in purple, gold, blue and white, a mountain waterfall landscape at the lower right, a dark calm area on the left for text, soft golden light and sparkles, no text, no letters, no symbols"),

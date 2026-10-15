@@ -398,3 +398,68 @@ export function waveSvg(): string {
   const pts = Array.from({ length: 161 }, (_, i) => { const x = i * 2.5, t = i / 160, env = Math.sin(Math.PI * t) ** 1.2; return `${x.toFixed(1)},${(40 - Math.sin(t * Math.PI * 14) * 34 * env).toFixed(1)}`; }).join(" ");
   return `<svg class="mn-wave-svg" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="#c07bff" stroke-width="1.8" stroke-linejoin="round"/><polyline points="${pts}" fill="none" stroke="#c07bff" stroke-width="5" opacity=".25" stroke-linejoin="round"/></svg>`;
 }
+
+// ---------------------------------------------------------------- Pilz Atlas drawings (src/ui/mushrooms.ts); placeholders until the pictures exist
+
+/**
+ * "Das unsichtbare Königreich" (800 x 520): trees above the ground, their roots and a glowing fungal network below, a rotting log and
+ * a few fruiting bodies. The hotspots of the page sit at the glowing nodes (see NETWORK in src/data/mushrooms.ts).
+ */
+export function myceliumSvg(uid: string): string {
+  const trees = [[216, 150, 54], [470, 164, 48], [650, 156, 44]].map(([x, y, r], i) =>
+    `<path d="M${x - 9} 210 C${x - 7} 190 ${x - 6} 170 ${x - 5} ${y + 20} L${x + 5} ${y + 20} C${x + 6} 170 ${x + 7} 190 ${x + 9} 210Z" fill="#5b4028"/><circle cx="${x}" cy="${y}" r="${r}" fill="url(#${uid}-c${i % 2})"/><circle cx="${x - r * 0.55}" cy="${y + r * 0.35}" r="${r * 0.66}" fill="url(#${uid}-c${(i + 1) % 2})"/><circle cx="${x + r * 0.58}" cy="${y + r * 0.3}" r="${r * 0.62}" fill="url(#${uid}-c${i % 2})"/>`).join("");
+  const roots = ["M216 210 C206 250 180 290 150 330", "M216 210 C226 252 260 280 320 270", "M216 210 C216 260 214 310 212 360", "M470 210 C462 250 440 280 410 300", "M470 210 C480 250 500 276 480 290", "M470 210 C492 256 540 280 592 343", "M650 210 C640 250 620 290 592 343", "M650 210 C664 256 690 290 720 320"]
+    .map((d) => `<path d="${d}" fill="none" stroke="#9a7440" stroke-width="3.2" stroke-linecap="round" opacity=".9"/>`).join("");
+  const net = ["M320 270 C380 300 430 290 480 281", "M480 281 C520 300 560 320 592 343", "M320 270 C290 320 250 350 208 374", "M208 374 C270 420 350 450 416 447", "M416 447 C480 440 540 400 592 343", "M416 447 C440 400 470 340 480 281", "M150 330 C180 340 196 352 208 374", "M592 343 C640 360 690 340 720 320", "M320 270 C340 340 380 400 416 447", "M480 281 C500 240 540 230 600 250"]
+    .map((d) => `<path d="${d}" fill="none" stroke="#d9b8ff" stroke-width="1.6" stroke-dasharray="3 5" class="pk-dash" opacity=".85"/><path d="${d}" fill="none" stroke="#f0c878" stroke-width=".7" opacity=".6"/>`).join("");
+  const hair = Array.from({ length: 40 }, (_, i) => { const x = 40 + ((i * 53) % 720), y = 300 + ((i * 37) % 200); return `<path d="M${x} ${y}c8 6 14 16 12 28" fill="none" stroke="#c8a0ff" stroke-width=".8" opacity=".35"/>`; }).join("");
+  const nodes = [[320, 270], [480, 281], [592, 343], [208, 374], [416, 447]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="16" fill="url(#${uid}-g)"/><circle cx="${x}" cy="${y}" r="4.5" fill="#fff2c8"/>`).join("");
+  const shrooms = [[300, 208], [400, 210], [560, 209], [140, 210]].map(([x, y], i) => `<path d="M${x - 11 - i} ${y}c0-14 ${22 + 2 * i} -14 ${22 + 2 * i} 0z" fill="${i % 2 ? "#d9a47a" : "#c8352a"}"/><rect x="${x - 2.4}" y="${y}" width="4.8" height="9" fill="#efe2cc"/>`).join("");
+  return `<svg class="pk-svg" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gezeichnetes Schaubild: Bäume über dem Boden, darunter ein leuchtendes Pilzgeflecht, das die Wurzeln verbindet (Platzhalter bis das Bild vorliegt)" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="${uid}-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071a1a"/><stop offset="1" stop-color="#1d4a3a"/></linearGradient>
+      <linearGradient id="${uid}-gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2014"/><stop offset="1" stop-color="#0c0806"/></linearGradient>
+      <radialGradient id="${uid}-c0" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#6fb04a"/><stop offset="1" stop-color="#1f5026"/></radialGradient>
+      <radialGradient id="${uid}-c1" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#4f9a46"/><stop offset="1" stop-color="#18401f"/></radialGradient>
+      <radialGradient id="${uid}-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd890" stop-opacity=".95"/><stop offset="1" stop-color="#b070ff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="800" height="210" fill="url(#${uid}-sky)"/><rect y="210" width="800" height="310" fill="url(#${uid}-gr)"/><path d="M0 210 C200 204 600 204 800 210" stroke="#4a6a2a" stroke-width="3" fill="none"/>
+    ${trees}${roots}<g transform="rotate(-8 130 420)"><rect x="40" y="400" width="190" height="38" rx="14" fill="#4a3220"/><circle cx="60" cy="419" r="14" fill="#6a4a2c"/></g>
+    ${hair}${net}${nodes}${shrooms}
+  </svg>`;
+}
+
+/** one glowing fruiting body (300 x 300): the stand-in for the life-cycle picture */
+export function mushroomSvg(uid: string): string {
+  const dots: [number, number, number][] = [[120, 112, 9], [168, 98, 7], [196, 124, 8], [146, 132, 6], [98, 140, 6], [214, 150, 5], [150, 84, 5]];
+  return `<svg class="pk-mush" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gezeichneter Pilz (Platzhalter bis das Bild vorliegt)">
+    <defs><radialGradient id="${uid}-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffc878" stop-opacity=".55"/><stop offset="1" stop-color="#ffc878" stop-opacity="0"/></radialGradient>
+    <radialGradient id="${uid}-c" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#e8503a"/><stop offset="1" stop-color="#8e1c16"/></radialGradient></defs>
+    <circle cx="150" cy="170" r="140" fill="url(#${uid}-g)"/>
+    <path d="M128 168 C124 214 118 244 108 270 L194 270 C182 244 176 214 172 168Z" fill="#efe2cc" stroke="#cdbb9a" stroke-width="2"/>
+    <path d="M126 176 C140 186 160 186 174 176" fill="none" stroke="#cdbb9a" stroke-width="2"/>
+    <path d="M52 168 C52 100 96 58 150 58 C204 58 248 100 248 168 C220 182 80 182 52 168Z" fill="url(#${uid}-c)"/>
+    ${dots.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff6e4" opacity=".92"/>`).join("")}
+    <path d="M60 272 C100 264 200 264 240 272" stroke="#7a5a30" stroke-width="3" fill="none" opacity=".7"/>
+  </svg>`;
+}
+
+/** a golden spiral on a dark card (200 x 200) */
+export function spiralSvg(uid: string): string {
+  let d = "M100 100";
+  for (let i = 1; i <= 150; i++) { const a = i * 0.16, r = 0.7 * Math.exp(0.032 * i); d += ` L${(100 + r * Math.cos(a)).toFixed(1)} ${(100 + r * Math.sin(a)).toFixed(1)}`; }
+  return `<svg class="pk-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="${uid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0D18B"/><stop offset="1" stop-color="#d9702a"/></linearGradient></defs><path d="${d}" fill="none" stroke="url(#${uid})" stroke-width="2.2" stroke-linecap="round"/></svg>`;
+}
+
+/** a branching, self-similar pattern (200 x 200) */
+export function fractalSvg(uid: string): string {
+  const lines: string[] = [];
+  const grow = (x: number, y: number, len: number, ang: number, depth: number) => {
+    if (depth === 0 || len < 3) return;
+    const x2 = x + len * Math.cos(ang), y2 = y + len * Math.sin(ang);
+    lines.push(`<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke-width="${(depth * 0.45).toFixed(2)}"/>`);
+    grow(x2, y2, len * 0.72, ang - 0.46, depth - 1); grow(x2, y2, len * 0.72, ang + 0.46, depth - 1);
+  };
+  grow(100, 196, 44, -Math.PI / 2, 8);
+  return `<svg class="pk-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="#F0D18B" stroke-linecap="round" fill="none" opacity=".92">${lines.join("")}</g></svg>`;
+}

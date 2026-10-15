@@ -13,8 +13,10 @@ import "./energy.css";
 import "./lab.css";
 import "./plants.css";
 import "./plantProfile.css";
+import "./plantProfileText.css";
 import "./produce.css";
 import "./trees.css";
+import "./mushrooms.css";
 import "./minerals.css";
 import "./elementProfile.css";
 import "./crystals.css";
@@ -53,6 +55,7 @@ import { initPlants } from "./ui/plants";
 import { initPlantProfile, type ProfileFrom } from "./ui/plantProfile";
 import { initProduce } from "./ui/produce";
 import { initTrees } from "./ui/trees";
+import { initMushrooms } from "./ui/mushrooms";
 import { initMinerals } from "./ui/minerals";
 import { initElementProfile } from "./ui/elementProfile";
 import { initCrystals } from "./ui/crystals";
@@ -156,7 +159,7 @@ manifesto.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("cl
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !manifesto.hidden) setManifesto(false); });
 
 // ---------------------------------------------------------------- views
-type View = "hero" | "universe" | "galaxy" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "minerals" | "element" | "crystals" | "anatomy" | "freq" | "atem" | "beschwerden" | "chakren" | "plant";
+type View = "hero" | "universe" | "galaxy" | "atlas" | "fx" | "body" | "chakra" | "breath" | "places" | "cultures" | "nutrients" | "energy" | "lab" | "plants" | "produce" | "trees" | "mushrooms" | "minerals" | "element" | "crystals" | "anatomy" | "freq" | "atem" | "beschwerden" | "chakren" | "plant";
 let view: View = "hero";
 /** the old 3D map of all statements (galaxies), now a sub-page of the Universum */
 let galaxy: ReturnType<typeof initUniverse> | null = null;
@@ -178,6 +181,7 @@ let plantsView: ReturnType<typeof initPlants> | null = null;
 let plantView: ReturnType<typeof initPlantProfile> | null = null;
 let produceView: ReturnType<typeof initProduce> | null = null;
 let treesView: ReturnType<typeof initTrees> | null = null;
+let mushroomsView: ReturnType<typeof initMushrooms> | null = null;
 let mineralsView: ReturnType<typeof initMinerals> | null = null;
 let elementView: ReturnType<typeof initElementProfile> | null = null;
 let crystalsView: ReturnType<typeof initCrystals> | null = null;
@@ -211,6 +215,7 @@ const plantsEl = $("plants");
 const plantEl = $("plant");
 const produceEl = $("produce");
 const treesEl = $("trees");
+const mushroomsEl = $("mushrooms");
 const mineralsEl = $("minerals");
 const elementEl = $("element");
 const crystalsEl = $("crystals");
@@ -408,6 +413,8 @@ function fromPlant(next: () => void) { plantEl.hidden = true; plantView?.stop();
 function fromProduce(next: () => void) { produceEl.hidden = true; produceView?.stop(); view = "hero"; next(); }
 /** leaves the tree atlas for another view */
 function fromTrees(next: () => void) { treesEl.hidden = true; treesView?.stop(); view = "hero"; next(); }
+/** leaves the mushroom atlas for another view */
+function fromMushrooms(next: () => void) { mushroomsEl.hidden = true; mushroomsView?.stop(); view = "hero"; next(); }
 /** leaves the mineral atlas for another view */
 function fromMinerals(next: () => void) { mineralsEl.hidden = true; mineralsView?.stop(); view = "hero"; next(); }
 /** leaves an element profile for another view */
@@ -481,6 +488,24 @@ function openTreesView(): boolean {
   treesView.start();
   fade(treesEl, true);
   $("leave-trees").focus();
+  return true;
+}
+
+function openMushroomsView(): boolean {
+  mushroomsEl.hidden = false;
+  mushroomsView ??= initMushrooms(mushroomsEl, {
+    reduceMotion,
+    openPlant: (id) => fromMushrooms(() => { pendingPlant = id; pendingPlantFrom = "mushrooms"; go("plant"); }),
+    openAtlas: (id) => fromMushrooms(() => { go("atlas"); if (id) atlasView?.select(id); else atlasView?.showCategory("pilz"); }),
+    openCultures: () => fromMushrooms(() => { go("cultures"); }),
+    openPlants: () => fromMushrooms(() => { go("plants"); }),
+    openFreq: () => fromMushrooms(() => { go("freq"); }),
+    openLab: () => fromMushrooms(() => { go("lab"); }),
+    openClaim: (cid, from) => overlay.open(cid, from),
+  });
+  mushroomsView.start();
+  fade(mushroomsEl, true);
+  $("leave-mushrooms").focus();
   return true;
 }
 
@@ -730,6 +755,7 @@ const SCREENS: Record<Exclude<View, "hero">, { el: HTMLElement; stop: () => void
   plant: { el: plantEl, stop: () => plantView?.stop() },
   produce: { el: produceEl, stop: () => produceView?.stop() },
   trees: { el: treesEl, stop: () => treesView?.stop() },
+  mushrooms: { el: mushroomsEl, stop: () => mushroomsView?.stop() },
   minerals: { el: mineralsEl, stop: () => mineralsView?.stop() },
   element: { el: elementEl, stop: () => elementView?.stop() },
   crystals: { el: crystalsEl, stop: () => crystalsView?.stop() },
@@ -758,6 +784,7 @@ function go(next: View, opts: { instant?: boolean } = {}): boolean {
   if (next === "plants" && !openPlantsView()) return false;
   if (next === "produce" && !openProduceView()) return false;
   if (next === "trees" && !openTreesView()) return false;
+  if (next === "mushrooms" && !openMushroomsView()) return false;
   if (next === "minerals" && !openMineralsView()) return false;
   if (next === "element" && !openElementView(pendingElement)) return false;
   if (next === "crystals" && !openCrystalsView()) return false;
@@ -836,6 +863,7 @@ const home = initHome($("home"), {
   openPlants() { go("plants"); },
   openProduce() { go("produce"); },
   openTrees() { go("trees"); },
+  openMushrooms() { go("mushrooms"); },
   openMinerals() { go("minerals"); },
   openCrystals() { go("crystals"); },
   openAnatomy() { go("anatomy"); },
@@ -874,6 +902,7 @@ $("leave-plants").addEventListener("click", () => go("hero"));
 $("leave-plant").addEventListener("click", () => go("hero"));
 $("leave-produce").addEventListener("click", () => go("hero"));
 $("leave-trees").addEventListener("click", () => go("hero"));
+$("leave-mushrooms").addEventListener("click", () => go("hero"));
 $("leave-minerals").addEventListener("click", () => go("hero"));
 $("leave-element").addEventListener("click", () => go("hero"));
 $("leave-crystals").addEventListener("click", () => go("hero"));
@@ -905,3 +934,12 @@ try { playIntro(); } catch (err) { html.classList.remove("intro"); console.warn(
 
 // Entwicklungs-Hilfe: Hero-Testbilder durchblättern (nur `npm run dev` und nur mit ?herotest in der Adresse, siehe src/dev/heroTest.ts)
 if (import.meta.env.DEV && new URLSearchParams(location.search).has("herotest")) void import("./dev/heroTest");
+
+// Entwicklungs-Hilfe: eine Pflanzenseite direkt öffnen (nur `npm run dev`, z. B. http://localhost:5173/?profil=kurkuma). Die Vergleichsseite src/dev/vergleich.html nutzt das.
+if (import.meta.env.DEV) {
+  const profil = new URLSearchParams(location.search).get("profil");
+  if (profil) { pendingPlant = profil; pendingPlantFrom = "plants"; go("plant", { instant: true }); }
+  // ebenso eine ganze Seite, z. B. http://localhost:5173/?seite=mushrooms (Namen wie in SCREENS)
+  const seite = new URLSearchParams(location.search).get("seite");
+  if (seite && seite in SCREENS && seite !== "hero") go(seite as View, { instant: true });
+}

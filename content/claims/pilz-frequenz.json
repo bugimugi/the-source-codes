@@ -1,0 +1,33 @@
+{
+  "id": "pilz-frequenz",
+  "short": "Pilze – Frequenzen und Resonanz",
+  "area": "pflanzenheilkunde",
+  "status": "published",
+  "statement": "Pilzen und ihrem Myzel werden natürliche Frequenzen und Resonanzen zugeschrieben (genannt wird z. B. 432 Hz).",
+  "level": "claimed",
+  "rationale": "Behauptung laut Vorlage des Betreibers, ungeprüft. Gemessen wurden elektrische Spannungsimpulse im Myzel einiger Arten (u. a. Adamatzky 2022, aus dem Gedächtnis, Source pending verification); ob sie eine „Sprache“ sind, ist umstritten. Ein Zusammenhang mit der Tonhöhe 432 Hz wurde nicht gefunden: Die Zahl stammt aus der Überlieferung zur Stimmung von Musik und nicht aus Messungen an Pilzen. Siehe auch die Aussagen zur 432-Hz-Pilotstudie und zum Pflanzenwachstum bei Schwingungen.",
+  "sources": [
+    {
+      "id": "adamatzky-2022",
+      "kind": "peer-reviewed",
+      "title": "Language of fungi derived from their electrical spiking activity",
+      "author": "Adamatzky A",
+      "year": 2022,
+      "citation": "Royal Society Open Science 2022. Aus dem Gedächtnis, Einzelangaben: Source pending verification",
+      "verified": false,
+      "note": "Aus dem Gedächtnis angegeben, Original nicht geprüft (Source pending verification). Beschreibt elektrische Spannungsimpulse im Myzel; ob sie eine Sprache sind, ist umstritten."
+    },
+    {
+      "id": "editorial",
+      "kind": "editorial-input",
+      "title": "Redaktionelle Angabe (ungeprüft)",
+      "author": "Redaktion",
+      "citation": "Source pending verification",
+      "verified": false
+    }
+  ],
+  "related": ["freq-432-440-pilot", "freq-pflanze-vibration"],
+  "review": {
+    "state": "pending"
+  }
+}

@@ -15,7 +15,8 @@
     "build:release": "npm run release:check && npm run build",
     "assets:list": "node --experimental-strip-types scripts/assets-list.ts",
     "assets:optimize": "node --experimental-strip-types scripts/assets-optimize.ts",
-    "globe:data": "node --experimental-strip-types scripts/make-land-dots.ts"
+    "globe:data": "node --experimental-strip-types scripts/make-land-dots.ts",
+    "profile:missing": "node --experimental-strip-types scripts/profile-missing.ts"
   },
   "license": "UNLICENSED",
   "private": true,

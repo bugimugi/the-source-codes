@@ -3,6 +3,8 @@ import type { PlantProfile } from "./profileTypes.ts";
 /**
  * Checks the plant profiles against the rest of the knowledge base: every claim id, atlas id and picture name a profile
  * uses must exist, part ids must be unique and callout positions must lie inside the picture. Returns blocking errors.
+ * For HAND-WRITTEN profiles only (PROFILES): derived profiles (`derived: true`) have no registered picture names and no parts
+ * by design and are checked by validateProfileTemplate.ts instead.
  */
 export function validateProfiles(
   profiles: PlantProfile[],
@@ -18,8 +20,8 @@ export function validateProfiles(
     const atlas = (id: string, where: string) => { if (!atlasIds.has(id)) at(`${where}: unbekannter Atlas-Eintrag "${id}"`); };
     const slot = (name: string | undefined, where: string) => { if (name && !slotExists(name)) at(`${where}: unbekannter Bildplatz "${name}" (registry.ts)`); };
     p.effects.forEach((e) => claim(e.claim, "Wirkung"));
-    claim(p.frequency.claim, "Frequenz");
-    p.research.forEach((r) => claim(r.claim, "Forschung"));
+    if (p.frequency) claim(p.frequency.claim, "Frequenz");
+    p.research.forEach((r) => { if (r.claim) claim(r.claim, "Forschung"); });
     p.network.forEach((n) => { if (n.kind === "plant") atlas(n.ref ?? "", "Wissensnetz"); if (n.kind === "claim") claim(n.ref ?? "", "Wissensnetz"); });
     p.combos.forEach((c) => c.items.forEach((i) => { i.ids.forEach((id) => atlas(id, "Kombination")); slot(i.slot, "Kombination"); }));
     p.forms.forEach((f) => slot(f.slot, "Anwendungsform"));

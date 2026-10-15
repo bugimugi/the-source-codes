@@ -147,9 +147,9 @@ export const ASHWAGANDHA: PlantProfile = {
     { title: "Wurzelextrakt bei chronischem Stress: Placebo-kontrollierte Studie", year: 2012, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3573577", claim: "ashwagandha-stress" },
     { title: "Wurzelextrakt bei Schlafstörungen und Angst: kleine Studie", year: 2019, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6979308", claim: "ashwagandha-sleep" },
     { title: "Ashwagandha bei Angst: Übersichtsarbeit über 5 Studien", year: 2014, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4270108", claim: "ashwagandha-stress" },
-    { title: "Leberschäden durch Ashwagandha-Präparate: Fallserie", year: 2020, url: "https://pubmed.ncbi.nlm.nih.gov/31991029/", claim: "ashwagandha-safety", more: true },
-    { title: "Informationsseite der US-Gesundheitsbehörde NCCIH", year: 0, url: "https://nccih.nih.gov/health/ashwagandha", claim: "ashwagandha-safety", more: true },
-    { title: "Einschätzung des Bundesinstituts für Risikobewertung (BfR)", year: 0, url: "https://mobil.bfr.bund.de/cm/349/ashwagandha-food-supplements-with-potential-health-risks.pdf", claim: "ashwagandha-safety", more: true },
+    { title: "Leberschäden durch Ashwagandha-Präparate: Fallserie", year: 2020, url: "https://pubmed.ncbi.nlm.nih.gov/31991029/", claim: "ashwagandha-safety" },
+    { title: "Informationsseite der US-Gesundheitsbehörde NCCIH", year: 0, url: "https://nccih.nih.gov/health/ashwagandha", claim: "ashwagandha-safety" },
+    { title: "Einschätzung des Bundesinstituts für Risikobewertung (BfR)", year: 0, url: "https://mobil.bfr.bund.de/cm/349/ashwagandha-food-supplements-with-potential-health-risks.pdf", claim: "ashwagandha-safety" },
   ],
   network: [
     { label: "Kurkuma", kind: "plant", ref: "kurkuma" },

@@ -1,0 +1,46 @@
+/* Plant profile pages: placeholders, mushroom panel and the always-visible safety section (loaded after plantProfile.css).
+   Text sizes stay as on the reference page (Ashwagandha): this file only styles what is new.
+   - a section without data shows .pp-empty: dim, honest, the same frame and heading as the filled section;
+   - safety notes are never collapsed (#pp-safety at the end of the page, .pp-warn under the tabs for mushrooms).
+   Everything is prefixed `.plantview .pp-scroll` so that it touches no other page. */
+
+/* ------------------------------------------------------------------ placeholder: a section without data (nothing is invented) */
+.plantview .pp-scroll .pp-panel.is-empty > h2 { opacity: 0.8; }
+.plantview .pp-scroll .pp-empty { margin: 0.8rem 0 0; padding: 0.7rem 0.9rem; border: 1px dashed rgba(203, 170, 103, 0.3); border-radius: 10px; background: rgba(6, 10, 8, 0.35); color: #a9a493; font-size: 0.8rem; line-height: 1.5; }
+.plantview .pp-scroll .pp-fungus-list .pp-empty { margin: 0; padding: 0; border: 0; background: none; }
+.plantview .pp-scroll .pp-origin-grid.solo { grid-template-columns: minmax(0, 1fr); }
+/* a long name (e.g. "Reishi (Glänzender Lackporling)") must not widen the hero column */
+.plantview .pp-scroll .pp-hero-text { grid-template-columns: minmax(0, 1fr); }
+
+/* ------------------------------------------------------------------ mushroom panel: habitat, look, look-alikes, use, names */
+.plantview .pp-scroll .pp-fungus-list { display: grid; margin: 0.8rem 0 0; border: 1px solid var(--pp-line); border-radius: 10px; background: rgba(6, 10, 8, 0.6); overflow: hidden; }
+.plantview .pp-scroll .pp-fungus-list > div { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); column-gap: 0.6rem; row-gap: 0.1rem; padding: 0.6rem 0.8rem; border-bottom: 1px solid rgba(203, 170, 103, 0.14); }
+.plantview .pp-scroll .pp-fungus-list > div:last-child { border-bottom: 0; }
+.plantview .pp-scroll .pp-fungus-list i { grid-row: 1 / 3; display: grid; place-items: center; align-self: start; width: 1.7rem; height: 1.7rem; border: 1px solid var(--pp-line); border-radius: 6px; color: var(--gold); }
+.plantview .pp-scroll .pp-fungus-list i .ic { width: 1rem; height: 1rem; }
+.plantview .pp-scroll .pp-fungus-list dt { font-size: 0.74rem; font-weight: 600; color: var(--gold-hi); }
+.plantview .pp-scroll .pp-fungus-list dd { margin: 0; font-size: 0.78rem; line-height: 1.5; color: var(--ivory); overflow-wrap: anywhere; }
+.plantview .pp-scroll .pp-fungus-list .is-empty dd { color: #a9a493; }
+.plantview .pp-scroll .pp-fungus-list .is-safety { border-left: 3px solid #d0504a; background: rgba(150, 40, 36, 0.14); }
+.plantview .pp-scroll .pp-fungus-list .is-safety i { border-color: #d0504a; color: #ff9a92; }
+.plantview .pp-scroll .pp-fungus-list .is-safety dt { color: #ffb4ad; }
+
+/* the warning right under the tabs (mushrooms) and the poison tag */
+.plantview .pp-scroll .pp-warn { display: flex; gap: 0.7rem; align-items: flex-start; margin: 0; padding: 0.7rem clamp(14px, 3vw, 44px); border-bottom: 1px solid rgba(208, 80, 74, 0.5); background: linear-gradient(90deg, rgba(150, 40, 36, 0.3), rgba(60, 16, 16, 0.22)); color: var(--ivory); }
+.plantview .pp-scroll .pp-warn .ic { width: 1.3rem; height: 1.3rem; margin-top: 0.1rem; color: #ff9a92; }
+.plantview .pp-scroll .pp-warn p { margin: 0; max-width: 60rem; font-size: 0.82rem; line-height: 1.55; }
+.plantview .pp-scroll .pp-warn strong { color: #ffb4ad; }
+.plantview .pp-scroll .pp-warn a { color: var(--gold-hi); text-decoration: underline; text-underline-offset: 3px; }
+.plantview .pp-scroll .pp-tags li.pp-tag-warn { border-color: #d0504a; color: #ffb4ad; background: rgba(150, 40, 36, 0.25); }
+
+/* ------------------------------------------------------------------ safety section: always open, at the end of the page */
+.plantview .pp-scroll .pp-safety { display: grid; gap: 0.7rem; margin: 22px clamp(14px, 3vw, 44px) 10px; padding: 1rem 1.2rem; border: 1px solid rgba(203, 170, 103, 0.45); border-left: 4px solid var(--gold-hi); border-radius: 12px; background: rgba(8, 14, 10, 0.8); scroll-margin-top: 120px; }
+.plantview .pp-scroll .pp-safety h2 { display: flex; align-items: center; gap: 0.5rem; font-family: var(--serif-text); font-weight: 600; font-size: 1.3rem; line-height: 1.1; color: var(--ivory); }
+.plantview .pp-scroll .pp-safety h2 .ic { width: 1.2rem; height: 1.2rem; color: var(--gold-hi); }
+.plantview .pp-scroll .pp-safety-main { max-width: 56rem; font-size: 0.82rem; line-height: 1.6; color: var(--ivory); }
+.plantview .pp-scroll .pp-safe-claim { display: grid; gap: 0.4rem; max-width: 56rem; padding: 0.7rem 0.9rem; border: 1px solid var(--pp-line); border-radius: 10px; background: rgba(255, 255, 255, 0.03); }
+.plantview .pp-scroll .pp-safe-text { font-family: var(--serif-text); font-size: 1rem; line-height: 1.45; color: var(--ivory); }
+.plantview .pp-scroll .pp-safe-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0; font-size: 0.7rem; color: #bdb7a6; }
+.plantview .pp-scroll .pp-safe-why { margin: 0; font-size: 0.78rem; line-height: 1.55; color: #d9d3c2; }
+.plantview .pp-scroll .pp-safe-studies { margin: 0; max-width: 56rem; }
+.plantview .pp-scroll .pp-safety .pp-actions .pp-ghost { margin-top: 0.2rem; }

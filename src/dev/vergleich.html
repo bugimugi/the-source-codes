@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vergleich der Pflanzenseiten (nur Entwicklung)</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #02070B; color: #ECE8DE; font: 15px/1.4 Inter, system-ui, sans-serif; }
+  header { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; padding: 10px 16px; background: #0b1510; border-bottom: 1px solid rgba(203,170,103,.4); }
+  header h1 { margin: 0; font-size: 16px; font-weight: 600; }
+  header p { margin: 0; font-size: 13px; color: #bdb7a6; }
+  .modes { display: flex; gap: 6px; }
+  .modes button { cursor: pointer; padding: 6px 14px; border: 1px solid #CBAA67; border-radius: 8px; background: transparent; color: #ECE8DE; font: inherit; }
+  .modes button[aria-pressed="true"] { background: #CBAA67; color: #1b140a; }
+  main { display: flex; gap: 16px; padding: 16px; overflow-x: auto; align-items: flex-start; }
+  figure { margin: 0; flex: none; }
+  figcaption { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; font-size: 14px; }
+  figcaption a { color: #F0D18B; font-size: 13px; }
+  .box { overflow: hidden; border: 1px solid rgba(203,170,103,.4); border-radius: 8px; background: #000; }
+  iframe { display: block; border: 0; background: #02070B; }
+  body.handy .box { width: 390px; height: calc(100vh - 110px); }
+  body.handy iframe { width: 390px; height: 100%; }
+  body.laptop main { flex-wrap: wrap; overflow-x: hidden; }
+  body.laptop figure { width: calc(50% - 8px); }
+  body.laptop .box { width: 100%; aspect-ratio: 1440 / 900; position: relative; }
+  body.laptop iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; transform-origin: 0 0; transform: scale(var(--s, .6)); }
+</style>
+</head>
+<body class="handy">
+<header>
+  <h1>Pflanzenseiten im Vergleich</h1>
+  <div class="modes" role="group" aria-label="Ansicht">
+    <button data-mode="handy" aria-pressed="true">Handy (390 px)</button>
+    <button data-mode="laptop" aria-pressed="false">Laptop (1440 px, verkleinert)</button>
+  </div>
+  <p>Ashwagandha ist die Vorlage. Die anderen drei werden aus den Daten gefüllt. Nur in <code>npm run dev</code>.</p>
+</header>
+<main id="m"></main>
+<script>
+  const pages = [["ashwagandha", "Ashwagandha (Handprofil, Vorlage)"], ["kurkuma", "Kurkuma"], ["kamille", "Kamille"], ["reishi", "Reishi (Pilz)"]];
+  const m = document.getElementById("m");
+  m.innerHTML = pages.map(([id, name]) => `<figure><figcaption><strong>${name}</strong><a href="/?profil=${id}" target="_blank" rel="noopener">einzeln öffnen</a></figcaption><div class="box"><iframe title="${name}" src="/?profil=${id}" loading="eager"></iframe></div></figure>`).join("");
+  function scale() { const b = m.querySelector(".box"); if (document.body.classList.contains("laptop") && b) m.style.setProperty("--s", String(b.clientWidth / 1440)); m.querySelectorAll("iframe").forEach((f) => f.style.setProperty("--s", String(b ? b.clientWidth / 1440 : .6))); }
+  document.querySelectorAll("[data-mode]").forEach((btn) => btn.addEventListener("click", () => {
+    document.body.className = btn.dataset.mode;
+    document.querySelectorAll("[data-mode]").forEach((x) => x.setAttribute("aria-pressed", String(x === btn)));
+    scale();
+  }));
+  addEventListener("resize", scale);
+</script>
+</body>
+</html>
